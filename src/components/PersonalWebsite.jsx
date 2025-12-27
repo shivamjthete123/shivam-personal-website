@@ -14,7 +14,7 @@ const siteData = {
   title: "Strategic Development Leader | Technology-Driven Execution",
   headline: "I design systems that convert strategy into measurable business outcomes.",
   contact: {
-    linkedin: "https://www.linkedin.com/in/shivam-thete/",
+    linkedin: "https://www.linkedin.com/in/shivamjthete/",
     email: "shivamjthete123@gmail.com",
     phone: "+91-8263045370",
   },
