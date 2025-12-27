@@ -146,7 +146,7 @@ export default function PersonalWebsite() {
                     <h4 className="text-lg font-semibold">{p.title}</h4>
                     <p className="text-sm text-slate-600 text-justify mt-1">{p.role} • <span className="text-slate-500 text-justify">Tech:</span> <span className="text-slate-700 text-justify">{p.tech.join(' • ')}</span></p>
                   </div>
-                  <div className="lg:col-span-7 text-sm text-slate-600 text-justify bg-slate-50 p-4 rounded-md h-full">
+                  <div className="lg:col-span-5 text-sm text-slate-600 text-justify bg-slate-50 p-4 rounded-md h-full">
                       <h6 className="text-xs font-semibold uppercase text-slate-500 text-justify">Impact</h6>
                       <p className="mt-1">{p.impact}</p>
                     </div>
