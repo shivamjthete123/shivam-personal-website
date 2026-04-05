@@ -1,0 +1,536 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project Lens</title>
+    <style>
+      :root {
+        --bg: #f6f1e8;
+        --surface: rgba(255, 255, 255, 0.94);
+        --surface-soft: rgba(250, 245, 236, 0.96);
+        --border: #dfd4c4;
+        --text: #172033;
+        --muted: #5d687e;
+        --accent: #b6641f;
+        --shadow: 0 30px 70px -45px rgba(15, 23, 42, 0.45);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: "Segoe UI", Arial, sans-serif;
+        color: var(--text);
+        background:
+          radial-gradient(circle at top left, rgba(182, 100, 31, 0.12), transparent 35%),
+          radial-gradient(circle at top right, rgba(23, 32, 51, 0.06), transparent 32%),
+          var(--bg);
+      }
+
+      main {
+        width: min(980px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 40px 0 56px;
+      }
+
+      .panel {
+        border: 1px solid var(--border);
+        background: var(--surface);
+        border-radius: 28px;
+        padding: 28px;
+        box-shadow: var(--shadow);
+      }
+
+      .eyebrow {
+        margin: 0;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--accent);
+      }
+
+      h1 {
+        margin: 12px 0 0;
+        font-size: clamp(2rem, 4vw, 3.2rem);
+        line-height: 1.08;
+      }
+
+      .lede {
+        margin: 18px 0 0;
+        max-width: 720px;
+        font-size: 17px;
+        line-height: 1.8;
+        color: var(--muted);
+      }
+
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 14px;
+        margin-top: 24px;
+      }
+
+      .stat {
+        border: 1px solid var(--border);
+        border-radius: 22px;
+        background: var(--surface-soft);
+        padding: 18px;
+      }
+
+      .stat strong {
+        display: block;
+        font-size: 14px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      .stat span {
+        display: block;
+        margin-top: 10px;
+        font-size: 16px;
+        line-height: 1.6;
+      }
+
+      .tabs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 24px;
+      }
+
+      .tab {
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        background: white;
+        color: var(--muted);
+        padding: 11px 16px;
+        cursor: pointer;
+        font: inherit;
+        font-weight: 600;
+      }
+
+      .tab.active {
+        background: var(--text);
+        color: white;
+        border-color: var(--text);
+      }
+
+      .content-grid {
+        display: grid;
+        gap: 18px;
+        grid-template-columns: 1.1fr 0.9fr;
+        margin-top: 22px;
+      }
+
+      .card {
+        border: 1px solid var(--border);
+        border-radius: 24px;
+        background: white;
+        padding: 22px;
+      }
+
+      .card h2 {
+        margin: 0;
+        font-size: 14px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      .card p,
+      .card li {
+        margin: 12px 0 0;
+        color: var(--muted);
+        line-height: 1.75;
+        font-size: 15px;
+      }
+
+      .card ul {
+        margin: 0;
+        padding-left: 18px;
+      }
+
+      @media (max-width: 760px) {
+        main {
+          width: min(100% - 20px, 980px);
+          padding-top: 20px;
+        }
+
+        .panel,
+        .card {
+          padding: 20px;
+        }
+
+        .content-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="panel">
+        <p class="eyebrow">Interactive project lens</p>
+        <h1 id="title"></h1>
+        <p class="lede" id="summary"></p>
+
+        <div class="stats">
+          <div class="stat">
+            <strong>Status</strong>
+            <span id="status"></span>
+          </div>
+          <div class="stat">
+            <strong>Role</strong>
+            <span id="role"></span>
+          </div>
+          <div class="stat">
+            <strong>Primary theme</strong>
+            <span id="theme"></span>
+          </div>
+        </div>
+
+        <div class="tabs" id="tabs"></div>
+
+        <div class="content-grid">
+          <section class="card">
+            <h2 id="primary-title"></h2>
+            <div id="primary-body"></div>
+          </section>
+          <section class="card">
+            <h2 id="secondary-title"></h2>
+            <div id="secondary-body"></div>
+          </section>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      const library = {
+        "resource-planning-platform": {
+          title: "Resource Planning Platform",
+          summary:
+            "A planning system designed to connect staffing decisions, delivery visibility, and revenue forecasting into a more disciplined operating model.",
+          status: "Ongoing",
+          role: "Product architect and project lead",
+          theme: "Workforce planning",
+          tabs: [
+            {
+              label: "Challenge",
+              primaryTitle: "What needed to change",
+              primaryBody:
+                "The organization lacked a reliable way to allocate people by skill, monitor utilization quality, and connect operational effort to revenue visibility. Planning decisions were fragmented and difficult to evaluate at a leadership level.",
+              secondaryTitle: "What leaders cared about",
+              secondaryList: [
+                "Utilization and capacity visibility",
+                "Forecasting confidence",
+                "Better linkage between delivery effort and revenue expectations"
+              ]
+            },
+            {
+              label: "System response",
+              primaryTitle: "What was built",
+              primaryBody:
+                "A unified Creator-based interface for skill-based allocation, calendar planning, and timesheet conversion linked with Zoho Projects. KPI logic covered performance hours, deviations, exposure, and skill progression.",
+              secondaryTitle: "Design choices",
+              secondaryList: [
+                "Single planning workflow",
+                "Operational KPIs for managers",
+                "Revenue-oriented reporting views"
+              ]
+            },
+            {
+              label: "Leadership outcome",
+              primaryTitle: "What changed for the business",
+              primaryBody:
+                "The platform gave leadership a more consistent lens on resource deployment and its downstream revenue implications, improving planning quality and visibility into workforce performance.",
+              secondaryTitle: "Helpful follow-up assets",
+              secondaryList: [
+                "Utilization review snapshot",
+                "Capacity planning worksheet",
+                "Manager dashboard examples"
+              ]
+            }
+          ]
+        },
+        "project-management-tools-suite": {
+          title: "Project Management Tools Suite",
+          summary:
+            "A structured toolkit built to replace spreadsheet-heavy project controls with more reliable process governance and digital accountability.",
+          status: "Implemented",
+          role: "Solution designer and implementer",
+          theme: "Project governance",
+          tabs: [
+            {
+              label: "Challenge",
+              primaryTitle: "What needed to change",
+              primaryBody:
+                "Teams were relying on disconnected spreadsheets and manual coordination, making project controls inconsistent and traceability weak.",
+              secondaryTitle: "Leadership concerns",
+              secondaryList: [
+                "Low adoption of controls",
+                "Poor issue visibility",
+                "Weak governance discipline"
+              ]
+            },
+            {
+              label: "System response",
+              primaryTitle: "What was built",
+              primaryBody:
+                "A connected suite of project tools spanning communication, technical queries, comment resolution, lessons learned, project summaries, and complaint management with SLA awareness.",
+              secondaryTitle: "Design choices",
+              secondaryList: [
+                "Common data structure",
+                "User-friendly interfaces",
+                "Governed workflows with clearer ownership"
+              ]
+            },
+            {
+              label: "Leadership outcome",
+              primaryTitle: "What changed for the business",
+              primaryBody:
+                "Project tracking became more standardized, accountability improved, and issue resolution gained stronger operating discipline across teams.",
+              secondaryTitle: "Helpful follow-up assets",
+              secondaryList: [
+                "Governance checklist",
+                "Project controls walkthrough",
+                "Sample management dashboard"
+              ]
+            }
+          ]
+        },
+        "sales-blueprint": {
+          title: "Business Development Sales Blueprint and Dashboards",
+          summary:
+            "A commercial operating model designed to make the sales process more structured, visible, and predictable.",
+          status: "Implemented",
+          role: "Associate strategist and developer",
+          theme: "Revenue operations",
+          tabs: [
+            {
+              label: "Challenge",
+              primaryTitle: "What needed to change",
+              primaryBody:
+                "Sales stages and ownership rules were inconsistent, which reduced forecasting quality and made revenue planning less dependable.",
+              secondaryTitle: "Leadership concerns",
+              secondaryList: [
+                "Weak forecast confidence",
+                "Inconsistent handoffs",
+                "Limited funnel health visibility"
+              ]
+            },
+            {
+              label: "System response",
+              primaryTitle: "What was built",
+              primaryBody:
+                "A standardized sales lifecycle with role-based handoffs and dashboards for funnel health, weighted forecasting, and stage movement visibility.",
+              secondaryTitle: "Design choices",
+              secondaryList: [
+                "Stage discipline",
+                "Weighted forecasting logic",
+                "Shared visibility across business and technical teams"
+              ]
+            },
+            {
+              label: "Leadership outcome",
+              primaryTitle: "What changed for the business",
+              primaryBody:
+                "Commercial visibility improved, the sales cycle shortened, and the business gained a more reliable view of pipeline movement and cross-functional alignment.",
+              secondaryTitle: "Helpful follow-up assets",
+              secondaryList: [
+                "Forecasting scorecard",
+                "Pipeline governance notes",
+                "Sales stage map"
+              ]
+            }
+          ]
+        },
+        "financial-automation": {
+          title: "Financial Systems Integration and Automation",
+          summary:
+            "A finance operations initiative built to reduce invoicing friction, improve receivables efficiency, and increase leadership visibility into project financials.",
+          status: "Implemented",
+          role: "Lead strategist and project lead",
+          theme: "Finance transformation",
+          tabs: [
+            {
+              label: "Challenge",
+              primaryTitle: "What needed to change",
+              primaryBody:
+                "Financial data was fragmented and invoicing workflows were slow, creating revenue leakage risk and limiting margin visibility for leaders.",
+              secondaryTitle: "Leadership concerns",
+              secondaryList: [
+                "Delayed invoices",
+                "Weak visibility into financial performance",
+                "Limited confidence in operating data"
+              ]
+            },
+            {
+              label: "System response",
+              primaryTitle: "What was built",
+              primaryBody:
+                "An integrated data model, automated invoicing workflows, and dashboard views such as Project Pulse and BV Pulse to support more timely oversight.",
+              secondaryTitle: "Design choices",
+              secondaryList: [
+                "Connected finance data",
+                "Faster invoice flow",
+                "Dashboard-led oversight"
+              ]
+            },
+            {
+              label: "Leadership outcome",
+              primaryTitle: "What changed for the business",
+              primaryBody:
+                "Invoice processing time dropped materially, receivables efficiency improved, and leadership gained more timely financial insight for operational decisions.",
+              secondaryTitle: "Helpful follow-up assets",
+              secondaryList: [
+                "Finance dashboard view",
+                "Invoice workflow map",
+                "Receivables tracking example"
+              ]
+            }
+          ]
+        },
+        "efficiency-based-incentive-system": {
+          title: "Efficiency Based Incentive System",
+          summary:
+            "A people-operations system designed to reduce subjectivity in incentive decisions by grounding them in measurable contribution logic.",
+          status: "Implemented",
+          role: "Product lead and developer",
+          theme: "People systems",
+          tabs: [
+            {
+              label: "Challenge",
+              primaryTitle: "What needed to change",
+              primaryBody:
+                "Incentive decisions relied too heavily on subjective judgment, which undermined trust and slowed approvals.",
+              secondaryTitle: "Leadership concerns",
+              secondaryList: [
+                "Fairness perception",
+                "Approval delays",
+                "Weak measurement discipline"
+              ]
+            },
+            {
+              label: "System response",
+              primaryTitle: "What was built",
+              primaryBody:
+                "A digital workflow for contribution scoring, credit calculations, approval routing, and reporting visibility.",
+              secondaryTitle: "Design choices",
+              secondaryList: [
+                "Measurable contribution inputs",
+                "Structured approval logic",
+                "More visible incentive governance"
+              ]
+            },
+            {
+              label: "Leadership outcome",
+              primaryTitle: "What changed for the business",
+              primaryBody:
+                "The process became more transparent and faster to administer, with stronger confidence that incentives aligned to measurable contribution.",
+              secondaryTitle: "Helpful follow-up assets",
+              secondaryList: [
+                "Scoring workflow summary",
+                "Approval matrix",
+                "Contribution dashboard concept"
+              ]
+            }
+          ]
+        },
+        "hrms-enhancements": {
+          title: "HRMS Enhancements",
+          summary:
+            "A set of HR system improvements aimed at strengthening utilization visibility, skill alignment, and appraisal governance.",
+          status: "Implemented",
+          role: "Lead implementer",
+          theme: "HR transformation",
+          tabs: [
+            {
+              label: "Challenge",
+              primaryTitle: "What needed to change",
+              primaryBody:
+                "The HR stack lacked structured visibility into utilization and resourcing, and appraisal workflows were not automated enough to support consistency at scale.",
+              secondaryTitle: "Leadership concerns",
+              secondaryList: [
+                "Bench risk",
+                "Limited skill visibility",
+                "Inconsistent appraisal process"
+              ]
+            },
+            {
+              label: "System response",
+              primaryTitle: "What was built",
+              primaryBody:
+                "Utilization dashboards, skill-based resourcing views, and appraisal workflow automation across People, Creator, Recruit, and Payroll.",
+              secondaryTitle: "Design choices",
+              secondaryList: [
+                "People data visibility",
+                "Resourcing support",
+                "Workflow consistency"
+              ]
+            },
+            {
+              label: "Leadership outcome",
+              primaryTitle: "What changed for the business",
+              primaryBody:
+                "Resource planning improved, appraisal handling became more standardized, and leadership gained stronger visibility into workforce deployment.",
+              secondaryTitle: "Helpful follow-up assets",
+              secondaryList: [
+                "Utilization dashboard example",
+                "Skill-matching flow",
+                "Appraisal workflow summary"
+              ]
+            }
+          ]
+        }
+      };
+
+      const params = new URLSearchParams(window.location.search);
+      const projectId = params.get("project");
+      const project = library[projectId] || library["resource-planning-platform"];
+      const titleElement = document.getElementById("title");
+      const summaryElement = document.getElementById("summary");
+      const statusElement = document.getElementById("status");
+      const roleElement = document.getElementById("role");
+      const themeElement = document.getElementById("theme");
+      const tabsElement = document.getElementById("tabs");
+      const primaryTitleElement = document.getElementById("primary-title");
+      const primaryBodyElement = document.getElementById("primary-body");
+      const secondaryTitleElement = document.getElementById("secondary-title");
+      const secondaryBodyElement = document.getElementById("secondary-body");
+
+      titleElement.textContent = project.title;
+      summaryElement.textContent = project.summary;
+      statusElement.textContent = project.status;
+      roleElement.textContent = project.role;
+      themeElement.textContent = project.theme;
+
+      const renderTab = (tab) => {
+        primaryTitleElement.textContent = tab.primaryTitle;
+        primaryBodyElement.innerHTML = `<p>${tab.primaryBody}</p>`;
+        secondaryTitleElement.textContent = tab.secondaryTitle;
+        secondaryBodyElement.innerHTML = `<ul>${tab.secondaryList.map((item) => `<li>${item}</li>`).join("")}</ul>`;
+      };
+
+      project.tabs.forEach((tab, index) => {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = `tab${index === 0 ? " active" : ""}`;
+        button.textContent = tab.label;
+        button.addEventListener("click", () => {
+          document.querySelectorAll(".tab").forEach((node) => node.classList.remove("active"));
+          button.classList.add("active");
+          renderTab(tab);
+        });
+        tabsElement.appendChild(button);
+      });
+
+      renderTab(project.tabs[0]);
+    </script>
+  </body>
+</html>

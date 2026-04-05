@@ -1,0 +1,67 @@
+{
+  "order": 1,
+  "name": "Shivam J. Thete",
+  "title": "Strategic Development Leader",
+  "headline": "I build operating systems that turn strategy into measurable business outcomes.",
+  "summary": "I work at the intersection of leadership, systems design, and cross-functional execution. My portfolio is centered on building scalable operating models across sales, finance, HR, and project delivery through process design, software implementation, and decision-ready reporting.",
+  "contact": {
+    "linkedin": "https://www.linkedin.com/in/shivamjthete/",
+    "email": "shivamjthete123@gmail.com",
+    "phone": "+91-8263045370"
+  },
+  "executiveSnapshot": [
+    {
+      "label": "Leadership focus",
+      "value": "Strategy, execution, and operating model design"
+    },
+    {
+      "label": "Business coverage",
+      "value": "Sales, finance, HR, and delivery operations"
+    },
+    {
+      "label": "Transformation style",
+      "value": "Systems, automation, governance, and insight visibility"
+    }
+  ],
+  "metrics": [
+    {
+      "value": "Cross-functional",
+      "label": "Initiatives spanning commercial and internal operations"
+    },
+    {
+      "value": "Outcome-led",
+      "label": "Projects framed around margin, utilization, forecasting, and accountability"
+    },
+    {
+      "value": "System-driven",
+      "label": "Execution built through platforms, dashboards, and automation"
+    },
+    {
+      "value": "Leadership-ready",
+      "label": "Portfolio positioned for business transformation roles"
+    }
+  ],
+  "focusAreas": [
+    "Translate leadership priorities into process architecture and delivery plans.",
+    "Create visibility into business performance with dashboards, metrics, and governance.",
+    "Improve execution quality by replacing fragmented workflows with scalable systems."
+  ],
+  "workMethod": [
+    {
+      "title": "Diagnose",
+      "description": "Surface structural issues, decision bottlenecks, and operational risk."
+    },
+    {
+      "title": "Design",
+      "description": "Define workflows, ownership, SLAs, metrics, and system behaviors."
+    },
+    {
+      "title": "Build",
+      "description": "Implement software, automation, and reporting layers that teams can adopt quickly."
+    },
+    {
+      "title": "Embed",
+      "description": "Drive rollout, team usage, and business measurement after launch."
+    }
+  ]
+}

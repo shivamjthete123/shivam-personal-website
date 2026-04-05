@@ -1,207 +1,249 @@
-import React from "react";
+import { useMemo, useState } from "react";
+import { siteContent } from "../lib/content";
+import FilterPills from "./FilterPills";
+import ProjectCard from "./ProjectCard";
+import SectionHeading from "./SectionHeading";
 
-/*
-  Shivam Thete - Personal Website (Clean, professional, keyword-highlighted)
-  - Edit content in `siteData` at the top.
-  - Designed for clarity: compact project cards with emphasized keywords.
-  - Use inside a Vite React app (src/components/PersonalWebsite.jsx)
-*/
+function Navigation({ name }) {
+  const links = [
+    { href: "#about", label: "About" },
+    { href: "#projects", label: "Projects" },
+    { href: "#skills", label: "Capabilities" },
+    { href: "#contact", label: "Contact" },
+  ];
 
-const H = ({ children }) => <span className="text-orange-600 font-semibold">{children}</span>;
+  return (
+    <header className="sticky top-0 z-30 border-b border-white/40 bg-[#f8f2e8]/85 backdrop-blur-xl">
+      <div className="mx-auto flex max-w-6xl items-center justify-between gap-6 px-6 py-4 lg:px-8">
+        <a href="#top" className="flex items-center gap-4">
+          <div className="flex h-12 w-12 items-center justify-center rounded-full border border-amber-200 bg-white text-sm font-bold text-amber-700">
+            ST
+          </div>
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">Leadership Portfolio</p>
+            <p className="text-base font-semibold text-slate-950">{name}</p>
+          </div>
+        </a>
 
-const siteData = {
-  name: "Shivam J. Thete",
-  title: "Strategic Development Leader | Technology-Driven Execution",
-  headline: "I design systems that convert strategy into measurable business outcomes.",
-  contact: {
-    linkedin: "https://www.linkedin.com/in/shivamjthete/",
-    email: "shivamjthete123@gmail.com",
-    phone: "+91-8263045370",
-  },
-  profile: `I combine strategic leadership with hands-on product development to transform operations into predictable, scalable engines for growth. I lead initiatives across Sales, Finance and HR using system and software such as Zoho, Deluge and automation to reduce cycle-times, improve margin visibility, and align teams around measurable outcomes. Seeking senior leadership roles such as CEO to drive large-scale organisational transformation.`,
+        <nav className="hidden items-center gap-6 text-sm font-medium text-slate-600 md:flex">
+          {links.map((link) => (
+            <a key={link.href} href={link.href} className="transition hover:text-slate-950">
+              {link.label}
+            </a>
+          ))}
+        </nav>
+      </div>
+    </header>
+  );
+}
 
-  projects: [
-    {
-      id: 'resource-planning-platform',
-      title: 'Resource Planning Platform (Ongoing)',
-      role: 'Product architect & project lead',
-      tech: ['Zoho Creator','Zoho Projects','Zoho Analytics','Deluge'],
-      challenge: 'Lack of structured, skill-based resource allocation and limited visibility into utilization and revenue linkage.',
-      approach: 'Built a unified Creator interface for skill-based allocation, calendar-driven planning, and automated timesheet conversion integrated with Zoho Projects. Designed KPIs covering performance hours, deviations, project exposure, and skill progression. Developed manager dashboards to translate attendance and task data into expected, potential, and actual revenue.',
-      impact: 'Improved utilization transparency, enabled data-driven workforce planning, and strengthened revenue forecasting through operational metrics.'
-    },
+function SnapshotCard({ label, value }) {
+  return (
+    <div className="rounded-3xl border border-stone-200 bg-white/90 p-5 shadow-[0_20px_50px_-35px_rgba(15,23,42,0.45)]">
+      <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">{label}</p>
+      <p className="mt-3 text-lg font-semibold leading-7 text-slate-950">{value}</p>
+    </div>
+  );
+}
 
-    {
-      id: 'project-management-tools-suite',
-      title: 'Project Management Tools Suite',
-      role: 'Solution designer & implementer',
-      tech: ['Zoho Creator','Deluge','AI Integrations','PDF Automation', 'HTML Snippets'],
-      challenge: 'Legacy Excel-based processes caused fragmented data, poor traceability, and low user adoption.',
-      approach: 'Modernized workflows by building interactive, AI-assisted Creator tools with centralized data, branded PDF exports, and user-centric interfaces aligned to organizational objectives. Implemented systems including Communique, Communication Matrix, Technical Query Sheet, Comment Resolution Sheet, Project Summary dashboards, Lessons Learned repository, and a Complaint Management System with SLAs.',
-      impact: 'Centralized operational data, improved accountability and resolution speed, and aligned teams through standardized, insight-driven project tracking.'
-    },
-
-    {
-      id: 'sales-blueprint',
-      title: 'Business Development Sales Blueprint & Dashboards',
-      role: 'Associate strategist & developer',
-      tech: ['Zoho CRM','Zoho Creator','Deluge','HTML Snippets'],
-      challenge: 'Inconsistent sales stages and weak forecasting led to missed revenue and inefficient resource allocation.',
-      approach: 'Defined a standardized sales lifecycle, implemented role-based handoffs, and built dashboards for funnel health and weighted forecasting.',
-      impact: 'Sales pipeline visibility improved; sales cycle shortened by ~20%; lead-to-opportunity conversion increased within six months; improved co-ordination between technical team and business developemnt team.'
-    },
-
-    {
-      id: 'financial-automation',
-      title: 'Financial Systems Integration & Automation',
-      role: 'Lead strategist & project lead',
-      tech: ['Zoho Creator','Zoho Books','Deluge','APIs', 'HTML Snippet', 'Widgets'],
-      challenge: 'Fragmented financial data and slow invoicing caused revenue leakage and low margin visibility.',
-      approach: 'Architected an integrated data model, automated invoice workflows, and built Project Pulse & BV Pulse dashboards for real‑time financial oversight.',
-      impact: 'Invoice processing time reduced by 60%; receivables efficiency improved; near real‑time finantial insignhts enabled leadership decisions.'
-    },
-
-
-    {
-      id: 'erc-system',
-      title: 'Efficiency Based Incentive System',
-      role: 'Product lead & developer',
-      tech: ['Zoho Creator','Deluge','Zoho Analytics','Widgets'],
-      challenge: 'Subjective performance reviews caused low transparency and inconsistent incentives.',
-      approach: 'Built a digital inventive platform to capture measurable contribution metrics and automate credits calculation and approvals.',
-      impact: 'Improved perceived fairness in incentives and faster approvals tied to contribution data.'
-    },
-
-    {
-      id: 'hrms-enhancements',
-      title: 'HRMS Enhancements',
-      role: 'Lead implementer',
-      tech: ['Zoho People','Zoho Creator','Deluge','Zoho Recruit','Zoho Payroll'],
-      challenge: 'Limited visibility on utilization and no structured skill-matching or automated appraisals.',
-      approach: 'Developed utilization dashboards, skill-based resourcing tools and an automated appraisal workflow.',
-      impact: 'Better resource planning, reduced bench time, and standardized appraisal fairness.'
-    }
-  ]
-};
+function CapabilityCard({ title, description, items }) {
+  return (
+    <div className="rounded-[28px] border border-stone-200 bg-white/95 p-6 shadow-[0_20px_50px_-35px_rgba(15,23,42,0.45)]">
+      <p className="text-xs font-semibold uppercase tracking-[0.18em] text-amber-700">Capability area</p>
+      <h3 className="mt-3 text-2xl font-semibold text-slate-950">{title}</h3>
+      <p className="mt-3 text-sm leading-6 text-slate-600">{description}</p>
+      <ul className="mt-5 space-y-3">
+        {items.map((item) => (
+          <li key={item} className="flex gap-3 text-sm leading-6 text-slate-600">
+            <span className="mt-2 h-2 w-2 rounded-full bg-amber-700" />
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
 
 export default function PersonalWebsite() {
+  const { profile, projects, skillGroups } = siteContent;
+  const [activeTag, setActiveTag] = useState("All");
+  const [expandedProjectId, setExpandedProjectId] = useState(projects[0]?.id ?? null);
+
+  const availableTags = useMemo(
+    () => ["All", ...new Set(projects.flatMap((project) => project.tags))],
+    [projects]
+  );
+
+  const filteredProjects = useMemo(() => {
+    if (activeTag === "All") {
+      return projects;
+    }
+
+    return projects.filter((project) => project.tags.includes(activeTag));
+  }, [activeTag, projects]);
+
   return (
-    <div className="min-h-screen bg-white text-slate-900 antialiased font-sans">
-      <header className="max-w-5xl mx-auto p-6 flex items-center justify-between">
-        <div className="flex items-center gap-4">
-          <div className="rounded-full bg-orange-600 w-12 h-12 flex items-center justify-center text-white text-lg font-bold">ST</div>
+    <div className="min-h-screen text-slate-900">
+      <Navigation name={profile.name} />
+
+      <main id="top" className="mx-auto flex max-w-6xl flex-col gap-24 px-6 py-10 lg:px-8 lg:py-14">
+        <section className="grid gap-10 lg:grid-cols-[1.35fr_0.9fr] lg:items-start">
           <div>
-            <h1 className="text-lg font-semibold">{siteData.name}</h1>
-            <p className="text-sm text-slate-600 text-justify">{siteData.title}</p>
-          </div>
-        </div>
-        <nav className="flex items-center gap-4 text-sm">
-          <a href="#about" className="hover:underline">About</a>
-          <a href="#projects" className="hover:underline">Projects</a>
-          <a href="#skills" className="hover:underline">Skills</a>
-          <a href="#contact" className="hover:underline">Contact</a>
-          
-        </nav>
-      </header>
+            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-amber-700">Built for decision-makers</p>
+            <h1 className="mt-5 max-w-4xl text-4xl font-semibold leading-tight text-slate-950 md:text-6xl">
+              {profile.headline}
+            </h1>
+            <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-600">{profile.summary}</p>
 
-      <main className="max-w-4xl mx-auto p-6">
-        <section className="grid grid-cols-1 gap-6 items-start py-8">
-          <div>
-            <h2 className="text-3xl font-extrabold leading-tight">{siteData.headline}</h2>
-            <p className="mt-4 text-slate-700 text-justify leading-relaxed">{siteData.profile}</p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <a
+                href="#projects"
+                className="rounded-full bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
+              >
+                View strategic projects
+              </a>
+              <a
+                href={profile.contact.linkedin}
+                target="_blank"
+                rel="noreferrer"
+                className="rounded-full border border-stone-300 bg-white px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
+              >
+                Open LinkedIn
+              </a>
+              <a
+                href={`mailto:${profile.contact.email}`}
+                className="rounded-full border border-stone-300 bg-white px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
+              >
+                Contact directly
+              </a>
+            </div>
 
-            <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="p-4 bg-slate-50 rounded-md">
-                <h3 className="text-sm font-semibold"><H>Leadership Focus</H></h3>
-                <ul className="mt-2 text-sm text-slate-700 text-justify list-disc pl-5 space-y-1">
-                  <li><H>Strategy-to-execution</H>: Convert strategic vision into measurable operational plans.</li>
-                  <li><H>Systems & automation</H>: Build technology-first processes that scale.</li>
-                  <li><H>Data and insight visibility</H>: Create dashboards that enable fast and proactive decisions.</li>
-                </ul>
-              </div>
-
-              <div className="p-4 bg-slate-50 rounded-md">
-                <h3 className="text-sm fo nt-semibold"><H>Work Method</H></h3>
-                <ol className="mt-2 text-sm text-slate-700 text-justify list-decimal pl-5 space-y-1">
-                  <li><H>Diagnose</H>: Indetify problems or opportunities</li>
-                  <li><H>Design</H>: Map process & KPIs,Define roles, SLAs & data model</li>
-                  <li><H>Build</H>: Implement systems wich ensures strategic alignment (Software (Zoho) + automation)</li>
-                  <li><H>Implement</H>: Train teams & measure outcomes</li>
-                </ol>
-              </div>
+            <div className="mt-10 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+              {profile.metrics.map((metric) => (
+                <div
+                  key={metric.label}
+                  className="rounded-3xl border border-stone-200 bg-white/90 p-5 shadow-[0_20px_50px_-35px_rgba(15,23,42,0.45)]"
+                >
+                  <p className="text-lg font-semibold text-slate-950">{metric.value}</p>
+                  <p className="mt-2 text-sm leading-6 text-slate-500">{metric.label}</p>
+                </div>
+              ))}
             </div>
           </div>
 
-          
-        </section>
-
-        <section id="projects" className="py-8">
-          <h3 className="text-2xl font-bold">Selected Strategic Projects</h3>
-
-          <div className="mt-6 space-y-4">
-            {siteData.projects.map(p => (
-              <article key={p.id} className="p-6 border rounded-md bg-white hover:shadow-sm transition">
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-start">
-                  <div className="lg:col-span-7">
-                    <h4 className="text-lg font-semibold">{p.title}</h4>
-                    <p className="text-sm text-slate-600 text-justify mt-1">{p.role} • <span className="text-slate-500 text-justify">Tech:</span> <span className="text-slate-700 text-justify">{p.tech.join(' • ')}</span></p>
-                  </div>
-                  <div className="lg:col-span-5 text-sm text-slate-600 text-justify bg-slate-50 p-4 rounded-md h-full">
-                      <h6 className="text-xs font-semibold uppercase text-slate-500 text-justify">Impact</h6>
-                      <p className="mt-1">{p.impact}</p>
-                    </div>
-                </div>
-
-                <div className="mt-6 grid grid-cols-1 lg:grid-cols-12 gap-4">
-                  <div className="lg:col-span-4">
-                    <h5 className="font-medium text-sm text-slate-600 text-justify">Problem</h5>
-                    <p className="text-sm text-slate-700 text-justify mt-1">{p.challenge}</p>
-                  </div>
-
-                  <div className="lg:col-span-8">
-                    <h5 className="font-medium text-sm text-slate-600 text-justify">Solution Architecture</h5>
-                    <p className="text-sm text-slate-700 text-justify mt-1">{p.approach}</p>
-                  </div>
-                </div>
-
-              </article>
+          <div className="grid gap-4">
+            {profile.executiveSnapshot.map((item) => (
+              <SnapshotCard key={item.label} label={item.label} value={item.value} />
             ))}
           </div>
         </section>
 
-        <section id="skills" className="py-8">
-          <h3 className="text-2xl font-bold">Skills & Capabilities</h3>
-          <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div className="p-4 border rounded-md">
-              <h5 className="font-semibold">Strategic Leadership</h5>
-              <ul className="mt-2 text-sm text-slate-700 text-justify list-disc pl-5">
-                <li><H>Enterprise strategy</H> & transformation</li>
-                <li><H>Process implementation</H> & imporvements</li>
-                <li><H>Solution architecture</H> & implementation</li>
+        <section id="about" className="grid gap-8">
+          <SectionHeading
+            eyebrow="Executive positioning"
+            title="A clean portfolio focused on leadership substance."
+            description="The layout is designed to help recruiters, hiring managers, and business leaders quickly understand the scale of problems you solve, the way you operate, and the outcomes your work creates."
+          />
+
+          <div className="grid gap-6 lg:grid-cols-2">
+            <div className="rounded-[28px] border border-stone-200 bg-white/95 p-6 shadow-[0_20px_50px_-35px_rgba(15,23,42,0.45)]">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-amber-700">Strategic focus</p>
+              <ul className="mt-5 space-y-4">
+                {profile.focusAreas.map((item) => (
+                  <li key={item} className="flex gap-4 text-sm leading-6 text-slate-600">
+                    <span className="mt-2 h-2 w-2 rounded-full bg-amber-700" />
+                    <span>{item}</span>
+                  </li>
+                ))}
               </ul>
             </div>
 
-            <div className="p-4 border rounded-md">
-              <h5 className="font-semibold">Technology & Delivery</h5>
-              <ul className="mt-2 text-sm text-slate-700 text-justify list-disc pl-5">
-                <li><H>Zoho Creator</H>, CRM, Books, People</li>
-                <li><H>Deluge scripting</H>, HTML Widgets, Extensions</li>
-                <li><H>Dashboarding</H>, automation, API integrations</li>
-              </ul>
+            <div className="rounded-[28px] border border-stone-200 bg-white/95 p-6 shadow-[0_20px_50px_-35px_rgba(15,23,42,0.45)]">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-amber-700">Operating method</p>
+              <div className="mt-5 space-y-4">
+                {profile.workMethod.map((step, index) => (
+                  <div key={step.title} className="flex gap-4 rounded-2xl border border-stone-200 bg-stone-50/70 p-4">
+                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-slate-950 text-sm font-semibold text-white">
+                      {index + 1}
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold text-slate-950">{step.title}</h3>
+                      <p className="mt-1 text-sm leading-6 text-slate-600">{step.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </section>
 
-        <section id="contact" className="py-8">
-          <div className="max-w-3xl">
-          <h3 className="text-2xl font-bold">Get in touch</h3>
+        <section id="projects" className="grid gap-8">
+          <SectionHeading
+            eyebrow="Strategic projects"
+            title="Case studies framed around business decisions and operating outcomes."
+            description="Each project is organized to highlight the underlying business challenge, the system or process response, and the value created for leadership stakeholders. Interaction assets can open deeper walkthroughs for visitors who want more detail."
+          />
+
+          <FilterPills items={availableTags} activeItem={activeTag} onSelect={setActiveTag} />
+
+          <div className="grid gap-6">
+            {filteredProjects.map((project) => (
+              <ProjectCard
+                key={project.id}
+                project={project}
+                expanded={expandedProjectId === project.id}
+                onToggle={() =>
+                  setExpandedProjectId((currentProjectId) => (currentProjectId === project.id ? null : project.id))
+                }
+              />
+            ))}
           </div>
-          <p className="mt-3 text-slate-700 text-justify">Email: <a href={`mailto:${siteData.contact.email}`} className="text-orange-600">{siteData.contact.email}</a> • Phone: {siteData.contact.phone} • LinkedIn: <a href={siteData.contact.linkedin} target="_blank" rel="noopener noreferrer" className="text-orange-600">shivam-thete</a></p>
+        </section>
+
+        <section id="skills" className="grid gap-8">
+          <SectionHeading
+            eyebrow="Capabilities"
+            title="Leadership signal with delivery credibility."
+            description="The positioning here stays intentionally practical: enough operational and systems depth to show execution strength, without distracting from the broader transformation and leadership narrative."
+          />
+
+          <div className="grid gap-6 lg:grid-cols-2">
+            {skillGroups.map((group) => (
+              <CapabilityCard
+                key={group.id}
+                title={group.title}
+                description={group.description}
+                items={group.items}
+              />
+            ))}
+          </div>
+        </section>
+
+        <section id="contact" className="rounded-[32px] border border-stone-200 bg-slate-950 px-6 py-8 text-white shadow-[0_24px_60px_-40px_rgba(15,23,42,0.8)] md:px-8 md:py-10">
+          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-amber-300">Contact</p>
+          <div className="mt-4 grid gap-6 lg:grid-cols-[1fr_auto] lg:items-end">
+            <div>
+              <h2 className="text-3xl font-semibold leading-tight md:text-4xl">Open to leadership conversations and strategic roles.</h2>
+              <p className="mt-4 max-w-2xl text-sm leading-7 text-slate-300">
+                This portfolio is structured for business conversations, not just project browsing. If a role demands operating rigor, systems thinking, and cross-functional execution, this is the type of work I can bring to the table.
+              </p>
+            </div>
+
+            <div className="grid gap-3 text-sm text-slate-200">
+              <a href={`mailto:${profile.contact.email}`} className="transition hover:text-white">
+                {profile.contact.email}
+              </a>
+              <p>{profile.contact.phone}</p>
+              <a href={profile.contact.linkedin} target="_blank" rel="noreferrer" className="transition hover:text-white">
+                LinkedIn profile
+              </a>
+            </div>
+          </div>
         </section>
       </main>
 
-      <footer className="border-t mt-12 py-6 text-center text-sm text-slate-500 text-justify">
-        © {new Date().getFullYear()} {siteData.name}
+      <footer className="border-t border-white/40 px-6 py-8 text-center text-sm text-slate-500 lg:px-8">
+        Copyright {new Date().getFullYear()} {profile.name}
       </footer>
     </div>
   );

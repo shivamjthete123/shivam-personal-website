@@ -1,0 +1,34 @@
+{
+  "id": "financial-automation",
+  "order": 4,
+  "featured": true,
+  "title": "Financial Systems Integration and Automation",
+  "status": "Implemented",
+  "role": "Lead strategist and project lead",
+  "problemStatement": "Fragmented financial data and slow invoicing created revenue leakage, delayed decisions, and weak margin visibility.",
+  "solution": "Architected an integrated data model, automated invoicing workflows, and built Project Pulse and BV Pulse dashboards for timely financial oversight.",
+  "impact": "Reduced invoice processing time by 60 percent, improved receivables efficiency, and enabled stronger financial visibility for leadership decisions.",
+  "leadershipValue": "Tied finance operations to reporting discipline so commercial and delivery leaders could act with faster margin and cash-flow insight.",
+  "toolsUsed": [
+    "Zoho Creator",
+    "Zoho Books",
+    "Deluge",
+    "APIs",
+    "HTML Snippets",
+    "Widgets"
+  ],
+  "tags": [
+    "Finance Transformation",
+    "Automation",
+    "Dashboards"
+  ],
+  "interactionFiles": [
+    {
+      "label": "Interactive case brief",
+      "description": "View the finance operating model, invoice automation logic, and oversight dashboard lens.",
+      "type": "Interactive HTML",
+      "url": "/project-interactions/project-lens.html?project=financial-automation",
+      "cta": "Open brief"
+    }
+  ]
+}

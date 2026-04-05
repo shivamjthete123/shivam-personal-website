@@ -1,0 +1,12 @@
+{
+  "id": "technology",
+  "order": 2,
+  "title": "Systems and Delivery",
+  "description": "Platforms and delivery strengths used to make operational change practical and measurable.",
+  "items": [
+    "Zoho Creator, CRM, Books, People, Recruit, Payroll, and Projects",
+    "Deluge scripting, APIs, widgets, and workflow automation",
+    "Dashboarding, reporting design, and decision-support tooling",
+    "Structured data workflows, document automation, and interface simplification"
+  ]
+}

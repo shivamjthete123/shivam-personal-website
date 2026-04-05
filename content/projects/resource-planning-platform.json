@@ -1,0 +1,32 @@
+{
+  "id": "resource-planning-platform",
+  "order": 1,
+  "featured": true,
+  "title": "Resource Planning Platform",
+  "status": "Ongoing",
+  "role": "Product architect and project lead",
+  "problemStatement": "Resource allocation lacked a structured, skill-based planning model and there was limited visibility into utilization and revenue linkage.",
+  "solution": "Built a unified planning interface in Zoho Creator for skill-based allocation, calendar-driven planning, and automated timesheet conversion linked with Zoho Projects. Designed KPIs covering performance hours, deviations, project exposure, and skill progression.",
+  "impact": "Improved utilization transparency, enabled more informed workforce planning, and strengthened revenue forecasting through operational metrics.",
+  "leadershipValue": "Connected resource decisions to leadership visibility by translating attendance, task progress, and delivery signals into expected, potential, and actual revenue views.",
+  "toolsUsed": [
+    "Zoho Creator",
+    "Zoho Projects",
+    "Zoho Analytics",
+    "Deluge"
+  ],
+  "tags": [
+    "Workforce Planning",
+    "Analytics",
+    "Automation"
+  ],
+  "interactionFiles": [
+    {
+      "label": "Interactive case brief",
+      "description": "Leadership-oriented walkthrough of the operating challenge, system response, and business value.",
+      "type": "Interactive HTML",
+      "url": "/project-interactions/project-lens.html?project=resource-planning-platform",
+      "cta": "Open brief"
+    }
+  ]
+}

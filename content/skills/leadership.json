@@ -1,0 +1,13 @@
+{
+  "id": "leadership",
+  "order": 1,
+  "title": "Leadership and Transformation",
+  "description": "Capabilities most relevant to recruiters, hiring managers, and business leaders evaluating transformation readiness.",
+  "items": [
+    "Strategy to execution translation",
+    "Operating model design",
+    "Cross-functional program leadership",
+    "Governance, process controls, and SLA design",
+    "Business performance visibility through metrics and dashboards"
+  ]
+}

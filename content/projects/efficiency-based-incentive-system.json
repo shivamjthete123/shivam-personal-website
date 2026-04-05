@@ -1,0 +1,32 @@
+{
+  "id": "efficiency-based-incentive-system",
+  "order": 5,
+  "featured": false,
+  "title": "Efficiency Based Incentive System",
+  "status": "Implemented",
+  "role": "Product lead and developer",
+  "problemStatement": "Subjective performance reviews reduced transparency and created inconsistency in incentive decisions.",
+  "solution": "Built a digital incentive platform to capture measurable contribution metrics and automate credit calculations, approvals, and review workflows.",
+  "impact": "Improved fairness perception in incentive allocation and shortened approval cycles through data-backed evaluation.",
+  "leadershipValue": "Converted a sensitive people process into a more transparent mechanism supported by measurable operating criteria.",
+  "toolsUsed": [
+    "Zoho Creator",
+    "Deluge",
+    "Zoho Analytics",
+    "Widgets"
+  ],
+  "tags": [
+    "People Systems",
+    "Performance Management",
+    "Automation"
+  ],
+  "interactionFiles": [
+    {
+      "label": "Interactive case brief",
+      "description": "Explore the workflow design for contribution scoring, approval flow, and incentive governance.",
+      "type": "Interactive HTML",
+      "url": "/project-interactions/project-lens.html?project=efficiency-based-incentive-system",
+      "cta": "Open brief"
+    }
+  ]
+}

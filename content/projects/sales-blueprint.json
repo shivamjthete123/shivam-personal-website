@@ -1,0 +1,32 @@
+{
+  "id": "sales-blueprint",
+  "order": 3,
+  "featured": true,
+  "title": "Business Development Sales Blueprint and Dashboards",
+  "status": "Implemented",
+  "role": "Associate strategist and developer",
+  "problemStatement": "Inconsistent sales stages and weak forecasting reduced predictability and made resource planning harder.",
+  "solution": "Defined a standardized sales lifecycle, introduced role-based handoffs, and built dashboards for funnel health and weighted forecasting through the Zoho stack.",
+  "impact": "Improved pipeline visibility, shortened the sales cycle by around 20 percent, and strengthened coordination between business development and technical teams.",
+  "leadershipValue": "Created clearer commercial discipline by connecting stage definitions, forecasting logic, and handoff ownership into a shared operating rhythm.",
+  "toolsUsed": [
+    "Zoho CRM",
+    "Zoho Creator",
+    "Deluge",
+    "HTML Snippets"
+  ],
+  "tags": [
+    "Revenue Operations",
+    "Forecasting",
+    "Dashboards"
+  ],
+  "interactionFiles": [
+    {
+      "label": "Interactive case brief",
+      "description": "Review the commercial process redesign and the dashboard logic behind forecasting visibility.",
+      "type": "Interactive HTML",
+      "url": "/project-interactions/project-lens.html?project=sales-blueprint",
+      "cta": "Open brief"
+    }
+  ]
+}
