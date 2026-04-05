@@ -11,7 +11,7 @@ function Navigation({ name }) {
   ];
 
   return (
-    <header className="sticky top-0 z-30 border-b border-slate-200 bg-white/95 backdrop-blur surface-soft">
+    <header className="border-b border-slate-200 bg-white/95 backdrop-blur surface-soft">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-6 px-6 py-4 lg:px-8">
         <a href="#top" className="flex items-center gap-3">
           <div className="flex h-10 w-10 items-center justify-center rounded-full border border-amber-300 bg-amber-50 text-sm font-semibold text-amber-700">
@@ -153,13 +153,13 @@ function ProjectDrawer({ project, onClose }) {
         onClick={onClose}
       />
 
-      <aside className="animate-slide-in absolute right-0 top-0 flex h-full w-full md:w-[80vw] md:max-w-none flex-col border-l border-slate-200 bg-white shadow-2xl">
+      <aside className="animate-slide-in absolute right-0 top-0 flex h-full w-full flex-col border-l border-slate-200 bg-white shadow-2xl md:w-[80vw] md:max-w-none">
         <div className="flex items-start justify-between gap-4 border-b border-slate-200 px-6 py-5">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.16em] text-amber-700">{project.status}</p>
             <h2 className="mt-2 text-2xl font-semibold text-slate-950">{project.title}</h2>
             <p className="mt-2 text-xs uppercase tracking-[0.16em] text-slate-500">
-              Project category{project.projectItems.length > 1 ? ` · ${project.projectItems.length} projects` : ""}
+              Project category{project.projectItems.length > 1 ? ` | ${project.projectItems.length} projects` : ""}
             </p>
             {project.summary ? <p className="mt-3 max-w-3xl text-sm leading-6 text-slate-600">{project.summary}</p> : null}
           </div>
@@ -184,17 +184,17 @@ function ProjectDrawer({ project, onClose }) {
                   const isActive = item.id === activeProjectItem?.id;
 
                   return (
-            <button
-              key={item.id}
-              type="button"
-              onClick={() => {
-                setActiveProjectItemId(item.id);
-                setActiveInteractionId(item.interactionFiles[0]?.id ?? null);
-              }}
-              className={`w-full border-b border-slate-200 px-4 py-4 text-left transition last:border-b-0 ${
-                isActive ? "bg-white shadow-[inset_3px_0_0_0_rgb(245,158,11)]" : "hover:bg-white"
-              }`}
-            >
+                    <button
+                      key={item.id}
+                      type="button"
+                      onClick={() => {
+                        setActiveProjectItemId(item.id);
+                        setActiveInteractionId(item.interactionFiles[0]?.id ?? null);
+                      }}
+                      className={`w-full border-b border-slate-200 px-4 py-4 text-left transition last:border-b-0 ${
+                        isActive ? "bg-white shadow-[inset_3px_0_0_0_rgb(245,158,11)]" : "hover:bg-white"
+                      }`}
+                    >
                       <p className="text-sm font-semibold text-slate-950">{item.title}</p>
                       {item.summary ? <p className="mt-2 text-sm leading-6 text-slate-600">{item.summary}</p> : null}
                     </button>
@@ -262,10 +262,10 @@ function ProjectDrawer({ project, onClose }) {
                               key={file.id}
                               type="button"
                               onClick={() => setActiveInteractionId(file.id)}
-                          className={`border px-3 py-2 text-sm transition ${
-                            isActive
-                              ? "border-slate-900 bg-slate-900 text-white"
-                              : "border-slate-200 bg-white text-slate-700 hover:border-slate-400 hover:text-slate-950"
+                              className={`border px-3 py-2 text-sm transition ${
+                                isActive
+                                  ? "border-slate-900 bg-slate-900 text-white"
+                                  : "border-slate-200 bg-white text-slate-700 hover:border-slate-400 hover:text-slate-950"
                               }`}
                             >
                               {file.label}
@@ -329,6 +329,8 @@ export default function PersonalWebsite() {
   const { profile, projects, skillGroups } = siteContent;
   const [activeTag, setActiveTag] = useState("All");
   const [drawerProjectId, setDrawerProjectId] = useState(null);
+  const heroSummary = (Array.isArray(profile.summary) ? profile.summary : [profile.summary]).slice(0, 2);
+  const keySnapshots = profile.executiveSnapshot.slice(0, 3);
 
   const availableTags = useMemo(
     () => ["All", ...new Set(projects.flatMap((project) => project.tags))],
@@ -358,160 +360,199 @@ export default function PersonalWebsite() {
   const drawerProject = filteredProjects.find((project) => project.id === drawerProjectId) ?? null;
 
   return (
-    <div className="min-h-screen bg-white text-slate-900">
+    <div className="flex h-screen flex-col overflow-hidden bg-white text-slate-900">
       <Navigation name={profile.name} />
 
-      <main id="top" className="mx-auto flex max-w-6xl flex-col gap-16 px-6 py-10 lg:px-8">
-        <section className="grid gap-10 border-b border-slate-200 pb-12 lg:grid-cols-[1.2fr_0.8fr]">
-          <div className="animate-fade-up">
-            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-amber-700">{profile.title}</p>
-            <h1 className="mt-4 max-w-4xl text-4xl font-semibold leading-tight text-slate-950 md:text-5xl">
-              {profile.headline}
-            </h1>
-            <div className="mt-5 max-w-3xl space-y-4">
-              {(Array.isArray(profile.summary) ? profile.summary : [profile.summary]).map((paragraph) => (
-                <p key={paragraph} className="text-base leading-8 text-slate-600">
-                  {paragraph}
-                </p>
-              ))}
-            </div>
+      <main
+        id="top"
+        className="mx-auto flex w-full max-w-6xl flex-1 snap-y snap-proximity flex-col gap-0 overflow-y-auto px-6 lg:snap-mandatory lg:px-8"
+      >
+        <section className="animate-fade-up flex min-h-[calc(100svh-76px)] snap-start flex-col justify-center border-b border-slate-200 py-12">
+          <div className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr]">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-amber-700">{profile.title}</p>
+              <h1 className="mt-4 max-w-4xl text-4xl font-semibold leading-tight text-slate-950 md:text-5xl">
+                {profile.headline}
+              </h1>
+              <div className="mt-5 max-w-3xl space-y-4">
+                {heroSummary.map((paragraph) => (
+                  <p key={paragraph} className="text-base leading-8 text-slate-600">
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
 
-            <div className="mt-6 flex flex-wrap gap-3">
-              <a href="#projects" className="surface-hover surface-soft bg-slate-950 px-4 py-3 text-sm font-semibold text-white hover:bg-slate-800">
-                Review projects
-              </a>
-              <a
-                href={profile.contact.linkedin}
-                target="_blank"
-                rel="noreferrer"
-                className="surface-hover border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-slate-700 hover:border-slate-400 hover:text-slate-950"
-              >
-                LinkedIn
-              </a>
-              <a
-                href={`mailto:${profile.contact.email}`}
-                className="surface-hover border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-slate-700 hover:border-slate-400 hover:text-slate-950"
-              >
-                Email
-              </a>
-            </div>
-          </div>
+              <div className="mt-6 flex flex-wrap gap-3">
+                <a href="#projects" className="surface-hover surface-soft bg-slate-950 px-4 py-3 text-sm font-semibold text-white hover:bg-slate-800">
+                  Review projects
+                </a>
+                <a
+                  href="#contact"
+                  className="surface-hover border border-amber-300 bg-amber-50 px-4 py-3 text-sm font-semibold text-amber-800 hover:border-amber-400"
+                >
+                  Contact
+                </a>
+                <a
+                  href={profile.contact.linkedin}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="surface-hover border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-slate-700 hover:border-slate-400 hover:text-slate-950"
+                >
+                  LinkedIn
+                </a>
+              </div>
 
-          <div className="animate-fade-up grid gap-px border border-slate-200 bg-slate-200 surface-soft">
-            <div className="bg-white p-4">
-              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">Target roles</p>
-              <div className="mt-3 flex flex-wrap gap-2">
+              <div className="mt-8 flex flex-wrap gap-2">
                 {profile.targetRoles.map((role) => (
-                  <span key={role} className="border border-slate-200 px-2 py-1 text-xs text-slate-600">
+                  <span key={role} className="surface-soft border border-slate-200 bg-white px-3 py-2 text-xs font-medium text-slate-600">
                     {role}
                   </span>
                 ))}
               </div>
             </div>
 
-            {profile.executiveSnapshot.map((item, index) => (
-              <div key={item} className="bg-white p-4">
-                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">Executive snapshot 0{index + 1}</p>
-                <p className="mt-2 text-sm leading-6 text-slate-700">{item}</p>
+            <div className="flex flex-col gap-4">
+              <div className="border border-slate-200 bg-white p-5 surface-soft">
+                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-amber-700">Why this profile stands out</p>
+                <div className="mt-4 space-y-4">
+                  {keySnapshots.map((item) => (
+                    <div key={item} className="border-l-2 border-amber-300 pl-4">
+                      <p className="text-sm leading-6 text-slate-700">{item}</p>
+                    </div>
+                  ))}
+                </div>
               </div>
-            ))}
+
+              <div className="border border-slate-200 bg-slate-50 p-5 surface-soft">
+                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">Reason to contact</p>
+                <p className="mt-3 text-sm leading-7 text-slate-700">
+                  If the role needs someone who can bring structure to fragmented operations, align teams, and turn execution into visibility, that is where my work is strongest.
+                </p>
+                <a href="#contact" className="mt-4 inline-flex text-sm font-semibold text-amber-700 transition hover:text-amber-800">
+                  Go to contact
+                </a>
+              </div>
+            </div>
           </div>
         </section>
 
-        <section id="about" className="grid gap-6 animate-fade-up">
-          <SectionHeading
-            eyebrow="How I Operate"
-            title="The sequencing is designed to answer the most important questions early."
-            description="Visitors first see positioning, role fit, and executive signals. Then they move into focused project evidence and supporting capabilities."
-          />
+        <section id="about" className="animate-fade-up flex min-h-[calc(100svh-76px)] snap-start flex-col justify-center border-b border-slate-200 py-12">
+          <div className="grid gap-6">
+            <SectionHeading
+              eyebrow="How I Work"
+              title="A simple operating model: define, build, implement, measure."
+              description="This section keeps the process visible without making the page feel heavy. It answers how I work before a visitor opens project detail."
+            />
 
-          <div className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
-            <div className="border border-slate-200 bg-white p-5 surface-soft">
-              <p className="text-sm font-semibold text-slate-950">What I focus on</p>
-              <ul className="mt-4 space-y-3">
-                {profile.focusAreas.map((item) => (
-                  <li key={item} className="flex gap-3 text-sm leading-7 text-slate-700">
-                    <span className="mt-2 h-1.5 w-1.5 rounded-full bg-amber-700" />
-                    <span>{item}</span>
-                  </li>
+            <div className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
+              <div className="border border-slate-200 bg-white p-5 surface-soft">
+                <p className="text-sm font-semibold text-slate-950">What I focus on</p>
+                <ul className="mt-4 space-y-3">
+                  {profile.focusAreas.map((item) => (
+                    <li key={item} className="flex gap-3 text-sm leading-7 text-slate-700">
+                      <span className="mt-2 h-1.5 w-1.5 rounded-full bg-amber-700" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="border border-slate-200 bg-white surface-soft">
+                {profile.workMethod.map((step, index) => (
+                  <div
+                    key={step.title}
+                    className={`grid gap-3 px-5 py-4 md:grid-cols-[60px_1fr] ${
+                      index !== profile.workMethod.length - 1 ? "border-b border-slate-200" : ""
+                    }`}
+                  >
+                    <div className="text-sm font-semibold text-amber-700">0{index + 1}</div>
+                    <div>
+                      <h3 className="text-base font-semibold text-slate-950">{step.title}</h3>
+                      <p className="mt-1 text-sm leading-6 text-slate-600">{step.description}</p>
+                    </div>
+                  </div>
                 ))}
-              </ul>
+              </div>
             </div>
+          </div>
+        </section>
+
+        <section id="projects" className="animate-fade-up flex min-h-[calc(100svh-76px)] snap-start flex-col justify-center border-b border-slate-200 py-12">
+          <div className="grid gap-6">
+            <SectionHeading
+              eyebrow="Projects"
+              title="Open the project categories that best prove leadership fit."
+              description={profile.projectSectionIntro}
+            />
+
+            <FilterPills items={availableTags} activeItem={activeTag} onSelect={setActiveTag} />
 
             <div className="border border-slate-200 bg-white surface-soft">
-              {profile.workMethod.map((step, index) => (
-                <div
-                  key={step.title}
-                  className={`grid gap-3 px-5 py-4 md:grid-cols-[60px_1fr] ${
-                    index !== profile.workMethod.length - 1 ? "border-b border-slate-200" : ""
-                  }`}
-                >
-                  <div className="text-sm font-semibold text-amber-700">0{index + 1}</div>
-                  <div>
-                    <h3 className="text-base font-semibold text-slate-950">{step.title}</h3>
-                    <p className="mt-1 text-sm leading-6 text-slate-600">{step.description}</p>
-                  </div>
+              {filteredProjects.map((project) => (
+                <ProjectListItem key={project.id} project={project} onSelect={() => setDrawerProjectId(project.id)} />
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="skills" className="animate-fade-up flex min-h-[calc(100svh-76px)] snap-start flex-col justify-center border-b border-slate-200 py-12">
+          <div className="grid gap-6">
+            <SectionHeading
+              eyebrow="Capabilities"
+              title="Supporting capabilities, kept visible but secondary."
+              description="This section reinforces breadth without competing with the projects or the leadership message."
+            />
+
+            <div className="grid gap-6 lg:grid-cols-2">
+              {skillGroups.map((group) => (
+                <div key={group.id} className="surface-soft surface-hover">
+                  <CapabilityGroup group={group} />
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        <section id="projects" className="grid gap-6 animate-fade-up">
-          <SectionHeading
-            eyebrow="Projects"
-            title="Select a project to open a focused interaction drawer."
-            description={profile.projectSectionIntro}
-          />
+        <section id="contact" className="animate-fade-up flex min-h-[calc(100svh-76px)] snap-start flex-col justify-center py-12">
+          <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+            <div>
+              <SectionHeading
+                eyebrow="Contact"
+                title="If the role needs structure, execution, and operating clarity, let's talk."
+                description={profile.contactMessage}
+              />
 
-          <FilterPills items={availableTags} activeItem={activeTag} onSelect={setActiveTag} />
-
-          <div className="border border-slate-200 bg-white surface-soft">
-            {filteredProjects.map((project) => (
-              <ProjectListItem key={project.id} project={project} onSelect={() => setDrawerProjectId(project.id)} />
-            ))}
-          </div>
-        </section>
-
-        <section id="skills" className="grid gap-6 animate-fade-up">
-          <SectionHeading
-            eyebrow="Capabilities"
-            title="Supporting strengths kept concise."
-            description="This section stays compact so the page remains analytical and useful instead of turning into a long narrative."
-          />
-
-          <div className="grid gap-6 lg:grid-cols-2">
-            {skillGroups.map((group) => (
-              <div key={group.id} className="surface-soft surface-hover">
-                <CapabilityGroup group={group} />
+              <div className="mt-6 space-y-3 text-sm leading-7 text-slate-700">
+                <p>I am most relevant where the business needs stronger systems, clearer execution, and better operating visibility.</p>
+                <p>The website is designed to show that quickly. The next step is a conversation.</p>
               </div>
-            ))}
-          </div>
-        </section>
+            </div>
 
-        <section id="contact" className="animate-fade-up border-t border-slate-200 pt-8">
-          <SectionHeading
-            eyebrow="Contact"
-            title="Open to leadership and transformation conversations."
-            description={profile.contactMessage}
-          />
+            <div className="border border-slate-200 bg-white p-6 surface-soft">
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-amber-700">Contact options</p>
+              <div className="mt-5 grid gap-4">
+                <a
+                  href={`mailto:${profile.contact.email}`}
+                  className="surface-hover border border-slate-200 bg-white px-4 py-4 text-sm font-semibold text-slate-950 hover:border-amber-300"
+                >
+                  {profile.contact.email}
+                </a>
+                <a
+                  href={profile.contact.linkedin}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="surface-hover border border-slate-200 bg-white px-4 py-4 text-sm font-semibold text-slate-950 hover:border-amber-300"
+                >
+                  LinkedIn profile
+                </a>
+                <div className="border border-slate-200 bg-slate-50 px-4 py-4 text-sm text-slate-700">{profile.contact.phone}</div>
+              </div>
 
-          <div className="mt-5 flex flex-wrap gap-6 text-sm text-slate-700">
-            <a href={`mailto:${profile.contact.email}`} className="transition hover:text-slate-950">
-              {profile.contact.email}
-            </a>
-            <p>{profile.contact.phone}</p>
-            <a href={profile.contact.linkedin} target="_blank" rel="noreferrer" className="transition hover:text-slate-950">
-              LinkedIn profile
-            </a>
+              <p className="mt-6 text-xs leading-6 text-slate-500">{profile.footerLine}</p>
+            </div>
           </div>
         </section>
       </main>
-
-      <footer className="border-t border-slate-200 px-6 py-8 text-center text-sm text-slate-500 lg:px-8">
-        Copyright {new Date().getFullYear()} {profile.name}
-        <p className="mt-2">{profile.footerLine}</p>
-      </footer>
 
       <ProjectDrawer project={drawerProject} onClose={() => setDrawerProjectId(null)} />
     </div>
