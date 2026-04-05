@@ -280,7 +280,7 @@ function ProjectDrawer({ project, onClose }) {
                         <iframe
                           title={`${activeProjectItem.title} interaction`}
                           src={iframeUrl}
-                          className="h-[70vh] min-h-[520px] w-full border-0"
+                          className="h-[52vh] min-h-[320px] w-full border-0 md:h-[70vh] md:min-h-[520px]"
                         />
                       </div>
                     ) : (
@@ -360,14 +360,14 @@ export default function PersonalWebsite() {
   const drawerProject = filteredProjects.find((project) => project.id === drawerProjectId) ?? null;
 
   return (
-    <div className="flex h-screen flex-col overflow-hidden bg-white text-slate-900">
+    <div className="min-h-screen bg-white text-slate-900">
       <Navigation name={profile.name} />
 
       <main
         id="top"
-        className="mx-auto flex w-full max-w-6xl flex-1 snap-y snap-proximity flex-col gap-0 overflow-y-auto px-6 lg:snap-mandatory lg:px-8"
+        className="mx-auto flex w-full max-w-6xl flex-col gap-0 px-6 lg:snap-y lg:snap-proximity lg:px-8"
       >
-        <section className="animate-fade-up flex min-h-[calc(100svh-76px)] snap-start flex-col justify-center border-b border-slate-200 py-12">
+        <section className="animate-fade-up flex min-h-0 flex-col justify-center border-b border-slate-200 py-14 lg:min-h-[calc(100dvh-76px)] lg:snap-start">
           <div className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr]">
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.16em] text-amber-700">{profile.title}</p>
@@ -436,7 +436,7 @@ export default function PersonalWebsite() {
           </div>
         </section>
 
-        <section id="about" className="animate-fade-up flex min-h-[calc(100svh-76px)] snap-start flex-col justify-center border-b border-slate-200 py-12">
+        <section id="about" className="animate-fade-up flex min-h-0 flex-col justify-center border-b border-slate-200 py-14 lg:min-h-[calc(100dvh-76px)] lg:snap-start">
           <div className="grid gap-6">
             <SectionHeading
               eyebrow="How I Work"
@@ -477,7 +477,7 @@ export default function PersonalWebsite() {
           </div>
         </section>
 
-        <section id="projects" className="animate-fade-up flex min-h-[calc(100svh-76px)] snap-start flex-col justify-center border-b border-slate-200 py-12">
+        <section id="projects" className="animate-fade-up flex min-h-0 flex-col justify-center border-b border-slate-200 py-14 lg:min-h-[calc(100dvh-76px)] lg:snap-start">
           <div className="grid gap-6">
             <SectionHeading
               eyebrow="Projects"
@@ -495,7 +495,7 @@ export default function PersonalWebsite() {
           </div>
         </section>
 
-        <section id="skills" className="animate-fade-up flex min-h-[calc(100svh-76px)] snap-start flex-col justify-center border-b border-slate-200 py-12">
+        <section id="skills" className="animate-fade-up flex min-h-0 flex-col justify-center border-b border-slate-200 py-14 lg:min-h-[calc(100dvh-76px)] lg:snap-start">
           <div className="grid gap-6">
             <SectionHeading
               eyebrow="Capabilities"
@@ -513,7 +513,7 @@ export default function PersonalWebsite() {
           </div>
         </section>
 
-        <section id="contact" className="animate-fade-up flex min-h-[calc(100svh-76px)] snap-start flex-col justify-center py-12">
+        <section id="contact" className="animate-fade-up flex min-h-0 flex-col justify-center py-14 lg:min-h-[calc(100dvh-76px)] lg:snap-start">
           <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
             <div>
               <SectionHeading
