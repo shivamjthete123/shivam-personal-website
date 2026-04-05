@@ -2,71 +2,62 @@
   "order": 1,
   "name": "Shivam J. Thete",
   "title": "Strategic Development Leader",
-  "headline": "I build operating systems that turn strategy into measurable business outcomes.",
-  "summary": "I work at the intersection of leadership, systems design, and cross-functional execution. My portfolio is centered on building scalable operating models across sales, finance, HR, and project delivery through process design, software implementation, and decision-ready reporting.",
+  "headline": "Driving Business Transformation Through Systems, Structure, and Scalable Execution",
+  "summary": [
+    "I operate at the intersection of business operations, systems design, and strategic execution.",
+    "My work focuses on building structured operating environments where processes are defined, execution is measurable, and decisions are supported by clear data.",
+    "I have led initiatives across financial process integration, project governance systems, HRMS improvements, and cross-functional workflow design. These efforts have consistently reduced execution gaps, improved visibility, and enabled more predictable outcomes.",
+    "I am particularly effective in environments where systems are fragmented or evolving, bringing structure, alignment, and execution discipline."
+  ],
   "contact": {
     "linkedin": "https://www.linkedin.com/in/shivamjthete/",
     "email": "shivamjthete123@gmail.com",
     "phone": "+91-8263045370"
   },
   "executiveSnapshot": [
-    {
-      "label": "Leadership focus",
-      "value": "Strategy, execution, and operating model design"
-    },
-    {
-      "label": "Business coverage",
-      "value": "Sales, finance, HR, and delivery operations"
-    },
-    {
-      "label": "Transformation style",
-      "value": "Systems, automation, governance, and insight visibility"
-    }
-  ],
-  "metrics": [
-    {
-      "value": "Cross-functional",
-      "label": "Leadership work spanning commercial and internal operations"
-    },
-    {
-      "value": "Outcome-led",
-      "label": "Projects framed around margin, utilization, forecasting, and accountability"
-    },
-    {
-      "value": "System-driven",
-      "label": "Execution built through platforms, dashboards, and automation"
-    },
-    {
-      "value": "Leadership-ready",
-      "label": "Portfolio positioned for business transformation roles"
-    }
+    "Designed and implemented multi-functional business systems across finance, HR, and operations",
+    "Led end-to-end execution from problem structuring to deployment",
+    "Built process-driven environments that improve visibility and accountability",
+    "Worked across functions to align execution with business objectives",
+    "Strengthened operational clarity in complex or unstructured environments"
   ],
   "targetRoles": [
-    "Strategic Development Leadership",
-    "Business Transformation",
-    "Chief Executive Track Roles"
+    "Strategic Development & Execution Leadership",
+    "Business Transformation & Process Excellence",
+    "Cross-functional Operations Leadership",
+    "CEO / Business Unit Leadership Track"
   ],
   "focusAreas": [
-    "Translate leadership priorities into process architecture and delivery plans.",
-    "Create visibility into business performance with dashboards, metrics, and governance.",
-    "Improve execution quality by replacing fragmented workflows with scalable systems."
+    "Business Process Design & Optimization",
+    "Execution Systems & Workflow Automation",
+    "Financial Operations & Control Systems",
+    "Project Governance & Delivery Management",
+    "HRMS & Workforce Optimization",
+    "Cross-functional Alignment"
   ],
   "workMethod": [
     {
-      "title": "Diagnose",
-      "description": "Surface structural issues, decision bottlenecks, and operational risk."
+      "title": "Problem Structuring",
+      "description": "Convert ambiguous challenges into clearly defined, actionable problems."
     },
     {
-      "title": "Design",
-      "description": "Define workflows, ownership, SLAs, metrics, and system behaviors."
+      "title": "Process Mapping",
+      "description": "Analyze existing workflows to identify inefficiencies and breakdowns."
     },
     {
-      "title": "Build",
-      "description": "Implement software, automation, and reporting layers that teams can adopt quickly."
+      "title": "System Design",
+      "description": "Build structured workflows, control mechanisms, and tracking systems."
     },
     {
-      "title": "Embed",
-      "description": "Drive rollout, team usage, and business measurement after launch."
+      "title": "Implementation",
+      "description": "Deploy solutions with cross-functional alignment and operational integration."
+    },
+    {
+      "title": "Measurement & Iteration",
+      "description": "Track outcomes and continuously refine for effectiveness."
     }
-  ]
+  ],
+  "projectSectionIntro": "Selected work focused on improving execution, building scalable systems, and strengthening operational control.",
+  "contactMessage": "Open to discussions on leadership roles in strategy, operations, and business transformation.",
+  "footerLine": "Focused on building systems that enable businesses to operate with clarity, control, and scalability."
 }

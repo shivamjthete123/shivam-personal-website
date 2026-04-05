@@ -35,15 +35,6 @@ function Navigation({ name }) {
   );
 }
 
-function MetricCard({ value, label }) {
-  return (
-    <div className="border border-slate-200 bg-white p-4">
-      <p className="text-sm font-semibold text-slate-950">{value}</p>
-      <p className="mt-2 text-sm leading-6 text-slate-600">{label}</p>
-    </div>
-  );
-}
-
 function ProjectListItem({ project, onSelect }) {
   return (
     <button
@@ -59,7 +50,7 @@ function ProjectListItem({ project, onSelect }) {
         <span className="shrink-0 text-xs font-medium uppercase tracking-[0.14em] text-amber-700">{project.status}</span>
       </div>
 
-      <p className="mt-3 text-sm leading-6 text-slate-600">{project.impact}</p>
+      <p className="mt-3 text-sm leading-6 text-slate-600">{project.summary ?? project.impact}</p>
 
       <div className="mt-4 flex items-center justify-between gap-4">
         <div className="flex flex-wrap gap-2">
@@ -146,6 +137,7 @@ function ProjectDrawer({ project, onClose }) {
             <p className="text-xs font-semibold uppercase tracking-[0.16em] text-amber-700">{project.status}</p>
             <h2 className="mt-2 text-2xl font-semibold text-slate-950">{project.title}</h2>
             <p className="mt-2 text-xs uppercase tracking-[0.16em] text-slate-500">{project.role}</p>
+            {project.summary ? <p className="mt-3 max-w-2xl text-sm leading-6 text-slate-600">{project.summary}</p> : null}
           </div>
 
           <button
@@ -282,7 +274,13 @@ export default function PersonalWebsite() {
             <h1 className="mt-4 max-w-4xl text-4xl font-semibold leading-tight text-slate-950 md:text-5xl">
               {profile.headline}
             </h1>
-            <p className="mt-5 max-w-3xl text-base leading-8 text-slate-600">{profile.summary}</p>
+            <div className="mt-5 max-w-3xl space-y-4">
+              {(Array.isArray(profile.summary) ? profile.summary : [profile.summary]).map((paragraph) => (
+                <p key={paragraph} className="text-base leading-8 text-slate-600">
+                  {paragraph}
+                </p>
+              ))}
+            </div>
 
             <div className="mt-6 flex flex-wrap gap-3">
               <a href="#projects" className="bg-slate-950 px-4 py-3 text-sm font-semibold text-white transition hover:bg-slate-800">
@@ -317,19 +315,13 @@ export default function PersonalWebsite() {
               </div>
             </div>
 
-            {profile.executiveSnapshot.map((item) => (
-              <div key={item.label} className="bg-white p-4">
-                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">{item.label}</p>
-                <p className="mt-2 text-sm leading-6 text-slate-700">{item.value}</p>
+            {profile.executiveSnapshot.map((item, index) => (
+              <div key={item} className="bg-white p-4">
+                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">Executive snapshot 0{index + 1}</p>
+                <p className="mt-2 text-sm leading-6 text-slate-700">{item}</p>
               </div>
             ))}
           </div>
-        </section>
-
-        <section className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-          {profile.metrics.map((metric) => (
-            <MetricCard key={metric.label} value={metric.value} label={metric.label} />
-          ))}
         </section>
 
         <section id="about" className="grid gap-6">
@@ -375,7 +367,7 @@ export default function PersonalWebsite() {
           <SectionHeading
             eyebrow="Projects"
             title="Select a project to open a focused interaction drawer."
-            description="This keeps the page itself compact while still giving each project enough space for detail, interaction, and supporting files."
+            description={profile.projectSectionIntro}
           />
 
           <FilterPills items={availableTags} activeItem={activeTag} onSelect={setActiveTag} />
@@ -405,7 +397,7 @@ export default function PersonalWebsite() {
           <SectionHeading
             eyebrow="Contact"
             title="Open to leadership and transformation conversations."
-            description="If the role requires operating rigor, systems thinking, and cross-functional execution, this portfolio is meant to make that easy to evaluate."
+            description={profile.contactMessage}
           />
 
           <div className="mt-5 flex flex-wrap gap-6 text-sm text-slate-700">
@@ -422,6 +414,7 @@ export default function PersonalWebsite() {
 
       <footer className="border-t border-slate-200 px-6 py-8 text-center text-sm text-slate-500 lg:px-8">
         Copyright {new Date().getFullYear()} {profile.name}
+        <p className="mt-2">{profile.footerLine}</p>
       </footer>
 
       <ProjectDrawer project={drawerProject} onClose={() => setDrawerProjectId(null)} />

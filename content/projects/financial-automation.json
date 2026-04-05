@@ -1,14 +1,15 @@
 {
   "id": "financial-automation",
-  "order": 4,
+  "order": 2,
   "featured": true,
-  "title": "Financial Systems Integration and Automation",
+  "title": "End-to-End Financial Workflow Automation",
   "status": "Implemented",
   "role": "Lead strategist and project lead",
-  "problemStatement": "Fragmented financial data and slow invoicing created revenue leakage, delayed decisions, and weak margin visibility.",
-  "solution": "Architected an integrated data model, automated invoicing workflows, and built Project Pulse and BV Pulse dashboards for timely financial oversight.",
-  "impact": "Reduced invoice processing time by 60 percent, improved receivables efficiency, and enabled stronger financial visibility for leadership decisions.",
-  "leadershipValue": "Tied finance operations to reporting discipline so commercial and delivery leaders could act with faster margin and cash-flow insight.",
+  "summary": "Integrated and automated financial workflows to improve control, efficiency, and process reliability.",
+  "problemStatement": "Financial processes were fragmented, manual, and lacked real-time tracking.",
+  "solution": "Designed integrated workflows across invoicing, procurement, and receivables, automated task creation and tracking, and built connected monitoring systems.",
+  "impact": "Reduced manual effort and turnaround time, improved financial visibility and control, and increased process consistency.",
+  "leadershipValue": "Demonstrates ability to build scalable control systems critical for financial discipline.",
   "toolsUsed": [
     "Zoho Creator",
     "Zoho Books",
@@ -18,14 +19,14 @@
     "Widgets"
   ],
   "tags": [
-    "Finance Transformation",
-    "Automation",
-    "Dashboards"
+    "Finance Automation",
+    "Process Integration",
+    "Workflow Systems"
   ],
   "interactionFiles": [
     {
       "label": "Interactive case brief",
-      "description": "View the finance operating model, invoice automation logic, and oversight dashboard lens.",
+      "description": "View the finance workflow architecture, process controls, and monitoring approach.",
       "type": "Interactive HTML",
       "url": "/project-interactions/project-lens.html?project=financial-automation",
       "cta": "Open brief"

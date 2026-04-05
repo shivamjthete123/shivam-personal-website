@@ -1,14 +1,15 @@
 {
   "id": "hrms-enhancements",
-  "order": 6,
-  "featured": false,
-  "title": "HRMS Enhancements",
+  "order": 5,
+  "featured": true,
+  "title": "HRMS Optimization for Utilization and Performance",
   "status": "Implemented",
   "role": "Lead implementer",
-  "problemStatement": "The HR system lacked structured visibility into utilization, skill matching, and appraisal workflows.",
-  "solution": "Developed utilization dashboards, skill-based resourcing tools, and an automated appraisal workflow spanning Zoho People, Creator, Recruit, and Payroll.",
-  "impact": "Enabled better resource planning, reduced bench risk, and improved appraisal consistency across the employee lifecycle.",
-  "leadershipValue": "Strengthened people operations by connecting workforce data, skill visibility, and appraisal governance into a more reliable decision system.",
+  "summary": "Enhanced HR systems to improve workforce visibility, utilization tracking, and performance evaluation.",
+  "problemStatement": "Limited visibility into resource utilization and lack of structured performance tracking.",
+  "solution": "Built utilization dashboards, implemented task tracking mechanisms, and automated appraisal workflows.",
+  "impact": "Improved resource allocation decisions, increased transparency in performance evaluation, and enabled data-driven HR management.",
+  "leadershipValue": "Bridges HR and operations to improve workforce effectiveness.",
   "toolsUsed": [
     "Zoho People",
     "Zoho Creator",
@@ -17,14 +18,14 @@
     "Zoho Payroll"
   ],
   "tags": [
-    "HR Transformation",
+    "HRMS",
     "Workforce Planning",
-    "People Systems"
+    "Performance Tracking"
   ],
   "interactionFiles": [
     {
       "label": "Interactive case brief",
-      "description": "Review the people-systems redesign with utilization, resourcing, and appraisal control points.",
+      "description": "Review the workforce visibility model, utilization tracking, and appraisal automation flow.",
       "type": "Interactive HTML",
       "url": "/project-interactions/project-lens.html?project=hrms-enhancements",
       "cta": "Open brief"

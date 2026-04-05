@@ -1,14 +1,15 @@
 {
   "id": "sales-blueprint",
-  "order": 3,
+  "order": 1,
   "featured": true,
-  "title": "Business Development Sales Blueprint and Dashboards",
+  "title": "Sales Execution Blueprint and Performance Visibility System",
   "status": "Implemented",
   "role": "Associate strategist and developer",
-  "problemStatement": "Inconsistent sales stages and weak forecasting reduced predictability and made resource planning harder.",
-  "solution": "Defined a standardized sales lifecycle, introduced role-based handoffs, and built dashboards for funnel health and weighted forecasting through the Zoho stack.",
-  "impact": "Improved pipeline visibility, shortened the sales cycle by around 20 percent, and strengthened coordination between business development and technical teams.",
-  "leadershipValue": "Created clearer commercial discipline by connecting stage definitions, forecasting logic, and handoff ownership into a shared operating rhythm.",
+  "summary": "Established a structured sales execution framework supported by performance dashboards to improve visibility and decision-making.",
+  "problemStatement": "Sales execution lacked standardization and consistent tracking, resulting in limited visibility into pipeline health and performance.",
+  "solution": "Designed a standardized sales execution framework, implemented dashboards to track pipeline, conversions, and activity, and introduced structured reporting mechanisms.",
+  "impact": "Improved visibility into sales performance, enabled data-driven decision-making, and increased execution consistency.",
+  "leadershipValue": "Strengthened revenue execution by introducing structure, measurement, and accountability.",
   "toolsUsed": [
     "Zoho CRM",
     "Zoho Creator",
@@ -16,14 +17,15 @@
     "HTML Snippets"
   ],
   "tags": [
-    "Revenue Operations",
-    "Forecasting",
-    "Dashboards"
+    "Sales Systems",
+    "Performance Tracking",
+    "Dashboards",
+    "Execution Discipline"
   ],
   "interactionFiles": [
     {
       "label": "Interactive case brief",
-      "description": "Review the commercial process redesign and the dashboard logic behind forecasting visibility.",
+      "description": "Review the sales execution model, reporting structure, and performance visibility approach.",
       "type": "Interactive HTML",
       "url": "/project-interactions/project-lens.html?project=sales-blueprint",
       "cta": "Open brief"

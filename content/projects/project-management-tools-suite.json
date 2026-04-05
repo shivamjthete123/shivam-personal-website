@@ -1,14 +1,15 @@
 {
   "id": "project-management-tools-suite",
-  "order": 2,
+  "order": 3,
   "featured": true,
-  "title": "Project Management Tools Suite",
+  "title": "Integrated Project Governance and Delivery System",
   "status": "Implemented",
   "role": "Solution designer and implementer",
-  "problemStatement": "Excel-based project controls created fragmented data, weak traceability, and low user adoption across teams.",
-  "solution": "Replaced legacy workflows with a connected suite of Zoho Creator tools, AI-assisted workflows, branded PDF exports, and structured project controls including communiques, communication matrix, technical query tracking, comment resolution, project summaries, lessons learned, and complaint management with SLA awareness.",
-  "impact": "Centralized operational data, improved accountability, accelerated issue resolution, and aligned teams around standardized project tracking.",
-  "leadershipValue": "Shifted project governance from isolated documents to a more dependable operating system with clearer ownership and repeatable control points.",
+  "summary": "Developed a standardized project management ecosystem to improve delivery consistency and execution visibility.",
+  "problemStatement": "Project execution lacked standardized processes, leading to inefficiencies and inconsistent outcomes.",
+  "solution": "Built structured tools for tracking, reporting, and documentation, standardized workflows across project lifecycle stages, and integrated issue tracking and knowledge systems.",
+  "impact": "Improved project tracking and transparency, increased delivery consistency, and enhanced coordination across teams.",
+  "leadershipValue": "Reflects capability in designing execution systems that scale across teams.",
   "toolsUsed": [
     "Zoho Creator",
     "Deluge",
@@ -18,13 +19,13 @@
   ],
   "tags": [
     "Project Governance",
-    "Operational Excellence",
-    "Automation"
+    "Delivery Systems",
+    "Execution Management"
   ],
   "interactionFiles": [
     {
       "label": "Interactive case brief",
-      "description": "Explore how fragmented delivery workflows were converted into a governed digital toolkit.",
+      "description": "Explore the governance model, project controls, and delivery workflow structure.",
       "type": "Interactive HTML",
       "url": "/project-interactions/project-lens.html?project=project-management-tools-suite",
       "cta": "Open brief"
