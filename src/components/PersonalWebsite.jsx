@@ -11,10 +11,10 @@ function Navigation({ name }) {
   ];
 
   return (
-    <header className="sticky top-0 z-30 border-b border-slate-200 bg-white/95 backdrop-blur">
+    <header className="sticky top-0 z-30 border-b border-slate-200 bg-white/95 backdrop-blur surface-soft">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-6 px-6 py-4 lg:px-8">
         <a href="#top" className="flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-full border border-amber-300 bg-white text-sm font-semibold text-amber-700">
+          <div className="flex h-10 w-10 items-center justify-center rounded-full border border-amber-300 bg-amber-50 text-sm font-semibold text-amber-700">
             ST
           </div>
           <div>
@@ -40,7 +40,7 @@ function ProjectListItem({ project, onSelect }) {
     <button
       type="button"
       onClick={onSelect}
-      className="w-full border-b border-slate-200 px-5 py-5 text-left transition last:border-b-0 hover:bg-slate-50"
+      className="surface-hover w-full border-b border-slate-200 px-5 py-5 text-left last:border-b-0 hover:bg-slate-50"
     >
       <div className="flex items-start justify-between gap-4">
         <div>
@@ -60,7 +60,9 @@ function ProjectListItem({ project, onSelect }) {
             </span>
           ))}
         </div>
-        <span className="text-sm font-semibold text-slate-950">Open</span>
+        <span className="text-sm font-semibold text-amber-700">
+          Open {project.projectItems.length > 1 ? `${project.projectItems.length} projects` : "project"}
+        </span>
       </div>
     </button>
   );
@@ -93,8 +95,8 @@ function CapabilityGroup({ group }) {
 }
 
 function ProjectDrawer({ project, onClose }) {
-  const primaryInteraction = project?.interactionFiles?.[0] ?? null;
-  const iframeUrl = primaryInteraction?.url?.startsWith("/") ? primaryInteraction.url : null;
+  const [activeProjectItemId, setActiveProjectItemId] = useState(project?.projectItems?.[0]?.id ?? null);
+  const [activeInteractionId, setActiveInteractionId] = useState(project?.projectItems?.[0]?.interactionFiles?.[0]?.id ?? null);
 
   useEffect(() => {
     if (!project) {
@@ -118,9 +120,29 @@ function ProjectDrawer({ project, onClose }) {
     };
   }, [onClose, project]);
 
+  useEffect(() => {
+    if (!project) {
+      setActiveProjectItemId(null);
+      setActiveInteractionId(null);
+      return;
+    }
+
+    const firstProjectItem = project.projectItems[0] ?? null;
+    setActiveProjectItemId(firstProjectItem?.id ?? null);
+    setActiveInteractionId(firstProjectItem?.interactionFiles?.[0]?.id ?? null);
+  }, [project]);
+
   if (!project) {
     return null;
   }
+
+  const activeProjectItem =
+    project.projectItems.find((item) => item.id === activeProjectItemId) ?? project.projectItems[0] ?? null;
+  const activeInteraction =
+    activeProjectItem?.interactionFiles.find((file) => file.id === activeInteractionId) ??
+    activeProjectItem?.interactionFiles[0] ??
+    null;
+  const iframeUrl = activeInteraction?.url?.startsWith("/") ? activeInteraction.url : null;
 
   return (
     <div className="fixed inset-0 z-40">
@@ -131,13 +153,15 @@ function ProjectDrawer({ project, onClose }) {
         onClick={onClose}
       />
 
-      <aside className="absolute right-0 top-0 flex h-full w-full max-w-3xl flex-col border-l border-slate-200 bg-white shadow-2xl">
+      <aside className="animate-slide-in absolute right-0 top-0 flex h-full w-full md:w-[80vw] md:max-w-none flex-col border-l border-slate-200 bg-white shadow-2xl">
         <div className="flex items-start justify-between gap-4 border-b border-slate-200 px-6 py-5">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.16em] text-amber-700">{project.status}</p>
             <h2 className="mt-2 text-2xl font-semibold text-slate-950">{project.title}</h2>
-            <p className="mt-2 text-xs uppercase tracking-[0.16em] text-slate-500">{project.role}</p>
-            {project.summary ? <p className="mt-3 max-w-2xl text-sm leading-6 text-slate-600">{project.summary}</p> : null}
+            <p className="mt-2 text-xs uppercase tracking-[0.16em] text-slate-500">
+              Project category{project.projectItems.length > 1 ? ` · ${project.projectItems.length} projects` : ""}
+            </p>
+            {project.summary ? <p className="mt-3 max-w-3xl text-sm leading-6 text-slate-600">{project.summary}</p> : null}
           </div>
 
           <button
@@ -150,79 +174,149 @@ function ProjectDrawer({ project, onClose }) {
         </div>
 
         <div className="flex-1 overflow-y-auto px-6 py-6">
-          <div className="grid gap-6">
-            <DetailBlock label="What was the business problem?" value={project.problemStatement} />
-            <DetailBlock label="What was the response?" value={project.solution} />
-            <DetailBlock label="What changed?" value={project.impact} />
-            <DetailBlock label="Why does it matter for leadership?" value={project.leadershipValue} />
-          </div>
-
-          <div className="mt-8 border-t border-slate-200 pt-6">
-            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">Tools used</p>
-            <div className="mt-3 flex flex-wrap gap-2">
-              {project.toolsUsed.map((tool) => (
-                <span key={tool} className="border border-slate-200 px-2 py-1 text-xs text-slate-600">
-                  {tool}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          <div className="mt-8 border-t border-slate-200 pt-6">
-            <div className="flex items-start justify-between gap-4">
+          <div className="grid gap-6 xl:grid-cols-[280px_minmax(0,1fr)]">
+            <div className="border border-slate-200 bg-slate-50">
+              <div className="border-b border-slate-200 px-4 py-4">
+                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">Projects in this category</p>
+              </div>
               <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">Interactive view</p>
-                <p className="mt-2 text-sm leading-6 text-slate-600">
-                  Use the panel below to interact with the project artifact without leaving the page.
-                </p>
+                {project.projectItems.map((item) => {
+                  const isActive = item.id === activeProjectItem?.id;
+
+                  return (
+            <button
+              key={item.id}
+              type="button"
+              onClick={() => {
+                setActiveProjectItemId(item.id);
+                setActiveInteractionId(item.interactionFiles[0]?.id ?? null);
+              }}
+              className={`w-full border-b border-slate-200 px-4 py-4 text-left transition last:border-b-0 ${
+                isActive ? "bg-white shadow-[inset_3px_0_0_0_rgb(245,158,11)]" : "hover:bg-white"
+              }`}
+            >
+                      <p className="text-sm font-semibold text-slate-950">{item.title}</p>
+                      {item.summary ? <p className="mt-2 text-sm leading-6 text-slate-600">{item.summary}</p> : null}
+                    </button>
+                  );
+                })}
               </div>
-              {primaryInteraction ? (
-                <a
-                  href={primaryInteraction.url}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-sm font-semibold text-amber-700 transition hover:text-amber-800"
-                >
-                  Open in new tab
-                </a>
-              ) : null}
             </div>
 
-            {iframeUrl ? (
-              <div className="mt-4 overflow-hidden border border-slate-200 bg-slate-50">
-                <iframe
-                  title={`${project.title} interaction`}
-                  src={iframeUrl}
-                  className="h-[420px] w-full border-0"
-                />
-              </div>
-            ) : (
-              <div className="mt-4 border border-dashed border-slate-300 bg-slate-50 p-5 text-sm leading-6 text-slate-600">
-                Add an HTML interaction asset in `public/project-interactions/` to preview it here.
-              </div>
-            )}
-          </div>
-
-          <div className="mt-8 border-t border-slate-200 pt-6">
-            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">Interaction files</p>
-            <div className="mt-3 grid gap-3">
-              {project.interactionFiles.map((file) => (
-                <a
-                  key={file.label}
-                  href={file.url}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="border border-slate-200 p-4 transition hover:border-slate-400 hover:bg-slate-50"
-                >
-                  <div className="flex items-start justify-between gap-4">
+            <div className="min-w-0">
+              {activeProjectItem ? (
+                <>
+                  <div className="grid gap-6">
                     <div>
-                      <p className="text-sm font-semibold text-slate-950">{file.label}</p>
-                      <p className="mt-2 text-sm leading-6 text-slate-600">{file.description}</p>
+                      <p className="text-xs font-semibold uppercase tracking-[0.16em] text-amber-700">Selected project</p>
+                      <h3 className="mt-2 text-xl font-semibold text-slate-950">{activeProjectItem.title}</h3>
+                      {activeProjectItem.summary ? (
+                        <p className="mt-3 max-w-3xl text-sm leading-6 text-slate-600">{activeProjectItem.summary}</p>
+                      ) : null}
                     </div>
-                    <span className="shrink-0 text-xs uppercase tracking-[0.14em] text-amber-700">{file.type}</span>
+
+                    <DetailBlock label="What was the business problem?" value={activeProjectItem.problemStatement} />
+                    <DetailBlock label="What was the response?" value={activeProjectItem.solution} />
+                    <DetailBlock label="What changed?" value={activeProjectItem.impact} />
+                    <DetailBlock label="Why does it matter for leadership?" value={activeProjectItem.leadershipValue} />
                   </div>
-                </a>
-              ))}
+
+                  <div className="mt-8 border-t border-slate-200 pt-6">
+                    <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">Tools used</p>
+                    <div className="mt-3 flex flex-wrap gap-2">
+                      {activeProjectItem.toolsUsed.map((tool) => (
+                        <span key={tool} className="border border-slate-200 px-2 py-1 text-xs text-slate-600">
+                          {tool}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="mt-8 border-t border-slate-200 pt-6">
+                    <div className="flex items-start justify-between gap-4">
+                      <div>
+                        <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">Interactive view</p>
+                        <p className="mt-2 text-sm leading-6 text-slate-600">
+                          Switch between interaction assets and preview them directly inside the drawer.
+                        </p>
+                      </div>
+                      {activeInteraction ? (
+                        <a
+                          href={activeInteraction.url}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="text-sm font-semibold text-amber-700 transition hover:text-amber-800"
+                        >
+                          Open in new tab
+                        </a>
+                      ) : null}
+                    </div>
+
+                    {activeProjectItem.interactionFiles.length > 1 ? (
+                      <div className="mt-4 flex flex-wrap gap-2">
+                        {activeProjectItem.interactionFiles.map((file) => {
+                          const isActive = file.id === activeInteraction?.id;
+
+                          return (
+                            <button
+                              key={file.id}
+                              type="button"
+                              onClick={() => setActiveInteractionId(file.id)}
+                          className={`border px-3 py-2 text-sm transition ${
+                            isActive
+                              ? "border-slate-900 bg-slate-900 text-white"
+                              : "border-slate-200 bg-white text-slate-700 hover:border-slate-400 hover:text-slate-950"
+                              }`}
+                            >
+                              {file.label}
+                            </button>
+                          );
+                        })}
+                      </div>
+                    ) : null}
+
+                    {iframeUrl ? (
+                      <div className="mt-4 overflow-hidden border border-slate-200 bg-slate-50">
+                        <iframe
+                          title={`${activeProjectItem.title} interaction`}
+                          src={iframeUrl}
+                          className="h-[70vh] min-h-[520px] w-full border-0"
+                        />
+                      </div>
+                    ) : (
+                      <div className="mt-4 border border-dashed border-slate-300 bg-slate-50 p-5 text-sm leading-6 text-slate-600">
+                        Add an HTML interaction asset in `public/project-interactions/` to preview it here.
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="mt-8 border-t border-slate-200 pt-6">
+                    <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">Interaction files</p>
+                    <div className="mt-3 grid gap-3">
+                      {activeProjectItem.interactionFiles.map((file) => (
+                        <button
+                          key={file.id}
+                          type="button"
+                          onClick={() => setActiveInteractionId(file.id)}
+                          className={`border p-4 text-left transition ${
+                            file.id === activeInteraction?.id
+                              ? "border-slate-900 bg-slate-50"
+                              : "border-slate-200 hover:border-slate-400 hover:bg-slate-50"
+                          }`}
+                        >
+                          <div className="flex items-start justify-between gap-4">
+                            <div>
+                              <p className="text-sm font-semibold text-slate-950">{file.label}</p>
+                              <p className="mt-2 text-sm leading-6 text-slate-600">{file.description}</p>
+                            </div>
+                            <span className="shrink-0 text-xs uppercase tracking-[0.14em] text-amber-700">{file.type}</span>
+                          </div>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                </>
+              ) : null}
             </div>
           </div>
         </div>
@@ -269,7 +363,7 @@ export default function PersonalWebsite() {
 
       <main id="top" className="mx-auto flex max-w-6xl flex-col gap-16 px-6 py-10 lg:px-8">
         <section className="grid gap-10 border-b border-slate-200 pb-12 lg:grid-cols-[1.2fr_0.8fr]">
-          <div>
+          <div className="animate-fade-up">
             <p className="text-xs font-semibold uppercase tracking-[0.16em] text-amber-700">{profile.title}</p>
             <h1 className="mt-4 max-w-4xl text-4xl font-semibold leading-tight text-slate-950 md:text-5xl">
               {profile.headline}
@@ -283,27 +377,27 @@ export default function PersonalWebsite() {
             </div>
 
             <div className="mt-6 flex flex-wrap gap-3">
-              <a href="#projects" className="bg-slate-950 px-4 py-3 text-sm font-semibold text-white transition hover:bg-slate-800">
+              <a href="#projects" className="surface-hover surface-soft bg-slate-950 px-4 py-3 text-sm font-semibold text-white hover:bg-slate-800">
                 Review projects
               </a>
               <a
                 href={profile.contact.linkedin}
                 target="_blank"
                 rel="noreferrer"
-                className="border border-slate-200 px-4 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-400 hover:text-slate-950"
+                className="surface-hover border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-slate-700 hover:border-slate-400 hover:text-slate-950"
               >
                 LinkedIn
               </a>
               <a
                 href={`mailto:${profile.contact.email}`}
-                className="border border-slate-200 px-4 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-400 hover:text-slate-950"
+                className="surface-hover border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-slate-700 hover:border-slate-400 hover:text-slate-950"
               >
                 Email
               </a>
             </div>
           </div>
 
-          <div className="grid gap-px border border-slate-200 bg-slate-200">
+          <div className="animate-fade-up grid gap-px border border-slate-200 bg-slate-200 surface-soft">
             <div className="bg-white p-4">
               <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">Target roles</p>
               <div className="mt-3 flex flex-wrap gap-2">
@@ -324,7 +418,7 @@ export default function PersonalWebsite() {
           </div>
         </section>
 
-        <section id="about" className="grid gap-6">
+        <section id="about" className="grid gap-6 animate-fade-up">
           <SectionHeading
             eyebrow="How I Operate"
             title="The sequencing is designed to answer the most important questions early."
@@ -332,7 +426,7 @@ export default function PersonalWebsite() {
           />
 
           <div className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
-            <div className="border border-slate-200 bg-white p-5">
+            <div className="border border-slate-200 bg-white p-5 surface-soft">
               <p className="text-sm font-semibold text-slate-950">What I focus on</p>
               <ul className="mt-4 space-y-3">
                 {profile.focusAreas.map((item) => (
@@ -344,7 +438,7 @@ export default function PersonalWebsite() {
               </ul>
             </div>
 
-            <div className="border border-slate-200 bg-white">
+            <div className="border border-slate-200 bg-white surface-soft">
               {profile.workMethod.map((step, index) => (
                 <div
                   key={step.title}
@@ -363,7 +457,7 @@ export default function PersonalWebsite() {
           </div>
         </section>
 
-        <section id="projects" className="grid gap-6">
+        <section id="projects" className="grid gap-6 animate-fade-up">
           <SectionHeading
             eyebrow="Projects"
             title="Select a project to open a focused interaction drawer."
@@ -372,14 +466,14 @@ export default function PersonalWebsite() {
 
           <FilterPills items={availableTags} activeItem={activeTag} onSelect={setActiveTag} />
 
-          <div className="border border-slate-200 bg-white">
+          <div className="border border-slate-200 bg-white surface-soft">
             {filteredProjects.map((project) => (
               <ProjectListItem key={project.id} project={project} onSelect={() => setDrawerProjectId(project.id)} />
             ))}
           </div>
         </section>
 
-        <section id="skills" className="grid gap-6">
+        <section id="skills" className="grid gap-6 animate-fade-up">
           <SectionHeading
             eyebrow="Capabilities"
             title="Supporting strengths kept concise."
@@ -388,12 +482,14 @@ export default function PersonalWebsite() {
 
           <div className="grid gap-6 lg:grid-cols-2">
             {skillGroups.map((group) => (
-              <CapabilityGroup key={group.id} group={group} />
+              <div key={group.id} className="surface-soft surface-hover">
+                <CapabilityGroup group={group} />
+              </div>
             ))}
           </div>
         </section>
 
-        <section id="contact" className="border-t border-slate-200 pt-8">
+        <section id="contact" className="animate-fade-up border-t border-slate-200 pt-8">
           <SectionHeading
             eyebrow="Contact"
             title="Open to leadership and transformation conversations."
