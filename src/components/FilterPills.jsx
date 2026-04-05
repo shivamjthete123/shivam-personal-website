@@ -11,8 +11,8 @@ export default function FilterPills({ items, activeItem, onSelect }) {
             onClick={() => onSelect(item)}
             className={`rounded-full border px-4 py-2 text-sm font-medium transition ${
               isActive
-                ? "border-amber-700 bg-amber-700 text-white shadow-sm"
-                : "border-stone-300 bg-white/90 text-slate-600 hover:border-amber-300 hover:text-slate-900"
+                ? "border-slate-900 bg-slate-900 text-white"
+                : "border-slate-200 bg-white text-slate-600 hover:border-slate-400 hover:text-slate-900"
             }`}
           >
             {item}

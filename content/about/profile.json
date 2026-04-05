@@ -26,7 +26,7 @@
   "metrics": [
     {
       "value": "Cross-functional",
-      "label": "Initiatives spanning commercial and internal operations"
+      "label": "Leadership work spanning commercial and internal operations"
     },
     {
       "value": "Outcome-led",
@@ -40,6 +40,11 @@
       "value": "Leadership-ready",
       "label": "Portfolio positioned for business transformation roles"
     }
+  ],
+  "targetRoles": [
+    "Strategic Development Leadership",
+    "Business Transformation",
+    "Chief Executive Track Roles"
   ],
   "focusAreas": [
     "Translate leadership priorities into process architecture and delivery plans.",
@@ -62,6 +67,47 @@
     {
       "title": "Embed",
       "description": "Drive rollout, team usage, and business measurement after launch."
+    }
+  ],
+  "audienceGuides": [
+    {
+      "id": "hr",
+      "label": "HR",
+      "question": "Is this profile relevant for a leadership hiring process?",
+      "summary": "This lens highlights role fit, cross-functional breadth, and the consistency of leadership themes across the portfolio.",
+      "lookFor": [
+        "Target roles and leadership positioning",
+        "Cross-functional scope across sales, finance, HR, and delivery",
+        "Clear evidence that the profile is business-oriented rather than purely technical"
+      ],
+      "startHere": "Review the executive snapshot, then scan featured projects for business impact.",
+      "jumpTo": "#projects"
+    },
+    {
+      "id": "hiring-manager",
+      "label": "Hiring Manager",
+      "question": "Can this person diagnose problems, build systems, and drive execution?",
+      "summary": "This lens focuses on operating method, project framing, and whether the work shows ownership from problem definition through implementation.",
+      "lookFor": [
+        "How problems are translated into process and system responses",
+        "Whether projects show measurable outcomes and adoption thinking",
+        "Evidence of execution discipline, not just ideas"
+      ],
+      "startHere": "Use the project explorer to open one project at a time and compare challenge, response, and impact.",
+      "jumpTo": "#projects"
+    },
+    {
+      "id": "business-leader",
+      "label": "Business Leader",
+      "question": "Does this portfolio show strategic judgment and operating leverage?",
+      "summary": "This lens surfaces the business value of the work: visibility, governance, forecasting, utilization, margin awareness, and scalability.",
+      "lookFor": [
+        "Whether the work improves decision quality for leadership",
+        "How systems create operational leverage and reporting visibility",
+        "Patterns that suggest transformation potential across functions"
+      ],
+      "startHere": "Scan the outcome metrics first, then review projects through the leadership value section.",
+      "jumpTo": "#about"
     }
   ]
 }
