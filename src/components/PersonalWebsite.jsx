@@ -5,7 +5,6 @@ import SectionHeading from "./SectionHeading";
 
 function Navigation({ name }) {
   const links = [
-    { href: "#guide", label: "Guide" },
     { href: "#projects", label: "Projects" },
     { href: "#skills", label: "Capabilities" },
     { href: "#contact", label: "Contact" },
@@ -45,81 +44,12 @@ function MetricCard({ value, label }) {
   );
 }
 
-function AudienceGuide({ guides, activeGuideId, onChange }) {
-  const activeGuide = guides.find((guide) => guide.id === activeGuideId) ?? guides[0];
-
-  return (
-    <section id="guide" className="grid gap-6">
-      <SectionHeading
-        eyebrow="Quick Guide"
-        title="Start from the question you want answered."
-        description="The page is structured so different visitors can get to the relevant signal quickly instead of reading everything in order."
-      />
-
-      <div className="grid gap-5 lg:grid-cols-[220px_1fr]">
-        <div className="flex flex-wrap gap-2 lg:flex-col">
-          {guides.map((guide) => {
-            const isActive = guide.id === activeGuide.id;
-
-            return (
-              <button
-                key={guide.id}
-                type="button"
-                onClick={() => onChange(guide.id)}
-                className={`border px-4 py-3 text-left text-sm transition ${
-                  isActive
-                    ? "border-slate-900 bg-slate-900 text-white"
-                    : "border-slate-200 bg-white text-slate-700 hover:border-slate-400 hover:text-slate-950"
-                }`}
-              >
-                {guide.label}
-              </button>
-            );
-          })}
-        </div>
-
-        <div className="border border-slate-200 bg-slate-50 p-6">
-          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-amber-700">{activeGuide.question}</p>
-          <p className="mt-3 max-w-3xl text-sm leading-7 text-slate-600">{activeGuide.summary}</p>
-
-          <div className="mt-6 grid gap-6 md:grid-cols-2">
-            <div>
-              <p className="text-sm font-semibold text-slate-950">What to look for</p>
-              <ul className="mt-3 space-y-3">
-                {activeGuide.lookFor.map((item) => (
-                  <li key={item} className="flex gap-3 text-sm leading-6 text-slate-600">
-                    <span className="mt-2 h-1.5 w-1.5 rounded-full bg-amber-700" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="border border-slate-200 bg-white p-4">
-              <p className="text-sm font-semibold text-slate-950">Suggested path</p>
-              <p className="mt-3 text-sm leading-6 text-slate-600">{activeGuide.startHere}</p>
-              <a
-                href={activeGuide.jumpTo}
-                className="mt-4 inline-flex text-sm font-semibold text-amber-700 transition hover:text-amber-800"
-              >
-                Jump to section
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function ProjectListItem({ project, selected, onSelect }) {
+function ProjectListItem({ project, onSelect }) {
   return (
     <button
       type="button"
       onClick={onSelect}
-      className={`w-full border-b border-slate-200 px-5 py-5 text-left transition last:border-b-0 ${
-        selected ? "bg-slate-50" : "bg-white hover:bg-slate-50"
-      }`}
+      className="w-full border-b border-slate-200 px-5 py-5 text-left transition last:border-b-0 hover:bg-slate-50"
     >
       <div className="flex items-start justify-between gap-4">
         <div>
@@ -131,12 +61,15 @@ function ProjectListItem({ project, selected, onSelect }) {
 
       <p className="mt-3 text-sm leading-6 text-slate-600">{project.impact}</p>
 
-      <div className="mt-3 flex flex-wrap gap-2">
-        {project.tags.slice(0, 3).map((tag) => (
-          <span key={tag} className="border border-slate-200 px-2 py-1 text-xs text-slate-500">
-            {tag}
-          </span>
-        ))}
+      <div className="mt-4 flex items-center justify-between gap-4">
+        <div className="flex flex-wrap gap-2">
+          {project.tags.slice(0, 3).map((tag) => (
+            <span key={tag} className="border border-slate-200 px-2 py-1 text-xs text-slate-500">
+              {tag}
+            </span>
+          ))}
+        </div>
+        <span className="text-sm font-semibold text-slate-950">Open</span>
       </div>
     </button>
   );
@@ -168,11 +101,148 @@ function CapabilityGroup({ group }) {
   );
 }
 
+function ProjectDrawer({ project, onClose }) {
+  const primaryInteraction = project?.interactionFiles?.[0] ?? null;
+  const iframeUrl = primaryInteraction?.url?.startsWith("/") ? primaryInteraction.url : null;
+
+  useEffect(() => {
+    if (!project) {
+      return undefined;
+    }
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    const onKeyDown = (event) => {
+      if (event.key === "Escape") {
+        onClose();
+      }
+    };
+
+    window.addEventListener("keydown", onKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", onKeyDown);
+    };
+  }, [onClose, project]);
+
+  if (!project) {
+    return null;
+  }
+
+  return (
+    <div className="fixed inset-0 z-40">
+      <button
+        type="button"
+        aria-label="Close project drawer"
+        className="absolute inset-0 bg-slate-950/30"
+        onClick={onClose}
+      />
+
+      <aside className="absolute right-0 top-0 flex h-full w-full max-w-3xl flex-col border-l border-slate-200 bg-white shadow-2xl">
+        <div className="flex items-start justify-between gap-4 border-b border-slate-200 px-6 py-5">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-amber-700">{project.status}</p>
+            <h2 className="mt-2 text-2xl font-semibold text-slate-950">{project.title}</h2>
+            <p className="mt-2 text-xs uppercase tracking-[0.16em] text-slate-500">{project.role}</p>
+          </div>
+
+          <button
+            type="button"
+            onClick={onClose}
+            className="border border-slate-200 px-3 py-2 text-sm text-slate-600 transition hover:border-slate-400 hover:text-slate-950"
+          >
+            Close
+          </button>
+        </div>
+
+        <div className="flex-1 overflow-y-auto px-6 py-6">
+          <div className="grid gap-6">
+            <DetailBlock label="What was the business problem?" value={project.problemStatement} />
+            <DetailBlock label="What was the response?" value={project.solution} />
+            <DetailBlock label="What changed?" value={project.impact} />
+            <DetailBlock label="Why does it matter for leadership?" value={project.leadershipValue} />
+          </div>
+
+          <div className="mt-8 border-t border-slate-200 pt-6">
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">Tools used</p>
+            <div className="mt-3 flex flex-wrap gap-2">
+              {project.toolsUsed.map((tool) => (
+                <span key={tool} className="border border-slate-200 px-2 py-1 text-xs text-slate-600">
+                  {tool}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-8 border-t border-slate-200 pt-6">
+            <div className="flex items-start justify-between gap-4">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">Interactive view</p>
+                <p className="mt-2 text-sm leading-6 text-slate-600">
+                  Use the panel below to interact with the project artifact without leaving the page.
+                </p>
+              </div>
+              {primaryInteraction ? (
+                <a
+                  href={primaryInteraction.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-sm font-semibold text-amber-700 transition hover:text-amber-800"
+                >
+                  Open in new tab
+                </a>
+              ) : null}
+            </div>
+
+            {iframeUrl ? (
+              <div className="mt-4 overflow-hidden border border-slate-200 bg-slate-50">
+                <iframe
+                  title={`${project.title} interaction`}
+                  src={iframeUrl}
+                  className="h-[420px] w-full border-0"
+                />
+              </div>
+            ) : (
+              <div className="mt-4 border border-dashed border-slate-300 bg-slate-50 p-5 text-sm leading-6 text-slate-600">
+                Add an HTML interaction asset in `public/project-interactions/` to preview it here.
+              </div>
+            )}
+          </div>
+
+          <div className="mt-8 border-t border-slate-200 pt-6">
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">Interaction files</p>
+            <div className="mt-3 grid gap-3">
+              {project.interactionFiles.map((file) => (
+                <a
+                  key={file.label}
+                  href={file.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="border border-slate-200 p-4 transition hover:border-slate-400 hover:bg-slate-50"
+                >
+                  <div className="flex items-start justify-between gap-4">
+                    <div>
+                      <p className="text-sm font-semibold text-slate-950">{file.label}</p>
+                      <p className="mt-2 text-sm leading-6 text-slate-600">{file.description}</p>
+                    </div>
+                    <span className="shrink-0 text-xs uppercase tracking-[0.14em] text-amber-700">{file.type}</span>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  );
+}
+
 export default function PersonalWebsite() {
   const { profile, projects, skillGroups } = siteContent;
-  const [activeGuideId, setActiveGuideId] = useState(profile.audienceGuides[0]?.id ?? "hr");
   const [activeTag, setActiveTag] = useState("All");
-  const [selectedProjectId, setSelectedProjectId] = useState(projects[0]?.id ?? null);
+  const [drawerProjectId, setDrawerProjectId] = useState(null);
 
   const availableTags = useMemo(
     () => ["All", ...new Set(projects.flatMap((project) => project.tags))],
@@ -188,20 +258,18 @@ export default function PersonalWebsite() {
   }, [activeTag, projects]);
 
   useEffect(() => {
-    if (!filteredProjects.length) {
-      setSelectedProjectId(null);
+    if (!drawerProjectId) {
       return;
     }
 
-    const hasSelectedProject = filteredProjects.some((project) => project.id === selectedProjectId);
+    const drawerProjectStillVisible = filteredProjects.some((project) => project.id === drawerProjectId);
 
-    if (!hasSelectedProject) {
-      setSelectedProjectId(filteredProjects[0].id);
+    if (!drawerProjectStillVisible) {
+      setDrawerProjectId(null);
     }
-  }, [filteredProjects, selectedProjectId]);
+  }, [drawerProjectId, filteredProjects]);
 
-  const selectedProject =
-    filteredProjects.find((project) => project.id === selectedProjectId) ?? filteredProjects[0] ?? null;
+  const drawerProject = filteredProjects.find((project) => project.id === drawerProjectId) ?? null;
 
   return (
     <div className="min-h-screen bg-white text-slate-900">
@@ -264,13 +332,11 @@ export default function PersonalWebsite() {
           ))}
         </section>
 
-        <AudienceGuide guides={profile.audienceGuides} activeGuideId={activeGuideId} onChange={setActiveGuideId} />
-
         <section id="about" className="grid gap-6">
           <SectionHeading
             eyebrow="How I Operate"
-            title="The work is built around diagnosis, systems, and measurable outcomes."
-            description="This section is intentionally concise so a visitor can understand the operating pattern quickly before going deeper into projects."
+            title="The sequencing is designed to answer the most important questions early."
+            description="Visitors first see positioning, role fit, and executive signals. Then they move into focused project evidence and supporting capabilities."
           />
 
           <div className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
@@ -308,82 +374,16 @@ export default function PersonalWebsite() {
         <section id="projects" className="grid gap-6">
           <SectionHeading
             eyebrow="Projects"
-            title="Open one project at a time and compare challenge, response, and impact."
-            description="The layout below is designed to be data-rich but easy to scan. Browse the list on the left, then review the selected project in the detail panel."
+            title="Select a project to open a focused interaction drawer."
+            description="This keeps the page itself compact while still giving each project enough space for detail, interaction, and supporting files."
           />
 
           <FilterPills items={availableTags} activeItem={activeTag} onSelect={setActiveTag} />
 
-          <div className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
-            <div className="border border-slate-200 bg-white">
-              {filteredProjects.map((project) => (
-                <ProjectListItem
-                  key={project.id}
-                  project={project}
-                  selected={selectedProject?.id === project.id}
-                  onSelect={() => setSelectedProjectId(project.id)}
-                />
-              ))}
-            </div>
-
-            <div className="border border-slate-200 bg-white p-6 lg:sticky lg:top-24">
-              {selectedProject ? (
-                <>
-                  <div className="flex flex-wrap items-start justify-between gap-4">
-                    <div>
-                      <h3 className="text-2xl font-semibold text-slate-950">{selectedProject.title}</h3>
-                      <p className="mt-2 text-xs uppercase tracking-[0.16em] text-slate-500">{selectedProject.role}</p>
-                    </div>
-                    <span className="border border-amber-200 bg-amber-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-amber-700">
-                      {selectedProject.status}
-                    </span>
-                  </div>
-
-                  <div className="mt-6 grid gap-6">
-                    <DetailBlock label="What was the business problem?" value={selectedProject.problemStatement} />
-                    <DetailBlock label="What was the response?" value={selectedProject.solution} />
-                    <DetailBlock label="What changed?" value={selectedProject.impact} />
-                    <DetailBlock label="Why does it matter for leadership?" value={selectedProject.leadershipValue} />
-                  </div>
-
-                  <div className="mt-6 border-t border-slate-200 pt-5">
-                    <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">Tools used</p>
-                    <div className="mt-3 flex flex-wrap gap-2">
-                      {selectedProject.toolsUsed.map((tool) => (
-                        <span key={tool} className="border border-slate-200 px-2 py-1 text-xs text-slate-600">
-                          {tool}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="mt-6 border-t border-slate-200 pt-5">
-                    <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">Interaction files</p>
-                    <div className="mt-3 grid gap-3">
-                      {selectedProject.interactionFiles.map((file) => (
-                        <a
-                          key={file.label}
-                          href={file.url}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="border border-slate-200 p-4 transition hover:border-slate-400 hover:bg-slate-50"
-                        >
-                          <div className="flex items-start justify-between gap-4">
-                            <div>
-                              <p className="text-sm font-semibold text-slate-950">{file.label}</p>
-                              <p className="mt-2 text-sm leading-6 text-slate-600">{file.description}</p>
-                            </div>
-                            <span className="shrink-0 text-xs uppercase tracking-[0.14em] text-amber-700">{file.type}</span>
-                          </div>
-                        </a>
-                      ))}
-                    </div>
-                  </div>
-                </>
-              ) : (
-                <p className="text-sm text-slate-600">No projects match the selected filter.</p>
-              )}
-            </div>
+          <div className="border border-slate-200 bg-white">
+            {filteredProjects.map((project) => (
+              <ProjectListItem key={project.id} project={project} onSelect={() => setDrawerProjectId(project.id)} />
+            ))}
           </div>
         </section>
 
@@ -423,6 +423,8 @@ export default function PersonalWebsite() {
       <footer className="border-t border-slate-200 px-6 py-8 text-center text-sm text-slate-500 lg:px-8">
         Copyright {new Date().getFullYear()} {profile.name}
       </footer>
+
+      <ProjectDrawer project={drawerProject} onClose={() => setDrawerProjectId(null)} />
     </div>
   );
 }
