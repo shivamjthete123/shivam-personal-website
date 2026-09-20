@@ -6,7 +6,7 @@ Email: [shivamjthete123@gmail.com](mailto:shivamjthete123@gmail.com) | Phone: +9
 
 ## EXECUTIVE SUMMARY
 
-Disciplined, system-minded Strategic Operations Executive with a Mechanical Engineering foundation and 3+ years of enterprise experience building digital process automations across finance, sales, project delivery, and HR. Guided by a pragmatic problem-solving mindset that treats operational friction as a system challenge — transforming manual, spreadsheet-heavy workflows into automated, auditable processes and transparent executive dashboards. My goal is to lead high-impact business transformations that align executive vision with frontline execution to build accountable, data-backed operating environments.
+Disciplined, system-minded Strategic Operations Executive with a Mechanical Engineering foundation and 4+ years of enterprise experience building digital process automations across finance, sales, project delivery, and HR. Guided by a pragmatic problem-solving mindset that treats operational friction as a system challenge — transforming manual, spreadsheet-heavy workflows into automated, auditable processes and transparent executive dashboards. My goal is to lead high-impact business transformations that align executive vision with frontline execution to build accountable, data-backed operating environments.
 
 ---
 
@@ -25,7 +25,7 @@ Disciplined, system-minded Strategic Operations Executive with a Mechanical Engi
 ## PROFESSIONAL EXPERIENCE
 
 ### Strategic Development Executive
-**SqurrEnergy** | Pune, India | Jul 2023 – Present (3+ years)
+**SqurrEnergy** | Pune, India | Jul 2023 – Present (4+ years)
 
 - Designed and deployed end-to-end digital process automations across finance, HR, sales, project delivery, and operations using the Zoho One ecosystem.
 - Built **Project Pulse**, a real-time project profitability and budget burn-rate dashboard (BV Pulse architecture) that saved an estimated **191.25 hours monthly across 45 users** by replacing manual Excel consolidation.

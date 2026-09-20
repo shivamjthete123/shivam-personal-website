@@ -25,7 +25,7 @@ Strategic Development Executive | Systems & Process Automation Leader
 Email: shivamjthete123@gmail.com | Phone: +91-8263045370 | LinkedIn: https://www.linkedin.com/in/shivamjthete/ | Website: https://shivam-personal-website.vercel.app/ | Location: Pune, India
 
 EXECUTIVE SUMMARY
-Disciplined, system-minded Strategic Operations Executive with a Mechanical Engineering foundation and 3+ years of enterprise experience building digital process automations across finance, sales, project delivery, and HR. Guided by a pragmatic problem-solving mindset that treats operational friction as a system challenge — transforming manual, spreadsheet-heavy workflows into automated, auditable processes and transparent executive dashboards. My goal is to lead high-impact business transformations that align executive vision with frontline execution to build accountable, data-backed operating environments.
+Disciplined, system-minded Strategic Operations Executive with a Mechanical Engineering foundation and 4+ years of enterprise experience building digital process automations across finance, sales, project delivery, and HR. Guided by a pragmatic problem-solving mindset that treats operational friction as a system challenge — transforming manual, spreadsheet-heavy workflows into automated, auditable processes and transparent executive dashboards. My goal is to lead high-impact business transformations that align executive vision with frontline execution to build accountable, data-backed operating environments.
 
 CORE COMPETENCIES & KEYWORDS
 - Process Automation & Operations: Business Process Automation, Revenue Operations (RevOps), Commercial Workflows, Financial Controls, Cash Flow Forecasting, Shared Cost Allocation.
@@ -246,7 +246,7 @@ EDUCATION & GLOBAL CERTIFICATIONS
 
     // 1. Executive Summary
     renderSectionHeader("Executive Summary");
-    renderParagraph("Disciplined, system-minded Strategic Operations Executive with a Mechanical Engineering foundation and 3+ years of enterprise experience building digital process automations across finance, sales, project delivery, and HR. Guided by a pragmatic problem-solving mindset that treats operational friction as a system challenge — transforming manual, spreadsheet-heavy workflows into automated, auditable processes and transparent executive dashboards. My goal is to lead high-impact business transformations that align executive vision with frontline execution to build accountable, data-backed operating environments.");
+    renderParagraph("Disciplined, system-minded Strategic Operations Executive with a Mechanical Engineering foundation and 4+ years of enterprise experience building digital process automations across finance, sales, project delivery, and HR. Guided by a pragmatic problem-solving mindset that treats operational friction as a system challenge — transforming manual, spreadsheet-heavy workflows into automated, auditable processes and transparent executive dashboards. My goal is to lead high-impact business transformations that align executive vision with frontline execution to build accountable, data-backed operating environments.");
 
     // 2. Core Competencies
     renderSectionHeader("Core Competencies");
@@ -258,7 +258,7 @@ EDUCATION & GLOBAL CERTIFICATIONS
 
     // 3. Professional Experience
     renderSectionHeader("Professional Experience");
-    renderJob("SqurrEnergy | Strategic Development Executive", "Jul 2023 – Present (3+ yrs)", [
+    renderJob("SqurrEnergy | Strategic Development Executive", "Jul 2023 – Present (4+ yrs)", [
       "Designed and deployed digital process automations across finance, HR, sales, project delivery, and operations using the Zoho One ecosystem.",
       "Built Project Pulse, a real-time project profitability and budget burn-rate dashboard (BV Pulse architecture) saving an estimated 191.25 hours monthly across 45 users.",
       "Automated commercial pipeline in Zoho CRM from lead qualification to SOW generation and invoice sync, saving ~15 hours per month across 6 core users.",
@@ -470,7 +470,7 @@ EDUCATION & GLOBAL CERTIFICATIONS
               EXECUTIVE SUMMARY
             </h2>
             <p className="mt-2.5 text-xs leading-relaxed text-slate-800">
-              Disciplined, system-minded Strategic Operations Executive with a Mechanical Engineering foundation and 3+ years of enterprise experience building digital process automations across finance, sales, project delivery, and HR. Guided by a pragmatic problem-solving mindset that treats operational friction as a system challenge — transforming manual, spreadsheet-heavy workflows into automated, auditable processes and transparent executive dashboards. My goal is to lead high-impact business transformations that align executive vision with frontline execution to build accountable, data-backed operating environments.
+              Disciplined, system-minded Strategic Operations Executive with a Mechanical Engineering foundation and 4+ years of enterprise experience building digital process automations across finance, sales, project delivery, and HR. Guided by a pragmatic problem-solving mindset that treats operational friction as a system challenge — transforming manual, spreadsheet-heavy workflows into automated, auditable processes and transparent executive dashboards. My goal is to lead high-impact business transformations that align executive vision with frontline execution to build accountable, data-backed operating environments.
             </p>
           </section>
 
@@ -500,7 +500,7 @@ EDUCATION & GLOBAL CERTIFICATIONS
               <div className="ats-job-item">
                 <div className="flex justify-between font-bold text-slate-950">
                   <span>SqurrEnergy | Strategic Development Executive</span>
-                  <span className="text-slate-600 font-normal">Jul 2023 – Present (3+ years)</span>
+                  <span className="text-slate-600 font-normal">Jul 2023 – Present (4+ years)</span>
                 </div>
                 <ul className="mt-1 list-disc pl-4 space-y-1 text-slate-700">
                   <li>Designed and deployed digital process automations across finance, HR, sales, project delivery, and operations using the Zoho One ecosystem.</li>

@@ -55,7 +55,7 @@ Ensure your job titles, company names, and dates match your website and resume.
 
 ### 🏢 SqurrEnergy
 **Title**: Strategic Development Executive  
-**Dates**: Jul 2023 – Present (3+ years)  
+**Dates**: Jul 2023 – Present (4+ years)  
 **Location**: Pune, Maharashtra, India (On-site)  
 
 **Description / Bullet Points:**
