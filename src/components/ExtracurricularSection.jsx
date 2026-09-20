@@ -3,6 +3,7 @@ import SectionHeading from "./SectionHeading";
 export default function ExtracurricularSection() {
   const activities = [
     {
+      id: "extracurricular-community",
       title: "Prayas Youth Forum – Rural Computer Literacy Camp",
       period: "2016, 2017, 2018 (3 Years)",
       category: "Digital Literacy & Community Outreach",
@@ -35,6 +36,7 @@ export default function ExtracurricularSection() {
       badge: "STEM Mentorship",
     },
     {
+      id: "extracurricular-robotics",
       title: "Mechanical Team Lead – Team Vector (ABU Robocon)",
       period: "2016, 2017, 2018",
       category: "Engineering Leadership & Robotics",
@@ -53,7 +55,7 @@ export default function ExtracurricularSection() {
   ];
 
   return (
-    <section id="extracurricular" aria-labelledby="extracurricular-title" className="border-t border-slate-200 bg-slate-50/70">
+    <section id="extracurricular" aria-labelledby="extracurricular-title" className="border-t border-slate-200 bg-slate-50/70 min-h-[90vh] flex flex-col justify-center scroll-snap-section">
       <div className="mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-20" data-reveal-container>
         <SectionHeading
           id="extracurricular-title"
@@ -66,9 +68,10 @@ export default function ExtracurricularSection() {
           {activities.map((act, index) => (
             <article
               key={index}
+              id={act.id}
               data-reveal
               style={{ transitionDelay: `${index * 80}ms` }}
-              className="flex flex-col justify-between rounded-xl border border-slate-200/80 bg-white p-6 shadow-sm hover:shadow-lg hover:border-amber-500/40 hover:-translate-y-1 transition duration-300 group"
+              className="flex flex-col justify-between rounded-xl border border-slate-200/80 bg-white p-6 shadow-sm hover:shadow-lg hover:border-amber-500/40 hover:-translate-y-1 transition duration-300 group scroll-snap-section"
             >
               <div>
                 <div className="flex items-center justify-between gap-2">

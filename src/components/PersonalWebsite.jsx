@@ -56,8 +56,8 @@ const navigationTree = [
     href: "#extracurricular",
     icon: "🏆",
     subtabs: [
-      { id: "extracurricular-community", label: "Prayas Computer Literacy", href: "#extracurricular" },
-      { id: "extracurricular-robotics", label: "Team Vector Robotics", href: "#extracurricular" },
+      { id: "extracurricular-community", label: "Prayas Computer Literacy", href: "#extracurricular-community" },
+      { id: "extracurricular-robotics", label: "Team Vector Robotics", href: "#extracurricular-robotics" },
     ]
   },
   {
@@ -70,17 +70,25 @@ const navigationTree = [
 ];
 
 function SidebarNavigation({ name, title, linkedin, email, phone, onOpenAtsResume, onSelectFilter }) {
-  const [activeSection, setActiveSection] = useState("top");
+  const [activeId, setActiveId] = useState("top");
   const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
 
-  // Active section scroll spy
+  // Two-way scroll spy handler tracking both main sections and subtabs
   useEffect(() => {
+    // Gather all target element IDs
+    const allIds = [];
+    navigationTree.forEach((item) => {
+      allIds.push(item.id);
+      item.subtabs.forEach((sub) => allIds.push(sub.id));
+    });
+
     const handleScroll = () => {
-      const scrollPosition = window.scrollY + 250;
-      for (let i = navigationTree.length - 1; i >= 0; i--) {
-        const section = document.getElementById(navigationTree[i].id);
-        if (section && section.offsetTop <= scrollPosition) {
-          setActiveSection(navigationTree[i].id);
+      const scrollPosition = window.scrollY + 220;
+
+      for (let i = allIds.length - 1; i >= 0; i--) {
+        const elem = document.getElementById(allIds[i]);
+        if (elem && elem.offsetTop <= scrollPosition) {
+          setActiveId(allIds[i]);
           break;
         }
       }
@@ -89,6 +97,18 @@ function SidebarNavigation({ name, title, linkedin, email, phone, onOpenAtsResum
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const handleNavClick = (e, targetId, filter) => {
+    e.preventDefault();
+    if (filter) onSelectFilter(filter);
+    
+    const elem = document.getElementById(targetId);
+    if (elem) {
+      elem.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+    setActiveId(targetId);
+    setMobileDrawerOpen(false);
+  };
 
   const navContent = (
     <div className="flex flex-col h-full justify-between overflow-y-auto pr-1">
@@ -114,16 +134,16 @@ function SidebarNavigation({ name, title, linkedin, email, phone, onOpenAtsResum
           <p className="px-2 text-[10px] font-extrabold uppercase tracking-[0.2em] text-slate-400">Navigation Tree</p>
           
           {navigationTree.map((item) => {
-            const isMainActive = activeSection === item.id;
+            const isParentActive = activeId === item.id || item.subtabs.some((s) => s.id === activeId);
 
             return (
               <div key={item.id} className="space-y-1">
                 {/* Main Category Tab */}
                 <a
                   href={item.href}
-                  onClick={() => setMobileDrawerOpen(false)}
-                  className={`group flex items-center justify-between rounded-xl px-3 py-2 text-xs font-bold transition-all duration-200 ${
-                    isMainActive
+                  onClick={(e) => handleNavClick(e, item.id)}
+                  className={`group flex items-center justify-between rounded-xl px-3 py-2 text-xs font-bold transition-all duration-250 ${
+                    isParentActive
                       ? "bg-amber-500/15 text-amber-300 border-l-4 border-amber-500 shadow-inner"
                       : "text-slate-300 hover:bg-slate-900 hover:text-white"
                   }`}
@@ -132,25 +152,29 @@ function SidebarNavigation({ name, title, linkedin, email, phone, onOpenAtsResum
                     <span className="text-xs">{item.icon}</span>
                     <span>{item.label}</span>
                   </span>
-                  <span className={`h-1.5 w-1.5 rounded-full transition-all duration-200 ${isMainActive ? "bg-amber-400 shadow-sm shadow-amber-400" : "bg-transparent group-hover:bg-slate-600"}`} />
+                  <span className={`h-1.5 w-1.5 rounded-full transition-all duration-200 ${isParentActive ? "bg-amber-400 shadow-sm shadow-amber-400 scale-125" : "bg-transparent group-hover:bg-slate-600"}`} />
                 </a>
 
                 {/* Sub-tabs List */}
                 {item.subtabs.length > 0 && (
-                  <div className="pl-6 space-y-1 border-l border-slate-800/80 ml-3">
-                    {item.subtabs.map((sub) => (
-                      <a
-                        key={sub.id}
-                        href={sub.href}
-                        onClick={() => {
-                          if (sub.filter) onSelectFilter(sub.filter);
-                          setMobileDrawerOpen(false);
-                        }}
-                        className="block rounded-lg px-2.5 py-1.5 text-[11px] font-medium text-slate-400 hover:bg-slate-900/80 hover:text-amber-300 transition duration-150 truncate"
-                      >
-                        • {sub.label}
-                      </a>
-                    ))}
+                  <div className="pl-5 space-y-1 border-l border-slate-800/80 ml-3">
+                    {item.subtabs.map((sub) => {
+                      const isSubActive = activeId === sub.id;
+                      return (
+                        <a
+                          key={sub.id}
+                          href={sub.href}
+                          onClick={(e) => handleNavClick(e, sub.id, sub.filter)}
+                          className={`block rounded-lg px-2.5 py-1.5 text-[11px] transition-all duration-200 truncate ${
+                            isSubActive
+                              ? "bg-amber-500/20 text-amber-300 font-bold border-l-2 border-amber-400 pl-3"
+                              : "text-slate-400 hover:bg-slate-900/80 hover:text-amber-300 font-medium"
+                          }`}
+                        >
+                          • {sub.label}
+                        </a>
+                      );
+                    })}
                   </div>
                 )}
               </div>
@@ -676,7 +700,7 @@ export default function PersonalWebsite() {
         <ProjectDrawer project={selectedProject} onClose={() => setSelectedProjectId(null)} />
       </div>
 
-      {/* PORTAL CONTAINER FOR ATS RESUME MODAL (OUTSIDE MAIN WEBSITE ROOT) */}
+      {/* PORTAL CONTAINER FOR ATS RESUME MODAL */}
       <div id="ats-resume-modal-portal">
         <AtsResumeModal isOpen={isAtsModalOpen} onClose={() => setIsAtsModalOpen(false)} />
       </div>
