@@ -47,7 +47,7 @@ const navigationTree = [
     subtabs: [
       { id: "capability-leadership", label: "Leadership & Strategy", href: "#capabilities" },
       { id: "capability-technology", label: "Systems & Technology", href: "#capabilities" },
-      { id: "capability-certifications", label: "Certifications & GATE AIR 8003", href: "#capabilities" },
+      { id: "capability-certifications", label: "Certifications & GATE (AIR 6057 / 8003)", href: "#capabilities" },
     ]
   },
   {

@@ -6,7 +6,7 @@ Email: [shivamjthete123@gmail.com](mailto:shivamjthete123@gmail.com) | Phone: +9
 
 ## EXECUTIVE SUMMARY
 
-Mechanical Engineering graduate (B.E. First Class Distinction, GATE AIR 8003) and Strategic Development Executive at SqurrEnergy with 3+ years of experience leading digital process automation, Zoho One ecosystem implementations, and operational analytics. Skilled at diagnosing manual spreadsheet friction across finance, sales, project delivery, and HR, and building structured, automated workflows that save team time, enforce operational accountability, and provide management with real-time visibility.
+Mechanical Engineering graduate (B.E. First Class Distinction, GATE 2021 AIR 6057 | Score: 549, GATE 2020 AIR 8003 | Score: 555) and Strategic Development Executive at SqurrEnergy with 3+ years of experience leading digital process automation, Zoho One ecosystem implementations, and operational analytics. Skilled at diagnosing manual spreadsheet friction across finance, sales, project delivery, and HR, and building structured, automated workflows that save team time, enforce operational accountability, and provide management with real-time visibility.
 
 ---
 
@@ -50,10 +50,10 @@ Mechanical Engineering graduate (B.E. First Class Distinction, GATE AIR 8003) an
 - Led requirement gathering workshops, system mapping, data migration, and end-user training sessions.
 
 ### Personal Goal Pursuit — Competitive Exam Preparation & Career Break
-**UPSC IES Prep, GATE AIR 8003 & AFCAT** | Jun 2018 – Dec 2021 (3 years 7 months)
+**UPSC IES Prep, GATE & AFCAT** | Jun 2018 – Dec 2021 (3 years 7 months)
 
 - Prepared for the UPSC Indian Engineering Services (IES) examination, developing deep foundations in engineering fundamentals.
-- **Qualified GATE Examination** with an **All India Rank (AIR) 8003** in Mechanical Engineering.
+- **Qualified GATE 2021** (AIR 6057, Score: 549) & **GATE 2020** (AIR 8003, Score: 555) in Mechanical Engineering.
 - **Qualified AFCAT SSB Interview (2020)** for Indian Air Force officer selection.
 
 ### Business Development Trainee
@@ -73,15 +73,18 @@ Mechanical Engineering graduate (B.E. First Class Distinction, GATE AIR 8003) an
 - **Bachelor of Engineering (B.E.) — Mechanical Engineering**  
   K. K. Wagh Institute of Engineering Education and Research, Nashik (2014 – 2018)  
   *Grade: First Class With Distinction (66.18%)*
-- **GATE Qualified** — All India Rank (AIR) 8003 (Mechanical Engineering)
+- **GATE 2021 Qualified** — All India Rank (AIR) 6057 | GATE Score: 549
+- **GATE 2020 Qualified** — All India Rank (AIR) 8003 | GATE Score: 555
 - **AFCAT SSB Interview Qualified** (2020)
 
 ---
 
-## CERTIFICATIONS
+## CERTIFICATIONS & QUALIFICATIONS
 
 - **Business Intelligence Using Power BI** — Skill Nation (Dec 2023)
 - **SAP Certified Application Associate — Sales and Distribution (SAP ERP 6.0 EhP7)** — SAP (Mar 2022)
+- **GATE 2021 Qualified** — AIR 6057 | Score: 549 (Mechanical Engineering)
+- **GATE 2020 Qualified** — AIR 8003 | Score: 555 (Mechanical Engineering)
 
 ---
 

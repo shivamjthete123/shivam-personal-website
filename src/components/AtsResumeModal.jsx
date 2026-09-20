@@ -25,7 +25,7 @@ Strategic Development Executive | Systems & Process Automation Leader
 Email: shivamjthete123@gmail.com | Phone: +91-8263045370 | LinkedIn: https://www.linkedin.com/in/shivamjthete/ | Website: https://shivam-personal-website.vercel.app/ | Location: Pune, India
 
 EXECUTIVE SUMMARY
-Mechanical Engineering graduate (B.E. First Class Distinction, GATE AIR 8003) and Strategic Development Executive at SqurrEnergy with 3+ years of experience leading digital process automation, Zoho One ecosystem implementations, and operational analytics. Skilled at diagnosing manual spreadsheet friction across finance, sales, project delivery, and HR, and building structured, automated workflows that save team time, enforce operational accountability, and provide management with real-time visibility.
+Mechanical Engineering graduate (B.E. First Class Distinction, GATE 2021 AIR 6057 | Score: 549, GATE 2020 AIR 8003 | Score: 555) and Strategic Development Executive at SqurrEnergy with 3+ years of experience leading digital process automation, Zoho One ecosystem implementations, and operational analytics. Skilled at diagnosing manual spreadsheet friction across finance, sales, project delivery, and HR, and building structured, automated workflows that save team time, enforce operational accountability, and provide management with real-time visibility.
 
 CORE COMPETENCIES & KEYWORDS
 - Process Automation & Operations: Business Process Automation, Revenue Operations (RevOps), Commercial Workflows, Financial Controls, Cash Flow Forecasting, Shared Cost Allocation.
@@ -53,9 +53,9 @@ Functional Consultant | Target Integration (Jun 2022 – Nov 2022)
 - Implemented Zoho One modules (CRM, Desk, Recruit, Books) for SMB and enterprise clients.
 - Led requirement gathering workshops, system mapping, data migration, and end-user training sessions.
 
-Personal Goal Pursuit — Career Break | UPSC IES Prep, GATE AIR 8003 & AFCAT (Jun 2018 – Dec 2021)
+Personal Goal Pursuit — Career Break | UPSC IES Prep, GATE & AFCAT (Jun 2018 – Dec 2021)
 - Prepared for UPSC Indian Engineering Services (IES) examination, developing deep foundations in engineering fundamentals.
-- Qualified GATE Examination with an All India Rank (AIR) 8003 in Mechanical Engineering.
+- Qualified GATE 2021 (AIR 6057, Score: 549) & GATE 2020 (AIR 8003, Score: 555) in Mechanical Engineering.
 - Qualified AFCAT SSB Interview (2020) for Indian Air Force officer selection.
 
 Business Development Trainee | Byju's — The Learning App (Aug 2021 – Oct 2021)
@@ -78,7 +78,8 @@ EXTRACURRICULAR LEADERSHIP & COMMUNITY ENGAGEMENT
 
 EDUCATION & GLOBAL CERTIFICATIONS
 - Bachelor of Engineering (Mechanical Engineering) | K. K. Wagh Institute of Engineering Education and Research, Nashik (2014 – 2018) | First Class With Distinction (66.18%)
-- GATE Qualified | All India Rank (AIR) 8003
+- GATE 2021 Qualified | All India Rank (AIR) 6057 | GATE Score: 549
+- GATE 2020 Qualified | All India Rank (AIR) 8003 | GATE Score: 555
 - Business Intelligence Using Power BI | Skill Nation (Dec 2023)
 - SAP Certified Application Associate — Sales and Distribution (SAP ERP 6.0 EhP7) | SAP (Mar 2022)`;
 
@@ -235,7 +236,7 @@ EDUCATION & GLOBAL CERTIFICATIONS
 
     // 1. Executive Summary
     renderSectionHeader("Executive Summary");
-    renderParagraph("Mechanical Engineering graduate (B.E. First Class Distinction, GATE AIR 8003) and Strategic Development Executive at SqurrEnergy with 3+ years of experience leading digital process automation, Zoho One ecosystem implementations, and operational analytics. Skilled at diagnosing manual spreadsheet friction across finance, sales, project delivery, and HR, and building structured, automated workflows that save team time, enforce operational accountability, and provide management with real-time visibility.");
+    renderParagraph("Mechanical Engineering graduate (B.E. First Class Distinction, GATE 2021 AIR 6057 | Score: 549, GATE 2020 AIR 8003 | Score: 555) and Strategic Development Executive at SqurrEnergy with 3+ years of experience leading digital process automation, Zoho One ecosystem implementations, and operational analytics. Skilled at diagnosing manual spreadsheet friction across finance, sales, project delivery, and HR, and building structured, automated workflows that save team time, enforce operational accountability, and provide management with real-time visibility.");
 
     // 2. Core Competencies
     renderSectionHeader("Core Competencies");
@@ -266,8 +267,8 @@ EDUCATION & GLOBAL CERTIFICATIONS
       "Led requirement gathering workshops, system mapping, data migration, and end-user training sessions."
     ]);
 
-    renderJob("Personal Goal Pursuit — Career Break | UPSC IES Prep, GATE AIR 8003 & AFCAT", "Jun 2018 – Dec 2021", [
-      "Prepared for UPSC Indian Engineering Services (IES) exam; secured All India Rank (AIR) 8003 in GATE exam; qualified for AFCAT SSB Interview (2020)."
+    renderJob("Personal Goal Pursuit — Career Break | UPSC IES Prep, GATE & AFCAT", "Jun 2018 – Dec 2021", [
+      "Prepared for UPSC Indian Engineering Services (IES) exam; qualified GATE 2021 (AIR 6057, Score: 549) & GATE 2020 (AIR 8003, Score: 555); qualified AFCAT SSB Interview (2020)."
     ]);
 
     renderJob("Byju's — The Learning App | Business Development Trainee", "Aug 2021 – Oct 2021", [
@@ -300,7 +301,8 @@ EDUCATION & GLOBAL CERTIFICATIONS
     renderSectionHeader("Education & Global Certifications");
     renderBullets([
       "Bachelor of Engineering (Mechanical Engineering) | K. K. Wagh Institute of Engineering Education and Research, Nashik (2014 – 2018) | First Class With Distinction (66.18%)",
-      "GATE Qualified: All India Rank (AIR) 8003 (Mechanical Engineering)",
+      "GATE 2021 Qualified: All India Rank (AIR) 6057 | GATE Score: 549 (Mechanical Engineering)",
+      "GATE 2020 Qualified: All India Rank (AIR) 8003 | GATE Score: 555 (Mechanical Engineering)",
       "Business Intelligence Using Power BI: Skill Nation (Dec 2023)",
       "SAP Certified Application Associate: Sales and Distribution (SD) with SAP ERP 6.0 EhP7 (Global Certification, March 2022)"
     ]);
@@ -464,7 +466,7 @@ EDUCATION & GLOBAL CERTIFICATIONS
               EXECUTIVE SUMMARY
             </h2>
             <p className="mt-2.5 text-xs leading-relaxed text-slate-800">
-              Mechanical Engineering graduate (B.E. First Class Distinction, GATE AIR 8003) and Strategic Development Executive at SqurrEnergy with 3+ years of experience leading digital process automation, Zoho One ecosystem implementations, and operational analytics. Skilled at diagnosing manual spreadsheet friction across finance, sales, project delivery, and HR, and building structured, automated workflows that save team time, enforce operational accountability, and provide management with real-time visibility.
+              Mechanical Engineering graduate (B.E. First Class Distinction, GATE 2021 AIR 6057 | Score: 549, GATE 2020 AIR 8003 | Score: 555) and Strategic Development Executive at SqurrEnergy with 3+ years of experience leading digital process automation, Zoho One ecosystem implementations, and operational analytics. Skilled at diagnosing manual spreadsheet friction across finance, sales, project delivery, and HR, and building structured, automated workflows that save team time, enforce operational accountability, and provide management with real-time visibility.
             </p>
           </section>
 
@@ -530,11 +532,11 @@ EDUCATION & GLOBAL CERTIFICATIONS
 
               <div className="ats-job-item">
                 <div className="flex justify-between font-bold text-slate-950">
-                  <span>Personal Goal Pursuit — Career Break | UPSC IES Prep, GATE AIR 8003 & AFCAT</span>
+                  <span>Personal Goal Pursuit — Career Break | UPSC IES Prep, GATE & AFCAT</span>
                   <span className="text-slate-600 font-normal">Jun 2018 – Dec 2021</span>
                 </div>
                 <ul className="mt-1 list-disc pl-4 space-y-1 text-slate-700">
-                  <li>Prepared for UPSC Indian Engineering Services (IES) exam; secured All India Rank (AIR) 8003 in GATE exam; qualified for AFCAT SSB Interview (2020).</li>
+                  <li>Prepared for UPSC Indian Engineering Services (IES) exam; qualified GATE 2021 (AIR 6057, Score: 549) & GATE 2020 (AIR 8003, Score: 555); qualified AFCAT SSB Interview (2020).</li>
                 </ul>
               </div>
 
@@ -590,7 +592,8 @@ EDUCATION & GLOBAL CERTIFICATIONS
             </h2>
             <ul className="mt-2 list-disc pl-4 space-y-1 text-xs text-slate-800">
               <li><strong>B.E. in Mechanical Engineering:</strong> K. K. Wagh Institute of Engineering Education and Research, Nashik (2014 – 2018) | First Class With Distinction (66.18%)</li>
-              <li><strong>GATE Qualified:</strong> All India Rank (AIR) 8003 (Mechanical Engineering)</li>
+              <li><strong>GATE 2021 Qualified:</strong> All India Rank (AIR) 6057 | GATE Score: 549 (Mechanical Engineering)</li>
+              <li><strong>GATE 2020 Qualified:</strong> All India Rank (AIR) 8003 | GATE Score: 555 (Mechanical Engineering)</li>
               <li><strong>Business Intelligence Using Power BI:</strong> Skill Nation (Dec 2023)</li>
               <li><strong>SAP Certified Application Associate:</strong> Sales and Distribution (SD) with SAP ERP 6.0 EhP7 (Global Certification, March 2022)</li>
             </ul>
