@@ -371,6 +371,18 @@ function ProjectDrawer({ project, onClose }) {
 
   if (!project) return null;
   const activeItem = project.projectItems.find((item) => item.id === activeItemId) ?? project.projectItems[0];
+  const currentIndex = project.projectItems.findIndex((item) => item.id === activeItem.id);
+  const totalItems = project.projectItems.length;
+
+  const handlePrevCaseStudy = () => {
+    const prevIndex = (currentIndex - 1 + totalItems) % totalItems;
+    setActiveItemId(project.projectItems[prevIndex].id);
+  };
+
+  const handleNextCaseStudy = () => {
+    const nextIndex = (currentIndex + 1) % totalItems;
+    setActiveItemId(project.projectItems[nextIndex].id);
+  };
 
   return (
     <div className="fixed inset-0 z-50" role="presentation">
@@ -384,28 +396,72 @@ function ProjectDrawer({ project, onClose }) {
         <div className="flex items-start justify-between gap-5 border-b border-slate-200 px-5 py-5 md:px-8 bg-slate-950 text-white">
           <div>
             <span className="text-[11px] font-extrabold uppercase tracking-[0.18em] text-amber-400">{project.title}</span>
-            <h2 id="project-dialog-title" className="mt-1.5 text-2xl font-bold tracking-tight text-white md:text-3xl">
+            <h2 id="project-dialog-title" className="mt-1.5 text-xl sm:text-2xl font-bold tracking-tight text-white md:text-3xl">
               Project Evidence & Case Studies
             </h2>
           </div>
-          <button type="button" onClick={onClose} className="rounded-xl border border-slate-700 bg-slate-800 px-4 py-2 text-xs font-bold text-white transition hover:bg-slate-700">
+          <button type="button" onClick={onClose} className="rounded-xl border border-slate-700 bg-slate-800 px-3.5 py-2 text-xs font-bold text-white transition hover:bg-slate-700 shrink-0">
             Close
           </button>
         </div>
+
+        {/* MOBILE CASE STUDY QUICK SWITCHER BAR */}
+        {totalItems > 1 && (
+          <div className="flex lg:hidden items-center justify-between border-b border-amber-500/20 bg-amber-500/10 px-4 py-2.5">
+            <span className="text-xs font-extrabold text-amber-900 flex items-center gap-1.5">
+              <span className="h-2 w-2 rounded-full bg-amber-600 animate-pulse" />
+              Case Study {currentIndex + 1} of {totalItems}
+            </span>
+            <div className="flex items-center gap-2">
+              <button
+                type="button"
+                onClick={handlePrevCaseStudy}
+                className="rounded-lg border border-amber-300 bg-white px-2.5 py-1 text-xs font-bold text-amber-900 hover:bg-amber-100 flex items-center gap-1 shadow-sm"
+                title="Previous case study"
+              >
+                ‹ Prev
+              </button>
+              <button
+                type="button"
+                onClick={handleNextCaseStudy}
+                className="rounded-lg border border-amber-300 bg-white px-2.5 py-1 text-xs font-bold text-amber-900 hover:bg-amber-100 flex items-center gap-1 shadow-sm"
+                title="Next case study"
+              >
+                Next ›
+              </button>
+            </div>
+          </div>
+        )}
+
         <div className="grid flex-1 overflow-y-auto lg:grid-cols-[290px_minmax(0,1fr)]">
-          <nav aria-label="Case studies" className="border-b border-slate-200 bg-slate-50/80 p-3 sm:p-4 lg:border-b-0 lg:border-r">
-            <p className="px-2 pb-2 text-[11px] font-extrabold uppercase tracking-[0.15em] text-slate-500">Select Case Study</p>
-            <div className="flex flex-row overflow-x-auto gap-2 lg:flex-col lg:overflow-x-visible no-scrollbar pb-1 lg:pb-0">
-              {project.projectItems.map((item) => {
+          <nav aria-label="Case studies" className="border-b border-slate-200 bg-slate-50/90 p-3 sm:p-4 lg:border-b-0 lg:border-r">
+            <div className="flex items-center justify-between pb-2">
+              <p className="px-1 text-[11px] font-extrabold uppercase tracking-[0.15em] text-slate-500">
+                Select Case Study <span className="lg:hidden text-amber-800 font-bold">({currentIndex + 1}/{totalItems})</span>
+              </p>
+              <span className="text-[10px] font-bold text-amber-800 bg-amber-100 border border-amber-200 rounded-full px-2 py-0.5 lg:hidden">
+                Swipe pills →
+              </span>
+            </div>
+
+            <div className="flex flex-row overflow-x-auto gap-2 lg:flex-col lg:overflow-x-visible no-scrollbar pb-1.5 lg:pb-0 -mx-1 px-1">
+              {project.projectItems.map((item, index) => {
                 const active = item.id === activeItem.id;
                 return (
                   <button
                     key={item.id}
                     type="button"
                     onClick={() => setActiveItemId(item.id)}
-                    className={`shrink-0 rounded-xl px-3.5 py-2.5 lg:px-4 lg:py-3.5 text-left text-xs font-bold transition duration-200 ${active ? "bg-amber-700 text-white shadow-md shadow-amber-950/20" : "text-slate-700 bg-white lg:bg-transparent hover:bg-white border border-slate-200 lg:border-transparent hover:border-slate-200"}`}
+                    className={`shrink-0 rounded-xl px-3 py-2 sm:px-3.5 sm:py-2.5 lg:px-4 lg:py-3.5 text-left text-xs font-bold transition duration-200 flex items-center gap-2 ${
+                      active
+                        ? "bg-amber-700 text-white shadow-md shadow-amber-950/20"
+                        : "text-slate-700 bg-white lg:bg-transparent hover:bg-white border border-slate-200/90 lg:border-transparent hover:border-slate-200"
+                    }`}
                   >
-                    {item.title}
+                    <span className={`inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-[10px] font-extrabold ${active ? "bg-amber-900 text-amber-100" : "bg-slate-100 text-slate-600"}`}>
+                      {index + 1}
+                    </span>
+                    <span className="truncate max-w-[200px] sm:max-w-none">{item.title}</span>
                   </button>
                 );
               })}
