@@ -25,7 +25,7 @@ Strategic Development Executive | Systems & Process Automation Leader
 Email: shivamjthete123@gmail.com | Phone: +91-8263045370 | LinkedIn: https://www.linkedin.com/in/shivamjthete/ | Website: https://shivam-personal-website.vercel.app/ | Location: Pune, India
 
 EXECUTIVE SUMMARY
-Mechanical Engineering graduate (B.E. First Class Distinction, GATE 2021 AIR 6057 | Score: 549, GATE 2020 AIR 8003 | Score: 555) and Strategic Development Executive at SqurrEnergy with 3+ years of experience leading digital process automation, Zoho One ecosystem implementations, and operational analytics. Skilled at diagnosing manual spreadsheet friction across finance, sales, project delivery, and HR, and building structured, automated workflows that save team time, enforce operational accountability, and provide management with real-time visibility.
+Strategic Operations & Systems Leader with 3+ years of hands-on enterprise experience designing digital process automations, workflow architectures, and Zoho One ecosystem solutions. Skilled at bridging operational bottlenecks with executive vision — transforming fragmented, spreadsheet-heavy workflows across finance, sales, project delivery, and HR into governed, automated systems and real-time analytical dashboards that drive execution discipline.
 
 CORE COMPETENCIES & KEYWORDS
 - Process Automation & Operations: Business Process Automation, Revenue Operations (RevOps), Commercial Workflows, Financial Controls, Cash Flow Forecasting, Shared Cost Allocation.
@@ -246,7 +246,7 @@ EDUCATION & GLOBAL CERTIFICATIONS
 
     // 1. Executive Summary
     renderSectionHeader("Executive Summary");
-    renderParagraph("Mechanical Engineering graduate (B.E. First Class Distinction, GATE 2021 AIR 6057 | Score: 549, GATE 2020 AIR 8003 | Score: 555) and Strategic Development Executive at SqurrEnergy with 3+ years of experience leading digital process automation, Zoho One ecosystem implementations, and operational analytics. Skilled at diagnosing manual spreadsheet friction across finance, sales, project delivery, and HR, and building structured, automated workflows that save team time, enforce operational accountability, and provide management with real-time visibility.");
+    renderParagraph("Strategic Operations & Systems Leader with 3+ years of hands-on enterprise experience designing digital process automations, workflow architectures, and Zoho One ecosystem solutions. Skilled at bridging operational bottlenecks with executive vision — transforming fragmented, spreadsheet-heavy workflows across finance, sales, project delivery, and HR into governed, automated systems and real-time analytical dashboards that drive execution discipline.");
 
     // 2. Core Competencies
     renderSectionHeader("Core Competencies");
@@ -484,7 +484,7 @@ EDUCATION & GLOBAL CERTIFICATIONS
               EXECUTIVE SUMMARY
             </h2>
             <p className="mt-2.5 text-xs leading-relaxed text-slate-800">
-              Mechanical Engineering graduate (B.E. First Class Distinction, GATE 2021 AIR 6057 | Score: 549, GATE 2020 AIR 8003 | Score: 555) and Strategic Development Executive at SqurrEnergy with 3+ years of experience leading digital process automation, Zoho One ecosystem implementations, and operational analytics. Skilled at diagnosing manual spreadsheet friction across finance, sales, project delivery, and HR, and building structured, automated workflows that save team time, enforce operational accountability, and provide management with real-time visibility.
+              Strategic Operations & Systems Leader with 3+ years of hands-on enterprise experience designing digital process automations, workflow architectures, and Zoho One ecosystem solutions. Skilled at bridging operational bottlenecks with executive vision — transforming fragmented, spreadsheet-heavy workflows across finance, sales, project delivery, and HR into governed, automated systems and real-time analytical dashboards that drive execution discipline.
             </p>
           </section>
 

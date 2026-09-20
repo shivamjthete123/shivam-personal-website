@@ -6,7 +6,7 @@ Email: [shivamjthete123@gmail.com](mailto:shivamjthete123@gmail.com) | Phone: +9
 
 ## EXECUTIVE SUMMARY
 
-Mechanical Engineering graduate (B.E. First Class Distinction, GATE 2021 AIR 6057 | Score: 549, GATE 2020 AIR 8003 | Score: 555) and Strategic Development Executive at SqurrEnergy with 3+ years of experience leading digital process automation, Zoho One ecosystem implementations, and operational analytics. Skilled at diagnosing manual spreadsheet friction across finance, sales, project delivery, and HR, and building structured, automated workflows that save team time, enforce operational accountability, and provide management with real-time visibility.
+Strategic Operations & Systems Leader with 3+ years of hands-on enterprise experience designing digital process automations, workflow architectures, and Zoho One ecosystem solutions. Skilled at bridging operational bottlenecks with executive vision — transforming fragmented, spreadsheet-heavy workflows across finance, sales, project delivery, and HR into governed, automated systems and real-time analytical dashboards that drive execution discipline.
 
 ---
 
