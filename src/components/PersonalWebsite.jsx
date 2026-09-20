@@ -405,18 +405,23 @@ function ProjectDrawer({ project, onClose }) {
           </button>
         </div>
 
-        {/* MOBILE CASE STUDY QUICK SWITCHER BAR */}
-        {totalItems > 1 && (
-          <div className="flex lg:hidden items-center justify-between border-b border-amber-500/20 bg-amber-500/10 px-4 py-2.5">
-            <span className="text-xs font-extrabold text-amber-900 flex items-center gap-1.5">
-              <span className="h-2 w-2 rounded-full bg-amber-600 animate-pulse" />
+        {/* MOBILE CASE STUDY NAVIGATION BAR (Only on mobile) */}
+        <div className="flex lg:hidden items-center justify-between border-b border-amber-500/20 bg-amber-50/90 px-4 py-3 sticky top-0 z-10 min-w-0 w-full">
+          <div className="flex flex-col min-w-0 pr-2">
+            <span className="text-[10px] font-extrabold uppercase tracking-wider text-amber-800 flex items-center gap-1.5">
+              <span className="h-2 w-2 rounded-full bg-amber-600 animate-pulse shrink-0" />
               Case Study {currentIndex + 1} of {totalItems}
             </span>
-            <div className="flex items-center gap-2">
+            <span className="text-xs font-bold text-slate-950 truncate max-w-[210px]">
+              {activeItem.title}
+            </span>
+          </div>
+          {totalItems > 1 && (
+            <div className="flex items-center gap-1.5 shrink-0">
               <button
                 type="button"
                 onClick={handlePrevCaseStudy}
-                className="rounded-lg border border-amber-300 bg-white px-2.5 py-1 text-xs font-bold text-amber-900 hover:bg-amber-100 flex items-center gap-1 shadow-sm"
+                className="rounded-lg border border-amber-300 bg-white px-3 py-1.5 text-xs font-bold text-amber-950 hover:bg-amber-100 active:bg-amber-200 transition shadow-xs flex items-center gap-1"
                 title="Previous case study"
               >
                 ‹ Prev
@@ -424,27 +429,23 @@ function ProjectDrawer({ project, onClose }) {
               <button
                 type="button"
                 onClick={handleNextCaseStudy}
-                className="rounded-lg border border-amber-300 bg-white px-2.5 py-1 text-xs font-bold text-amber-900 hover:bg-amber-100 flex items-center gap-1 shadow-sm"
+                className="rounded-lg border border-amber-300 bg-white px-3 py-1.5 text-xs font-bold text-amber-950 hover:bg-amber-100 active:bg-amber-200 transition shadow-xs flex items-center gap-1"
                 title="Next case study"
               >
                 Next ›
               </button>
             </div>
-          </div>
-        )}
+          )}
+        </div>
 
         <div className="grid flex-1 overflow-y-auto min-w-0 w-full overflow-x-hidden lg:grid-cols-[290px_minmax(0,1fr)]">
-          <nav aria-label="Case studies" className="border-b border-slate-200 bg-slate-50/90 p-3 sm:p-4 lg:border-b-0 lg:border-r min-w-0 w-full">
-            <div className="flex items-center justify-between pb-2">
-              <p className="px-1 text-[11px] font-extrabold uppercase tracking-[0.15em] text-slate-500">
-                Select Case Study <span className="lg:hidden text-amber-800 font-bold">({currentIndex + 1}/{totalItems})</span>
-              </p>
-              <span className="text-[10px] font-bold text-slate-600 bg-slate-200/70 border border-slate-300 rounded-full px-2 py-0.5 lg:hidden">
-                {totalItems} Available
-              </span>
-            </div>
+          {/* DESKTOP CASE STUDY SIDEBAR (Hidden on mobile) */}
+          <nav aria-label="Case studies" className="hidden lg:block border-r border-slate-200 bg-slate-50/90 p-4 min-w-0 w-full">
+            <p className="px-1 text-[11px] font-extrabold uppercase tracking-[0.15em] text-slate-500 pb-3">
+              Select Case Study
+            </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:flex lg:flex-col gap-2 w-full">
+            <div className="flex flex-col gap-2 w-full">
               {project.projectItems.map((item, index) => {
                 const active = item.id === activeItem.id;
                 return (
@@ -452,10 +453,10 @@ function ProjectDrawer({ project, onClose }) {
                     key={item.id}
                     type="button"
                     onClick={() => setActiveItemId(item.id)}
-                    className={`w-full rounded-xl px-3 py-2.5 sm:px-3.5 sm:py-3 lg:px-4 lg:py-3.5 text-left text-xs font-bold transition duration-200 flex items-center gap-2.5 ${
+                    className={`w-full rounded-xl px-4 py-3.5 text-left text-xs font-bold transition duration-200 flex items-center gap-2.5 ${
                       active
                         ? "bg-amber-700 text-white shadow-md shadow-amber-950/20"
-                        : "text-slate-700 bg-white lg:bg-transparent hover:bg-white border border-slate-200/90 lg:border-transparent hover:border-slate-200"
+                        : "text-slate-700 hover:bg-white hover:border-slate-200 border border-transparent"
                     }`}
                   >
                     <span className={`inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-[10px] font-extrabold ${active ? "bg-amber-900 text-amber-100" : "bg-slate-100 text-slate-600"}`}>
@@ -467,6 +468,8 @@ function ProjectDrawer({ project, onClose }) {
               })}
             </div>
           </nav>
+
+          {/* CASE STUDY CONTENT AREA */}
           <article className="p-4 sm:p-6 md:p-8 min-w-0 w-full overflow-x-hidden break-words">
             <Label>{activeItem.tags.slice(0, 2).join(" · ")}</Label>
             <h3 className="mt-2 text-xl sm:text-2xl font-bold tracking-tight text-slate-950 break-words">{activeItem.title}</h3>
