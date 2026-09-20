@@ -1,6 +1,6 @@
 # SHIVAM J. THETE
 **Strategic Development Leader | Business Transformation Executive**  
-Email: shivamjthete123@gmail.com | Phone: +91-8263045370 | LinkedIn: [linkedin.com/in/shivamjthete](https://www.linkedin.com/in/shivamjthete/) | Location: Pune, India
+Email: [shivamjthete123@gmail.com](mailto:shivamjthete123@gmail.com) | Phone: +91-8263045370 | LinkedIn: [linkedin.com/in/shivamjthete](https://www.linkedin.com/in/shivamjthete/) | Website: [shivam-personal-website.vercel.app](https://shivam-personal-website.vercel.app/) | Location: Pune, India
 
 ---
 

@@ -22,7 +22,7 @@ export default function AtsResumeModal({ isOpen, onClose }) {
 
   const rawTextResume = `SHIVAM J. THETE
 Strategic Development Leader | Business Transformation Executive
-Email: shivamjthete123@gmail.com | Phone: +91-8263045370 | LinkedIn: https://www.linkedin.com/in/shivamjthete/ | Location: Pune, India
+Email: shivamjthete123@gmail.com | Phone: +91-8263045370 | LinkedIn: https://www.linkedin.com/in/shivamjthete/ | Website: https://shivam-personal-website.vercel.app/ | Location: Pune, India
 
 EXECUTIVE SUMMARY
 Strategic Development Executive with 3+ years of enterprise leadership at SqurrEnergy and prior Zoho One consulting experience, specializing in cross-functional business transformation across finance, HR, sales, delivery, and operations. Proven ability to orchestrate alignment of business processes with executive vision through structured frameworks, digital automations, and enterprise dashboards. Adept at turning fragmented, manual workflows into governed operating models that deliver measurable execution discipline, data-driven decision-making, and scalable organizational growth.
@@ -84,7 +84,7 @@ EDUCATION & GLOBAL CERTIFICATIONS
 - SAP Certified Application Associate — Sales and Distribution (SAP ERP 6.0 EhP7) | SAP (Mar 2022)
 - GATE Qualified | All India Rank (AIR) 8003`;
 
-  // Native Vector PDF Generator Engine (100% Selectable Text, ATS Readability, Zero Image Canvas Slicing)
+  // Native Vector PDF Generator Engine with Clickable Hyperlinks (Email, LinkedIn, Website)
   const generateNativeVectorPdf = () => {
     if (!window.jspdf) return false;
     const { jsPDF } = window.jspdf;
@@ -104,24 +104,80 @@ EDUCATION & GLOBAL CERTIFICATIONS
       return false;
     };
 
-    // Header
+    // Header Title
     doc.setFont("helvetica", "bold");
     doc.setFontSize(18);
     doc.setTextColor(15, 23, 42);
     doc.text("SHIVAM J. THETE", 297.64, y, { align: "center" });
     y += 18;
 
+    // Subtitle
     doc.setFont("helvetica", "bold");
     doc.setFontSize(9.5);
     doc.setTextColor(194, 65, 12);
     doc.text("STRATEGIC DEVELOPMENT LEADER  |  BUSINESS TRANSFORMATION EXECUTIVE", 297.64, y, { align: "center" });
     y += 14;
 
+    // Contact Line with Clickable Hyperlinks
     doc.setFont("helvetica", "normal");
     doc.setFontSize(8.5);
+
+    const c1 = "Email: ";
+    const emailStr = "shivamjthete123@gmail.com";
+    const c2 = "  |  LinkedIn: ";
+    const linkedinStr = "linkedin.com/in/shivamjthete";
+    const c3 = "  |  Website: ";
+    const websiteStr = "shivam-personal-website.vercel.app";
+
+    const wC1 = doc.getTextWidth(c1);
+    const wEmail = doc.getTextWidth(emailStr);
+    const wC2 = doc.getTextWidth(c2);
+    const wLinkedin = doc.getTextWidth(linkedinStr);
+    const wC3 = doc.getTextWidth(c3);
+    const wWebsite = doc.getTextWidth(websiteStr);
+
+    const totalContactW = wC1 + wEmail + wC2 + wLinkedin + wC3 + wWebsite;
+    let curX = (595.28 - totalContactW) / 2;
+
+    // Email label & link
     doc.setTextColor(71, 85, 105);
-    doc.text("Email: shivamjthete123@gmail.com  |  Phone: +91-8263045370  |  LinkedIn: linkedin.com/in/shivamjthete  |  Location: Pune, India", 297.64, y, { align: "center" });
-    y += 10;
+    doc.text(c1, curX, y);
+    curX += wC1;
+
+    doc.setTextColor(194, 65, 12);
+    doc.textWithLink(emailStr, curX, y, { url: "mailto:shivamjthete123@gmail.com" });
+    doc.setDrawColor(194, 65, 12);
+    doc.setLineWidth(0.4);
+    doc.line(curX, y + 1.5, curX + wEmail, y + 1.5);
+    doc.link(curX, y - 7.5, wEmail, 10, { url: "mailto:shivamjthete123@gmail.com" });
+    curX += wEmail;
+
+    // LinkedIn label & link
+    doc.setTextColor(71, 85, 105);
+    doc.text(c2, curX, y);
+    curX += wC2;
+
+    doc.setTextColor(194, 65, 12);
+    doc.textWithLink(linkedinStr, curX, y, { url: "https://www.linkedin.com/in/shivamjthete/" });
+    doc.setDrawColor(194, 65, 12);
+    doc.setLineWidth(0.4);
+    doc.line(curX, y + 1.5, curX + wLinkedin, y + 1.5);
+    doc.link(curX, y - 7.5, wLinkedin, 10, { url: "https://www.linkedin.com/in/shivamjthete/" });
+    curX += wLinkedin;
+
+    // Website label & link
+    doc.setTextColor(71, 85, 105);
+    doc.text(c3, curX, y);
+    curX += wC3;
+
+    doc.setTextColor(194, 65, 12);
+    doc.textWithLink(websiteStr, curX, y, { url: "https://shivam-personal-website.vercel.app/" });
+    doc.setDrawColor(194, 65, 12);
+    doc.setLineWidth(0.4);
+    doc.line(curX, y + 1.5, curX + wWebsite, y + 1.5);
+    doc.link(curX, y - 7.5, wWebsite, 10, { url: "https://shivam-personal-website.vercel.app/" });
+
+    y += 12;
 
     doc.setDrawColor(203, 213, 225);
     doc.setLineWidth(0.75);
@@ -316,7 +372,7 @@ EDUCATION & GLOBAL CERTIFICATIONS
         <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-200 bg-slate-950 px-6 py-4 text-white no-print">
           <div>
             <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-500/20 px-2.5 py-0.5 text-xs font-bold text-amber-400 border border-amber-500/30">
-              ATS & AI Parsable Format (Vector Text)
+              ATS & AI Parsable Format (Vector Text & Interactive Hyperlinks)
             </span>
             <h2 id="ats-resume-title" className="mt-1 text-xl font-bold tracking-tight text-white">
               Shivam J. Thete — Executive ATS Resume
@@ -328,7 +384,7 @@ EDUCATION & GLOBAL CERTIFICATIONS
               onClick={handleDownloadPDF}
               disabled={isGeneratingPdf}
               className="inline-flex items-center gap-2 rounded-lg bg-amber-600 px-4 py-2 text-xs font-bold text-white transition hover:bg-amber-500 shadow-sm disabled:opacity-50"
-              title="Download clean native vector PDF with 100% selectable text"
+              title="Download clean native vector PDF with 100% selectable text & clickable links"
             >
               <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 01-2-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -395,14 +451,14 @@ EDUCATION & GLOBAL CERTIFICATIONS
             <p className="mt-1 text-sm font-semibold text-amber-800 uppercase tracking-wider">
               Strategic Development Leader | Business Transformation Executive
             </p>
-            <p className="mt-2 text-xs text-slate-600 flex flex-wrap justify-center gap-x-4 gap-y-1">
-              <span><strong>Email:</strong> shivamjthete123@gmail.com</span>
+            <p className="mt-2 text-xs text-slate-600 flex flex-wrap justify-center gap-x-3 gap-y-1">
+              <span><strong>Email:</strong> <a href="mailto:shivamjthete123@gmail.com" className="text-amber-800 underline font-semibold">shivamjthete123@gmail.com</a></span>
               <span>•</span>
               <span><strong>Phone:</strong> +91-8263045370</span>
               <span>•</span>
-              <span><strong>LinkedIn:</strong> linkedin.com/in/shivamjthete</span>
+              <span><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/shivamjthete/" target="_blank" rel="noreferrer" className="text-amber-800 underline font-semibold">linkedin.com/in/shivamjthete</a></span>
               <span>•</span>
-              <span><strong>Location:</strong> Pune, India</span>
+              <span><strong>Portfolio:</strong> <a href="https://shivamjthete123.github.io/shivam-personal-website/" target="_blank" rel="noreferrer" className="text-amber-800 underline font-semibold">shivam-personal-website.vercel.app</a></span>
             </p>
           </div>
 
@@ -548,7 +604,7 @@ EDUCATION & GLOBAL CERTIFICATIONS
         </div>
 
         <div className="border-t border-slate-200 bg-slate-50 px-6 py-3 text-xs text-slate-500 flex justify-between items-center no-print">
-          <span>Tip: Click "Download PDF File" to get a 100% selectable vector PDF formatted for ATS algorithms.</span>
+          <span>Tip: Click "Download PDF File" to get a 100% selectable vector PDF with interactive hyperlinks.</span>
           <button type="button" onClick={onClose} className="font-semibold text-slate-700 hover:text-slate-900">
             Close preview
           </button>
