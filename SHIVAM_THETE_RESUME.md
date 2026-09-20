@@ -25,7 +25,7 @@ Disciplined, system-minded Strategic Operations Executive with a Mechanical Engi
 ## PROFESSIONAL EXPERIENCE
 
 ### Strategic Development Executive
-**SqurrEnergy** | Pune, India | Jul 2023 – Present (4+ years)
+**SqurrEnergy** | Pune, India | Jul 2023 – Present
 
 - Designed and deployed end-to-end digital process automations across finance, HR, sales, project delivery, and operations using the Zoho One ecosystem.
 - Built a real-time project profitability and budget burn-rate dashboard (normalized delivery dataset) that saved an estimated **191.25 hours monthly across 45 users** by replacing manual Excel consolidation.

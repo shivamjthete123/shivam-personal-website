@@ -258,7 +258,7 @@ EDUCATION & GLOBAL CERTIFICATIONS
 
     // 3. Professional Experience
     renderSectionHeader("Professional Experience");
-    renderJob("SqurrEnergy | Strategic Development Executive", "Jul 2023 – Present (4+ yrs)", [
+    renderJob("SqurrEnergy | Strategic Development Executive", "Jul 2023 – Present", [
       "Designed and deployed digital process automations across finance, HR, sales, project delivery, and operations using the Zoho One ecosystem.",
       "Built a real-time project profitability and budget burn-rate dashboard (normalized delivery dataset) saving an estimated 191.25 hours monthly across 45 users.",
       "Automated commercial pipeline in Zoho CRM from lead qualification to SOW generation and invoice sync, saving ~15 hours per month across 6 core users.",
@@ -500,7 +500,7 @@ EDUCATION & GLOBAL CERTIFICATIONS
               <div className="ats-job-item">
                 <div className="flex justify-between font-bold text-slate-950">
                   <span>SqurrEnergy | Strategic Development Executive</span>
-                  <span className="text-slate-600 font-normal">Jul 2023 – Present (4+ years)</span>
+                  <span className="text-slate-600 font-normal">Jul 2023 – Present</span>
                 </div>
                 <ul className="mt-1 list-disc pl-4 space-y-1 text-slate-700">
                   <li>Designed and deployed digital process automations across finance, HR, sales, project delivery, and operations using the Zoho One ecosystem.</li>
