@@ -3,7 +3,7 @@
   "order": 5,
   "title": "Quality Governance & Communication Systems",
   "status": "Implemented",
-  "summary": "Built structured customer complaint RCA resolution tracking, meeting decision-tracking (Communiqué), and automated PDF exports to ensure closed-loop accountability.",
+  "summary": "Built structured customer complaint RCA resolution tracking, meeting decision-tracking, and automated PDF exports to ensure closed-loop accountability.",
   "tags": ["Quality Governance", "Action Tracking"],
   "projectItems": [
     {
@@ -19,10 +19,10 @@
     },
     {
       "id": "communique",
-      "title": "Communiqué — Meeting Minutes & Action Tracking System",
+      "title": "Meeting Minutes & Action Item Governance System",
       "summary": "Implemented a structured meeting management tool capturing Minutes of Meeting (MoM), decisions made, linked project deliverables, assigned action items with deadlines, and searchable decision history.",
       "problemStatement": "Action items discussed in project meetings were scattered in email threads or personal notes, resulting in forgotten commitments and loss of institutional memory during team transitions.",
-      "solution": "Developed Communiqué in Zoho Projects/Creator to record meeting agendas, decisions, and action items with assigned owners and deadlines. Features automated notification alerts, dashboard follow-up views, and formatted PDF export.",
+      "solution": "Developed an action tracking application in Zoho Projects/Creator to record meeting agendas, decisions, and action items with assigned owners and deadlines. Features automated notification alerts, dashboard follow-up views, and formatted PDF export.",
       "impact": "Eliminated lost action items after project meetings and created a searchable repository of past project decisions for seamless team handovers.",
       "keyTakeaway": "Turns verbal meeting commitments into trackable system actions linked directly to project deliverables.",
       "toolsUsed": ["Zoho Projects", "Zoho Creator", "Deluge Scripting", "PDF Export"],

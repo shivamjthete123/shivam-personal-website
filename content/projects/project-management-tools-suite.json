@@ -19,13 +19,13 @@
     },
     {
       "id": "project-pulse",
-      "title": "Project Pulse — Delivery & Financial Performance Dashboard",
-      "summary": "Architected a flagship project intelligence dashboard (BV Pulse dataset) providing real-time project profitability, budget burn-rate tracking, margin alerts, and role-based views for Directors, Project Managers, and Finance.",
+      "title": "Project Delivery & Financial Performance Dashboard",
+      "summary": "Architected a flagship project intelligence dashboard (normalized delivery dataset) providing real-time project profitability, budget burn-rate tracking, margin alerts, and role-based views for Directors, Project Managers, and Finance.",
       "problemStatement": "Checking project financial health required manually pulling data from Zoho Books and Projects during monthly reviews. Budget overruns were discovered late because there was no live alert mechanism, and runtime API calls caused slow report loading.",
-      "solution": "Built a normalized, background-synchronized data layer (BV Pulse) aggregating data from Books, Projects, and Creator. Created budget burn-rate tracking with margin deviation alerts (Green/Amber/Red) and customized role-based dashboard views.",
+      "solution": "Built a normalized, background-synchronized data layer aggregating data from Books, Projects, and Creator. Created budget burn-rate tracking with margin deviation alerts (Green/Amber/Red) and customized role-based dashboard views.",
       "impact": "Estimated 191.25 hours saved monthly across 45 users by replacing manual spreadsheet checking with a real-time, high-speed dashboard. Allowed management to spot margin slippage early.",
       "keyTakeaway": "Combines project delivery metrics with accounting data into an automated, fast-loading executive dashboard.",
-      "toolsUsed": ["Zoho Projects", "Zoho Creator", "BV Pulse", "Scheduled APIs", "Zoho Analytics", "HTML Widgets", "Deluge"],
+      "toolsUsed": ["Zoho Projects", "Zoho Creator", "Data Synchronization Engine", "Scheduled APIs", "Zoho Analytics", "HTML Widgets", "Deluge"],
       "tags": ["Project Intelligence", "Margin Alerts", "Burn Rate Tracking", "Dashboards"]
     },
     {

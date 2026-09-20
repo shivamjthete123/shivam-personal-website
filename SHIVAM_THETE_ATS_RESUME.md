@@ -28,7 +28,7 @@ Disciplined, system-minded Strategic Operations Executive with a Mechanical Engi
 **SqurrEnergy** | Pune, India | Jul 2023 – Present (4+ years)
 
 - Designed and deployed end-to-end digital process automations across finance, HR, sales, project delivery, and operations using the Zoho One ecosystem.
-- Built **Project Pulse**, a real-time project profitability and budget burn-rate dashboard (BV Pulse architecture) that saved an estimated **191.25 hours monthly across 45 users** by replacing manual Excel consolidation.
+- Built a real-time project profitability and budget burn-rate dashboard (normalized delivery dataset) that saved an estimated **191.25 hours monthly across 45 users** by replacing manual Excel consolidation.
 - Automated the commercial pipeline in Zoho CRM from lead qualification to SOW generation and invoice sync, saving **~15 hours per month across 6 core users**.
 - Engineered a Creator cash flow planning application with payment outflow scheduling, date-change audit tracking, and multi-entity balance consolidation.
 - Automated monthly shared corporate expense allocation using active headcount ratios and Zoho Books API integration, cutting month-end processing time by **6 hours monthly**.
@@ -90,11 +90,11 @@ Disciplined, system-minded Strategic Operations Executive with a Mechanical Engi
 
 ## KEY PROJECT AUTOMATION HIGHLIGHTS
 
-- **Delivery Intelligence (Project Pulse):** Saved 191.25 hours/month across 45 team members by building automated dataset sync, budget burn-rate tracking, and margin deviation alerts.
+- **Delivery Intelligence Dashboard:** Saved 191.25 hours/month across 45 team members by building automated dataset sync, budget burn-rate tracking, and margin deviation alerts.
 - **Commercial & CRM Automation:** Standardized deal qualification, SOW approval, and automated invoice creation, saving 15 hours/month across BD and finance.
 - **Cash Visibility & Outflow Planning:** Replaced offline spreadsheets with a Creator payment planning calendar and real-time cash position dashboards.
 - **Automated Expense Allocation:** Reduced month-end accounting allocation time by 6 hours/month using automated headcount-ratio journal posting.
-- **Quality RCA & Meeting Tracking (Communiqué):** Created closed-loop complaint investigation and MoM action tracking with automated PDF report generation.
+- **Quality RCA & Action Tracking System:** Created closed-loop complaint investigation and MoM action tracking with automated PDF report generation.
 
 ---
 

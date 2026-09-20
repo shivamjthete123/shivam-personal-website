@@ -4,7 +4,7 @@ export default function MetricsBanner() {
       value: "191.25",
       unit: "hrs/mo",
       label: "Productivity Saved",
-      detail: "Across 45 users via Project Pulse delivery governance dashboard",
+      detail: "Across 45 users via automated project delivery governance dashboard",
     },
     {
       value: "15",

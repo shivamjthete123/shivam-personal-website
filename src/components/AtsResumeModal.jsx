@@ -36,7 +36,7 @@ PROFESSIONAL EXPERIENCE
 
 Strategic Development Executive | SqurrEnergy (Jul 2023 – Present)
 - Designed and deployed digital process automations across finance, HR, sales, project delivery, and operations using the Zoho One ecosystem.
-- Built Project Pulse, a real-time project profitability and budget burn-rate dashboard (BV Pulse architecture) saving an estimated 191.25 hours monthly across 45 users.
+- Built a real-time project profitability and budget burn-rate dashboard (normalized delivery dataset) saving an estimated 191.25 hours monthly across 45 users.
 - Automated commercial pipeline in Zoho CRM from lead qualification to SOW generation and invoice sync, saving ~15 hours per month across 6 core users.
 - Engineered Creator cash flow planning application with payment outflow scheduling, date-change audit tracking, and multi-entity balance consolidation.
 - Automated monthly shared corporate expense allocation using active headcount ratios and Zoho Books API integration, cutting month-end processing by 6 hours monthly.
@@ -65,11 +65,11 @@ Project Intern | Sharda Motor Industries Ltd. (Jun 2016 – Jul 2016)
 - Executed industrial workstation ergonomics analysis on assembly floor, delivering layout optimization recommendations.
 
 KEY PROJECT AUTOMATION HIGHLIGHTS
-- Delivery Intelligence (Project Pulse): Saved 191.25 hours/month across 45 team members by building automated dataset sync, budget burn-rate tracking, and margin deviation alerts.
+- Delivery Intelligence Dashboard: Saved 191.25 hours/month across 45 team members by building automated dataset sync, budget burn-rate tracking, and margin deviation alerts.
 - Commercial & CRM Automation: Standardized deal qualification, SOW approval, and automated invoice creation, saving 15 hours/month across BD and finance.
 - Cash Visibility & Outflow Planning: Replaced offline spreadsheets with Creator payment planning calendar and real-time cash position dashboards.
 - Automated Expense Allocation: Reduced month-end accounting allocation time by 6 hours/month using automated headcount-ratio journal posting.
-- Quality RCA & Action Tracking (Communiqué): Created closed-loop complaint investigation and MoM action tracking with automated PDF report generation.
+- Quality RCA & Action Tracking System: Created closed-loop complaint investigation and MoM action tracking with automated PDF report generation.
 
 EXTRACURRICULAR LEADERSHIP & COMMUNITY ENGAGEMENT
 - Team Vector & Skylark Drone Competition (2016–2018): Mechanical Engineer on drone design & engineering team; building custom quadcopters.
@@ -260,7 +260,7 @@ EDUCATION & GLOBAL CERTIFICATIONS
     renderSectionHeader("Professional Experience");
     renderJob("SqurrEnergy | Strategic Development Executive", "Jul 2023 – Present (4+ yrs)", [
       "Designed and deployed digital process automations across finance, HR, sales, project delivery, and operations using the Zoho One ecosystem.",
-      "Built Project Pulse, a real-time project profitability and budget burn-rate dashboard (BV Pulse architecture) saving an estimated 191.25 hours monthly across 45 users.",
+      "Built a real-time project profitability and budget burn-rate dashboard (normalized delivery dataset) saving an estimated 191.25 hours monthly across 45 users.",
       "Automated commercial pipeline in Zoho CRM from lead qualification to SOW generation and invoice sync, saving ~15 hours per month across 6 core users.",
       "Engineered Creator cash flow planning application with payment outflow scheduling, date-change audit tracking, and multi-entity balance consolidation.",
       "Automated monthly shared corporate expense allocation using active headcount ratios and Zoho Books API integration, cutting month-end processing by 6 hours monthly.",
@@ -292,11 +292,11 @@ EDUCATION & GLOBAL CERTIFICATIONS
     // 4. Key Project Automation Highlights
     renderSectionHeader("Key Project Automation Highlights");
     renderBullets([
-      "Delivery Intelligence (Project Pulse): Saved 191.25 hours/month across 45 team members by building automated dataset sync, budget burn-rate tracking, and margin deviation alerts.",
+      "Delivery Intelligence Dashboard: Saved 191.25 hours/month across 45 team members by building automated dataset sync, budget burn-rate tracking, and margin deviation alerts.",
       "Commercial & CRM Automation: Standardized deal qualification, SOW approval, and automated invoice creation, saving 15 hours/month across BD and finance.",
       "Cash Visibility & Outflow Planning: Replaced offline spreadsheets with Creator payment planning calendar and real-time cash position dashboards.",
       "Automated Expense Allocation: Reduced month-end accounting allocation time by 6 hours/month using automated headcount-ratio journal posting.",
-      "Quality RCA & Action Tracking (Communiqué): Created closed-loop complaint investigation and MoM action tracking with automated PDF report generation."
+      "Quality RCA & Action Tracking System: Created closed-loop complaint investigation and MoM action tracking with automated PDF report generation."
     ]);
 
     // 5. Extracurricular Leadership
@@ -504,7 +504,7 @@ EDUCATION & GLOBAL CERTIFICATIONS
                 </div>
                 <ul className="mt-1 list-disc pl-4 space-y-1 text-slate-700">
                   <li>Designed and deployed digital process automations across finance, HR, sales, project delivery, and operations using the Zoho One ecosystem.</li>
-                  <li>Built Project Pulse, a real-time project profitability and budget burn-rate dashboard (BV Pulse architecture) saving an estimated 191.25 hours monthly across 45 users.</li>
+                  <li>Built a real-time project profitability and budget burn-rate dashboard (normalized delivery dataset) saving an estimated 191.25 hours monthly across 45 users.</li>
                   <li>Automated commercial pipeline in Zoho CRM from lead qualification to SOW generation and invoice sync, saving ~15 hours per month across 6 core users.</li>
                   <li>Engineered Creator cash flow planning application with payment outflow scheduling, date-change audit tracking, and multi-entity balance consolidation.</li>
                   <li>Automated monthly shared corporate expense allocation using active headcount ratios and Zoho Books API integration, cutting month-end processing by 6 hours monthly.</li>
@@ -571,11 +571,11 @@ EDUCATION & GLOBAL CERTIFICATIONS
               KEY PROJECT AUTOMATION HIGHLIGHTS
             </h2>
             <ul className="mt-2.5 list-disc pl-4 space-y-1.5 text-xs text-slate-800">
-              <li><strong>Delivery Intelligence (Project Pulse):</strong> Saved 191.25 hours/month across 45 team members by building automated dataset sync, budget burn-rate tracking, and margin deviation alerts.</li>
+              <li><strong>Delivery Intelligence Dashboard:</strong> Saved 191.25 hours/month across 45 team members by building automated dataset sync, budget burn-rate tracking, and margin deviation alerts.</li>
               <li><strong>Commercial & CRM Automation:</strong> Standardized deal qualification, SOW approval, and automated invoice creation, saving 15 hours/month across BD and finance.</li>
               <li><strong>Cash Visibility & Outflow Planning:</strong> Replaced offline spreadsheets with Creator payment planning calendar and real-time cash position dashboards.</li>
               <li><strong>Automated Expense Allocation:</strong> Reduced month-end accounting allocation time by 6 hours/month using automated headcount-ratio journal posting.</li>
-              <li><strong>Quality RCA & Action Tracking (Communiqué):</strong> Created closed-loop complaint investigation and MoM action tracking with automated PDF report generation.</li>
+              <li><strong>Quality RCA & Action Tracking System:</strong> Created closed-loop complaint investigation and MoM action tracking with automated PDF report generation.</li>
             </ul>
           </section>
 

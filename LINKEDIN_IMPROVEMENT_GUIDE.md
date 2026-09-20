@@ -31,7 +31,7 @@ I orchestrate cross-functional business transformation at SqurrEnergy — aligni
 CORE TRANSFORMATION FOCUS:
 • Revenue Operations (RevOps) & Commercial Lifecycle Governance
 • Financial Controls, Cash Visibility & Shared Cost Allocation
-• Delivery Governance, Capacity Planning & Performance Dashboards (Project Pulse)
+• Delivery Governance, Capacity Planning & Performance Dashboards
 • Workforce Utilization, Appraisal Automation & Incentive Systems
 • Quality Governance, RCA Engines & Closed-Loop Action Tracking
 
@@ -64,7 +64,7 @@ Strategic Development & Business Transformation Leader orchestrating cross-funct
 
 Key Contributions & Measured Impact:
 • Executive Strategy Alignment: Translated leadership vision into structured operational frameworks, low-code tools, and enterprise governance models.
-• Delivery Governance (Project Pulse): Created Project Pulse dashboard with background data sync, budget burn-rate tracking, and role-based access — generating an estimated 191.25 hours of monthly time saving across 45 users.
+• Delivery Governance: Created project delivery dashboard with background data sync, budget burn-rate tracking, and role-based access — generating an estimated 191.25 hours of monthly time saving across 45 users.
 • Commercial RevOps Governance: Deployed stage-gated CRM lifecycle covering lead qualification through receivables follow-up, saving ~15 hours monthly across 6 users.
 • Financial Controls & Cash Visibility: Built multi-entity cash planning application with projected vs actual variance tracking, outflow calendar, and automated corporate expense allocation (~6 hrs/mo saved).
 • People Systems Optimization: Connected utilization tracking, automated appraisal workflows, and performance-linked incentive calculation engines.
@@ -161,7 +161,7 @@ Add a **Featured** section to your LinkedIn profile with 2-3 visual cards:
 
 1. **Personal Portfolio Website**: Link to your live site (`https://shivamjthete123.github.io/shivam-personal-website/`). Title: *"Executive Portfolio — Strategic Development & Systems Architecture"*.
 2. **Executive ATS Resume**: Upload `SHIVAM_THETE_ATS_RESUME.pdf`. Title: *"Shivam J. Thete — Executive ATS Resume (PDF)"*.
-3. **Project Pulse Case Study**: Add a screenshot or summary of Project Pulse dashboard showing the 191.25 hrs/mo productivity impact.
+3. **Project Governance Case Study**: Add a screenshot or summary of project delivery dashboard showing the 191.25 hrs/mo productivity impact.
 
 ---
 
