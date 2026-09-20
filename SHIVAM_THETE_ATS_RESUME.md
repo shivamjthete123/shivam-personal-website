@@ -6,7 +6,7 @@ Email: [shivamjthete123@gmail.com](mailto:shivamjthete123@gmail.com) | Phone: +9
 
 ## EXECUTIVE SUMMARY
 
-Strategic Operations & Systems Leader with 3+ years of hands-on enterprise experience designing digital process automations, workflow architectures, and Zoho One ecosystem solutions. Skilled at bridging operational bottlenecks with executive vision — transforming fragmented, spreadsheet-heavy workflows across finance, sales, project delivery, and HR into governed, automated systems and real-time analytical dashboards that drive execution discipline.
+Disciplined, system-minded Strategic Operations Executive with a Mechanical Engineering foundation and 3+ years of enterprise experience building digital process automations across finance, sales, project delivery, and HR. Guided by a pragmatic problem-solving mindset that treats operational friction as a system challenge — transforming manual, spreadsheet-heavy workflows into automated, auditable processes and transparent executive dashboards. My goal is to lead high-impact business transformations that align executive vision with frontline execution to build accountable, data-backed operating environments.
 
 ---
 

@@ -25,7 +25,7 @@ Strategic Development Executive | Systems & Process Automation Leader
 Email: shivamjthete123@gmail.com | Phone: +91-8263045370 | LinkedIn: https://www.linkedin.com/in/shivamjthete/ | Website: https://shivam-personal-website.vercel.app/ | Location: Pune, India
 
 EXECUTIVE SUMMARY
-Strategic Operations & Systems Leader with 3+ years of hands-on enterprise experience designing digital process automations, workflow architectures, and Zoho One ecosystem solutions. Skilled at bridging operational bottlenecks with executive vision — transforming fragmented, spreadsheet-heavy workflows across finance, sales, project delivery, and HR into governed, automated systems and real-time analytical dashboards that drive execution discipline.
+Disciplined, system-minded Strategic Operations Executive with a Mechanical Engineering foundation and 3+ years of enterprise experience building digital process automations across finance, sales, project delivery, and HR. Guided by a pragmatic problem-solving mindset that treats operational friction as a system challenge — transforming manual, spreadsheet-heavy workflows into automated, auditable processes and transparent executive dashboards. My goal is to lead high-impact business transformations that align executive vision with frontline execution to build accountable, data-backed operating environments.
 
 CORE COMPETENCIES & KEYWORDS
 - Process Automation & Operations: Business Process Automation, Revenue Operations (RevOps), Commercial Workflows, Financial Controls, Cash Flow Forecasting, Shared Cost Allocation.
@@ -246,7 +246,7 @@ EDUCATION & GLOBAL CERTIFICATIONS
 
     // 1. Executive Summary
     renderSectionHeader("Executive Summary");
-    renderParagraph("Strategic Operations & Systems Leader with 3+ years of hands-on enterprise experience designing digital process automations, workflow architectures, and Zoho One ecosystem solutions. Skilled at bridging operational bottlenecks with executive vision — transforming fragmented, spreadsheet-heavy workflows across finance, sales, project delivery, and HR into governed, automated systems and real-time analytical dashboards that drive execution discipline.");
+    renderParagraph("Disciplined, system-minded Strategic Operations Executive with a Mechanical Engineering foundation and 3+ years of enterprise experience building digital process automations across finance, sales, project delivery, and HR. Guided by a pragmatic problem-solving mindset that treats operational friction as a system challenge — transforming manual, spreadsheet-heavy workflows into automated, auditable processes and transparent executive dashboards. My goal is to lead high-impact business transformations that align executive vision with frontline execution to build accountable, data-backed operating environments.");
 
     // 2. Core Competencies
     renderSectionHeader("Core Competencies");
@@ -484,7 +484,7 @@ EDUCATION & GLOBAL CERTIFICATIONS
               EXECUTIVE SUMMARY
             </h2>
             <p className="mt-2.5 text-xs leading-relaxed text-slate-800">
-              Strategic Operations & Systems Leader with 3+ years of hands-on enterprise experience designing digital process automations, workflow architectures, and Zoho One ecosystem solutions. Skilled at bridging operational bottlenecks with executive vision — transforming fragmented, spreadsheet-heavy workflows across finance, sales, project delivery, and HR into governed, automated systems and real-time analytical dashboards that drive execution discipline.
+              Disciplined, system-minded Strategic Operations Executive with a Mechanical Engineering foundation and 3+ years of enterprise experience building digital process automations across finance, sales, project delivery, and HR. Guided by a pragmatic problem-solving mindset that treats operational friction as a system challenge — transforming manual, spreadsheet-heavy workflows into automated, auditable processes and transparent executive dashboards. My goal is to lead high-impact business transformations that align executive vision with frontline execution to build accountable, data-backed operating environments.
             </p>
           </section>
 
