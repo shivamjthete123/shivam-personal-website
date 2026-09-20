@@ -1,39 +1,39 @@
 {
   "order": 1,
   "name": "Shivam J. Thete",
-  "title": "Strategic Development Leader | Business Transformation Executive",
-  "headline": "Build the operating systems that turn strategy into measurable execution.",
-  "summary": "I orchestrate cross-functional business transformation at SqurrEnergy — aligning executive vision with structured frameworks, digital automations, and enterprise dashboards across finance, HR, sales, delivery, and operations. I turn fragmented workflows into governed operating models, practical systems, and decision-ready visibility.",
+  "title": "Strategic Development Executive | Systems & Process Automation Leader",
+  "headline": "Streamlining business processes and building digital workflows that save team time and drive execution.",
+  "summary": "Mechanical Engineering graduate (B.E. First Class Distinction, GATE AIR 8003) turned Strategic Development Executive at SqurrEnergy with 3+ years of hands-on experience in business process automation, Zoho One ecosystem design, and enterprise dashboarding. I specialize in taking fragmented, spreadsheet-heavy operations across finance, sales, delivery, and HR and turning them into practical, automated, and measurable digital workflows.",
   "contact": {
     "linkedin": "https://www.linkedin.com/in/shivamjthete/",
     "email": "shivamjthete123@gmail.com",
     "phone": "+91-8263045370"
   },
   "executiveSnapshot": [
-    "Connect strategy, process, systems, and adoption from problem definition through implementation.",
-    "Create operating visibility for leaders through governed workflows, dashboards, controls, and accountability.",
-    "Work effectively where processes are complex, manual, fragmented, or evolving.",
-    "Champion enterprise dashboard adoption to cultivate data-driven decision-making culture."
+    "Bridge engineering logic with business execution to solve operational bottlenecks from root cause to deployment.",
+    "Build custom Zoho One tools (Creator, CRM, Books, Projects, People, Analytics) and Deluge automation scripts.",
+    "Eliminate manual data entry and email chasing by designing automated, stage-gated team workflows.",
+    "Deliver real-time executive dashboards that track project margins, cash flow forecasts, and team utilization."
   ],
   "targetRoles": [
-    "Strategic Development Leadership",
-    "Business Transformation",
-    "Operational Excellence",
-    "Cross-functional Program Leadership"
+    "Strategic Operations & Development",
+    "Business Process Automation",
+    "Zoho Enterprise Solutions & Implementation",
+    "Operations Management"
   ],
   "focusAreas": [
-    "Revenue operations and commercial execution",
-    "Financial controls, cash visibility, and workflow automation",
-    "Delivery governance, capacity planning, and performance visibility",
-    "People systems, quality governance, and operational accountability"
+    "Revenue Operations & CRM Workflow Automation",
+    "Financial Controls, Cash Flow Forecasting & Expense Allocation",
+    "Project Delivery Governance, Capacity Planning & Budget Tracking",
+    "HRMS Workflows, Utilization Tracking & Quality RCA Governance"
   ],
   "workMethod": [
-    { "title": "Frame the decision", "description": "Clarify the business problem, operating constraint, owner, and measure of success." },
-    { "title": "Design the operating model", "description": "Map the workflow, control points, data requirements, and cross-functional hand-offs." },
-    { "title": "Implement with the team", "description": "Build practical tools and governance that fit the way work is actually done." },
-    { "title": "Make performance visible", "description": "Use clear measures, reviews, and iteration to strengthen execution over time." }
+    { "title": "1. Root Cause Analysis", "description": "Identify operational friction, manual dependencies, and key bottlenecks by talking with execution teams." },
+    { "title": "2. Workflow Architecture", "description": "Design stage-gated process blueprints, data schemas, approval chains, and automated triggers." },
+    { "title": "3. Implementation & Scripting", "description": "Build custom Zoho Creator apps, Deluge automation scripts, and cross-system API integrations." },
+    { "title": "4. Training & Visibility", "description": "Deploy role-based analytics dashboards and train teams to ensure smooth tool adoption and measurable time savings." }
   ],
-  "projectSectionIntro": "Selected evidence of leadership through systems design, execution discipline, and operating visibility — built at SqurrEnergy and through prior consulting engagements.",
-  "contactMessage": "Open to leadership roles in strategy, operations, transformation, and execution management.",
-  "footerLine": "Shivam J. Thete | Strategic Development & Business Transformation Leadership"
+  "projectSectionIntro": "Key process automation initiatives, digital tools, and operational systems engineered at SqurrEnergy and through prior consulting engagements.",
+  "contactMessage": "Open to leadership opportunities in operations, digital process automation, and strategy execution.",
+  "footerLine": "Shivam J. Thete | Strategic Development & Operations Automation"
 }

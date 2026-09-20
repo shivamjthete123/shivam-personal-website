@@ -385,7 +385,7 @@ function ProjectDrawer({ project, onClose }) {
               <Detail label="Business Problem">{activeItem.problemStatement}</Detail>
               <Detail label="Strategic Response">{activeItem.solution}</Detail>
               <Detail label="Operating Impact">{activeItem.impact}</Detail>
-              <Detail label="Leadership Signal">{activeItem.leadershipValue}</Detail>
+              <Detail label="Key Takeaway">{activeItem.keyTakeaway || activeItem.leadershipValue}</Detail>
             </dl>
             <div className="mt-6 max-w-3xl border-t border-slate-200 pt-4">
               <p className="text-[11px] font-extrabold uppercase tracking-[0.15em] text-slate-500">Systems & Tools Deployed</p>
@@ -477,7 +477,7 @@ export default function PersonalWebsite() {
         {/* MULTI-LEVEL LEFT SIDEBAR WITH SUBTABS */}
         <SidebarNavigation
           name={profile.name}
-          title="Strategic Development Leader"
+          title="Strategic Development Executive"
           linkedin={profile.contact.linkedin}
           email={profile.contact.email}
           phone={profile.contact.phone}

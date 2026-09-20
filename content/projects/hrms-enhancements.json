@@ -1,32 +1,32 @@
 {
   "id": "people-performance",
   "order": 4,
-  "title": "People and Performance Systems",
+  "title": "HRMS Workflows & Performance Analytics",
   "status": "Implemented",
-  "summary": "Made workforce decisions more objective and data-driven through utilization visibility, standardized performance workflows, and measurable incentive design — bridging people operations with delivery performance to improve organizational effectiveness.",
-  "tags": ["People Systems", "Performance Management"],
+  "summary": "Built automated appraisal workflows, real-time employee utilization tracking, and objective performance-linked incentive calculators to streamline HR operations and align rewards with project outcomes.",
+  "tags": ["HRMS Workflows", "Performance Systems"],
   "projectItems": [
     {
       "id": "hrms-optimisation",
-      "title": "HRMS Optimisation for Utilisation and Performance",
-      "summary": "A comprehensive workforce management enhancement connecting utilization dashboards (billable hours ÷ available hours), department-level and individual-level performance views, automated appraisal cycle triggers, evaluation form standardization, and seamless Zoho People-to-Creator data bridge for cross-system reporting.",
-      "problemStatement": "Leaders had limited visibility into actual resource utilization — they knew headcount but not how effectively time was being allocated. Performance tracking was inconsistent: different managers used different evaluation criteria, appraisal timelines were frequently missed, and historical performance data was siloed in individual Zoho People records without aggregation. HR and delivery leadership operated on different datasets, making workforce planning decisions subjective rather than data-driven. Utilization metrics were calculated manually on request rather than available continuously.",
-      "solution": "Built a multi-layer HRMS enhancement: utilization dashboard computing billable hours ÷ available hours at individual, team, department, and business-vertical levels with trend visualization; Zoho People-Creator data bridge enabling real-time sync of employee records, attendance, leave, and task data into a unified analytical layer; automated appraisal cycle management with configurable triggers (annual, probation-end, promotion-review), auto-generated evaluation forms, and deadline enforcement with escalation; standardized evaluation templates with competency-based scoring, self-assessment, manager assessment, and reviewer calibration workflow; performance trend reporting showing individual trajectory across appraisal cycles; and capacity planning integration linking utilization data with delivery forecasting for proactive staffing decisions.",
-      "impact": "Improved allocation decisions by providing leadership with continuous utilization visibility for the first time. Appraisal process became consistent and timely across all departments. Evaluation quality improved through standardized competency frameworks. HR and delivery leadership now operate from a shared data foundation for workforce decisions.",
-      "leadershipValue": "Bridges people operations and delivery performance to improve workforce effectiveness — demonstrating that HR systems, when properly connected to operational data, become strategic decision-making tools rather than administrative record-keepers.",
-      "toolsUsed": ["Zoho People", "Zoho Creator", "Zoho Recruit", "Zoho Payroll", "Deluge", "Zoho Analytics"],
-      "tags": ["HRMS", "Workforce Planning", "Performance Management", "Utilization Analytics"]
+      "title": "HRMS Optimization & Utilization Analytics",
+      "summary": "Connected Zoho People and Creator to track billable vs available resource utilization, automate appraisal evaluation cycles, and standardize performance scorecards.",
+      "problemStatement": "HR and delivery leads had limited visibility into actual resource utilization across teams. Appraisals were managed manually via forms, evaluation criteria varied by manager, and appraisal schedules were frequently delayed.",
+      "solution": "Built a Zoho People-Creator sync layer calculating utilization metrics (billable hours ÷ available hours) by individual, department, and project. Created an automated appraisal manager with scheduled evaluation triggers, manager review forms, and progress tracking.",
+      "impact": "Standardized the appraisal cycle across departments and provided management with real-time utilization visibility for staffing and performance reviews.",
+      "keyTakeaway": "Links HR employee data directly with delivery utilization, giving leadership objective insights for staffing and appraisal decisions.",
+      "toolsUsed": ["Zoho People", "Zoho Creator", "Zoho Recruit", "Zoho Payroll", "Deluge Scripting", "Zoho Analytics"],
+      "tags": ["HRMS", "Utilization Tracking", "Appraisal Automation"]
     },
     {
       "id": "performance-linked-incentives",
-      "title": "Performance-Linked Incentive System",
-      "summary": "A data-driven incentive framework connecting contribution measurement to reward outcomes through KPI weighting models, multi-source metric aggregation (timesheets, project completion, quality scores), structured approval hierarchy, automated payout calculation, and historical trend reporting.",
-      "problemStatement": "Incentive decisions were subjective and inconsistent — based on manager impressions rather than measurable operational performance. Different departments used different criteria (or no criteria) for bonus allocation. High performers couldn't see a clear link between their output and their reward. Payout calculations were manual, error-prone, and difficult to audit. Historical incentive data wasn't tracked systematically, making it impossible to analyze reward-to-performance correlation over time.",
-      "solution": "Built a comprehensive incentive engine with: configurable KPI weighting model allowing different role families to have tailored performance metrics; multi-source metric aggregation pulling data from timesheet records (utilization), project completion rates (delivery), quality scores (RCA/complaint data), and client feedback; individual performance scorecard computing weighted composite score; multi-level approval hierarchy (Direct Manager → Department Head → HR → Finance) with each level seeing the full calculation methodology; automated payout calculation engine applying approved score to incentive slabs with pro-rating for partial periods; historical trend reporting showing individual and team performance trajectories, incentive distribution patterns, and correlation analysis; and audit trail capturing every data input, calculation step, and approval decision.",
-      "impact": "Improved performance alignment between individual contribution and organizational objectives. Created transparency — employees can now see exactly how their incentive is calculated. Accountability strengthened as managers must justify scores against objective metrics. Payout processing time reduced and error rate eliminated through automation.",
-      "leadershipValue": "Demonstrates alignment of people systems with business objectives and execution quality — showing that incentive design is an operational strategy lever, not just an HR administrative process.",
-      "toolsUsed": ["Zoho Creator", "Zoho Analytics", "Deluge", "Widgets", "Zoho People"],
-      "tags": ["Incentive Design", "Performance Systems", "HR Strategy", "Compensation Analytics"]
+      "title": "Performance-Linked Incentive Calculation Engine",
+      "summary": "Engineered an automated incentive engine calculating payouts based on weighted KPIs (utilization, project delivery quality, customer feedback) with multi-tier approval routing.",
+      "problemStatement": "Incentive calculations were done manually on spreadsheets, leading to delays and potential calculation errors. Employees lacked clarity on how bonuses were calculated, and managers had to manually gather inputs from multiple systems.",
+      "solution": "Built a Creator incentive application that automatically fetches utilization data, project completion rates, and quality scores. Calculates weighted composite scores and routes payout calculations through Manager, HR, and Finance approval stages.",
+      "impact": "Eliminated manual spreadsheet calculation errors, reduced payout processing time, and provided employees with transparent performance-to-payout scorecards.",
+      "keyTakeaway": "Automates variable pay calculations using clear operational metrics, creating transparency for employees and auditability for finance.",
+      "toolsUsed": ["Zoho Creator", "Zoho Analytics", "Deluge Scripting", "Zoho People"],
+      "tags": ["Incentive Automation", "KPI Weighting", "Compensation Analytics"]
     }
   ]
 }

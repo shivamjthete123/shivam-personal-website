@@ -1,43 +1,43 @@
 {
   "id": "delivery-governance",
   "order": 3,
-  "title": "Delivery Governance and Performance Visibility",
+  "title": "Delivery Governance & Performance Visibility",
   "status": "Implemented",
-  "summary": "Improved delivery reliability by connecting project governance, resource planning, performance data, and financial visibility into an integrated operating system — giving leadership real-time insight into project health, team utilization, and margin performance.",
-  "tags": ["Delivery Governance", "Performance Visibility"],
+  "summary": "Built integrated project tracking, capacity planning, budget monitoring, and margin dashboards — giving project managers and leadership real-time visibility into project health and resource utilization.",
+  "tags": ["Delivery Governance", "Project Dashboards"],
   "projectItems": [
     {
       "id": "project-governance-suite",
-      "title": "Integrated Project Governance and Delivery System",
-      "summary": "A standardized toolkit providing consistent project controls across the entire delivery lifecycle: initiation checklists → milestone tracking → issue escalation → progress documentation → AI-assisted reporting → automated PDF status exports → performance review dashboards.",
-      "problemStatement": "Projects lacked consistent governance controls, creating uneven execution quality across teams. Project initiation had no standard checklist — some projects started without clear scope, stakeholders, or success criteria defined. Issue tracking was informal (email/chat), making escalation paths unclear. Status reporting was manual and inconsistent in format, creating information asymmetry between project managers and leadership.",
-      "solution": "Designed a comprehensive governance framework with: standardized project initiation checklist with mandatory fields (scope, stakeholders, milestones, risk register, success criteria); structured issue escalation workflow with severity classification, owner assignment, and resolution SLA tracking; milestone-based progress tracking with automated status calculation; AI-assisted documentation for meeting notes, status summaries, and risk assessments; automated PDF status report generation with consistent format across all projects; and performance review dashboards aggregating health indicators across the project portfolio.",
-      "impact": "Improved delivery consistency, coordination, tracking, and issue visibility across all teams. Projects now follow a repeatable governance model that surfaces risks early, ensures accountability, and provides leadership with portfolio-level health visibility.",
-      "leadershipValue": "Demonstrates the ability to design governance systems that scale across teams and project types — balancing rigorous controls with practical usability for frontline project managers.",
-      "toolsUsed": ["Zoho Creator", "Deluge", "AI Integrations", "PDF Automation", "Zoho Projects"],
-      "tags": ["Delivery Governance", "Project Controls", "Portfolio Management"]
+      "title": "Integrated Project Governance & Status Suite",
+      "summary": "Standardized project initiation checklists, milestone tracking, escalation paths, and automated PDF status reporting across project delivery teams.",
+      "problemStatement": "Projects lacked uniform tracking standards across teams. Project kickoff criteria were informal, status updates were sent in varying email formats, and leadership couldn't quickly assess portfolio risk or milestone status.",
+      "solution": "Built standardized project initiation templates in Zoho Projects and Creator. Configured mandatory milestone gates, severity-based issue escalation rules, and an automated script that generates formatted PDF status updates for client and management reviews.",
+      "impact": "Standardized project delivery tracking across teams, ensuring issues are surfaced early and status reporting is consistent and automated.",
+      "keyTakeaway": "Establishes clear operational guardrails for project managers without cluttering daily execution work.",
+      "toolsUsed": ["Zoho Creator", "Zoho Projects", "Deluge Scripting", "PDF Automation"],
+      "tags": ["Project Governance", "Status Automation", "Delivery Control"]
     },
     {
       "id": "project-pulse",
-      "title": "Project Pulse",
-      "summary": "A flagship delivery performance dashboard built on the BV Pulse dataset architecture, providing real-time project financial health, resource utilization, transaction history, budget burn-rate tracking, margin signal alerts, and profitability analysis — with role-based access for Directors, Project Managers, and Finance teams.",
-      "problemStatement": "Financial and delivery reviews depended on fragmented manual checks and runtime API calls to Zoho Books and Projects that created reliability issues and slow dashboard load times. Project profitability was only calculable during monthly reviews (not in real-time). Different stakeholders needed different views but were all looking at the same generic report. Budget overruns were discovered late because there were no proactive alert mechanisms. Multi-entity data made consolidated portfolio analysis extremely time-consuming.",
-      "solution": "Architected the BV Pulse dataset as a pre-processed, normalized data layer aggregating financial and delivery data from Books, Projects, and Creator. Moved data retrieval from runtime API calls to scheduled background synchronization (configurable frequency per entity) with validation checks and error handling. Built budget burn-rate calculation comparing actual spend against planned budget with trajectory projection. Implemented margin signal alerts with configurable thresholds (green/amber/red) triggering notifications when project margins deviate. Created role-based dashboard access: Director view (portfolio KPIs, margin heatmap, resource utilization summary), PM view (individual project health, task progress, budget status), Finance view (revenue recognition, transaction drill-down, entity-level P&L). Dashboard load time improved dramatically by eliminating runtime API dependency.",
-      "impact": "Improved dashboard responsiveness and management visibility across the entire project portfolio. The case study estimates 191.25 hours of monthly saving across 45 users by eliminating manual data compilation, cross-entity checking, and ad-hoc report generation. Leadership gained proactive margin monitoring for the first time.",
-      "leadershipValue": "Connects data architecture decisions directly to the speed and quality of operating decisions — demonstrating that infrastructure choices (sync vs runtime, normalized datasets, role-based access) are leadership decisions with measurable business impact.",
+      "title": "Project Pulse — Delivery & Financial Performance Dashboard",
+      "summary": "Architected a flagship project intelligence dashboard (BV Pulse dataset) providing real-time project profitability, budget burn-rate tracking, margin alerts, and role-based views for Directors, Project Managers, and Finance.",
+      "problemStatement": "Checking project financial health required manually pulling data from Zoho Books and Projects during monthly reviews. Budget overruns were discovered late because there was no live alert mechanism, and runtime API calls caused slow report loading.",
+      "solution": "Built a normalized, background-synchronized data layer (BV Pulse) aggregating data from Books, Projects, and Creator. Created budget burn-rate tracking with margin deviation alerts (Green/Amber/Red) and customized role-based dashboard views.",
+      "impact": "Estimated 191.25 hours saved monthly across 45 users by replacing manual spreadsheet checking with a real-time, high-speed dashboard. Allowed management to spot margin slippage early.",
+      "keyTakeaway": "Combines project delivery metrics with accounting data into an automated, fast-loading executive dashboard.",
       "toolsUsed": ["Zoho Projects", "Zoho Creator", "BV Pulse", "Scheduled APIs", "Zoho Analytics", "HTML Widgets", "Deluge"],
-      "tags": ["Performance Visibility", "Project Finance", "Dashboards", "Data Architecture"]
+      "tags": ["Project Intelligence", "Margin Alerts", "Burn Rate Tracking", "Dashboards"]
     },
     {
       "id": "resource-planning-timesheet",
-      "title": "Resource Planning and Timesheet Approval",
-      "summary": "A multi-role resource management system implementing the complete weekly cycle: engineer planning submission → manager review and correction → approval workflow → automated Zoho Projects time-log posting — with business-vertical dashboards, project-lead views, capacity vs utilization metrics, and compliance tracking.",
-      "problemStatement": "Spreadsheet-based planning and manual follow-up obscured workload distribution, submission compliance, and usable capacity. Managers couldn't distinguish between available and allocated capacity. Weekly time entries were inconsistent — some engineers submitted late, some not at all, with no compliance tracking. Planning data didn't flow into project time logs, creating duplicate entry. Business vertical heads had no visibility into resource allocation across their portfolio of projects.",
-      "solution": "Built role-specific interfaces around a shared weekly planning record: Engineer view (weekly task planning with project assignment, hour allocation, and notes); Manager review (team submission dashboard with individual review, correction capability, and batch approval); Approval workflow (multi-level approval with automatic posting of approved hours to Zoho Projects time logs); Business-vertical dashboard (resource allocation view showing capacity vs utilization per vertical, highlighting over/under-utilized resources); Project-lead dashboard (team allocation view showing who is working on their project, planned vs actual hours, and availability for additional scope). Implemented compliance tracking with submission deadline monitoring, automated reminders, and manager-visible compliance scorecards.",
-      "impact": "Created one controlled workflow for engineers and managers, replacing fragmented spreadsheet processes. Clearer loading and utilization visibility for leadership, with first-ever cross-vertical resource allocation view enabling data-driven staffing decisions.",
-      "leadershipValue": "Shows end-to-end operating model design from frontline execution to management oversight — connecting individual contributor workflow to organizational capacity planning and strategic resource allocation.",
-      "toolsUsed": ["Zoho Creator", "Zoho Analytics", "Zoho Projects", "Deluge", "HTML Widgets"],
-      "tags": ["Resource Planning", "Capacity Management", "Delivery Governance", "Workforce Analytics"]
+      "title": "Resource Capacity Planning & Timesheet Workflow",
+      "summary": "Designed a weekly resource management workflow covering engineer task planning, manager review and approval, automated Zoho Projects time-logging, and cross-department utilization dashboards.",
+      "problemStatement": "Resource allocation was managed on offline spreadsheets. Department leads had no clear view of billable vs available capacity, weekly time submission was inconsistent, and manual data re-keying was needed for project logs.",
+      "solution": "Developed a custom Zoho Creator application where engineers log weekly task plans, managers review and approve allocations, and approved hours sync directly into Zoho Projects time logs. Built capacity vs utilization analytics views by department.",
+      "impact": "Replaced fragmented spreadsheets with a single structured workflow, giving business heads clear visibility into team loading and unallocated bandwidth.",
+      "keyTakeaway": "Streamlines weekly timesheet management while giving department heads real-time capacity visibility for proactive staffing.",
+      "toolsUsed": ["Zoho Creator", "Zoho Analytics", "Zoho Projects", "Deluge Scripting"],
+      "tags": ["Resource Management", "Capacity Planning", "Timesheet Automation"]
     }
   ]
 }

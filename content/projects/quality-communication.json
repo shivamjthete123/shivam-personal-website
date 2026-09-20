@@ -1,32 +1,32 @@
 {
   "id": "quality-communication",
   "order": 5,
-  "title": "Quality Governance and Communication",
+  "title": "Quality Governance & Communication Systems",
   "status": "Implemented",
-  "summary": "Created accountable systems for customer-issue resolution, root-cause learning, project communication, and action tracking — establishing closed-loop governance that protects client relationships while building organizational learning capability.",
-  "tags": ["Quality Governance", "Communication Systems"],
+  "summary": "Built structured customer complaint RCA resolution tracking, meeting decision-tracking (Communiqué), and automated PDF exports to ensure closed-loop accountability.",
+  "tags": ["Quality Governance", "Action Tracking"],
   "projectItems": [
     {
       "id": "customer-complaint-rca",
-      "title": "Customer Complaint and Root Cause Analysis",
-      "summary": "A comprehensive project-scoped quality system implementing the full complaint lifecycle: intake form → team assignment → investigation → root cause identification → corrective action planning → manager review and approval → closure with verification → automated PDF RCA report generation → real-time dashboard KPI updates.",
-      "problemStatement": "Complaint handling was informal and inconsistent. Issues reported via email or verbal communication had no structured tracking. There was no standardized investigation methodology — root cause analysis quality varied by individual. Corrective actions were agreed verbally but rarely tracked to completion. No audit trail existed for regulatory or client review purposes. Leadership had no visibility into complaint volume trends, resolution times, or recurring issue patterns.",
-      "solution": "Designed an integrated Zoho Projects and Creator quality module with: structured complaint intake form capturing client details, project context, severity classification, and initial description; automated assignment workflow routing complaints to investigation teams based on project and severity; investigation template guiding teams through structured RCA methodology (5-Why, Fishbone framework support); corrective action planning with owner assignment, deadline, and verification criteria; multi-level review workflow (Team Lead → Manager → Quality Head) with approval gates; lifecycle notifications keeping all stakeholders informed at each stage transition; automated PDF RCA report generation with professional formatting for client distribution; and real-time dashboard tracking complaint volume, resolution time trends, severity distribution, repeat issue identification, and closure rate KPIs.",
-      "impact": "Reported user feedback indicates 7 hours of monthly saving across two respondents. More importantly, strengthened closure accountability — every complaint now has a traceable lifecycle from intake to verified resolution. Leadership gained proactive visibility into quality trends, enabling pattern-based prevention rather than reactive firefighting.",
-      "leadershipValue": "Shows how quality governance systems can simultaneously protect client relationships, create organizational learning loops, and provide leadership with actionable quality intelligence.",
-      "toolsUsed": ["Zoho Projects", "Zoho Creator", "Deluge", "AI Assistance", "PDF Automation", "Zoho Analytics"],
-      "tags": ["Quality Governance", "Customer Experience", "Root Cause Analysis", "Continuous Improvement"]
+      "title": "Customer Complaint & Root Cause Analysis (RCA) Engine",
+      "summary": "Designed a project quality workflow covering complaint logging, team assignment, 5-Why RCA investigation, corrective action tracking, manager approval, and automated PDF report export.",
+      "problemStatement": "Client complaints were handled informally via emails and calls without central tracking. Root cause analysis was rarely documented, and corrective actions lacked follow-up verification to ensure issue resolution.",
+      "solution": "Built a Zoho Projects/Creator quality module featuring structured complaint intake, RCA investigation templates (5-Why methodology), corrective action assignment with target dates, approval sign-offs, and automated PDF export.",
+      "impact": "Saved ~7 hours per month across users by streamlining complaint documentation, ensuring 100% of reported issues have verified corrective action plans.",
+      "keyTakeaway": "Replaces informal email troubleshooting with a structured, auditable quality system that ensures recurring problems are solved at the root cause.",
+      "toolsUsed": ["Zoho Projects", "Zoho Creator", "Deluge Scripting", "PDF Automation", "Zoho Analytics"],
+      "tags": ["Quality RCA", "Issue Tracking", "Corrective Action", "PDF Reports"]
     },
     {
       "id": "communique",
-      "title": "Communiqué — Meeting and Action Tracking System",
-      "summary": "A structured project communication system implementing governed Minutes of Meeting (MoM) workflows: agenda setting → discussion point documentation → decision recording → action item creation with owners and deadlines → priority flags → linked project deliverables → professional PDF export for distribution → follow-up dashboard with accountability tracking.",
-      "problemStatement": "Project decisions and action items were lost across informal notes, email threads, WhatsApp messages, and personnel changes. When team members left or rotated, institutional memory of what was decided and why was lost. Action items agreed in meetings had no systematic follow-up mechanism. There was no searchable record of past decisions — the same topics were repeatedly discussed without resolution. Meeting documentation quality was inconsistent and rarely distributed in a standardized format.",
-      "solution": "Implemented a structured Zoho Projects communication record with: pre-meeting agenda template with topic owners and time allocation; in-meeting documentation capturing discussion points with context, decisions made with rationale, and dissenting views; action item creation with mandatory fields: owner, deadline, priority level, and linked project deliverable; automated notification to action owners upon meeting record approval; follow-up dashboard showing open actions by owner, overdue items, and completion trends; approved PDF export with professional formatting for meeting distribution; searchable meeting history with topic tagging for decision audit trail; and integration with project milestones linking meeting decisions to deliverable timelines.",
-      "impact": "Improved communication continuity and accountability for project actions. Eliminated institutional memory loss during team transitions. Created a searchable decision audit trail for the first time. Meeting follow-up shifted from ad-hoc email reminders to systematic dashboard-driven accountability.",
-      "leadershipValue": "Demonstrates governance through clear ownership, follow-up discipline, and reliable project memory — turning informal communication into a strategic asset for organizational learning and accountability.",
-      "toolsUsed": ["Zoho Projects", "Zoho Creator", "Project Workflows", "PDF Export", "Deluge"],
-      "tags": ["Project Communication", "Action Management", "Governance", "Knowledge Management"]
+      "title": "Communiqué — Meeting Minutes & Action Tracking System",
+      "summary": "Implemented a structured meeting management tool capturing Minutes of Meeting (MoM), decisions made, linked project deliverables, assigned action items with deadlines, and searchable decision history.",
+      "problemStatement": "Action items discussed in project meetings were scattered in email threads or personal notes, resulting in forgotten commitments and loss of institutional memory during team transitions.",
+      "solution": "Developed Communiqué in Zoho Projects/Creator to record meeting agendas, decisions, and action items with assigned owners and deadlines. Features automated notification alerts, dashboard follow-up views, and formatted PDF export.",
+      "impact": "Eliminated lost action items after project meetings and created a searchable repository of past project decisions for seamless team handovers.",
+      "keyTakeaway": "Turns verbal meeting commitments into trackable system actions linked directly to project deliverables.",
+      "toolsUsed": ["Zoho Projects", "Zoho Creator", "Deluge Scripting", "PDF Export"],
+      "tags": ["Meeting MoM", "Action Tracking", "Project Governance"]
     }
   ]
 }

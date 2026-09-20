@@ -21,68 +21,66 @@ export default function AtsResumeModal({ isOpen, onClose }) {
   if (!isOpen) return null;
 
   const rawTextResume = `SHIVAM J. THETE
-Strategic Development Leader | Business Transformation Executive
+Strategic Development Executive | Systems & Process Automation Leader
 Email: shivamjthete123@gmail.com | Phone: +91-8263045370 | LinkedIn: https://www.linkedin.com/in/shivamjthete/ | Website: https://shivam-personal-website.vercel.app/ | Location: Pune, India
 
 EXECUTIVE SUMMARY
-Strategic Development Executive with 3+ years of enterprise leadership at SqurrEnergy and prior Zoho One consulting experience, specializing in cross-functional business transformation across finance, HR, sales, delivery, and operations. Proven ability to orchestrate alignment of business processes with executive vision through structured frameworks, digital automations, and enterprise dashboards. Adept at turning fragmented, manual workflows into governed operating models that deliver measurable execution discipline, data-driven decision-making, and scalable organizational growth.
+Mechanical Engineering graduate (B.E. First Class Distinction, GATE AIR 8003) and Strategic Development Executive at SqurrEnergy with 3+ years of experience leading digital process automation, Zoho One ecosystem implementations, and operational analytics. Skilled at diagnosing manual spreadsheet friction across finance, sales, project delivery, and HR, and building structured, automated workflows that save team time, enforce operational accountability, and provide management with real-time visibility.
 
 CORE COMPETENCIES & KEYWORDS
-- Strategic Leadership: Strategy-to-Execution Translation, Business Transformation, Operating Model Design, Cross-Functional Program Leadership, Change Management, Process Controls & Compliance.
-- Operations & Revenue Operations: Revenue Operations (RevOps), Commercial Governance, Financial Controls, Cash Visibility, Cash Flow Forecasting, Corporate Cost Allocation, SLA Design.
-- Technology & Enterprise Systems: Zoho One Ecosystem (Creator, CRM, Books, Projects, People, Recruit, Payroll, Analytics, Desk), Deluge Scripting, REST APIs, Workflow Automation, Low-Code Application Development, Power BI, SAP SD (Certified).
-- Delivery & Quality Governance: Capacity Planning, Resource Utilization, Root Cause Analysis (RCA), Quality Governance, Action Tracking, Executive Dashboarding.
+- Process Automation & Operations: Business Process Automation, Revenue Operations (RevOps), Commercial Workflows, Financial Controls, Cash Flow Forecasting, Shared Cost Allocation.
+- Zoho Ecosystem & Technical: Zoho CRM, Creator, Books, Projects, People, Analytics, Deluge Scripting, REST APIs, Webhooks, Low-Code Architecture, Power BI, SAP SD (Certified).
+- Governance & Analytics: Project Delivery Governance, Capacity Planning, Resource Utilization, Root Cause Analysis (RCA), Customer Complaint Tracking, Executive Dashboards.
 
 PROFESSIONAL EXPERIENCE
 
 Strategic Development Executive | SqurrEnergy (Jul 2023 – Present)
-- Orchestrated alignment of business processes with executive vision through structured frameworks, documentation, and digital automations spanning finance, HR, sales, delivery, and operations.
-- Championed development and adoption of enterprise dashboards and tools across the organization, cultivating a data-driven culture that empowers accountability and strategic decision-making.
-- Led cross-functional teams in implementing technology workflows using Zoho One, delivering measurable operational enhancements and positioning the organization for scalable growth.
-- Designed and deployed a governed CRM lifecycle covering lead qualification through receivables follow-up, reporting ~15 hours of monthly time saving across six users.
-- Built cash-planning application with projected vs actual variance tracking, outflow calendar, and multi-entity consolidation for executive financial visibility.
-- Created Project Pulse — delivery performance dashboard with background data sync, budget burn-rate tracking, and role-based access — estimated at 191.25 hours monthly saving across 45 users.
-- Engineered HRMS optimization initiative connecting utilization dashboards, automated appraisal workflows, and performance-linked incentive systems.
-- Implemented customer complaint and RCA engine with structured lifecycle, automated PDF reporting, and dashboard KPIs.
+- Designed and deployed digital process automations across finance, HR, sales, project delivery, and operations using the Zoho One ecosystem.
+- Built Project Pulse, a real-time project profitability and budget burn-rate dashboard (BV Pulse architecture) saving an estimated 191.25 hours monthly across 45 users.
+- Automated commercial pipeline in Zoho CRM from lead qualification to SOW generation and invoice sync, saving ~15 hours per month across 6 core users.
+- Engineered Creator cash flow planning application with payment outflow scheduling, date-change audit tracking, and multi-entity balance consolidation.
+- Automated monthly shared corporate expense allocation using active headcount ratios and Zoho Books API integration, cutting month-end processing by 6 hours monthly.
+- Built customer complaint and Root Cause Analysis (RCA) quality engine featuring 5-Why investigation templates, corrective action tracking, and automated PDF export (~7 hrs/month saved).
+- Developed resource capacity planning and weekly timesheet approval workflows linking engineer task plans directly into Zoho Projects time logs.
+- Integrated Zoho People and Creator to track billable vs available resource utilization and automate quarterly appraisal workflows.
 
 Zoho One Consultant | Samsoft IT Solutions LLC (Dec 2022 – Jun 2023)
-- Collaborated with global clients to define requirements and deliver tailored Statements of Work across Zoho One solutions (CRM, Creator, Books, People, Projects).
-- Engineered customized implementations including workflow automation, Deluge scripting, API integrations, and custom module development for diverse industry verticals.
-- Managed client escalations and complex technical challenges, ensuring efficient end-to-end project delivery.
+- Consulted global clients on solution architecture, custom Deluge scripting, and API integrations across Zoho CRM, Creator, Books, People, and Projects.
+- Gathered client business requirements, authored detailed Statements of Work (SOW), and configured custom low-code applications for diverse industry verticals.
+- Resolved complex technical escalation issues and delivered client user training to ensure smooth system adoption.
 
 Functional Consultant | Target Integration (Jun 2022 – Nov 2022)
-- Delivered Zoho One consulting services across CRM, Desk, Recruit, and Books for SMB and enterprise clients.
-- Recognized for swift escalation resolution and excellence in project delivery.
+- Implemented Zoho One modules (CRM, Desk, Recruit, Books) for SMB and enterprise clients.
+- Led requirement gathering workshops, system mapping, data migration, and end-user training sessions.
 
-Personal Goal Pursuit — Career Break | UPSC IES Prep, GATE & AFCAT (Jun 2018 – Dec 2021)
-- Prepared for UPSC Indian Engineering Services (IES) examination, demonstrating commitment to ambitious national-level competitive goals.
-- Secured All India Rank (AIR) 8003 in GATE examination, validating strong technical foundations.
-- Qualified for AFCAT SSB Interview (2020), demonstrating leadership and defense services readiness.
+Personal Goal Pursuit — Career Break | UPSC IES Prep, GATE AIR 8003 & AFCAT (Jun 2018 – Dec 2021)
+- Prepared for UPSC Indian Engineering Services (IES) examination, developing deep foundations in engineering fundamentals.
+- Qualified GATE Examination with an All India Rank (AIR) 8003 in Mechanical Engineering.
+- Qualified AFCAT SSB Interview (2020) for Indian Air Force officer selection.
 
 Business Development Trainee | Byju's — The Learning App (Aug 2021 – Oct 2021)
-- Engaged in direct sales and business development for India's leading edtech platform.
+- Handled direct sales and customer onboarding during early career transition into business operations.
 
 Project Intern | Sharda Motor Industries Ltd. (Jun 2016 – Jul 2016)
-- Executed industrial ergonomics analysis on assembly floor, delivering workstation optimization recommendations.
+- Executed industrial workstation ergonomics analysis on assembly floor, delivering layout optimization recommendations.
 
-KEY STRATEGIC TRANSFORMATION HIGHLIGHTS
-- Revenue Operations & Commercial Execution: Governed CRM lifecycle, stage-gate approvals, custom SOW proposals, automated invoice sync (~15 hrs/mo saving).
-- Finance Control & Cash Visibility: Deployed receivables ageing (30/60/90/120 days), automated collection escalations, cash planning calendar, corporate expense allocation (~6 hrs/mo saving).
-- Delivery Governance (Project Pulse): BV Pulse dataset sync, budget burn-rate alerts, role-based views (Director/PM/Finance) (191.25 hrs/mo saving across 45 users).
-- People & Performance Systems: Utilization tracking, automated appraisal cycles, performance-linked incentive calculation engine.
-- Quality Governance & RCA (Communique): Closed-loop complaint intake to RCA PDF export (~7 hrs/mo saving); Communique MoM decision-tracking system.
+KEY PROJECT AUTOMATION HIGHLIGHTS
+- Delivery Intelligence (Project Pulse): Saved 191.25 hours/month across 45 team members by building automated dataset sync, budget burn-rate tracking, and margin deviation alerts.
+- Commercial & CRM Automation: Standardized deal qualification, SOW approval, and automated invoice creation, saving 15 hours/month across BD and finance.
+- Cash Visibility & Outflow Planning: Replaced offline spreadsheets with Creator payment planning calendar and real-time cash position dashboards.
+- Automated Expense Allocation: Reduced month-end accounting allocation time by 6 hours/month using automated headcount-ratio journal posting.
+- Quality RCA & Action Tracking (Communiqué): Created closed-loop complaint investigation and MoM action tracking with automated PDF report generation.
 
 EXTRACURRICULAR LEADERSHIP & COMMUNITY ENGAGEMENT
 - Team Vector & Skylark Drone Competition (2016–2018): Mechanical Engineer on drone design & engineering team; building custom quadcopters.
 - Prayas Youth Forum (2015–2018): Volunteer for social awareness, rural computer literacy drives, and environmental conservation.
-- Swapnapurti Foundation (2016–2017): Volunteer conducting student mentorship and soft skills workshops.
-- Sanwardhan NGO (2014–2018): Environmental volunteer across 4 years of active initiatives.
+- Swapnapurti Foundation & Sanwardhan NGO (2014–2018): Active volunteer for youth mentorship and environmental conservation.
 
 EDUCATION & GLOBAL CERTIFICATIONS
 - Bachelor of Engineering (Mechanical Engineering) | K. K. Wagh Institute of Engineering Education and Research, Nashik (2014 – 2018) | First Class With Distinction (66.18%)
+- GATE Qualified | All India Rank (AIR) 8003
 - Business Intelligence Using Power BI | Skill Nation (Dec 2023)
-- SAP Certified Application Associate — Sales and Distribution (SAP ERP 6.0 EhP7) | SAP (Mar 2022)
-- GATE Qualified | All India Rank (AIR) 8003`;
+- SAP Certified Application Associate — Sales and Distribution (SAP ERP 6.0 EhP7) | SAP (Mar 2022)`;
 
   // Native Vector PDF Generator Engine with Clickable Hyperlinks (Email, LinkedIn, Website)
   const generateNativeVectorPdf = () => {
@@ -115,7 +113,7 @@ EDUCATION & GLOBAL CERTIFICATIONS
     doc.setFont("helvetica", "bold");
     doc.setFontSize(9.5);
     doc.setTextColor(194, 65, 12);
-    doc.text("STRATEGIC DEVELOPMENT LEADER  |  BUSINESS TRANSFORMATION EXECUTIVE", 297.64, y, { align: "center" });
+    doc.text("STRATEGIC DEVELOPMENT EXECUTIVE  |  SYSTEMS & PROCESS AUTOMATION LEADER", 297.64, y, { align: "center" });
     y += 14;
 
     // Contact Line with Clickable Hyperlinks
@@ -237,35 +235,35 @@ EDUCATION & GLOBAL CERTIFICATIONS
 
     // 1. Executive Summary
     renderSectionHeader("Executive Summary");
-    renderParagraph("Strategic Development Executive with 3+ years of enterprise leadership at SqurrEnergy and prior Zoho One consulting experience, specializing in cross-functional business transformation across finance, HR, sales, delivery, and operations. Proven ability to orchestrate alignment of business processes with executive vision through structured frameworks, digital automations, and enterprise dashboards. Adept at turning fragmented, manual workflows into governed operating models that deliver measurable execution discipline, data-driven decision-making, and scalable organizational growth.");
+    renderParagraph("Mechanical Engineering graduate (B.E. First Class Distinction, GATE AIR 8003) and Strategic Development Executive at SqurrEnergy with 3+ years of experience leading digital process automation, Zoho One ecosystem implementations, and operational analytics. Skilled at diagnosing manual spreadsheet friction across finance, sales, project delivery, and HR, and building structured, automated workflows that save team time, enforce operational accountability, and provide management with real-time visibility.");
 
     // 2. Core Competencies
     renderSectionHeader("Core Competencies");
     renderBullets([
-      "Strategic Leadership: Strategy-to-Execution Translation, Business Transformation, Operating Model Design, Cross-Functional Leadership, Change Management, Process Controls.",
-      "Operations & RevOps: Revenue Operations (RevOps), Commercial Governance, Financial Controls, Cash Visibility, Cash Flow Forecasting, Corporate Cost Allocation, SLA Design.",
-      "Technology & Systems: Zoho One Ecosystem (Creator, CRM, Books, Projects, People, Recruit, Analytics, Desk), Deluge Scripting, REST APIs, Power BI, SAP SD (Certified).",
-      "Delivery & Quality: Capacity Planning, Resource Utilization, Root Cause Analysis (RCA), Quality Governance, Action Tracking, Executive Dashboarding."
+      "Process Automation & Operations: Business Process Automation, Revenue Operations (RevOps), Commercial Workflows, Financial Controls, Cash Flow Forecasting, Shared Cost Allocation.",
+      "Zoho Ecosystem & Technical: Zoho CRM, Creator, Books, Projects, People, Analytics, Deluge Scripting, REST APIs, Webhooks, Low-Code Architecture, Power BI, SAP SD (Certified).",
+      "Governance & Analytics: Project Delivery Governance, Capacity Planning, Resource Utilization, Root Cause Analysis (RCA), Customer Complaint Tracking, Executive Dashboards."
     ]);
 
     // 3. Professional Experience
     renderSectionHeader("Professional Experience");
     renderJob("SqurrEnergy | Strategic Development Executive", "Jul 2023 – Present (3+ yrs)", [
-      "Orchestrated alignment of business processes with executive vision through structured frameworks, documentation, and digital automations spanning finance, HR, sales, delivery, and operations.",
-      "Championed development and adoption of enterprise dashboards across the organization, cultivating a data-driven culture that empowers accountability and strategic decision-making.",
-      "Led cross-functional teams in implementing technology workflows using Zoho One, delivering measurable operational enhancements and positioning the organization for scalable growth.",
-      "Designed and deployed a governed CRM lifecycle covering lead qualification through receivables follow-up, reporting ~15 hours of monthly time saving across six users.",
-      "Built cash-planning application with projected vs actual variance tracking, outflow calendar, and multi-entity consolidation for executive financial visibility.",
-      "Created Project Pulse — delivery performance dashboard with background data sync, budget burn-rate tracking, and role-based access — estimated at 191.25 hours monthly saving across 45 users."
+      "Designed and deployed digital process automations across finance, HR, sales, project delivery, and operations using the Zoho One ecosystem.",
+      "Built Project Pulse, a real-time project profitability and budget burn-rate dashboard (BV Pulse architecture) saving an estimated 191.25 hours monthly across 45 users.",
+      "Automated commercial pipeline in Zoho CRM from lead qualification to SOW generation and invoice sync, saving ~15 hours per month across 6 core users.",
+      "Engineered Creator cash flow planning application with payment outflow scheduling, date-change audit tracking, and multi-entity balance consolidation.",
+      "Automated monthly shared corporate expense allocation using active headcount ratios and Zoho Books API integration, cutting month-end processing by 6 hours monthly.",
+      "Built customer complaint and Root Cause Analysis (RCA) quality engine featuring 5-Why investigation templates, corrective action tracking, and automated PDF export (~7 hrs/month saved)."
     ]);
 
     renderJob("Samsoft IT Solutions LLC | Zoho One Consultant", "Dec 2022 – Jun 2023", [
-      "Collaborated with global clients to define requirements and deliver tailored Statements of Work across Zoho One solutions (CRM, Creator, Books, People, Projects).",
-      "Engineered customized implementations including workflow automation, Deluge scripting, API integrations, and custom module development."
+      "Consulted global clients on solution architecture, custom Deluge scripting, and API integrations across Zoho CRM, Creator, Books, People, and Projects.",
+      "Gathered client business requirements, authored detailed Statements of Work (SOW), and configured custom low-code applications for diverse industry verticals."
     ]);
 
     renderJob("Target Integration | Functional Consultant", "Jun 2022 – Nov 2022", [
-      "Delivered Zoho One consulting services across CRM, Desk, Recruit, and Books for SMB and enterprise clients."
+      "Implemented Zoho One modules (CRM, Desk, Recruit, Books) for SMB and enterprise clients.",
+      "Led requirement gathering workshops, system mapping, data migration, and end-user training sessions."
     ]);
 
     renderJob("Personal Goal Pursuit — Career Break | UPSC IES Prep, GATE AIR 8003 & AFCAT", "Jun 2018 – Dec 2021", [
@@ -273,21 +271,21 @@ EDUCATION & GLOBAL CERTIFICATIONS
     ]);
 
     renderJob("Byju's — The Learning App | Business Development Trainee", "Aug 2021 – Oct 2021", [
-      "Engaged in direct sales and business development during early career transition."
+      "Handled direct sales and customer onboarding during early career transition into business operations."
     ]);
 
     renderJob("Sharda Motor Industries Ltd. | Project Intern", "Jun 2016 – Jul 2016", [
       "Executed industrial ergonomics analysis on assembly floor, delivering workstation optimization recommendations."
     ]);
 
-    // 4. Key Strategic Transformation Highlights
-    renderSectionHeader("Key Strategic Transformation Highlights");
+    // 4. Key Project Automation Highlights
+    renderSectionHeader("Key Project Automation Highlights");
     renderBullets([
-      "Delivery Governance (Project Pulse): Delivered 191.25 hours/month in productivity savings across 45 users while elevating management margin visibility.",
-      "Revenue Operations (RevOps): Created 100% traceable hand-offs between sales, delivery, and finance, saving ~15 hours/month across 6 core users.",
-      "Financial Control & Cost Allocation: Saved 6+ hours/month in accounting review time while establishing auditable cash visibility.",
-      "Resource Capacity & Timesheet Governance: Standardized single-view capacity management across engineering verticals.",
-      "Quality Governance & RCA (Communique): Saved 7+ hours/month in administrative overhead and created closed-loop accountability."
+      "Delivery Intelligence (Project Pulse): Saved 191.25 hours/month across 45 team members by building automated dataset sync, budget burn-rate tracking, and margin deviation alerts.",
+      "Commercial & CRM Automation: Standardized deal qualification, SOW approval, and automated invoice creation, saving 15 hours/month across BD and finance.",
+      "Cash Visibility & Outflow Planning: Replaced offline spreadsheets with Creator payment planning calendar and real-time cash position dashboards.",
+      "Automated Expense Allocation: Reduced month-end accounting allocation time by 6 hours/month using automated headcount-ratio journal posting.",
+      "Quality RCA & Action Tracking (Communiqué): Created closed-loop complaint investigation and MoM action tracking with automated PDF report generation."
     ]);
 
     // 5. Extracurricular Leadership
@@ -295,15 +293,14 @@ EDUCATION & GLOBAL CERTIFICATIONS
     renderBullets([
       "Team Vector & Skylark Drone Competition (2016–2018): Mechanical Engineer on drone design & engineering team; building custom quadcopters.",
       "Prayas Youth Forum (2015–2018): Volunteer for social awareness, rural computer literacy drives, and environmental conservation.",
-      "Swapnapurti Foundation (2016–2017): Volunteer conducting student mentorship and soft skills workshops.",
-      "Sanwardhan NGO (2014–2018): Environmental volunteer across 4 years of active initiatives."
+      "Swapnapurti Foundation & Sanwardhan NGO (2014–2018): Active volunteer for youth mentorship and environmental conservation."
     ]);
 
     // 6. Education & Global Certifications
     renderSectionHeader("Education & Global Certifications");
     renderBullets([
       "Bachelor of Engineering (Mechanical Engineering) | K. K. Wagh Institute of Engineering Education and Research, Nashik (2014 – 2018) | First Class With Distinction (66.18%)",
-      "GATE Qualified: All India Rank (AIR) 8003",
+      "GATE Qualified: All India Rank (AIR) 8003 (Mechanical Engineering)",
       "Business Intelligence Using Power BI: Skill Nation (Dec 2023)",
       "SAP Certified Application Associate: Sales and Distribution (SD) with SAP ERP 6.0 EhP7 (Global Certification, March 2022)"
     ]);
@@ -449,7 +446,7 @@ EDUCATION & GLOBAL CERTIFICATIONS
           <div className="border-b border-slate-300 pb-4 text-center ats-header-block">
             <h1 className="text-2xl font-bold tracking-tight text-slate-950 uppercase md:text-3xl">SHIVAM J. THETE</h1>
             <p className="mt-1 text-sm font-semibold text-amber-800 uppercase tracking-wider">
-              Strategic Development Leader | Business Transformation Executive
+              Strategic Development Executive | Systems & Process Automation Leader
             </p>
             <p className="mt-2 text-xs text-slate-600 flex flex-wrap justify-center gap-x-3 gap-y-1">
               <span><strong>Email:</strong> <a href="mailto:shivamjthete123@gmail.com" className="text-amber-800 underline font-semibold">shivamjthete123@gmail.com</a></span>
@@ -458,7 +455,7 @@ EDUCATION & GLOBAL CERTIFICATIONS
               <span>•</span>
               <span><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/shivamjthete/" target="_blank" rel="noreferrer" className="text-amber-800 underline font-semibold">linkedin.com/in/shivamjthete</a></span>
               <span>•</span>
-              <span><strong>Portfolio:</strong> <a href="https://shivamjthete123.github.io/shivam-personal-website/" target="_blank" rel="noreferrer" className="text-amber-800 underline font-semibold">shivam-personal-website.vercel.app</a></span>
+              <span><strong>Portfolio:</strong> <a href="https://shivam-personal-website.vercel.app/" target="_blank" rel="noreferrer" className="text-amber-800 underline font-semibold">shivam-personal-website.vercel.app</a></span>
             </p>
           </div>
 
@@ -467,7 +464,7 @@ EDUCATION & GLOBAL CERTIFICATIONS
               EXECUTIVE SUMMARY
             </h2>
             <p className="mt-2.5 text-xs leading-relaxed text-slate-800">
-              Strategic Development Executive with 3+ years of enterprise leadership at SqurrEnergy and prior Zoho One consulting experience, specializing in cross-functional business transformation across finance, HR, sales, delivery, and operations. Proven ability to orchestrate alignment of business processes with executive vision through structured frameworks, digital automations, and enterprise dashboards. Adept at turning fragmented, manual workflows into governed operating models that deliver measurable execution discipline, data-driven decision-making, and scalable organizational growth.
+              Mechanical Engineering graduate (B.E. First Class Distinction, GATE AIR 8003) and Strategic Development Executive at SqurrEnergy with 3+ years of experience leading digital process automation, Zoho One ecosystem implementations, and operational analytics. Skilled at diagnosing manual spreadsheet friction across finance, sales, project delivery, and HR, and building structured, automated workflows that save team time, enforce operational accountability, and provide management with real-time visibility.
             </p>
           </section>
 
@@ -477,16 +474,13 @@ EDUCATION & GLOBAL CERTIFICATIONS
             </h2>
             <div className="mt-2.5 grid gap-2 text-xs text-slate-800">
               <div>
-                <strong className="text-slate-950">Strategic Leadership:</strong> Strategy-to-Execution Translation, Business Transformation, Operating Model Design, Cross-Functional Program Leadership, Change Management, Process Controls & Compliance.
+                <strong className="text-slate-950">Process Automation & Operations:</strong> Business Process Automation, Revenue Operations (RevOps), Commercial Workflows, Financial Controls, Cash Flow Forecasting, Shared Cost Allocation.
               </div>
               <div>
-                <strong className="text-slate-950">Operations & Revenue Operations:</strong> Revenue Operations (RevOps), Commercial Governance, Financial Controls, Cash Visibility, Cash Flow Forecasting, Corporate Cost Allocation, SLA Design.
+                <strong className="text-slate-950">Zoho Ecosystem & Technical:</strong> Zoho CRM, Creator, Books, Projects, People, Analytics, Deluge Scripting, REST APIs, Webhooks, Low-Code Architecture, Power BI, SAP SD (Certified).
               </div>
               <div>
-                <strong className="text-slate-950">Technology & Enterprise Systems:</strong> Zoho One Ecosystem (Creator, CRM, Books, Projects, People, Recruit, Payroll, Analytics, Desk), Deluge Scripting, REST APIs, Workflow Automation, Low-Code Application Development, Power BI, SAP SD (Certified).
-              </div>
-              <div>
-                <strong className="text-slate-950">Delivery & Quality Governance:</strong> Capacity Planning, Resource Utilization, Root Cause Analysis (RCA), Quality Governance, Action Tracking, Executive Dashboarding.
+                <strong className="text-slate-950">Governance & Analytics:</strong> Project Delivery Governance, Capacity Planning, Resource Utilization, Root Cause Analysis (RCA), Customer Complaint Tracking, Executive Dashboards.
               </div>
             </div>
           </section>
@@ -503,12 +497,12 @@ EDUCATION & GLOBAL CERTIFICATIONS
                   <span className="text-slate-600 font-normal">Jul 2023 – Present (3+ years)</span>
                 </div>
                 <ul className="mt-1 list-disc pl-4 space-y-1 text-slate-700">
-                  <li>Orchestrated alignment of business processes with executive vision through structured frameworks, documentation, and digital automations spanning finance, HR, sales, delivery, and operations.</li>
-                  <li>Championed development and adoption of enterprise dashboards and tools across the organization, cultivating a data-driven culture that empowers accountability and strategic decision-making.</li>
-                  <li>Led cross-functional teams in implementing technology workflows using Zoho One, delivering measurable operational enhancements and positioning the organization for scalable growth.</li>
-                  <li>Designed and deployed a governed CRM lifecycle covering lead qualification through receivables follow-up, reporting ~15 hours of monthly time saving across 6 users.</li>
-                  <li>Built cash-planning application with projected vs actual variance tracking, outflow calendar, and multi-entity consolidation for executive financial visibility.</li>
-                  <li>Created Project Pulse — delivery performance dashboard with background data sync, budget burn-rate tracking, and role-based access — estimated at 191.25 hours monthly saving across 45 users.</li>
+                  <li>Designed and deployed digital process automations across finance, HR, sales, project delivery, and operations using the Zoho One ecosystem.</li>
+                  <li>Built Project Pulse, a real-time project profitability and budget burn-rate dashboard (BV Pulse architecture) saving an estimated 191.25 hours monthly across 45 users.</li>
+                  <li>Automated commercial pipeline in Zoho CRM from lead qualification to SOW generation and invoice sync, saving ~15 hours per month across 6 core users.</li>
+                  <li>Engineered Creator cash flow planning application with payment outflow scheduling, date-change audit tracking, and multi-entity balance consolidation.</li>
+                  <li>Automated monthly shared corporate expense allocation using active headcount ratios and Zoho Books API integration, cutting month-end processing by 6 hours monthly.</li>
+                  <li>Built customer complaint and Root Cause Analysis (RCA) quality engine featuring 5-Why investigation templates, corrective action tracking, and automated PDF export (~7 hrs/month saved).</li>
                 </ul>
               </div>
 
@@ -518,8 +512,8 @@ EDUCATION & GLOBAL CERTIFICATIONS
                   <span className="text-slate-600 font-normal">Dec 2022 – Jun 2023</span>
                 </div>
                 <ul className="mt-1 list-disc pl-4 space-y-1 text-slate-700">
-                  <li>Collaborated with global clients to define requirements and deliver tailored Statements of Work across Zoho One solutions.</li>
-                  <li>Engineered customized implementations including workflow automation, Deluge scripting, API integrations, and custom module development.</li>
+                  <li>Consulted global clients on solution architecture, custom Deluge scripting, and API integrations across Zoho CRM, Creator, Books, People, and Projects.</li>
+                  <li>Gathered client business requirements, authored detailed Statements of Work (SOW), and configured custom low-code applications.</li>
                 </ul>
               </div>
 
@@ -529,7 +523,8 @@ EDUCATION & GLOBAL CERTIFICATIONS
                   <span className="text-slate-600 font-normal">Jun 2022 – Nov 2022</span>
                 </div>
                 <ul className="mt-1 list-disc pl-4 space-y-1 text-slate-700">
-                  <li>Delivered Zoho One consulting services across CRM, Desk, Recruit, and Books for SMB and enterprise clients.</li>
+                  <li>Implemented Zoho One modules (CRM, Desk, Recruit, Books) for SMB and enterprise clients.</li>
+                  <li>Led requirement gathering workshops, system mapping, data migration, and end-user training sessions.</li>
                 </ul>
               </div>
 
@@ -549,7 +544,7 @@ EDUCATION & GLOBAL CERTIFICATIONS
                   <span className="text-slate-600 font-normal">Aug 2021 – Oct 2021</span>
                 </div>
                 <ul className="mt-1 list-disc pl-4 space-y-1 text-slate-700">
-                  <li>Engaged in direct sales and business development during early career transition.</li>
+                  <li>Handled direct sales and customer onboarding during early career transition into business operations.</li>
                 </ul>
               </div>
 
@@ -567,14 +562,14 @@ EDUCATION & GLOBAL CERTIFICATIONS
 
           <section className="mt-5 ats-section-block">
             <h2 className="border-b border-slate-900 text-xs font-bold uppercase tracking-widest text-slate-950 pb-1 ats-section-title">
-              KEY STRATEGIC TRANSFORMATION HIGHLIGHTS
+              KEY PROJECT AUTOMATION HIGHLIGHTS
             </h2>
             <ul className="mt-2.5 list-disc pl-4 space-y-1.5 text-xs text-slate-800">
-              <li><strong>Delivery Governance (Project Pulse):</strong> Delivered 191.25 hours/month in productivity savings across 45 users while elevating management margin visibility.</li>
-              <li><strong>Revenue Operations (RevOps):</strong> Created 100% traceable hand-offs between sales, delivery, and finance, saving ~15 hours/month across 6 core users.</li>
-              <li><strong>Financial Control & Cost Allocation:</strong> Saved 6+ hours/month in accounting review time while establishing auditable cash visibility.</li>
-              <li><strong>Resource Capacity & Timesheet Governance:</strong> Standardized single-view capacity management across engineering verticals.</li>
-              <li><strong>Quality Governance & RCA (Communique):</strong> Saved 7+ hours/month in administrative overhead and created closed-loop accountability.</li>
+              <li><strong>Delivery Intelligence (Project Pulse):</strong> Saved 191.25 hours/month across 45 team members by building automated dataset sync, budget burn-rate tracking, and margin deviation alerts.</li>
+              <li><strong>Commercial & CRM Automation:</strong> Standardized deal qualification, SOW approval, and automated invoice creation, saving 15 hours/month across BD and finance.</li>
+              <li><strong>Cash Visibility & Outflow Planning:</strong> Replaced offline spreadsheets with Creator payment planning calendar and real-time cash position dashboards.</li>
+              <li><strong>Automated Expense Allocation:</strong> Reduced month-end accounting allocation time by 6 hours/month using automated headcount-ratio journal posting.</li>
+              <li><strong>Quality RCA & Action Tracking (Communiqué):</strong> Created closed-loop complaint investigation and MoM action tracking with automated PDF report generation.</li>
             </ul>
           </section>
 
@@ -585,8 +580,7 @@ EDUCATION & GLOBAL CERTIFICATIONS
             <div className="mt-2.5 space-y-1.5 text-xs text-slate-800">
               <div><strong>Team Vector & Skylark Drone Competition (2016–2018):</strong> Mechanical Engineer on drone design & engineering team; building custom quadcopters.</div>
               <div><strong>Prayas Youth Forum (2015–2018):</strong> Volunteer for social awareness, rural computer literacy drives, and environmental conservation.</div>
-              <div><strong>Swapnapurti Foundation (2016–2017):</strong> Volunteer conducting student mentorship and soft skills workshops.</div>
-              <div><strong>Sanwardhan NGO (2014–2018):</strong> Environmental volunteer across 4 years of active initiatives.</div>
+              <div><strong>Swapnapurti Foundation & Sanwardhan NGO (2014–2018):</strong> Active volunteer for youth mentorship and environmental conservation.</div>
             </div>
           </section>
 
@@ -596,7 +590,7 @@ EDUCATION & GLOBAL CERTIFICATIONS
             </h2>
             <ul className="mt-2 list-disc pl-4 space-y-1 text-xs text-slate-800">
               <li><strong>B.E. in Mechanical Engineering:</strong> K. K. Wagh Institute of Engineering Education and Research, Nashik (2014 – 2018) | First Class With Distinction (66.18%)</li>
-              <li><strong>GATE Qualified:</strong> All India Rank (AIR) 8003</li>
+              <li><strong>GATE Qualified:</strong> All India Rank (AIR) 8003 (Mechanical Engineering)</li>
               <li><strong>Business Intelligence Using Power BI:</strong> Skill Nation (Dec 2023)</li>
               <li><strong>SAP Certified Application Associate:</strong> Sales and Distribution (SD) with SAP ERP 6.0 EhP7 (Global Certification, March 2022)</li>
             </ul>
