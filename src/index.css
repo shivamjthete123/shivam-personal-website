@@ -172,7 +172,7 @@
   animation: drawer-panel-in 350ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
-/* ========== ABSOLUTE PRINT STYLESHEET (PORTAL ISOLATED TO PREVENT BLANK PAGES) ========== */
+/* ========== ABSOLUTE PRINT STYLESHEET (PORTAL ISOLATED & NO MID-LINE TEXT CUTTING) ========== */
 
 @media print {
   /* Completely hide main website container when modal print area is active */
@@ -214,6 +214,21 @@
     color: #000000 !important;
     font-size: 9.5pt !important;
     line-height: 1.35 !important;
+  }
+
+  /* Prevent text lines and job entries from slicing across page boundaries */
+  .ats-job-item,
+  .ats-section-block,
+  p,
+  li {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  .ats-section-title,
+  h1, h2, h3 {
+    break-after: avoid !important;
+    page-break-after: avoid !important;
   }
 
   #ats-resume-print-area * {

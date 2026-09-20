@@ -75,7 +75,6 @@ function SidebarNavigation({ name, title, linkedin, email, phone, onOpenAtsResum
 
   // Two-way scroll spy handler tracking both main sections and subtabs
   useEffect(() => {
-    // Gather all target element IDs
     const allIds = [];
     navigationTree.forEach((item) => {
       allIds.push(item.id);
@@ -111,8 +110,9 @@ function SidebarNavigation({ name, title, linkedin, email, phone, onOpenAtsResum
   };
 
   const navContent = (
-    <div className="flex flex-col h-full justify-between overflow-y-auto pr-1">
-      <div>
+    <div className="flex flex-col h-full overflow-hidden">
+      {/* SCROLLABLE NAVIGATION LINKS AREA */}
+      <div className="flex-1 overflow-y-auto pr-1 pb-4">
         {/* Sidebar Header / Branding */}
         <div className="flex items-center gap-3.5 pb-5 border-b border-slate-800/80">
           <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-amber-400 via-amber-600 to-amber-700 text-slate-950 font-black tracking-wider text-sm shadow-lg shadow-amber-950/60">
@@ -130,7 +130,7 @@ function SidebarNavigation({ name, title, linkedin, email, phone, onOpenAtsResum
         </div>
 
         {/* Structured Multi-level Tree Navigation with Sub-tabs */}
-        <nav aria-label="Sidebar navigation tree" className="mt-6 space-y-3">
+        <nav aria-label="Sidebar navigation tree" className="mt-5 space-y-3">
           <p className="px-2 text-[10px] font-extrabold uppercase tracking-[0.2em] text-slate-400">Navigation Tree</p>
           
           {navigationTree.map((item) => {
@@ -183,8 +183,8 @@ function SidebarNavigation({ name, title, linkedin, email, phone, onOpenAtsResum
         </nav>
       </div>
 
-      {/* Sidebar Footer / CTA Actions */}
-      <div className="pt-5 mt-6 border-t border-slate-800/80 space-y-3">
+      {/* FIXED UN-SCROLLED BOTTOM SECTION (PINNED AT BOTTOM OF SIDEBAR AT ALL TIMES) */}
+      <div className="shrink-0 pt-4 border-t border-slate-800/80 space-y-3 bg-slate-950 z-10">
         <button
           type="button"
           onClick={() => { onOpenAtsResume(); setMobileDrawerOpen(false); }}
@@ -196,7 +196,7 @@ function SidebarNavigation({ name, title, linkedin, email, phone, onOpenAtsResum
           Download PDF File
         </button>
 
-        <div className="flex items-center justify-between text-[11px] text-slate-400 px-1 pt-1">
+        <div className="flex items-center justify-between text-[11px] text-slate-400 px-1 pt-0.5 pb-1">
           <a href={linkedin} target="_blank" rel="noreferrer" className="hover:text-amber-400 transition font-semibold">LinkedIn</a>
           <span>•</span>
           <a href={`mailto:${email}`} className="hover:text-amber-400 transition font-semibold">Email</a>
@@ -209,7 +209,7 @@ function SidebarNavigation({ name, title, linkedin, email, phone, onOpenAtsResum
 
   return (
     <>
-      {/* DESKTOP FIXED LEFT SIDEBAR WITH MULTI-LEVEL SUBTABS */}
+      {/* DESKTOP FIXED LEFT SIDEBAR */}
       <aside className="hidden lg:flex w-72 fixed inset-y-0 left-0 z-40 bg-slate-950 text-white flex-col justify-between border-r border-slate-800/80 p-5 shadow-2xl backdrop-blur-2xl no-print">
         {navContent}
       </aside>

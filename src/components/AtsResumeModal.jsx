@@ -84,38 +84,199 @@ EDUCATION & GLOBAL CERTIFICATIONS
 - SAP Certified Application Associate — Sales and Distribution (SAP ERP 6.0 EhP7) | SAP (Mar 2022)
 - GATE Qualified | All India Rank (AIR) 8003`;
 
-  const handleDownloadPDF = () => {
-    setIsGeneratingPdf(true);
-    const printElement = document.getElementById("ats-resume-print-area");
-    
-    // Function to run html2pdf save
-    const generatePdfWithHtml2Pdf = () => {
-      const opt = {
-        margin: [8, 10, 8, 10],
-        filename: "SHIVAM_THETE_ATS_RESUME.pdf",
-        image: { type: "jpeg", quality: 0.98 },
-        html2canvas: { scale: 2, useCORS: true },
-        jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
-      };
-      window
-        .html2pdf()
-        .set(opt)
-        .from(printElement)
-        .save()
-        .then(() => setIsGeneratingPdf(false))
-        .catch(() => {
-          setIsGeneratingPdf(false);
-          window.print();
-        });
+  // Native Vector PDF Generator Engine (100% Selectable Text, ATS Readability, Zero Image Canvas Slicing)
+  const generateNativeVectorPdf = () => {
+    if (!window.jspdf) return false;
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF({ orientation: "portrait", unit: "pt", format: "a4" });
+
+    const marginX = 36;
+    const maxW = 523;
+    const pageH = 841.89;
+    let y = 36;
+
+    const checkPageBreak = (neededH) => {
+      if (y + neededH > pageH - 36) {
+        doc.addPage();
+        y = 36;
+        return true;
+      }
+      return false;
     };
 
-    if (window.html2pdf) {
-      generatePdfWithHtml2Pdf();
+    // Header
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(18);
+    doc.setTextColor(15, 23, 42);
+    doc.text("SHIVAM J. THETE", 297.64, y, { align: "center" });
+    y += 18;
+
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(9.5);
+    doc.setTextColor(194, 65, 12);
+    doc.text("STRATEGIC DEVELOPMENT LEADER  |  BUSINESS TRANSFORMATION EXECUTIVE", 297.64, y, { align: "center" });
+    y += 14;
+
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(8.5);
+    doc.setTextColor(71, 85, 105);
+    doc.text("Email: shivamjthete123@gmail.com  |  Phone: +91-8263045370  |  LinkedIn: linkedin.com/in/shivamjthete  |  Location: Pune, India", 297.64, y, { align: "center" });
+    y += 10;
+
+    doc.setDrawColor(203, 213, 225);
+    doc.setLineWidth(0.75);
+    doc.line(marginX, y, marginX + maxW, y);
+    y += 14;
+
+    const renderSectionHeader = (title) => {
+      checkPageBreak(24);
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(9.5);
+      doc.setTextColor(15, 23, 42);
+      doc.text(title.toUpperCase(), marginX, y);
+      y += 4;
+      doc.setDrawColor(15, 23, 42);
+      doc.setLineWidth(0.75);
+      doc.line(marginX, y, marginX + maxW, y);
+      y += 10;
+    };
+
+    const renderParagraph = (text) => {
+      doc.setFont("helvetica", "normal");
+      doc.setFontSize(8.5);
+      doc.setTextColor(30, 41, 59);
+      const lines = doc.splitTextToSize(text, maxW);
+      checkPageBreak(lines.length * 11.5);
+      doc.text(lines, marginX, y);
+      y += lines.length * 11.5 + 6;
+    };
+
+    const renderBullets = (bullets) => {
+      doc.setFont("helvetica", "normal");
+      doc.setFontSize(8.5);
+      doc.setTextColor(51, 65, 85);
+      bullets.forEach((b) => {
+        const lines = doc.splitTextToSize(b, maxW - 14);
+        checkPageBreak(lines.length * 11);
+        doc.setFillColor(15, 23, 42);
+        doc.circle(marginX + 4, y - 3, 1.2, "F");
+        doc.text(lines, marginX + 12, y);
+        y += lines.length * 11 + 3;
+      });
+      y += 4;
+    };
+
+    const renderJob = (companyRole, dates, bullets) => {
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(8.5);
+      doc.setTextColor(15, 23, 42);
+      checkPageBreak(14);
+      doc.text(companyRole, marginX, y);
+      doc.setFont("helvetica", "normal");
+      doc.setTextColor(100, 116, 139);
+      doc.text(dates, marginX + maxW, y, { align: "right" });
+      y += 11;
+      renderBullets(bullets);
+    };
+
+    // 1. Executive Summary
+    renderSectionHeader("Executive Summary");
+    renderParagraph("Strategic Development Executive with 3+ years of enterprise leadership at SqurrEnergy and prior Zoho One consulting experience, specializing in cross-functional business transformation across finance, HR, sales, delivery, and operations. Proven ability to orchestrate alignment of business processes with executive vision through structured frameworks, digital automations, and enterprise dashboards. Adept at turning fragmented, manual workflows into governed operating models that deliver measurable execution discipline, data-driven decision-making, and scalable organizational growth.");
+
+    // 2. Core Competencies
+    renderSectionHeader("Core Competencies");
+    renderBullets([
+      "Strategic Leadership: Strategy-to-Execution Translation, Business Transformation, Operating Model Design, Cross-Functional Leadership, Change Management, Process Controls.",
+      "Operations & RevOps: Revenue Operations (RevOps), Commercial Governance, Financial Controls, Cash Visibility, Cash Flow Forecasting, Corporate Cost Allocation, SLA Design.",
+      "Technology & Systems: Zoho One Ecosystem (Creator, CRM, Books, Projects, People, Recruit, Analytics, Desk), Deluge Scripting, REST APIs, Power BI, SAP SD (Certified).",
+      "Delivery & Quality: Capacity Planning, Resource Utilization, Root Cause Analysis (RCA), Quality Governance, Action Tracking, Executive Dashboarding."
+    ]);
+
+    // 3. Professional Experience
+    renderSectionHeader("Professional Experience");
+    renderJob("SqurrEnergy | Strategic Development Executive", "Jul 2023 – Present (3+ yrs)", [
+      "Orchestrated alignment of business processes with executive vision through structured frameworks, documentation, and digital automations spanning finance, HR, sales, delivery, and operations.",
+      "Championed development and adoption of enterprise dashboards across the organization, cultivating a data-driven culture that empowers accountability and strategic decision-making.",
+      "Led cross-functional teams in implementing technology workflows using Zoho One, delivering measurable operational enhancements and positioning the organization for scalable growth.",
+      "Designed and deployed a governed CRM lifecycle covering lead qualification through receivables follow-up, reporting ~15 hours of monthly time saving across six users.",
+      "Built cash-planning application with projected vs actual variance tracking, outflow calendar, and multi-entity consolidation for executive financial visibility.",
+      "Created Project Pulse — delivery performance dashboard with background data sync, budget burn-rate tracking, and role-based access — estimated at 191.25 hours monthly saving across 45 users."
+    ]);
+
+    renderJob("Samsoft IT Solutions LLC | Zoho One Consultant", "Dec 2022 – Jun 2023", [
+      "Collaborated with global clients to define requirements and deliver tailored Statements of Work across Zoho One solutions (CRM, Creator, Books, People, Projects).",
+      "Engineered customized implementations including workflow automation, Deluge scripting, API integrations, and custom module development."
+    ]);
+
+    renderJob("Target Integration | Functional Consultant", "Jun 2022 – Nov 2022", [
+      "Delivered Zoho One consulting services across CRM, Desk, Recruit, and Books for SMB and enterprise clients."
+    ]);
+
+    renderJob("Personal Goal Pursuit — Career Break | UPSC IES Prep, GATE AIR 8003 & AFCAT", "Jun 2018 – Dec 2021", [
+      "Prepared for UPSC Indian Engineering Services (IES) exam; secured All India Rank (AIR) 8003 in GATE exam; qualified for AFCAT SSB Interview (2020)."
+    ]);
+
+    renderJob("Byju's — The Learning App | Business Development Trainee", "Aug 2021 – Oct 2021", [
+      "Engaged in direct sales and business development during early career transition."
+    ]);
+
+    renderJob("Sharda Motor Industries Ltd. | Project Intern", "Jun 2016 – Jul 2016", [
+      "Executed industrial ergonomics analysis on assembly floor, delivering workstation optimization recommendations."
+    ]);
+
+    // 4. Key Strategic Transformation Highlights
+    renderSectionHeader("Key Strategic Transformation Highlights");
+    renderBullets([
+      "Delivery Governance (Project Pulse): Delivered 191.25 hours/month in productivity savings across 45 users while elevating management margin visibility.",
+      "Revenue Operations (RevOps): Created 100% traceable hand-offs between sales, delivery, and finance, saving ~15 hours/month across 6 core users.",
+      "Financial Control & Cost Allocation: Saved 6+ hours/month in accounting review time while establishing auditable cash visibility.",
+      "Resource Capacity & Timesheet Governance: Standardized single-view capacity management across engineering verticals.",
+      "Quality Governance & RCA (Communique): Saved 7+ hours/month in administrative overhead and created closed-loop accountability."
+    ]);
+
+    // 5. Extracurricular Leadership
+    renderSectionHeader("Extracurricular Leadership & Community Engagement");
+    renderBullets([
+      "Team Vector & Skylark Drone Competition (2016–2018): Mechanical Engineer on drone design & engineering team; building custom quadcopters.",
+      "Prayas Youth Forum (2015–2018): Volunteer for social awareness, rural computer literacy drives, and environmental conservation.",
+      "Swapnapurti Foundation (2016–2017): Volunteer conducting student mentorship and soft skills workshops.",
+      "Sanwardhan NGO (2014–2018): Environmental volunteer across 4 years of active initiatives."
+    ]);
+
+    // 6. Education & Global Certifications
+    renderSectionHeader("Education & Global Certifications");
+    renderBullets([
+      "Bachelor of Engineering (Mechanical Engineering) | K. K. Wagh Institute of Engineering Education and Research, Nashik (2014 – 2018) | First Class With Distinction (66.18%)",
+      "GATE Qualified: All India Rank (AIR) 8003",
+      "Business Intelligence Using Power BI: Skill Nation (Dec 2023)",
+      "SAP Certified Application Associate: Sales and Distribution (SD) with SAP ERP 6.0 EhP7 (Global Certification, March 2022)"
+    ]);
+
+    doc.save("SHIVAM_THETE_ATS_RESUME.pdf");
+    return true;
+  };
+
+  const handleDownloadPDF = () => {
+    setIsGeneratingPdf(true);
+
+    const triggerNativePdf = () => {
+      try {
+        generateNativeVectorPdf();
+        setIsGeneratingPdf(false);
+      } catch (err) {
+        console.error("Vector PDF generation error, falling back to print:", err);
+        setIsGeneratingPdf(false);
+        window.print();
+      }
+    };
+
+    if (window.jspdf) {
+      triggerNativePdf();
     } else {
       const script = document.createElement("script");
-      script.src = "https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js";
+      script.src = "https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js";
       script.onload = () => {
-        generatePdfWithHtml2Pdf();
+        triggerNativePdf();
       };
       script.onerror = () => {
         setIsGeneratingPdf(false);
@@ -155,7 +316,7 @@ EDUCATION & GLOBAL CERTIFICATIONS
         <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-200 bg-slate-950 px-6 py-4 text-white no-print">
           <div>
             <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-500/20 px-2.5 py-0.5 text-xs font-bold text-amber-400 border border-amber-500/30">
-              ATS & AI Parsable Format
+              ATS & AI Parsable Format (Vector Text)
             </span>
             <h2 id="ats-resume-title" className="mt-1 text-xl font-bold tracking-tight text-white">
               Shivam J. Thete — Executive ATS Resume
@@ -167,12 +328,12 @@ EDUCATION & GLOBAL CERTIFICATIONS
               onClick={handleDownloadPDF}
               disabled={isGeneratingPdf}
               className="inline-flex items-center gap-2 rounded-lg bg-amber-600 px-4 py-2 text-xs font-bold text-white transition hover:bg-amber-500 shadow-sm disabled:opacity-50"
-              title="Download clean PDF file directly to your Downloads folder"
+              title="Download clean native vector PDF with 100% selectable text"
             >
               <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 01-2-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
               </svg>
-              {isGeneratingPdf ? "Generating PDF..." : "Download PDF File"}
+              {isGeneratingPdf ? "Generating Vector PDF..." : "Download PDF File"}
             </button>
             <button
               type="button"
@@ -227,9 +388,9 @@ EDUCATION & GLOBAL CERTIFICATIONS
           </div>
         </div>
 
-        {/* Printable ATS Content Area - Strictly Isolated for PDF Generation & Clean Printing */}
+        {/* Printable ATS Content Area - Strictly Isolated for Print & On-Screen Preview */}
         <div className="flex-1 overflow-y-auto p-6 md:p-10 text-slate-900 bg-white" id="ats-resume-print-area">
-          <div className="border-b border-slate-300 pb-4 text-center">
+          <div className="border-b border-slate-300 pb-4 text-center ats-header-block">
             <h1 className="text-2xl font-bold tracking-tight text-slate-950 uppercase md:text-3xl">SHIVAM J. THETE</h1>
             <p className="mt-1 text-sm font-semibold text-amber-800 uppercase tracking-wider">
               Strategic Development Leader | Business Transformation Executive
@@ -245,8 +406,8 @@ EDUCATION & GLOBAL CERTIFICATIONS
             </p>
           </div>
 
-          <section className="mt-5">
-            <h2 className="border-b border-slate-900 text-xs font-bold uppercase tracking-widest text-slate-950 pb-1">
+          <section className="mt-5 ats-section-block">
+            <h2 className="border-b border-slate-900 text-xs font-bold uppercase tracking-widest text-slate-950 pb-1 ats-section-title">
               EXECUTIVE SUMMARY
             </h2>
             <p className="mt-2.5 text-xs leading-relaxed text-slate-800">
@@ -254,8 +415,8 @@ EDUCATION & GLOBAL CERTIFICATIONS
             </p>
           </section>
 
-          <section className="mt-5">
-            <h2 className="border-b border-slate-900 text-xs font-bold uppercase tracking-widest text-slate-950 pb-1">
+          <section className="mt-5 ats-section-block">
+            <h2 className="border-b border-slate-900 text-xs font-bold uppercase tracking-widest text-slate-950 pb-1 ats-section-title">
               CORE COMPETENCIES
             </h2>
             <div className="mt-2.5 grid gap-2 text-xs text-slate-800">
@@ -274,13 +435,13 @@ EDUCATION & GLOBAL CERTIFICATIONS
             </div>
           </section>
 
-          <section className="mt-5">
-            <h2 className="border-b border-slate-900 text-xs font-bold uppercase tracking-widest text-slate-950 pb-1">
+          <section className="mt-5 ats-section-block">
+            <h2 className="border-b border-slate-900 text-xs font-bold uppercase tracking-widest text-slate-950 pb-1 ats-section-title">
               PROFESSIONAL EXPERIENCE
             </h2>
 
             <div className="mt-3.5 space-y-3.5 text-xs text-slate-800">
-              <div>
+              <div className="ats-job-item">
                 <div className="flex justify-between font-bold text-slate-950">
                   <span>SqurrEnergy | Strategic Development Executive</span>
                   <span className="text-slate-600 font-normal">Jul 2023 – Present (3+ years)</span>
@@ -295,7 +456,7 @@ EDUCATION & GLOBAL CERTIFICATIONS
                 </ul>
               </div>
 
-              <div>
+              <div className="ats-job-item">
                 <div className="flex justify-between font-bold text-slate-950">
                   <span>Samsoft IT Solutions LLC | Zoho One Consultant</span>
                   <span className="text-slate-600 font-normal">Dec 2022 – Jun 2023</span>
@@ -306,7 +467,7 @@ EDUCATION & GLOBAL CERTIFICATIONS
                 </ul>
               </div>
 
-              <div>
+              <div className="ats-job-item">
                 <div className="flex justify-between font-bold text-slate-950">
                   <span>Target Integration | Functional Consultant</span>
                   <span className="text-slate-600 font-normal">Jun 2022 – Nov 2022</span>
@@ -316,7 +477,7 @@ EDUCATION & GLOBAL CERTIFICATIONS
                 </ul>
               </div>
 
-              <div>
+              <div className="ats-job-item">
                 <div className="flex justify-between font-bold text-slate-950">
                   <span>Personal Goal Pursuit — Career Break | UPSC IES Prep, GATE AIR 8003 & AFCAT</span>
                   <span className="text-slate-600 font-normal">Jun 2018 – Dec 2021</span>
@@ -326,7 +487,7 @@ EDUCATION & GLOBAL CERTIFICATIONS
                 </ul>
               </div>
 
-              <div>
+              <div className="ats-job-item">
                 <div className="flex justify-between font-bold text-slate-950">
                   <span>Byju's — The Learning App | Business Development Trainee</span>
                   <span className="text-slate-600 font-normal">Aug 2021 – Oct 2021</span>
@@ -336,7 +497,7 @@ EDUCATION & GLOBAL CERTIFICATIONS
                 </ul>
               </div>
 
-              <div>
+              <div className="ats-job-item">
                 <div className="flex justify-between font-bold text-slate-950">
                   <span>Sharda Motor Industries Ltd. | Project Intern</span>
                   <span className="text-slate-600 font-normal">Jun 2016 – Jul 2016</span>
@@ -348,9 +509,9 @@ EDUCATION & GLOBAL CERTIFICATIONS
             </div>
           </section>
 
-          <section className="mt-5">
-            <h2 className="border-b border-slate-900 text-xs font-bold uppercase tracking-widest text-slate-950 pb-1">
-              KEY STRATEGIC TRANSFORMATION PROJECTS & IMPACT
+          <section className="mt-5 ats-section-block">
+            <h2 className="border-b border-slate-900 text-xs font-bold uppercase tracking-widest text-slate-950 pb-1 ats-section-title">
+              KEY STRATEGIC TRANSFORMATION HIGHLIGHTS
             </h2>
             <ul className="mt-2.5 list-disc pl-4 space-y-1.5 text-xs text-slate-800">
               <li><strong>Delivery Governance (Project Pulse):</strong> Delivered 191.25 hours/month in productivity savings across 45 users while elevating management margin visibility.</li>
@@ -361,8 +522,8 @@ EDUCATION & GLOBAL CERTIFICATIONS
             </ul>
           </section>
 
-          <section className="mt-5">
-            <h2 className="border-b border-slate-900 text-xs font-bold uppercase tracking-widest text-slate-950 pb-1">
+          <section className="mt-5 ats-section-block">
+            <h2 className="border-b border-slate-900 text-xs font-bold uppercase tracking-widest text-slate-950 pb-1 ats-section-title">
               EXTRACURRICULAR LEADERSHIP & COMMUNITY ENGAGEMENT
             </h2>
             <div className="mt-2.5 space-y-1.5 text-xs text-slate-800">
@@ -373,8 +534,8 @@ EDUCATION & GLOBAL CERTIFICATIONS
             </div>
           </section>
 
-          <section className="mt-5 pb-2">
-            <h2 className="border-b border-slate-900 text-xs font-bold uppercase tracking-widest text-slate-950 pb-1">
+          <section className="mt-5 pb-2 ats-section-block">
+            <h2 className="border-b border-slate-900 text-xs font-bold uppercase tracking-widest text-slate-950 pb-1 ats-section-title">
               EDUCATION & GLOBAL CERTIFICATIONS
             </h2>
             <ul className="mt-2 list-disc pl-4 space-y-1 text-xs text-slate-800">
@@ -387,7 +548,7 @@ EDUCATION & GLOBAL CERTIFICATIONS
         </div>
 
         <div className="border-t border-slate-200 bg-slate-50 px-6 py-3 text-xs text-slate-500 flex justify-between items-center no-print">
-          <span>Tip: Click "Download PDF File" to save SHIVAM_THETE_ATS_RESUME.pdf directly.</span>
+          <span>Tip: Click "Download PDF File" to get a 100% selectable vector PDF formatted for ATS algorithms.</span>
           <button type="button" onClick={onClose} className="font-semibold text-slate-700 hover:text-slate-900">
             Close preview
           </button>
