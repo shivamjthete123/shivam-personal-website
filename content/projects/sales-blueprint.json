@@ -3,19 +3,19 @@
   "order": 1,
   "title": "Revenue Operations and Commercial Execution",
   "status": "Implemented",
-  "summary": "Built a governed commercial operating model that improves opportunity visibility, hand-offs, and execution discipline from lead to receivable follow-up.",
+  "summary": "Built a governed commercial operating model spanning the full business development lifecycle — from lead qualification through receivables follow-up — creating end-to-end pipeline visibility, stage-gated controls, and cross-functional accountability between sales, delivery, and finance.",
   "tags": ["Revenue Operations", "Commercial Systems"],
   "projectItems": [
     {
       "id": "crm-bd-lifecycle",
       "title": "Zoho CRM and Business Development Lifecycle",
-      "summary": "A controlled CRM backbone for prospect intake, proposals, assignment handover, project readiness, sales orders, invoicing, and receivables follow-up.",
-      "problemStatement": "Commercial records and downstream hand-offs needed one governed source of truth instead of disconnected tracking.",
-      "solution": "Designed CRM blueprints, workflows, custom modules, dashboards, and explicit status controls across business development, project, and finance hand-offs.",
-      "impact": "Created traceable commercial execution and reported approximately 15 hours of monthly time saving across six affected users.",
-      "leadershipValue": "Demonstrates the ability to connect growth operations with delivery and financial controls.",
-      "toolsUsed": ["Zoho CRM", "Zoho Creator", "Zoho Books", "Zoho Analytics", "Zoho Projects"],
-      "tags": ["Revenue Operations", "CRM", "Commercial Governance"]
+      "summary": "A fully governed CRM backbone controlling the complete BD lifecycle: prospect intake → lead qualification → proposal generation → SOW creation → team assignment handover → project readiness validation → sales order processing → automated invoicing → receivables follow-up and collection tracking.",
+      "problemStatement": "Deals were falling through cracks due to disconnected tracking across spreadsheets and ad-hoc emails. Sales had no standardized pipeline, finance couldn't track what BD had committed, and proposal-to-project handovers were informal verbal agreements. Pipeline visibility for leadership was nonexistent, and revenue forecasting was unreliable.",
+      "solution": "Designed CRM Blueprints with explicit stage gates and mandatory field validations at each lifecycle phase. Built custom modules for SOW generation and proposal management with version control. Implemented approval workflows requiring manager sign-off before stage transitions. Created automated invoice generation from sales orders via CRM-to-Books synchronization. Deployed custom dashboards showing pipeline value by stage, win/loss ratios, deal velocity, and receivables ageing. Established cross-functional notification chains linking BD, project delivery, and finance teams at critical handover points.",
+      "impact": "Created traceable commercial execution with complete audit trail from first contact to cash collection. Reported approximately 15 hours of monthly time saving across six affected users by eliminating manual status updates, duplicate data entry, and ad-hoc follow-up. Revenue pipeline became visible to leadership for the first time, enabling data-driven forecasting and resource allocation decisions.",
+      "leadershipValue": "Demonstrates the ability to design and implement end-to-end operating models that connect growth operations with delivery execution and financial controls — spanning multiple functional teams and system boundaries.",
+      "toolsUsed": ["Zoho CRM", "Zoho Creator", "Zoho Books", "Zoho Analytics", "Zoho Projects", "Deluge", "APIs"],
+      "tags": ["Revenue Operations", "CRM", "Commercial Governance", "Pipeline Management"]
     }
   ]
 }

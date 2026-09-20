@@ -20,59 +20,68 @@ export default function AtsResumeModal({ isOpen, onClose }) {
   if (!isOpen) return null;
 
   const rawTextResume = `SHIVAM J. THETE
-Strategy, Operations & Business Transformation Leader | Zoho One & SAP SD Certified Consultant
-Email: shivamjthete123@gmail.com | Phone: +91-8263045370 | LinkedIn: https://www.linkedin.com/in/shivamjthete/
+Strategic Development Leader | Business Transformation Executive
+Email: shivamjthete123@gmail.com | Phone: +91-8263045370 | LinkedIn: https://www.linkedin.com/in/shivamjthete/ | Location: Pune, India
 
 EXECUTIVE SUMMARY
-Results-driven Strategy, Operations, and Business Transformation Leader with extensive experience architecting enterprise workflow operating models, financial controls, Revenue Operations (RevOps), and delivery governance frameworks. Dual-background in Mechanical Engineering and Enterprise Systems (Zoho One & SAP SD Certified). Proven track record translating high-level business priorities into scalable low-code ecosystems (Zoho Creator, CRM, Books, Projects, People, Analytics, Deluge, REST APIs) that drive measurable productivity, cash flow transparency, and operational accountability.
+Strategic Development Executive with 3+ years of enterprise leadership at SqurrEnergy and prior Zoho One consulting experience, specializing in cross-functional business transformation across finance, HR, sales, delivery, and operations. Proven ability to orchestrate alignment of business processes with executive vision through structured frameworks, digital automations, and enterprise dashboards. Adept at turning fragmented, manual workflows into governed operating models that deliver measurable execution discipline, data-driven decision-making, and scalable organizational growth.
 
 CORE COMPETENCIES & KEYWORDS
-- Strategic Leadership: Operating Model Design, Strategy-to-Execution Translation, Business Transformation, Cross-Functional Leadership, Change Management, SLA & KPI Architecture.
-- Financial & Commercial Operations: Revenue Operations (RevOps), Commercial Governance, Cash Flow Forecasting, Receivables Management, Corporate Cost Allocation, Financial Workflow Control.
-- Systems & Technology: Enterprise Low-Code Architecture, Zoho One Ecosystem (Creator, CRM, Books, Projects, People, Recruit, Payroll, Analytics, Desk), SAP SD Module, Deluge Scripting, REST APIs, Automation.
-- Delivery & Quality Governance: Capacity Planning, Resource Utilization, Root Cause Analysis (RCA), Quality Assurance Workflows, Action Tracking, Industrial Ergonomics.
+- Strategic Leadership: Strategy-to-Execution Translation, Business Transformation, Operating Model Design, Cross-Functional Program Leadership, Change Management, Process Controls & Compliance.
+- Operations & Revenue Operations: Revenue Operations (RevOps), Commercial Governance, Financial Controls, Cash Visibility, Cash Flow Forecasting, Corporate Cost Allocation, SLA Design.
+- Technology & Enterprise Systems: Zoho One Ecosystem (Creator, CRM, Books, Projects, People, Recruit, Payroll, Analytics, Desk), Deluge Scripting, REST APIs, Workflow Automation, Low-Code Application Development, Power BI, SAP SD (Certified).
+- Delivery & Quality Governance: Capacity Planning, Resource Utilization, Root Cause Analysis (RCA), Quality Governance, Action Tracking, Executive Dashboarding.
 
 PROFESSIONAL EXPERIENCE
 
-Samsoft IT Solutions LLC | Zoho One Consultant (Dec 2022 – Present)
-- Consult with executive stakeholders across industries to translate complex operational challenges into structured, scalable Zoho One enterprise architectures.
-- Author detailed technical requirement specifications, process maps, and implementation blueprints for RevOps, finance controls, and workforce management.
-- Architect custom Deluge workflows, REST API integrations, and HTML dashboards, driving measurable productivity gains (up to 191+ hours/month across client teams).
-- Manage end-to-end implementation lifecycles, change management, user adoption, and escalation handling across multi-entity deployments.
+Strategic Development Executive | SqurrEnergy (Jul 2023 – Present)
+- Orchestrated alignment of business processes with executive vision through structured frameworks, documentation, and digital automations spanning finance, HR, sales, delivery, and operations.
+- Championed development and adoption of enterprise dashboards and tools across the organization, cultivating a data-driven culture that empowers accountability and strategic decision-making.
+- Led cross-functional teams in implementing technology workflows using Zoho One, delivering measurable operational enhancements and positioning the organization for scalable growth.
+- Designed and deployed a governed CRM lifecycle covering lead qualification through receivables follow-up, reporting ~15 hours of monthly time saving across six users.
+- Built cash-planning application with projected vs actual variance tracking, outflow calendar, and multi-entity consolidation for executive financial visibility.
+- Created Project Pulse — delivery performance dashboard with background data sync, budget burn-rate tracking, and role-based access — estimated at 191.25 hours monthly saving across 45 users.
+- Engineered HRMS optimization initiative connecting utilization dashboards, automated appraisal workflows, and performance-linked incentive systems.
+- Implemented customer complaint and RCA engine with structured lifecycle, automated PDF reporting, and dashboard KPIs.
 
-Target Integration | Associate Functional Consultant (Jun 2022 – Dec 2022)
-- Configured, customized, and integrated core Zoho One modules including Zoho CRM, Books, Analytics, People, Payroll, Recruit, Desk, and Forms.
-- Designed automated CRM sales blueprints, custom module workflows, and multi-app data synchronization to streamline commercial and HR hand-offs.
+Zoho One Consultant | Samsoft IT Solutions LLC (Dec 2022 – Jun 2023)
+- Collaborated with global clients to define requirements and deliver tailored Statements of Work across Zoho One solutions (CRM, Creator, Books, People, Projects).
+- Engineered customized implementations including workflow automation, Deluge scripting, API integrations, and custom module development for diverse industry verticals.
+- Managed client escalations and complex technical challenges, ensuring efficient end-to-end project delivery.
 
-Byju's The Learning App | Business Development Trainee (Aug 2021 – Oct 2021)
-- Achieved batch-topping revenue generation by driving consultative sales engagements, demonstrating commercial drive and client communication.
+Functional Consultant | Target Integration (Jun 2022 – Nov 2022)
+- Delivered Zoho One consulting services across CRM, Desk, Recruit, and Books for SMB and enterprise clients.
+- Recognized for swift escalation resolution and excellence in project delivery.
 
-Sharda Motor Industries Ltd. | Project Intern (Jun 2016 – Jul 2016)
-- Executed an industrial ergonomics analysis on the assembly floor, delivering actionable workstation optimization recommendations to improve worker safety and posture efficiency.
+Personal Goal Pursuit — Career Break | UPSC IES Prep, GATE & AFCAT (Jun 2018 – Dec 2021)
+- Prepared for UPSC Indian Engineering Services (IES) examination, demonstrating commitment to ambitious national-level competitive goals.
+- Secured All India Rank (AIR) 8003 in GATE examination, validating strong technical foundations.
+- Qualified for AFCAT SSB Interview (2020), demonstrating leadership and defense services readiness.
 
-KEY STRATEGIC TRANSFORMATION PROJECTS & IMPACT
-1. Delivery Governance & Executive Performance Visibility (Project Pulse): Delivered 191.25 hours/month in productivity savings across 45 users while elevating management margin visibility.
-2. Revenue Operations & Commercial Governance (RevOps): Created 100% traceable hand-offs between sales, delivery, and finance, saving ~15 hours/month across 6 core users.
-3. Financial Control & Shared Cost Allocation: Saved 6+ hours/month in accounting review time while establishing auditable cash visibility.
-4. Resource Capacity & Timesheet Governance System: Standardized single-view capacity management across engineering verticals.
-5. Quality Governance, Customer RCA & Action Tracking: Saved 7+ hours/month in administrative overhead and created closed-loop accountability.
-6. Workforce Utilization & Performance Incentive System: Grounded performance reviews in objective operational data.
+Business Development Trainee | Byju's — The Learning App (Aug 2021 – Oct 2021)
+- Engaged in direct sales and business development for India's leading edtech platform.
 
-ENGINEERING & INNOVATION PROJECTS
-- Omni-Vehicle "Universalus" (Lead Designer): Designed and fabricated a concept vehicle capable of land driving, swimming, and flying. Engineered custom 3-way transmission, conducted SolidWorks/ANSYS stress simulations, and 3D-printed custom gearboxes.
-- Team Vector – ABU Robocon National (Mechanical Lead, 2016–2018): Led a 10-engineer mechanical team across 3 national robotics competitions; designed virtual mechanisms, pneumatic circuits, and functional prototypes.
-- Skylark Drone Competition (2017): Built and calibrated custom quadcopters (BLDC motors, ESCs, flight controllers, radio tuning).
+Project Intern | Sharda Motor Industries Ltd. (Jun 2016 – Jul 2016)
+- Executed industrial ergonomics analysis on the assembly floor, delivering workstation optimization recommendations.
+
+KEY STRATEGIC TRANSFORMATION HIGHLIGHTS
+- Revenue Operations & Commercial Execution: Governed CRM lifecycle, stage-gate approvals, custom SOW proposals, automated invoice sync (~15 hrs/mo saving).
+- Finance Control & Cash Visibility: Deployed receivables ageing (30/60/90/120 days), automated collection escalations, cash planning calendar, corporate expense allocation (~6 hrs/mo saving).
+- Delivery Governance (Project Pulse): BV Pulse dataset sync, budget burn-rate alerts, role-based views (Director/PM/Finance) (191.25 hrs/mo saving across 45 users).
+- People & Performance Systems: Utilization tracking, automated appraisal cycles, performance-linked incentive calculation engine.
+- Quality Governance & RCA (Communique): Closed-loop complaint intake to RCA PDF export (~7 hrs/mo saving); Communique MoM decision-tracking system.
 
 EXTRACURRICULAR LEADERSHIP & SOCIAL IMPACT
-- Prayas Youth Forum – Computer Literacy Drive (2016–2018): Spearheaded 3 consecutive annual rural computer literacy camps, bringing digital skills awareness to underprivileged students.
-- Swapnapurti Foundation (2017–2018): Conducted career guidance, soft skills, and personality development workshops for high school students across 2 seasons.
-- Prayas Eco-Immersion Drive (2015–2017): Organized 3 annual eco-friendly immersion and recycling initiatives to prevent river pollution.
-- STEM & Robotics Community Workshops (2018): Conducted hands-on drone physics seminars with live flight demos for 8th–10th grade students at Maratha Highschool, Nashik.
+- Team Vector (Jul 2016 – Mar 2018): Mechanical Engineer on drone design & engineering team; participant in Skylark Drone Making Competition (Dec 2017).
+- Prayas Youth Forum (Mar 2015 – Feb 2018): Volunteer for social awareness, rural computer literacy, and environmental drives.
+- Swapnapurti Foundation (Jul 2016 – Jul 2017): Volunteer conducting student mentorship and soft skills workshops.
+- Sanwardhan NGO (Sep 2014 – Sep 2018): Volunteer for environmental conservation initiatives across 4 years.
 
 EDUCATION & GLOBAL CERTIFICATIONS
-- B.E. in Mechanical Engineering | K. K. Wagh Institute of Engineering Education and Research, Nashik (2014 – 2018) | Percentage: 66.18%
-- GATE 2021 Qualified: Score 549 | All India Rank (AIR): 6057
-- SAP Certified Application Associate – Sales and Distribution (SD) with SAP ERP 6.0 EhP7 (Global Certification, March 2022)`;
+- Bachelor of Engineering (Mechanical Engineering) | K. K. Wagh Institute of Engineering Education and Research, Nashik (2014 – 2018) | First Class With Distinction (66.18%)
+- Business Intelligence Using Power BI | Skill Nation (Dec 2023)
+- SAP Certified Application Associate — Sales and Distribution (SAP ERP 6.0 EhP7) | SAP (Mar 2022)
+- GATE Qualified | All India Rank (AIR) 8003`;
 
   const handleCopyText = () => {
     navigator.clipboard.writeText(rawTextResume);
@@ -107,7 +116,7 @@ EDUCATION & GLOBAL CERTIFICATIONS
         {/* Header */}
         <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-200 bg-slate-900 px-6 py-4 text-white no-print">
           <div>
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-400/20 px-2.5 py-0.5 text-xs font-bold text-amber-300">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-teal-400/20 px-2.5 py-0.5 text-xs font-bold text-teal-300">
               ATS & AI Parsable Format
             </span>
             <h2 id="ats-resume-title" className="mt-1 text-xl font-bold tracking-tight text-white">
@@ -118,7 +127,7 @@ EDUCATION & GLOBAL CERTIFICATIONS
             <button
               type="button"
               onClick={handlePrint}
-              className="inline-flex items-center gap-1.5 rounded-lg bg-amber-400 px-3.5 py-2 text-xs font-bold text-slate-950 transition hover:bg-amber-300"
+              className="inline-flex items-center gap-1.5 rounded-lg bg-teal-600 px-3.5 py-2 text-xs font-bold text-white transition hover:bg-teal-500 shadow-sm"
               title="Print or Save as PDF"
             >
               <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -133,7 +142,7 @@ EDUCATION & GLOBAL CERTIFICATIONS
             >
               {copied ? (
                 <>
-                  <svg className="h-4 w-4 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg className="h-4 w-4 text-teal-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                   Copied!
@@ -175,8 +184,8 @@ EDUCATION & GLOBAL CERTIFICATIONS
         <div className="flex-1 overflow-y-auto p-6 md:p-10 text-slate-900 bg-white" id="ats-resume-print-area">
           <div className="border-b border-slate-300 pb-5 text-center">
             <h1 className="text-2xl font-bold tracking-tight text-slate-950 uppercase md:text-3xl">SHIVAM J. THETE</h1>
-            <p className="mt-1 text-sm font-semibold text-slate-700 uppercase tracking-wider">
-              Strategy, Operations & Business Transformation Leader | Zoho One & SAP SD Certified
+            <p className="mt-1 text-sm font-semibold text-teal-800 uppercase tracking-wider">
+              Strategic Development Leader | Business Transformation Executive
             </p>
             <p className="mt-2 text-xs text-slate-600 flex flex-wrap justify-center gap-x-4 gap-y-1">
               <span><strong>Email:</strong> shivamjthete123@gmail.com</span>
@@ -185,7 +194,7 @@ EDUCATION & GLOBAL CERTIFICATIONS
               <span>•</span>
               <span><strong>LinkedIn:</strong> linkedin.com/in/shivamjthete</span>
               <span>•</span>
-              <span><strong>Location:</strong> India</span>
+              <span><strong>Location:</strong> Pune, India</span>
             </p>
           </div>
 
@@ -194,26 +203,26 @@ EDUCATION & GLOBAL CERTIFICATIONS
               EXECUTIVE SUMMARY
             </h2>
             <p className="mt-3 text-xs leading-relaxed text-slate-800">
-              Results-driven Strategy, Operations, and Business Transformation Leader with extensive experience architecting enterprise workflow operating models, financial controls, Revenue Operations (RevOps), and delivery governance frameworks. Dual-background in Mechanical Engineering and Enterprise Systems (Zoho One & SAP SD Certified). Proven track record translating high-level business priorities into scalable low-code ecosystems (Zoho Creator, CRM, Books, Projects, People, Analytics, Deluge, REST APIs) that drive measurable productivity, cash flow transparency, and operational accountability.
+              Strategic Development Executive with 3+ years of enterprise leadership at SqurrEnergy and prior Zoho One consulting experience, specializing in cross-functional business transformation across finance, HR, sales, delivery, and operations. Proven ability to orchestrate alignment of business processes with executive vision through structured frameworks, digital automations, and enterprise dashboards. Adept at turning fragmented, manual workflows into governed operating models that deliver measurable execution discipline, data-driven decision-making, and scalable organizational growth.
             </p>
           </section>
 
           <section className="mt-6">
             <h2 className="border-b border-slate-900 text-xs font-bold uppercase tracking-widest text-slate-950 pb-1">
-              CORE COMPETENCIES & KEYWORDS
+              CORE COMPETENCIES
             </h2>
             <div className="mt-3 grid gap-2 text-xs text-slate-800">
               <div>
-                <strong className="text-slate-950">Strategic Leadership:</strong> Operating Model Design, Strategy-to-Execution Translation, Business Transformation, Cross-Functional Leadership, Change Management, SLA & KPI Architecture.
+                <strong className="text-slate-950">Strategic Leadership:</strong> Strategy-to-Execution Translation, Business Transformation, Operating Model Design, Cross-Functional Program Leadership, Change Management, Process Controls & Compliance.
               </div>
               <div>
-                <strong className="text-slate-950">Financial & Commercial Operations:</strong> Revenue Operations (RevOps), Commercial Governance, Cash Flow Forecasting, Receivables Management, Corporate Cost Allocation, Financial Workflow Control.
+                <strong className="text-slate-950">Operations & Revenue Operations:</strong> Revenue Operations (RevOps), Commercial Governance, Financial Controls, Cash Visibility, Cash Flow Forecasting, Corporate Cost Allocation, SLA Design.
               </div>
               <div>
-                <strong className="text-slate-950">Systems & Technology:</strong> Enterprise Low-Code Architecture, Zoho One Ecosystem (Creator, CRM, Books, Projects, People, Recruit, Payroll, Analytics, Desk), SAP SD Module, Deluge Scripting, REST APIs, Automation.
+                <strong className="text-slate-950">Technology & Enterprise Systems:</strong> Zoho One Ecosystem (Creator, CRM, Books, Projects, People, Recruit, Payroll, Analytics, Desk), Deluge Scripting, REST APIs, Workflow Automation, Low-Code Application Development, Power BI, SAP SD (Certified).
               </div>
               <div>
-                <strong className="text-slate-950">Delivery & Quality Governance:</strong> Capacity Planning, Resource Utilization, Root Cause Analysis (RCA), Quality Assurance Workflows, Action Tracking, Industrial Ergonomics.
+                <strong className="text-slate-950">Delivery & Quality Governance:</strong> Capacity Planning, Resource Utilization, Root Cause Analysis (RCA), Quality Governance, Action Tracking, Executive Dashboarding.
               </div>
             </div>
           </section>
@@ -226,35 +235,57 @@ EDUCATION & GLOBAL CERTIFICATIONS
             <div className="mt-4 space-y-4 text-xs text-slate-800">
               <div>
                 <div className="flex justify-between font-bold text-slate-950">
+                  <span>SqurrEnergy | Strategic Development Executive</span>
+                  <span className="text-slate-600 font-normal">Jul 2023 – Present (3+ years)</span>
+                </div>
+                <ul className="mt-1 list-disc pl-4 space-y-1 text-slate-700">
+                  <li>Orchestrated alignment of business processes with executive vision through structured frameworks, documentation, and digital automations spanning finance, HR, sales, delivery, and operations.</li>
+                  <li>Championed development and adoption of enterprise dashboards and tools across the organization, cultivating a data-driven culture that empowers accountability and strategic decision-making.</li>
+                  <li>Led cross-functional teams in implementing technology workflows using Zoho One, delivering measurable operational enhancements and positioning the organization for scalable growth.</li>
+                  <li>Designed and deployed a governed CRM lifecycle covering lead qualification through receivables follow-up, reporting ~15 hours of monthly time saving across 6 users.</li>
+                  <li>Built cash-planning application with projected vs actual variance tracking, outflow calendar, and multi-entity consolidation for executive financial visibility.</li>
+                  <li>Created Project Pulse — delivery performance dashboard with background data sync, budget burn-rate tracking, and role-based access — estimated at 191.25 hours monthly saving across 45 users.</li>
+                </ul>
+              </div>
+
+              <div>
+                <div className="flex justify-between font-bold text-slate-950">
                   <span>Samsoft IT Solutions LLC | Zoho One Consultant</span>
-                  <span className="text-slate-600 font-normal">Dec 2022 – Present</span>
+                  <span className="text-slate-600 font-normal">Dec 2022 – Jun 2023</span>
                 </div>
                 <ul className="mt-1 list-disc pl-4 space-y-1 text-slate-700">
-                  <li>Consult with executive stakeholders across industries to translate complex operational challenges into structured, scalable Zoho One enterprise architectures.</li>
-                  <li>Author detailed technical requirement specifications, process maps, and implementation blueprints for RevOps, finance controls, and workforce management.</li>
-                  <li>Architect custom Deluge workflows, REST API integrations, and HTML dashboards, driving measurable productivity gains (up to 191+ hours/month across client teams).</li>
-                  <li>Manage end-to-end implementation lifecycles, change management, user adoption, and escalation handling across multi-entity deployments.</li>
+                  <li>Collaborated with global clients to define requirements and deliver tailored Statements of Work across Zoho One solutions.</li>
+                  <li>Engineered customized implementations including workflow automation, Deluge scripting, API integrations, and custom module development.</li>
                 </ul>
               </div>
 
               <div>
                 <div className="flex justify-between font-bold text-slate-950">
-                  <span>Target Integration | Associate Functional Consultant</span>
-                  <span className="text-slate-600 font-normal">Jun 2022 – Dec 2022</span>
+                  <span>Target Integration | Functional Consultant</span>
+                  <span className="text-slate-600 font-normal">Jun 2022 – Nov 2022</span>
                 </div>
                 <ul className="mt-1 list-disc pl-4 space-y-1 text-slate-700">
-                  <li>Configured, customized, and integrated core Zoho One modules including Zoho CRM, Books, Analytics, People, Payroll, Recruit, Desk, and Forms.</li>
-                  <li>Designed automated CRM sales blueprints, custom module workflows, and multi-app data synchronization to streamline commercial and HR hand-offs.</li>
+                  <li>Delivered Zoho One consulting services across CRM, Desk, Recruit, and Books for SMB and enterprise clients.</li>
                 </ul>
               </div>
 
               <div>
                 <div className="flex justify-between font-bold text-slate-950">
-                  <span>Byju's The Learning App | Business Development Trainee</span>
+                  <span>Personal Goal Pursuit — Career Break | UPSC IES Prep, GATE AIR 8003 & AFCAT</span>
+                  <span className="text-slate-600 font-normal">Jun 2018 – Dec 2021</span>
+                </div>
+                <ul className="mt-1 list-disc pl-4 space-y-1 text-slate-700">
+                  <li>Prepared for UPSC Indian Engineering Services (IES) exam; secured All India Rank (AIR) 8003 in GATE exam; qualified for AFCAT SSB Interview (2020).</li>
+                </ul>
+              </div>
+
+              <div>
+                <div className="flex justify-between font-bold text-slate-950">
+                  <span>Byju's — The Learning App | Business Development Trainee</span>
                   <span className="text-slate-600 font-normal">Aug 2021 – Oct 2021</span>
                 </div>
                 <ul className="mt-1 list-disc pl-4 space-y-1 text-slate-700">
-                  <li>Achieved batch-topping revenue generation by driving consultative sales engagements, demonstrating commercial drive and client communication.</li>
+                  <li>Engaged in direct sales and business development during early career transition.</li>
                 </ul>
               </div>
 
@@ -264,7 +295,7 @@ EDUCATION & GLOBAL CERTIFICATIONS
                   <span className="text-slate-600 font-normal">Jun 2016 – Jul 2016</span>
                 </div>
                 <ul className="mt-1 list-disc pl-4 space-y-1 text-slate-700">
-                  <li>Executed an industrial ergonomics analysis on the assembly floor, delivering actionable workstation optimization recommendations to improve worker safety and posture efficiency.</li>
+                  <li>Executed industrial ergonomics analysis on assembly floor, delivering workstation optimization recommendations.</li>
                 </ul>
               </div>
             </div>
@@ -285,13 +316,13 @@ EDUCATION & GLOBAL CERTIFICATIONS
 
           <section className="mt-6">
             <h2 className="border-b border-slate-900 text-xs font-bold uppercase tracking-widest text-slate-950 pb-1">
-              ENGINEERING & EXTRACURRICULAR LEADERSHIP
+              EXTRACURRICULAR LEADERSHIP & COMMUNITY ENGAGEMENT
             </h2>
             <div className="mt-3 space-y-2 text-xs text-slate-800">
-              <div><strong>Omni-Vehicle "Universalus":</strong> Designed and fabricated concept vehicle capable of land driving, swimming, and flying with custom 3-way transmission.</div>
-              <div><strong>Team Vector Robotics Lead (ABU Robocon National):</strong> Led 10-engineer team across 3 national robotics events; designed pneumatic circuits & physical prototypes.</div>
-              <div><strong>Prayas Youth Forum – Computer Literacy Drive:</strong> Spearheaded 3 annual rural computer literacy camps for underprivileged students (2016–2018).</div>
-              <div><strong>Swapnapurti Foundation Youth Mentorship:</strong> Conducted career guidance & soft skills workshops for high school students (2017–2018).</div>
+              <div><strong>Team Vector & Skylark Drone Competition (2016–2018):</strong> Mechanical Engineer on drone design & engineering team; building custom quadcopters.</div>
+              <div><strong>Prayas Youth Forum (2015–2018):</strong> Volunteer for social awareness, rural computer literacy drives, and environmental conservation.</div>
+              <div><strong>Swapnapurti Foundation (2016–2017):</strong> Volunteer conducting student mentorship and soft skills workshops.</div>
+              <div><strong>Sanwardhan NGO (2014–2018):</strong> Environmental volunteer across 4 years of active initiatives.</div>
             </div>
           </section>
 
@@ -300,8 +331,9 @@ EDUCATION & GLOBAL CERTIFICATIONS
               EDUCATION & GLOBAL CERTIFICATIONS
             </h2>
             <ul className="mt-2 list-disc pl-4 space-y-1 text-xs text-slate-800">
-              <li><strong>B.E. in Mechanical Engineering:</strong> K. K. Wagh Institute of Engineering Education and Research, Nashik (2014 – 2018) | Percentage: 66.18%</li>
-              <li><strong>GATE 2021 Qualified:</strong> Score 549 | All India Rank (AIR): 6057</li>
+              <li><strong>B.E. in Mechanical Engineering:</strong> K. K. Wagh Institute of Engineering Education and Research, Nashik (2014 – 2018) | First Class With Distinction (66.18%)</li>
+              <li><strong>GATE Qualified:</strong> All India Rank (AIR) 8003</li>
+              <li><strong>Business Intelligence Using Power BI:</strong> Skill Nation (Dec 2023)</li>
               <li><strong>SAP Certified Application Associate:</strong> Sales and Distribution (SD) with SAP ERP 6.0 EhP7 (Global Certification, March 2022)</li>
             </ul>
           </section>

@@ -19,11 +19,11 @@ export default function ExtracurricularSection() {
       badge: "Youth Empowerment",
     },
     {
-      title: "Prayas Youth Forum – Annual Eco Murti Immersion Drive",
-      period: "2015, 2016, 2017 (3 Years)",
+      title: "Prayas Youth Forum – Eco Murti Immersion & Sanwardhan NGO",
+      period: "2014 – 2018 (4 Years)",
       category: "Environmental Sustainability",
       description:
-        "Organized and executed 3 consecutive eco-friendly festival immersion and recycling drives with Prayas Youth Forum & Sanwardhan to prevent local water pollution.",
+        "Organized 3 consecutive eco-friendly festival immersion and recycling drives to prevent local water pollution. Voluntarily active with Sanwardhan NGO for 4 years on environmental initiatives.",
       badge: "Environmental Impact",
     },
     {
@@ -39,7 +39,7 @@ export default function ExtracurricularSection() {
       period: "2016, 2017, 2018",
       category: "Engineering Leadership & Robotics",
       description:
-        "Led a 10-engineer mechanical team representing K. K. Wagh Institute across 3 national robotics events. Designed virtual mechanisms, pneumatic circuit controls, and functional prototypes.",
+        "Led a 10-engineer mechanical team representing K. K. Wagh Institute across 3 national robotics events. Designed virtual mechanisms, pneumatic circuit controls, and functional prototypes. Participated in Skylark Drone Competition (Dec 2017).",
       badge: "Engineering Leadership",
     },
     {
@@ -54,7 +54,7 @@ export default function ExtracurricularSection() {
 
   return (
     <section id="extracurricular" aria-labelledby="extracurricular-title" className="border-t border-slate-200 bg-slate-50/70">
-      <div className="mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-24">
+      <div className="mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-24" data-reveal-container>
         <SectionHeading
           id="extracurricular-title"
           eyebrow="Leadership Beyond Work"
@@ -64,16 +64,21 @@ export default function ExtracurricularSection() {
 
         <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {activities.map((act, index) => (
-            <article key={index} className="flex flex-col justify-between rounded-xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-md transition">
+            <article
+              key={index}
+              data-reveal
+              style={{ transitionDelay: `${index * 80}ms` }}
+              className="flex flex-col justify-between rounded-xl border border-slate-200/80 bg-white p-6 shadow-sm hover:shadow-lg hover:border-teal-500/40 hover:-translate-y-1 transition duration-300 group"
+            >
               <div>
                 <div className="flex items-center justify-between gap-2">
-                  <span className="rounded-full bg-amber-100 px-2.5 py-0.5 text-[10px] font-bold text-amber-800 border border-amber-200">
+                  <span className="rounded-full bg-teal-50 px-2.5 py-0.5 text-[10px] font-bold text-teal-800 border border-teal-200/80 group-hover:bg-teal-100 transition-colors">
                     {act.badge}
                   </span>
                   <span className="text-xs font-semibold text-slate-400">{act.period}</span>
                 </div>
-                <h3 className="mt-3 text-lg font-bold text-slate-950">{act.title}</h3>
-                <p className="mt-1 text-xs font-semibold text-amber-700">{act.category}</p>
+                <h3 className="mt-3 text-lg font-bold text-slate-950 group-hover:text-teal-900 transition-colors">{act.title}</h3>
+                <p className="mt-1 text-xs font-semibold text-teal-700">{act.category}</p>
                 <p className="mt-3 text-sm leading-6 text-slate-600">{act.description}</p>
               </div>
             </article>

@@ -10,10 +10,10 @@ export default function FilterPills({ items, activeItem, onSelect }) {
             type="button"
             onClick={() => onSelect(item)}
             aria-pressed={isActive}
-            className={`rounded-full border px-4 py-2 text-sm font-medium transition ${
+            className={`rounded-full border px-4 py-2 text-sm font-medium transition duration-200 ${
               isActive
-                ? "border-slate-900 bg-slate-900 text-white"
-                : "border-slate-200 bg-white text-slate-600 hover:border-slate-400 hover:text-slate-900"
+                ? "border-teal-700 bg-teal-700 text-white shadow-sm font-semibold"
+                : "border-slate-200 bg-white text-slate-600 hover:border-teal-400 hover:text-teal-800"
             }`}
           >
             {item}

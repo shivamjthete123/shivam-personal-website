@@ -4,9 +4,14 @@
   "title": "Systems and Delivery",
   "description": "Platforms and delivery strengths used to make operational change practical and measurable.",
   "items": [
-    "Zoho Creator, CRM, Books, People, Recruit, Payroll, and Projects",
-    "Deluge scripting, APIs, widgets, and workflow automation",
+    "Zoho One ecosystem: CRM, Creator, Books, People, Recruit, Payroll, Projects, Analytics, Desk, Forms",
+    "Deluge scripting, APIs, webhooks, and workflow automation",
+    "Low-code application development and custom widgets (HTML/CSS)",
+    "Power BI dashboarding and business intelligence reporting",
+    "SAP SD (Sales and Distribution) — certified",
     "Dashboarding, reporting design, and decision-support tooling",
-    "Structured data workflows, document automation, and interface simplification"
+    "Structured data workflows, document automation, and PDF generation",
+    "AI-assisted documentation and process automation",
+    "System implementation, migration, and client consulting"
   ]
 }
