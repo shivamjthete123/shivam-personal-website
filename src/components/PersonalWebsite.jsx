@@ -4,6 +4,7 @@ import { useScrollReveal, staggerProps } from "../lib/useScrollReveal";
 import FilterPills from "./FilterPills";
 import SectionHeading from "./SectionHeading";
 import AtsResumeModal from "./AtsResumeModal";
+import CoverLetterModal from "./CoverLetterModal";
 import MetricsBanner from "./MetricsBanner";
 import ExtracurricularSection from "./ExtracurricularSection";
 
@@ -69,7 +70,7 @@ const navigationTree = [
   }
 ];
 
-function SidebarNavigation({ name, title, linkedin, email, phone, onOpenAtsResume, onSelectFilter }) {
+function SidebarNavigation({ name, title, linkedin, email, phone, onOpenAtsResume, onOpenCoverLetter, onSelectFilter }) {
   const [activeId, setActiveId] = useState("top");
   const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
 
@@ -186,17 +187,31 @@ function SidebarNavigation({ name, title, linkedin, email, phone, onOpenAtsResum
       </div>
 
       {/* FIXED UN-SCROLLED BOTTOM SECTION (PINNED AT BOTTOM OF SIDEBAR AT ALL TIMES) */}
-      <div className="shrink-0 pt-4 border-t border-slate-800/80 space-y-3 bg-slate-950 z-10">
-        <button
-          type="button"
-          onClick={() => { onOpenAtsResume(); setMobileDrawerOpen(false); }}
-          className="w-full rounded-xl bg-gradient-to-r from-amber-600 via-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 text-white font-extrabold py-3 px-4 text-xs transition duration-200 shadow-lg shadow-amber-950/60 flex items-center justify-center gap-2 border border-amber-500/30"
-        >
-          <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 01-2-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-          </svg>
-          Download PDF File
-        </button>
+      <div className="shrink-0 pt-4 border-t border-slate-800/80 space-y-2 bg-slate-950 z-10">
+        <div className="grid grid-cols-2 gap-2">
+          <button
+            type="button"
+            onClick={() => { onOpenAtsResume(); setMobileDrawerOpen(false); }}
+            className="rounded-xl bg-amber-600 hover:bg-amber-500 text-white font-extrabold py-2.5 px-2 text-[11px] transition duration-200 shadow-md shadow-amber-950/60 flex items-center justify-center gap-1.5 border border-amber-500/30 truncate"
+            title="Download PDF Resume"
+          >
+            <svg className="h-3.5 w-3.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 01-2-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+            Resume PDF
+          </button>
+          <button
+            type="button"
+            onClick={() => { onOpenCoverLetter(); setMobileDrawerOpen(false); }}
+            className="rounded-xl border border-slate-700 bg-slate-900 hover:bg-slate-800 text-slate-200 font-extrabold py-2.5 px-2 text-[11px] transition duration-200 flex items-center justify-center gap-1.5 truncate"
+            title="Download Cover Letter PDF"
+          >
+            <svg className="h-3.5 w-3.5 text-amber-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+            Cover Letter
+          </button>
+        </div>
 
         <div className="flex items-center justify-between text-[11px] text-slate-400 px-1 pt-0.5 pb-1">
           <a href={linkedin} target="_blank" rel="noreferrer" className="hover:text-amber-400 transition font-semibold">LinkedIn</a>
@@ -434,6 +449,7 @@ export default function PersonalWebsite() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedProjectId, setSelectedProjectId] = useState(null);
   const [isAtsModalOpen, setIsAtsModalOpen] = useState(false);
+  const [isCoverLetterModalOpen, setIsCoverLetterModalOpen] = useState(false);
   const [showBackToTop, setShowBackToTop] = useState(false);
 
   // Handle scroll detection for back-to-top button
@@ -486,6 +502,7 @@ export default function PersonalWebsite() {
           email={profile.contact.email}
           phone={profile.contact.phone}
           onOpenAtsResume={() => setIsAtsModalOpen(true)}
+          onOpenCoverLetter={() => setIsCoverLetterModalOpen(true)}
           onSelectFilter={(filter) => setActiveTag(filter)}
         />
 
@@ -523,7 +540,17 @@ export default function PersonalWebsite() {
                       <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 01-2-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                       </svg>
-                      Download PDF Resume
+                      Resume PDF
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setIsCoverLetterModalOpen(true)}
+                      className="rounded-xl border border-amber-600/40 bg-amber-500/10 hover:bg-amber-500/20 px-5 py-3.5 text-xs font-extrabold text-amber-800 transition duration-200 flex items-center gap-2 shadow-sm"
+                    >
+                      <svg className="h-4 w-4 text-amber-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                      </svg>
+                      Cover Letter PDF
                     </button>
                     <a href="#projects" className="rounded-xl bg-slate-950 px-5 py-3.5 text-xs font-bold text-white transition hover:bg-slate-800 shadow-md">
                       Review Projects
@@ -714,9 +741,10 @@ export default function PersonalWebsite() {
         <ProjectDrawer project={selectedProject} onClose={() => setSelectedProjectId(null)} />
       </div>
 
-      {/* PORTAL CONTAINER FOR ATS RESUME MODAL */}
+      {/* PORTAL CONTAINER FOR ATS RESUME & COVER LETTER MODALS */}
       <div id="ats-resume-modal-portal">
         <AtsResumeModal isOpen={isAtsModalOpen} onClose={() => setIsAtsModalOpen(false)} />
+        <CoverLetterModal isOpen={isCoverLetterModalOpen} onClose={() => setIsCoverLetterModalOpen(false)} />
       </div>
     </>
   );
