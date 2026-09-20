@@ -1,47 +1,61 @@
 export default function MetricsBanner() {
   const metrics = [
     {
-      value: "191.25 hrs/mo",
+      value: "191.25",
+      unit: "hrs/mo",
       label: "Productivity Saved",
       detail: "Across 45 users via Project Pulse delivery governance dashboard",
     },
     {
-      value: "15 hrs/mo",
+      value: "15",
+      unit: "hrs/mo",
       label: "RevOps Efficiency",
       detail: "Commercial BD lifecycle governance & CRM hand-offs",
     },
     {
-      value: "6 hrs/mo",
+      value: "6",
+      unit: "hrs/mo",
       label: "Month-End Savings",
       detail: "Automated corporate expense allocation & journal reviews",
     },
     {
-      value: "7 hrs/mo",
+      value: "7",
+      unit: "hrs/mo",
       label: "Quality RCA Savings",
       detail: "Customer complaint tracking & action closure workflows",
     },
   ];
 
   return (
-    <div className="rounded-2xl bg-slate-950 p-6 md:p-8 text-white shadow-xl border border-slate-800">
-      <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-800 pb-5">
+    <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 p-6 md:p-8 text-white shadow-2xl border border-slate-800">
+      {/* Ambient background glow circle */}
+      <div className="absolute -top-24 -right-24 h-72 w-72 rounded-full bg-amber-500/10 blur-3xl pointer-events-none" />
+      <div className="absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-amber-600/10 blur-3xl pointer-events-none" />
+
+      <div className="relative z-10 flex flex-wrap items-center justify-between gap-4 border-b border-slate-800/80 pb-6">
         <div>
-          <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-amber-500">Measured Operational Impact</p>
-          <h3 className="mt-1 text-xl font-bold tracking-tight text-white md:text-2xl">
+          <p className="text-[11px] font-extrabold uppercase tracking-[0.2em] text-amber-400">Measured Operational Impact</p>
+          <h3 className="mt-1.5 text-xl font-bold tracking-tight text-white md:text-2xl">
             Quantifiable results from strategy translation & workflow automation.
           </h3>
         </div>
-        <span className="rounded-full bg-amber-500/10 px-3 py-1 text-xs font-semibold text-amber-400 border border-amber-500/20">
+        <span className="rounded-full bg-amber-400/10 px-3.5 py-1 text-xs font-bold text-amber-300 border border-amber-400/20 backdrop-blur-md">
           Empirical Leadership Evidence
         </span>
       </div>
 
-      <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="relative z-10 mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
         {metrics.map((m, idx) => (
-          <div key={idx} className="rounded-xl bg-slate-900/80 p-5 border border-slate-800/80 hover:border-amber-500/40 transition group hover:shadow-lg hover:shadow-amber-950/40">
-            <p className="text-3xl font-extrabold tracking-tight text-amber-400 group-hover:text-amber-300 transition-colors">{m.value}</p>
-            <p className="mt-1 text-sm font-bold text-slate-200">{m.label}</p>
-            <p className="mt-2 text-xs leading-5 text-slate-400">{m.detail}</p>
+          <div
+            key={idx}
+            className="group relative overflow-hidden rounded-xl bg-slate-900/90 p-5 border border-slate-800 hover:border-amber-500/50 transition duration-300 hover:shadow-xl hover:shadow-amber-950/40"
+          >
+            <div className="flex items-baseline gap-1.5">
+              <span className="text-3xl font-black tracking-tight text-gradient-saffron group-hover:scale-105 transition-transform duration-300">{m.value}</span>
+              <span className="text-xs font-bold text-amber-400/90 uppercase tracking-wider">{m.unit}</span>
+            </div>
+            <p className="mt-2 text-xs font-bold uppercase tracking-wider text-slate-200">{m.label}</p>
+            <p className="mt-1.5 text-xs leading-5 text-slate-400">{m.detail}</p>
           </div>
         ))}
       </div>

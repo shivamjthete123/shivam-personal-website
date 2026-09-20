@@ -18,9 +18,7 @@
     margin: 0;
     min-width: 320px;
     font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    background:
-      radial-gradient(circle at top right, rgba(217, 119, 6, 0.05), transparent 28%),
-      linear-gradient(180deg, #ffffff 0%, #fafafa 100%);
+    background: #090d16;
     color: #0f172a;
     -webkit-font-smoothing: antialiased;
   }
@@ -36,68 +34,96 @@
   }
 
   ::selection {
-    background: rgba(217, 119, 6, 0.18);
-    color: #0f172a;
+    background: rgba(217, 119, 6, 0.25);
+    color: #ffffff;
   }
 
   /* Smooth anchor scroll offset for sticky nav */
   [id] {
-    scroll-margin-top: 5rem;
+    scroll-margin-top: 2rem;
   }
 }
 
+/* Custom Scrollbar for artistic feel */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #090d16;
+}
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #d97706;
+}
+
 @layer utilities {
-  .surface-soft {
-    box-shadow: 0 10px 30px -22px rgba(15, 23, 42, 0.18);
+  .text-gradient-saffron {
+    background: linear-gradient(135deg, #fbbf24 0%, #d97706 60%, #b45309 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
-  .surface-hover {
-    transition:
-      transform 180ms ease,
-      box-shadow 180ms ease,
-      border-color 180ms ease,
-      background-color 180ms ease;
+  .text-gradient-dark {
+    background: linear-gradient(135deg, #0f172a 0%, #334155 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
-  .surface-hover:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 18px 35px -24px rgba(217, 119, 6, 0.22);
+  .glass-card-dark {
+    background: rgba(15, 23, 42, 0.75);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
   }
 
-  .animate-fade-up {
-    animation: fade-up 480ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  .glass-card-light {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(226, 232, 240, 0.8);
   }
 
-  .animate-slide-in {
-    animation: slide-in 320ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  .artistic-glow {
+    box-shadow: 0 0 40px -10px rgba(217, 119, 6, 0.25);
+  }
+
+  .card-hover-artistic {
+    transition: transform 260ms cubic-bezier(0.22, 1, 0.36, 1),
+                box-shadow 260ms cubic-bezier(0.22, 1, 0.36, 1),
+                border-color 260ms ease,
+                background-color 260ms ease;
+  }
+
+  .card-hover-artistic:hover {
+    transform: translateY(-5px) scale(1.01);
+    box-shadow: 0 20px 40px -15px rgba(217, 119, 6, 0.18);
   }
 }
 
 /* ========== SCROLL REVEAL ANIMATION SYSTEM ========== */
 
-/* Pre-reveal state: invisible and offset */
 .scroll-hidden {
   opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
-              transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+  transform: translateY(28px);
+  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* Post-reveal state: visible and in-place */
 .scroll-revealed {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Directional reveal variants */
 .scroll-hidden[data-reveal-dir="left"] {
-  transform: translateX(-28px);
+  transform: translateX(-32px);
 }
 .scroll-hidden[data-reveal-dir="right"] {
-  transform: translateX(28px);
+  transform: translateX(32px);
 }
 .scroll-hidden[data-reveal-dir="scale"] {
-  transform: scale(0.93);
+  transform: scale(0.92);
 }
 .scroll-revealed[data-reveal-dir="left"],
 .scroll-revealed[data-reveal-dir="right"] {
@@ -108,47 +134,6 @@
 }
 
 /* ========== KEYFRAME ANIMATIONS ========== */
-
-@keyframes fade-up {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes slide-in {
-  from {
-    opacity: 0;
-    transform: translateX(100%);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes menu-slide-down {
-  from {
-    opacity: 0;
-    transform: translateY(-8px);
-    max-height: 0;
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-    max-height: 400px;
-  }
-}
-
-.mobile-menu-enter {
-  animation: menu-slide-down 300ms cubic-bezier(0.22, 1, 0.36, 1) both;
-}
-
-/* ========== DRAWER ANIMATIONS ========== */
 
 @keyframes drawer-backdrop-in {
   from { opacity: 0; }
@@ -174,46 +159,12 @@
   animation: drawer-panel-in 350ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
-/* ========== MICRO-INTERACTIONS & HOVER STYLES ========== */
-
-.card-hover {
-  transition: transform 220ms cubic-bezier(0.22, 1, 0.36, 1),
-              box-shadow 220ms cubic-bezier(0.22, 1, 0.36, 1),
-              border-color 220ms ease;
-}
-.card-hover:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 32px -16px rgba(217, 119, 6, 0.15);
-}
-
-/* Nav link underline animation in professional Saffron */
-.nav-link {
-  position: relative;
-}
-.nav-link::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: #d97706; /* Professional Saffron */
-  transition: width 250ms cubic-bezier(0.22, 1, 0.36, 1);
-}
-.nav-link:hover::after {
-  width: 100%;
-}
-
-.nav-scrolled {
-  background: rgba(255, 255, 255, 0.98);
-  box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.05);
-}
-
 /* ========== ABSOLUTE ISOLATED PRINT STYLESHEET (FIXES 9-PAGE PRINT ISSUE) ========== */
 
 @media print {
   /* Hide the entire website application body from print layout */
   #main-website-root,
+  .sidebar-nav,
   header,
   nav,
   main,
@@ -259,18 +210,8 @@
     background: transparent !important;
   }
 
-  /* Standard 2-page A4 print setup */
   @page {
     margin: 10mm 12mm;
     size: A4 portrait;
-  }
-}
-
-/* ========== RESPONSIVE HELPERS ========== */
-
-@media (max-width: 768px) {
-  .hero-title-mobile {
-    font-size: 2.1rem !important;
-    line-height: 1.15 !important;
   }
 }
