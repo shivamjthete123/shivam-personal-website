@@ -317,7 +317,7 @@ EDUCATION & GLOBAL CERTIFICATIONS
       "SAP Certified Application Associate: Sales and Distribution (SD) with SAP ERP 6.0 EhP7 (Global Certification, March 2022)"
     ]);
 
-    doc.save("SHIVAM_THETE_ATS_RESUME.pdf");
+    doc.save("SHIVAM_THETE_RESUME.pdf");
     return true;
   };
 
@@ -361,7 +361,7 @@ EDUCATION & GLOBAL CERTIFICATIONS
     const element = document.createElement("a");
     const file = new Blob([rawTextResume], { type: "text/markdown" });
     element.href = URL.createObjectURL(file);
-    element.download = "SHIVAM_THETE_ATS_RESUME.md";
+    element.download = "SHIVAM_THETE_RESUME.md";
     document.body.appendChild(element);
     element.click();
     document.body.removeChild(element);
@@ -381,10 +381,10 @@ EDUCATION & GLOBAL CERTIFICATIONS
         <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-200 bg-slate-950 px-6 py-4 text-white no-print">
           <div>
             <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-500/20 px-2.5 py-0.5 text-xs font-bold text-amber-400 border border-amber-500/30">
-              ATS & AI Parsable Format (Vector Text & Interactive Hyperlinks)
+              Interactive Vector PDF Format (Selectable Text & Hyperlinks)
             </span>
             <h2 id="ats-resume-title" className="mt-1 text-xl font-bold tracking-tight text-white">
-              Shivam J. Thete — Executive ATS Resume
+              Shivam J. Thete — Executive Resume
             </h2>
           </div>
           <div className="flex items-center gap-2 flex-wrap">
