@@ -103,18 +103,28 @@ EDUCATION & GLOBAL CERTIFICATIONS
       return false;
     };
 
+    // Subtle headshot photo in PDF top-right corner
+    try {
+      const headshotImg = document.getElementById("ats-resume-headshot-img");
+      if (headshotImg) {
+        doc.addImage(headshotImg, "JPEG", marginX + maxW - 36, 26, 36, 44);
+      }
+    } catch (e) {
+      console.log("Photo embed skipped:", e);
+    }
+
     // Header Title
     doc.setFont("helvetica", "bold");
-    doc.setFontSize(18);
+    doc.setFontSize(17);
     doc.setTextColor(15, 23, 42);
-    doc.text("SHIVAM J. THETE", 297.64, y, { align: "center" });
+    doc.text("SHIVAM J. THETE", 270, y, { align: "center" });
     y += 18;
 
     // Subtitle
     doc.setFont("helvetica", "bold");
-    doc.setFontSize(9.5);
+    doc.setFontSize(9);
     doc.setTextColor(194, 65, 12);
-    doc.text("STRATEGIC DEVELOPMENT EXECUTIVE  |  SYSTEMS & PROCESS AUTOMATION LEADER", 297.64, y, { align: "center" });
+    doc.text("STRATEGIC DEVELOPMENT EXECUTIVE  |  SYSTEMS & PROCESS AUTOMATION LEADER", 270, y, { align: "center" });
     y += 14;
 
     // Contact Line with Clickable Hyperlinks
@@ -136,7 +146,7 @@ EDUCATION & GLOBAL CERTIFICATIONS
     const wWebsite = doc.getTextWidth(websiteStr);
 
     const totalContactW = wC1 + wEmail + wC2 + wLinkedin + wC3 + wWebsite;
-    let curX = (595.28 - totalContactW) / 2;
+    let curX = (540 - totalContactW) / 2;
 
     // Email label & link
     doc.setTextColor(71, 85, 105);
@@ -445,20 +455,28 @@ EDUCATION & GLOBAL CERTIFICATIONS
 
         {/* Printable ATS Content Area - Strictly Isolated for Print & On-Screen Preview */}
         <div className="flex-1 overflow-y-auto p-6 md:p-10 text-slate-900 bg-white" id="ats-resume-print-area">
-          <div className="border-b border-slate-300 pb-4 text-center ats-header-block">
-            <h1 className="text-2xl font-bold tracking-tight text-slate-950 uppercase md:text-3xl">SHIVAM J. THETE</h1>
-            <p className="mt-1 text-sm font-semibold text-amber-800 uppercase tracking-wider">
-              Strategic Development Executive | Systems & Process Automation Leader
-            </p>
-            <p className="mt-2 text-xs text-slate-600 flex flex-wrap justify-center gap-x-3 gap-y-1">
-              <span><strong>Email:</strong> <a href="mailto:shivamjthete123@gmail.com" className="text-amber-800 underline font-semibold">shivamjthete123@gmail.com</a></span>
-              <span>•</span>
-              <span><strong>Phone:</strong> +91-8263045370</span>
-              <span>•</span>
-              <span><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/shivamjthete/" target="_blank" rel="noreferrer" className="text-amber-800 underline font-semibold">linkedin.com/in/shivamjthete</a></span>
-              <span>•</span>
-              <span><strong>Portfolio:</strong> <a href="https://shivam-personal-website.vercel.app/" target="_blank" rel="noreferrer" className="text-amber-800 underline font-semibold">shivam-personal-website.vercel.app</a></span>
-            </p>
+          <div className="border-b border-slate-300 pb-4 ats-header-block flex flex-col md:flex-row items-center justify-between gap-4">
+            <div className="text-center md:text-left flex-1">
+              <h1 className="text-2xl font-bold tracking-tight text-slate-950 uppercase md:text-3xl">SHIVAM J. THETE</h1>
+              <p className="mt-1 text-xs md:text-sm font-semibold text-amber-800 uppercase tracking-wider">
+                Strategic Development Executive | Systems & Process Automation Leader
+              </p>
+              <p className="mt-2 text-xs text-slate-600 flex flex-wrap justify-center md:justify-start gap-x-3 gap-y-1">
+                <span><strong>Email:</strong> <a href="mailto:shivamjthete123@gmail.com" className="text-amber-800 underline font-semibold">shivamjthete123@gmail.com</a></span>
+                <span>•</span>
+                <span><strong>Phone:</strong> +91-8263045370</span>
+                <span>•</span>
+                <span><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/shivamjthete/" target="_blank" rel="noreferrer" className="text-amber-800 underline font-semibold">linkedin.com/in/shivamjthete</a></span>
+                <span>•</span>
+                <span><strong>Portfolio:</strong> <a href="https://shivam-personal-website.vercel.app/" target="_blank" rel="noreferrer" className="text-amber-800 underline font-semibold">shivam-personal-website.vercel.app</a></span>
+              </p>
+            </div>
+            <img
+              id="ats-resume-headshot-img"
+              src="/shivam-headshot.jpg"
+              alt="Shivam J. Thete"
+              className="h-16 w-13 rounded-lg object-cover object-top border border-slate-300 shadow-sm shrink-0"
+            />
           </div>
 
           <section className="mt-5 ats-section-block">

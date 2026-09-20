@@ -115,9 +115,11 @@ function SidebarNavigation({ name, title, linkedin, email, phone, onOpenAtsResum
       <div className="flex-1 overflow-y-auto pr-1 pb-4">
         {/* Sidebar Header / Branding */}
         <div className="flex items-center gap-3.5 pb-5 border-b border-slate-800/80">
-          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-amber-400 via-amber-600 to-amber-700 text-slate-950 font-black tracking-wider text-sm shadow-lg shadow-amber-950/60">
-            ST
-          </div>
+          <img
+            src="/shivam-headshot.jpg"
+            alt="Shivam J. Thete"
+            className="h-11 w-11 shrink-0 rounded-xl object-cover object-top border border-amber-500/40 shadow-md shadow-amber-950/60"
+          />
           <div>
             <h2 className="text-sm font-extrabold tracking-tight text-white">{name}</h2>
             <p className="text-[10px] font-bold text-amber-400/90 uppercase tracking-wider">{title}</p>
@@ -217,9 +219,11 @@ function SidebarNavigation({ name, title, linkedin, email, phone, onOpenAtsResum
       {/* MOBILE TOP HEADER BAR */}
       <header className="lg:hidden sticky top-0 z-40 flex items-center justify-between bg-slate-950 px-5 py-3 text-white border-b border-slate-800 no-print">
         <a href="#top" className="flex items-center gap-3">
-          <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-amber-600 font-black text-slate-950 text-xs">
-            ST
-          </div>
+          <img
+            src="/shivam-headshot.jpg"
+            alt="Shivam J. Thete"
+            className="h-9 w-9 rounded-lg object-cover object-top border border-amber-500/40 shrink-0"
+          />
           <div>
             <p className="text-xs font-bold text-white">{name}</p>
             <p className="text-[10px] text-amber-400 uppercase tracking-wider">{title}</p>
@@ -532,7 +536,17 @@ export default function PersonalWebsite() {
 
                 <aside aria-label="Leadership positioning" className="relative rounded-2xl border border-slate-800 bg-slate-950 p-6 text-white shadow-2xl overflow-hidden" data-reveal data-reveal-delay="200" data-reveal-dir="right">
                   <div className="absolute -top-16 -right-16 h-48 w-48 rounded-full bg-amber-500/10 blur-2xl pointer-events-none" />
-                  <span className="text-[11px] font-extrabold uppercase tracking-[0.2em] text-amber-400">Executive Snapshot</span>
+                  <div className="flex items-center gap-3.5 mb-4 pb-3.5 border-b border-slate-900">
+                    <img
+                      src="/shivam-headshot.jpg"
+                      alt="Shivam J. Thete"
+                      className="h-10 w-10 rounded-full object-cover object-top border border-amber-500/40 shadow-sm shrink-0"
+                    />
+                    <div>
+                      <span className="text-[11px] font-extrabold uppercase tracking-[0.2em] text-amber-400 block">Executive Snapshot</span>
+                      <span className="text-[10px] font-semibold text-slate-400">SqurrEnergy & Transformation</span>
+                    </div>
+                  </div>
                   <ul className="mt-4 space-y-4 relative z-10">
                     {profile.executiveSnapshot.map((item, index) => (
                       <li key={item} className="grid grid-cols-[26px_1fr] gap-3 text-xs leading-5 text-slate-300 border-b border-slate-900 pb-3 last:border-b-0 last:pb-0">
