@@ -391,7 +391,7 @@ function ProjectDrawer({ project, onClose }) {
         role="dialog"
         aria-modal="true"
         aria-labelledby="project-dialog-title"
-        className="absolute inset-y-0 right-0 flex w-full max-w-5xl flex-col bg-white shadow-2xl drawer-panel"
+        className="absolute inset-y-0 right-0 flex w-full max-w-5xl flex-col bg-white shadow-2xl drawer-panel overflow-x-hidden"
       >
         <div className="flex items-start justify-between gap-5 border-b border-slate-200 px-5 py-5 md:px-8 bg-slate-950 text-white">
           <div>
@@ -433,18 +433,18 @@ function ProjectDrawer({ project, onClose }) {
           </div>
         )}
 
-        <div className="grid flex-1 overflow-y-auto lg:grid-cols-[290px_minmax(0,1fr)]">
-          <nav aria-label="Case studies" className="border-b border-slate-200 bg-slate-50/90 p-3 sm:p-4 lg:border-b-0 lg:border-r">
+        <div className="grid flex-1 overflow-y-auto min-w-0 w-full overflow-x-hidden lg:grid-cols-[290px_minmax(0,1fr)]">
+          <nav aria-label="Case studies" className="border-b border-slate-200 bg-slate-50/90 p-3 sm:p-4 lg:border-b-0 lg:border-r min-w-0 w-full">
             <div className="flex items-center justify-between pb-2">
               <p className="px-1 text-[11px] font-extrabold uppercase tracking-[0.15em] text-slate-500">
                 Select Case Study <span className="lg:hidden text-amber-800 font-bold">({currentIndex + 1}/{totalItems})</span>
               </p>
-              <span className="text-[10px] font-bold text-amber-800 bg-amber-100 border border-amber-200 rounded-full px-2 py-0.5 lg:hidden">
-                Swipe pills →
+              <span className="text-[10px] font-bold text-slate-600 bg-slate-200/70 border border-slate-300 rounded-full px-2 py-0.5 lg:hidden">
+                {totalItems} Available
               </span>
             </div>
 
-            <div className="flex flex-row overflow-x-auto gap-2 lg:flex-col lg:overflow-x-visible no-scrollbar pb-1.5 lg:pb-0 -mx-1 px-1">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:flex lg:flex-col gap-2 w-full">
               {project.projectItems.map((item, index) => {
                 const active = item.id === activeItem.id;
                 return (
@@ -452,7 +452,7 @@ function ProjectDrawer({ project, onClose }) {
                     key={item.id}
                     type="button"
                     onClick={() => setActiveItemId(item.id)}
-                    className={`shrink-0 rounded-xl px-3 py-2 sm:px-3.5 sm:py-2.5 lg:px-4 lg:py-3.5 text-left text-xs font-bold transition duration-200 flex items-center gap-2 ${
+                    className={`w-full rounded-xl px-3 py-2.5 sm:px-3.5 sm:py-3 lg:px-4 lg:py-3.5 text-left text-xs font-bold transition duration-200 flex items-center gap-2.5 ${
                       active
                         ? "bg-amber-700 text-white shadow-md shadow-amber-950/20"
                         : "text-slate-700 bg-white lg:bg-transparent hover:bg-white border border-slate-200/90 lg:border-transparent hover:border-slate-200"
@@ -461,16 +461,16 @@ function ProjectDrawer({ project, onClose }) {
                     <span className={`inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-[10px] font-extrabold ${active ? "bg-amber-900 text-amber-100" : "bg-slate-100 text-slate-600"}`}>
                       {index + 1}
                     </span>
-                    <span className="truncate max-w-[200px] sm:max-w-none">{item.title}</span>
+                    <span className="break-words text-xs leading-snug font-bold">{item.title}</span>
                   </button>
                 );
               })}
             </div>
           </nav>
-          <article className="p-6 md:p-8">
+          <article className="p-4 sm:p-6 md:p-8 min-w-0 w-full overflow-x-hidden break-words">
             <Label>{activeItem.tags.slice(0, 2).join(" · ")}</Label>
-            <h3 className="mt-2 text-2xl font-bold tracking-tight text-slate-950">{activeItem.title}</h3>
-            <p className="mt-3 max-w-3xl text-sm leading-6 text-slate-600">{activeItem.summary}</p>
+            <h3 className="mt-2 text-xl sm:text-2xl font-bold tracking-tight text-slate-950 break-words">{activeItem.title}</h3>
+            <p className="mt-3 max-w-3xl text-sm leading-6 text-slate-600 break-words">{activeItem.summary}</p>
             <dl className="mt-6 max-w-3xl space-y-2">
               <Detail label="Business Problem">{activeItem.problemStatement}</Detail>
               <Detail label="Strategic Response">{activeItem.solution}</Detail>
@@ -481,7 +481,7 @@ function ProjectDrawer({ project, onClose }) {
               <p className="text-[11px] font-extrabold uppercase tracking-[0.15em] text-slate-500">Systems & Tools Deployed</p>
               <div className="mt-2.5 flex flex-wrap gap-2">
                 {activeItem.toolsUsed.map((tool) => (
-                  <span key={tool} className="rounded-full bg-amber-50 px-3 py-1.5 text-xs font-bold text-amber-900 border border-amber-200">{tool}</span>
+                  <span key={tool} className="rounded-full bg-amber-50 px-3 py-1.5 text-xs font-bold text-amber-900 border border-amber-200 break-words">{tool}</span>
                 ))}
               </div>
             </div>
