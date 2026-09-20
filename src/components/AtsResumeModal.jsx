@@ -368,42 +368,42 @@ EDUCATION & GLOBAL CERTIFICATIONS
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 md:p-6" role="presentation">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-0 sm:p-4 md:p-6" role="presentation">
       <div className="absolute inset-0 bg-slate-950/70 backdrop-blur-sm no-print" onClick={onClose} />
 
       <div
         role="dialog"
         aria-modal="true"
         aria-labelledby="ats-resume-title"
-        className="relative flex h-full max-h-[92vh] w-full max-w-4xl flex-col rounded-2xl bg-white shadow-2xl border border-slate-200 overflow-hidden z-10"
+        className="relative flex h-full max-h-[100dvh] sm:max-h-[92vh] w-full max-w-4xl flex-col rounded-none sm:rounded-2xl bg-white shadow-2xl border-0 sm:border border-slate-200 overflow-hidden z-10"
       >
         {/* Modal Header */}
-        <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-200 bg-slate-950 px-6 py-4 text-white no-print">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-200 bg-slate-950 px-4 py-3 sm:px-6 sm:py-4 text-white no-print">
           <div>
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-500/20 px-2.5 py-0.5 text-xs font-bold text-amber-400 border border-amber-500/30">
-              Interactive Vector PDF Format (Selectable Text & Hyperlinks)
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-500/20 px-2 py-0.5 text-[10px] sm:text-xs font-bold text-amber-400 border border-amber-500/30">
+              Interactive Vector PDF (Selectable Text & Links)
             </span>
-            <h2 id="ats-resume-title" className="mt-1 text-xl font-bold tracking-tight text-white">
+            <h2 id="ats-resume-title" className="mt-0.5 text-base sm:text-xl font-bold tracking-tight text-white">
               Shivam J. Thete — Executive Resume
             </h2>
           </div>
-          <div className="flex items-center gap-2 flex-wrap">
+          <div className="flex items-center gap-1.5 sm:gap-2 flex-wrap">
             <button
               type="button"
               onClick={handleDownloadPDF}
               disabled={isGeneratingPdf}
-              className="inline-flex items-center gap-2 rounded-lg bg-amber-600 px-4 py-2 text-xs font-bold text-white transition hover:bg-amber-500 shadow-sm disabled:opacity-50"
+              className="inline-flex items-center gap-1.5 rounded-lg bg-amber-600 px-3 py-1.5 sm:px-4 sm:py-2 text-xs font-bold text-white transition hover:bg-amber-500 shadow-sm disabled:opacity-50"
               title="Download clean native vector PDF with 100% selectable text & clickable links"
             >
-              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className="h-3.5 w-3.5 sm:h-4 sm:w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 01-2-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
               </svg>
-              {isGeneratingPdf ? "Generating Vector PDF..." : "Download PDF File"}
+              <span>{isGeneratingPdf ? "Generating..." : "Download PDF"}</span>
             </button>
             <button
               type="button"
               onClick={() => window.print()}
-              className="inline-flex items-center gap-1.5 rounded-lg border border-slate-700 bg-slate-800 px-3.5 py-2 text-xs font-bold text-slate-200 transition hover:bg-slate-700"
+              className="hidden sm:inline-flex items-center gap-1.5 rounded-lg border border-slate-700 bg-slate-800 px-3 py-1.5 sm:px-3.5 sm:py-2 text-xs font-bold text-slate-200 transition hover:bg-slate-700"
               title="Open browser print dialog"
             >
               <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -414,28 +414,14 @@ EDUCATION & GLOBAL CERTIFICATIONS
             <button
               type="button"
               onClick={handleCopyText}
-              className="inline-flex items-center gap-1.5 rounded-lg border border-slate-700 bg-slate-800 px-3 py-2 text-xs font-bold text-white transition hover:bg-slate-700"
+              className="inline-flex items-center gap-1 rounded-lg border border-slate-700 bg-slate-800 px-2.5 py-1.5 sm:px-3 sm:py-2 text-xs font-bold text-white transition hover:bg-slate-700"
             >
-              {copied ? (
-                <>
-                  <svg className="h-4 w-4 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  Copied!
-                </>
-              ) : (
-                <>
-                  <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
-                  </svg>
-                  Copy Text
-                </>
-              )}
+              {copied ? "Copied!" : "Copy"}
             </button>
             <button
               type="button"
               onClick={handleDownloadMarkdown}
-              className="inline-flex items-center gap-1 rounded-lg border border-slate-700 bg-slate-800 px-2.5 py-2 text-xs font-bold text-slate-300 transition hover:bg-slate-700"
+              className="hidden sm:inline-flex items-center gap-1 rounded-lg border border-slate-700 bg-slate-800 px-2.5 py-2 text-xs font-bold text-slate-300 transition hover:bg-slate-700"
               title="Download Markdown file"
             >
               .md
@@ -443,7 +429,7 @@ EDUCATION & GLOBAL CERTIFICATIONS
             <button
               type="button"
               onClick={onClose}
-              className="rounded-lg p-2 text-slate-400 transition hover:bg-slate-800 hover:text-white"
+              className="rounded-lg p-1.5 sm:p-2 text-slate-400 transition hover:bg-slate-800 hover:text-white"
               aria-label="Close modal"
             >
               <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -454,7 +440,7 @@ EDUCATION & GLOBAL CERTIFICATIONS
         </div>
 
         {/* Printable ATS Content Area - Strictly Isolated for Print & On-Screen Preview */}
-        <div className="flex-1 overflow-y-auto p-6 md:p-10 text-slate-900 bg-white" id="ats-resume-print-area">
+        <div className="flex-1 overflow-y-auto p-4 sm:p-6 md:p-10 text-slate-900 bg-white" id="ats-resume-print-area">
           <div className="border-b border-slate-300 pb-4 ats-header-block flex flex-col md:flex-row items-center justify-between gap-4">
             <div className="text-center md:text-left flex-1">
               <h1 className="text-2xl font-bold tracking-tight text-slate-950 uppercase md:text-3xl">SHIVAM J. THETE</h1>

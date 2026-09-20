@@ -40,21 +40,49 @@
 
   /* Smooth anchor scroll offset for section targets */
   [id] {
-    scroll-margin-top: 1.5rem;
+    scroll-margin-top: 4.5rem;
+  }
+  @media (min-width: 1024px) {
+    [id] {
+      scroll-margin-top: 1.5rem;
+    }
   }
 }
 
-/* SECTION-BY-SECTION SCROLL SNAP SYSTEM */
-.scroll-snap-container {
-  scroll-snap-type: y mandatory;
-  overflow-y: auto;
-  height: 100vh;
-  scroll-behavior: smooth;
+/* SECTION-BY-SECTION SCROLL SNAP SYSTEM (DESKTOP ONLY FOR FLUID MOBILE SCROLLING) */
+@media (min-width: 1024px) {
+  .scroll-snap-container {
+    scroll-snap-type: y mandatory;
+    overflow-y: auto;
+    height: 100vh;
+    scroll-behavior: smooth;
+  }
+
+  .scroll-snap-section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
 }
 
-.scroll-snap-section {
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
+@media (max-width: 1023px) {
+  .scroll-snap-container {
+    scroll-snap-type: none !important;
+    height: auto !important;
+    overflow-y: visible !important;
+  }
+  .scroll-snap-section {
+    scroll-snap-align: none !important;
+    scroll-snap-stop: normal !important;
+  }
+}
+
+/* Hide scrollbar utility for horizontal touch sliders */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 /* Custom Scrollbar for artistic feel */

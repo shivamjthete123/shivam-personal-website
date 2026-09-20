@@ -232,31 +232,46 @@ function SidebarNavigation({ name, title, linkedin, email, phone, onOpenAtsResum
       </aside>
 
       {/* MOBILE TOP HEADER BAR */}
-      <header className="lg:hidden sticky top-0 z-40 flex items-center justify-between bg-slate-950 px-5 py-3 text-white border-b border-slate-800 no-print">
-        <a href="#top" className="flex items-center gap-3">
+      <header className="lg:hidden sticky top-0 z-40 flex items-center justify-between bg-slate-950 px-3.5 py-2.5 text-white border-b border-slate-800 shadow-md no-print">
+        <a href="#top" className="flex items-center gap-2.5">
           <img
             src="/shivam-headshot.jpg"
             alt="Shivam J. Thete"
-            className="h-9 w-9 rounded-lg object-cover object-top border border-amber-500/40 shrink-0"
+            className="h-8 w-8 rounded-lg object-cover object-top border border-amber-500/40 shrink-0"
           />
-          <div>
+          <div className="hidden sm:block">
             <p className="text-xs font-bold text-white">{name}</p>
             <p className="text-[10px] text-amber-400 uppercase tracking-wider">{title}</p>
           </div>
         </a>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1.5">
           <button
             type="button"
             onClick={onOpenAtsResume}
-            className="rounded-lg bg-amber-600 px-3 py-1.5 text-xs font-bold text-white transition hover:bg-amber-500 shadow-sm"
+            className="rounded-lg bg-amber-600 px-2.5 py-1.5 text-[11px] font-bold text-white transition hover:bg-amber-500 shadow-sm flex items-center gap-1"
+            title="Open Resume PDF"
           >
-            Download PDF
+            <svg className="h-3.5 w-3.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 01-2-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+            Resume
+          </button>
+          <button
+            type="button"
+            onClick={onOpenCoverLetter}
+            className="rounded-lg border border-slate-700 bg-slate-900 px-2.5 py-1.5 text-[11px] font-bold text-slate-200 transition hover:bg-slate-800 flex items-center gap-1"
+            title="Open Cover Letter PDF"
+          >
+            <svg className="h-3.5 w-3.5 text-amber-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+            Cover Letter
           </button>
           <button
             type="button"
             onClick={() => setMobileDrawerOpen((prev) => !prev)}
-            className="rounded-lg p-2 text-slate-300 hover:bg-slate-900 transition"
+            className="rounded-lg p-1.5 text-slate-300 hover:bg-slate-900 transition"
             aria-label="Toggle menu"
           >
             <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -378,9 +393,9 @@ function ProjectDrawer({ project, onClose }) {
           </button>
         </div>
         <div className="grid flex-1 overflow-y-auto lg:grid-cols-[290px_minmax(0,1fr)]">
-          <nav aria-label="Case studies" className="border-b border-slate-200 bg-slate-50/80 p-4 lg:border-b-0 lg:border-r">
-            <p className="px-2 pb-3 text-[11px] font-extrabold uppercase tracking-[0.15em] text-slate-500">Select Case Study</p>
-            <div className="grid gap-2">
+          <nav aria-label="Case studies" className="border-b border-slate-200 bg-slate-50/80 p-3 sm:p-4 lg:border-b-0 lg:border-r">
+            <p className="px-2 pb-2 text-[11px] font-extrabold uppercase tracking-[0.15em] text-slate-500">Select Case Study</p>
+            <div className="flex flex-row overflow-x-auto gap-2 lg:flex-col lg:overflow-x-visible no-scrollbar pb-1 lg:pb-0">
               {project.projectItems.map((item) => {
                 const active = item.id === activeItem.id;
                 return (
@@ -388,7 +403,7 @@ function ProjectDrawer({ project, onClose }) {
                     key={item.id}
                     type="button"
                     onClick={() => setActiveItemId(item.id)}
-                    className={`rounded-xl px-4 py-3.5 text-left text-xs font-bold transition duration-200 ${active ? "bg-amber-700 text-white shadow-md shadow-amber-950/20" : "text-slate-700 hover:bg-white border border-transparent hover:border-slate-200"}`}
+                    className={`shrink-0 rounded-xl px-3.5 py-2.5 lg:px-4 lg:py-3.5 text-left text-xs font-bold transition duration-200 ${active ? "bg-amber-700 text-white shadow-md shadow-amber-950/20" : "text-slate-700 bg-white lg:bg-transparent hover:bg-white border border-slate-200 lg:border-transparent hover:border-slate-200"}`}
                   >
                     {item.title}
                   </button>
@@ -510,34 +525,34 @@ export default function PersonalWebsite() {
         <div className="lg:pl-72 flex-1 min-h-screen flex flex-col">
           <main>
             {/* HERO SECTION */}
-            <section ref={heroRef} id="top" aria-labelledby="hero-title" className="relative overflow-hidden border-b border-slate-200 bg-white min-h-[90vh] flex items-center scroll-snap-section">
+            <section ref={heroRef} id="top" aria-labelledby="hero-title" className="relative overflow-hidden border-b border-slate-200 bg-white min-h-0 lg:min-h-[90vh] flex items-center scroll-snap-section">
               <div className="absolute -top-20 -left-20 h-96 w-96 rounded-full bg-amber-500/10 blur-3xl pointer-events-none" />
               <div className="absolute top-1/2 right-0 h-80 w-80 rounded-full bg-amber-600/10 blur-3xl pointer-events-none" />
 
-              <div className="relative z-10 mx-auto grid max-w-5xl gap-10 px-6 py-14 md:px-10 md:py-20 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
+              <div className="relative z-10 mx-auto grid max-w-5xl gap-8 sm:gap-10 px-4 py-10 sm:px-6 md:px-10 md:py-20 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
                 <div>
-                  <div className="flex flex-wrap items-center gap-3" data-reveal>
+                  <div className="flex flex-wrap items-center gap-2 sm:gap-3" data-reveal>
                     <Label>{profile.title}</Label>
-                    <span className="rounded-full bg-amber-50 px-3 py-0.5 text-[10px] font-extrabold text-amber-900 border border-amber-200/80">
-                      SqurrEnergy & Transformation Leadership
+                    <span className="rounded-full bg-amber-50 px-2.5 py-0.5 text-[10px] font-extrabold text-amber-900 border border-amber-200/80">
+                      Transformation & Process Leadership
                     </span>
                   </div>
 
-                  <h1 id="hero-title" className="mt-4 max-w-3xl text-3xl font-black leading-[1.1] tracking-tight text-slate-950 md:text-5xl hero-title-mobile" data-reveal data-reveal-delay="100">
+                  <h1 id="hero-title" className="mt-3.5 sm:mt-4 max-w-3xl text-2xl sm:text-4xl md:text-5xl font-black leading-[1.15] sm:leading-[1.1] tracking-tight text-slate-950 hero-title-mobile" data-reveal data-reveal-delay="100">
                     Build the operating systems that turn strategy into <span className="text-gradient-saffron">measurable execution.</span>
                   </h1>
 
-                  <p className="mt-5 max-w-2xl text-base leading-7 text-slate-600" data-reveal data-reveal-delay="200">
+                  <p className="mt-3.5 sm:mt-5 max-w-2xl text-xs sm:text-base leading-6 sm:leading-7 text-slate-600" data-reveal data-reveal-delay="200">
                     {profile.summary}
                   </p>
 
-                  <div className="mt-8 flex flex-wrap items-center gap-3" data-reveal data-reveal-delay="300">
+                  <div className="mt-6 sm:mt-8 grid grid-cols-2 sm:flex sm:flex-wrap items-center gap-2 sm:gap-3" data-reveal data-reveal-delay="300">
                     <button
                       type="button"
                       onClick={() => setIsAtsModalOpen(true)}
-                      className="rounded-xl bg-gradient-to-r from-amber-600 via-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 px-5 py-3.5 text-xs font-extrabold text-white transition duration-200 flex items-center gap-2 shadow-lg shadow-amber-950/20 border border-amber-500/30"
+                      className="rounded-xl bg-gradient-to-r from-amber-600 via-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 px-3.5 py-3 sm:px-5 sm:py-3.5 text-xs font-extrabold text-white transition duration-200 flex items-center justify-center gap-1.5 shadow-lg shadow-amber-950/20 border border-amber-500/30 truncate"
                     >
-                      <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <svg className="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 01-2-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                       </svg>
                       Resume PDF
@@ -545,17 +560,17 @@ export default function PersonalWebsite() {
                     <button
                       type="button"
                       onClick={() => setIsCoverLetterModalOpen(true)}
-                      className="rounded-xl border border-amber-600/40 bg-amber-500/10 hover:bg-amber-500/20 px-5 py-3.5 text-xs font-extrabold text-amber-800 transition duration-200 flex items-center gap-2 shadow-sm"
+                      className="rounded-xl border border-amber-600/40 bg-amber-500/10 hover:bg-amber-500/20 px-3.5 py-3 sm:px-5 sm:py-3.5 text-xs font-extrabold text-amber-800 transition duration-200 flex items-center justify-center gap-1.5 shadow-sm truncate"
                     >
-                      <svg className="h-4 w-4 text-amber-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <svg className="h-4 w-4 text-amber-700 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                       </svg>
-                      Cover Letter PDF
+                      Cover Letter
                     </button>
-                    <a href="#projects" className="rounded-xl bg-slate-950 px-5 py-3.5 text-xs font-bold text-white transition hover:bg-slate-800 shadow-md">
+                    <a href="#projects" className="col-span-2 sm:col-span-1 rounded-xl bg-slate-950 px-4 py-3 sm:px-5 sm:py-3.5 text-center text-xs font-bold text-white transition hover:bg-slate-800 shadow-md">
                       Review Projects
                     </a>
-                    <a href={profile.contact.linkedin} target="_blank" rel="noreferrer" className="rounded-xl border border-slate-300 px-4 py-3.5 text-xs font-bold text-slate-800 transition hover:border-amber-600 hover:text-amber-800">
+                    <a href={profile.contact.linkedin} target="_blank" rel="noreferrer" className="col-span-2 sm:col-span-1 rounded-xl border border-slate-300 px-4 py-3 sm:py-3.5 text-center text-xs font-bold text-slate-800 transition hover:border-amber-600 hover:text-amber-800">
                       LinkedIn Profile
                     </a>
                   </div>
