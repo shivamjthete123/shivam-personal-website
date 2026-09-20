@@ -19,7 +19,7 @@ export default function ExtracurricularSection() {
       badge: "Youth Empowerment",
     },
     {
-      title: "Prayas Youth Forum – Eco Murti Immersion & Sanwardhan NGO",
+      title: "Prayas Eco Murti Immersion & Sanwardhan NGO",
       period: "2014 – 2018 (4 Years)",
       category: "Environmental Sustainability",
       description:
@@ -54,7 +54,7 @@ export default function ExtracurricularSection() {
 
   return (
     <section id="extracurricular" aria-labelledby="extracurricular-title" className="border-t border-slate-200 bg-slate-50/70">
-      <div className="mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-24" data-reveal-container>
+      <div className="mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-20" data-reveal-container>
         <SectionHeading
           id="extracurricular-title"
           eyebrow="Leadership Beyond Work"
@@ -68,17 +68,17 @@ export default function ExtracurricularSection() {
               key={index}
               data-reveal
               style={{ transitionDelay: `${index * 80}ms` }}
-              className="flex flex-col justify-between rounded-xl border border-slate-200/80 bg-white p-6 shadow-sm hover:shadow-lg hover:border-teal-500/40 hover:-translate-y-1 transition duration-300 group"
+              className="flex flex-col justify-between rounded-xl border border-slate-200/80 bg-white p-6 shadow-sm hover:shadow-lg hover:border-amber-500/40 hover:-translate-y-1 transition duration-300 group"
             >
               <div>
                 <div className="flex items-center justify-between gap-2">
-                  <span className="rounded-full bg-teal-50 px-2.5 py-0.5 text-[10px] font-bold text-teal-800 border border-teal-200/80 group-hover:bg-teal-100 transition-colors">
+                  <span className="rounded-full bg-amber-50 px-2.5 py-0.5 text-[10px] font-bold text-amber-900 border border-amber-200/80 group-hover:bg-amber-100 transition-colors">
                     {act.badge}
                   </span>
                   <span className="text-xs font-semibold text-slate-400">{act.period}</span>
                 </div>
-                <h3 className="mt-3 text-lg font-bold text-slate-950 group-hover:text-teal-900 transition-colors">{act.title}</h3>
-                <p className="mt-1 text-xs font-semibold text-teal-700">{act.category}</p>
+                <h3 className="mt-3 text-lg font-bold text-slate-950 group-hover:text-amber-900 transition-colors">{act.title}</h3>
+                <p className="mt-1 text-xs font-semibold text-amber-700">{act.category}</p>
                 <p className="mt-3 text-sm leading-6 text-slate-600">{act.description}</p>
               </div>
             </article>
