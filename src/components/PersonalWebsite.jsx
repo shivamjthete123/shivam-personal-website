@@ -4,11 +4,13 @@ import FilterPills from "./FilterPills";
 import SectionHeading from "./SectionHeading";
 import AtsResumeModal from "./AtsResumeModal";
 import MetricsBanner from "./MetricsBanner";
+import ExtracurricularSection from "./ExtracurricularSection";
 
 const navigation = [
   { href: "#leadership-evidence", label: "Leadership evidence" },
   { href: "#projects", label: "Project portfolio" },
   { href: "#capabilities", label: "Capabilities" },
+  { href: "#extracurricular", label: "Extracurricular" },
   { href: "#contact", label: "Contact" },
 ];
 
@@ -368,6 +370,9 @@ export default function PersonalWebsite() {
           />
           <div className="mt-8 grid gap-6 lg:grid-cols-2">{skillGroups.map((group) => <CapabilityGroup key={group.id} group={group} />)}</div>
         </section>
+
+        {/* EXTRACURRICULAR LEADERSHIP & COMMUNITY IMPACT */}
+        <ExtracurricularSection />
 
         {/* FOOTER / CONTACT */}
         <section id="contact" aria-labelledby="contact-title" className="border-t border-slate-200 bg-slate-950 text-white">
