@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 export default function AtsResumeModal({ isOpen, onClose }) {
   const [copied, setCopied] = useState(false);
+  const [isGeneratingPdf, setIsGeneratingPdf] = useState(false);
 
   useEffect(() => {
     if (!isOpen) return undefined;
@@ -84,7 +85,44 @@ EDUCATION & GLOBAL CERTIFICATIONS
 - GATE Qualified | All India Rank (AIR) 8003`;
 
   const handleDownloadPDF = () => {
-    window.print();
+    setIsGeneratingPdf(true);
+    const printElement = document.getElementById("ats-resume-print-area");
+    
+    // Function to run html2pdf save
+    const generatePdfWithHtml2Pdf = () => {
+      const opt = {
+        margin: [8, 10, 8, 10],
+        filename: "SHIVAM_THETE_ATS_RESUME.pdf",
+        image: { type: "jpeg", quality: 0.98 },
+        html2canvas: { scale: 2, useCORS: true },
+        jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
+      };
+      window
+        .html2pdf()
+        .set(opt)
+        .from(printElement)
+        .save()
+        .then(() => setIsGeneratingPdf(false))
+        .catch(() => {
+          setIsGeneratingPdf(false);
+          window.print();
+        });
+    };
+
+    if (window.html2pdf) {
+      generatePdfWithHtml2Pdf();
+    } else {
+      const script = document.createElement("script");
+      script.src = "https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js";
+      script.onload = () => {
+        generatePdfWithHtml2Pdf();
+      };
+      script.onerror = () => {
+        setIsGeneratingPdf(false);
+        window.print();
+      };
+      document.body.appendChild(script);
+    }
   };
 
   const handleCopyText = () => {
@@ -104,8 +142,8 @@ EDUCATION & GLOBAL CERTIFICATIONS
   };
 
   return (
-    <div id="ats-resume-modal-container" className="fixed inset-0 z-50 flex items-center justify-center p-3 md:p-6" role="presentation">
-      <div className="absolute inset-0 bg-slate-950/60 backdrop-blur-sm no-print" onClick={onClose} />
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 md:p-6" role="presentation">
+      <div className="absolute inset-0 bg-slate-950/70 backdrop-blur-sm no-print" onClick={onClose} />
 
       <div
         role="dialog"
@@ -127,18 +165,30 @@ EDUCATION & GLOBAL CERTIFICATIONS
             <button
               type="button"
               onClick={handleDownloadPDF}
-              className="inline-flex items-center gap-2 rounded-lg bg-amber-600 px-4 py-2 text-xs font-bold text-white transition hover:bg-amber-500 shadow-sm"
-              title="Download clean 2-page PDF formatted for ATS algorithms"
+              disabled={isGeneratingPdf}
+              className="inline-flex items-center gap-2 rounded-lg bg-amber-600 px-4 py-2 text-xs font-bold text-white transition hover:bg-amber-500 shadow-sm disabled:opacity-50"
+              title="Download clean PDF file directly to your Downloads folder"
             >
               <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 01-2-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
               </svg>
-              Download PDF
+              {isGeneratingPdf ? "Generating PDF..." : "Download PDF File"}
+            </button>
+            <button
+              type="button"
+              onClick={() => window.print()}
+              className="inline-flex items-center gap-1.5 rounded-lg border border-slate-700 bg-slate-800 px-3.5 py-2 text-xs font-bold text-slate-200 transition hover:bg-slate-700"
+              title="Open browser print dialog"
+            >
+              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+              </svg>
+              Print
             </button>
             <button
               type="button"
               onClick={handleCopyText}
-              className="inline-flex items-center gap-1.5 rounded-lg border border-slate-700 bg-slate-800 px-3.5 py-2 text-xs font-bold text-white transition hover:bg-slate-700"
+              className="inline-flex items-center gap-1.5 rounded-lg border border-slate-700 bg-slate-800 px-3 py-2 text-xs font-bold text-white transition hover:bg-slate-700"
             >
               {copied ? (
                 <>
@@ -152,14 +202,14 @@ EDUCATION & GLOBAL CERTIFICATIONS
                   <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
                   </svg>
-                  Copy Text for ATS
+                  Copy Text
                 </>
               )}
             </button>
             <button
               type="button"
               onClick={handleDownloadMarkdown}
-              className="inline-flex items-center gap-1.5 rounded-lg border border-slate-700 bg-slate-800 px-3 py-2 text-xs font-bold text-slate-300 transition hover:bg-slate-700"
+              className="inline-flex items-center gap-1 rounded-lg border border-slate-700 bg-slate-800 px-2.5 py-2 text-xs font-bold text-slate-300 transition hover:bg-slate-700"
               title="Download Markdown file"
             >
               .md
@@ -177,7 +227,7 @@ EDUCATION & GLOBAL CERTIFICATIONS
           </div>
         </div>
 
-        {/* Printable ATS Content Area - Strictly Isolated for Clean 2-Page Printing */}
+        {/* Printable ATS Content Area - Strictly Isolated for PDF Generation & Clean Printing */}
         <div className="flex-1 overflow-y-auto p-6 md:p-10 text-slate-900 bg-white" id="ats-resume-print-area">
           <div className="border-b border-slate-300 pb-4 text-center">
             <h1 className="text-2xl font-bold tracking-tight text-slate-950 uppercase md:text-3xl">SHIVAM J. THETE</h1>
@@ -337,7 +387,7 @@ EDUCATION & GLOBAL CERTIFICATIONS
         </div>
 
         <div className="border-t border-slate-200 bg-slate-50 px-6 py-3 text-xs text-slate-500 flex justify-between items-center no-print">
-          <span>Tip: Click "Download PDF" to generate a clean 2-page PDF formatted for ATS scanners.</span>
+          <span>Tip: Click "Download PDF File" to save SHIVAM_THETE_ATS_RESUME.pdf directly.</span>
           <button type="button" onClick={onClose} className="font-semibold text-slate-700 hover:text-slate-900">
             Close preview
           </button>

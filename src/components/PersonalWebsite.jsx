@@ -7,27 +7,80 @@ import AtsResumeModal from "./AtsResumeModal";
 import MetricsBanner from "./MetricsBanner";
 import ExtracurricularSection from "./ExtracurricularSection";
 
-const navigation = [
-  { href: "#top", label: "Executive Summary", id: "top" },
-  { href: "#leadership-evidence", label: "Leadership Impact", id: "leadership-evidence" },
-  { href: "#projects", label: "Project Portfolio", id: "projects" },
-  { href: "#capabilities", label: "Capabilities", id: "capabilities" },
-  { href: "#extracurricular", label: "Extracurricular", id: "extracurricular" },
-  { href: "#contact", label: "Contact & Connect", id: "contact" },
+const navigationTree = [
+  {
+    id: "top",
+    label: "Executive Summary",
+    href: "#top",
+    icon: "📌",
+    subtabs: []
+  },
+  {
+    id: "leadership-evidence",
+    label: "Leadership Impact",
+    href: "#leadership-evidence",
+    icon: "📊",
+    subtabs: [
+      { id: "metrics-banner", label: "Impact Metrics", href: "#metrics-banner" },
+      { id: "focus-areas", label: "Core Focus Areas", href: "#focus-areas" },
+      { id: "work-method", label: "Operating Method", href: "#work-method" },
+    ]
+  },
+  {
+    id: "projects",
+    label: "Project Portfolio",
+    href: "#projects",
+    icon: "🚀",
+    subtabs: [
+      { id: "project-revenue-operations", label: "RevOps & BD Lifecycle", href: "#projects", filter: "Revenue Operations" },
+      { id: "project-finance-control", label: "Finance Control & Cash", href: "#projects", filter: "Finance Transformation" },
+      { id: "project-project-management", label: "Delivery Governance (Pulse)", href: "#projects", filter: "Delivery Governance" },
+      { id: "project-quality-communication", label: "Quality Governance", href: "#projects", filter: "Quality Governance" },
+      { id: "project-hrms-enhancements", label: "People Systems & HRMS", href: "#projects", filter: "People Systems" },
+    ]
+  },
+  {
+    id: "capabilities",
+    label: "Capabilities & Skills",
+    href: "#capabilities",
+    icon: "💡",
+    subtabs: [
+      { id: "capability-leadership", label: "Leadership & Strategy", href: "#capabilities" },
+      { id: "capability-technology", label: "Systems & Technology", href: "#capabilities" },
+      { id: "capability-certifications", label: "Certifications & GATE AIR 8003", href: "#capabilities" },
+    ]
+  },
+  {
+    id: "extracurricular",
+    label: "Extracurricular",
+    href: "#extracurricular",
+    icon: "🏆",
+    subtabs: [
+      { id: "extracurricular-community", label: "Prayas Computer Literacy", href: "#extracurricular" },
+      { id: "extracurricular-robotics", label: "Team Vector Robotics", href: "#extracurricular" },
+    ]
+  },
+  {
+    id: "contact",
+    label: "Contact & Connect",
+    href: "#contact",
+    icon: "📞",
+    subtabs: []
+  }
 ];
 
-function SidebarNavigation({ name, title, linkedin, email, phone, onOpenAtsResume }) {
+function SidebarNavigation({ name, title, linkedin, email, phone, onOpenAtsResume, onSelectFilter }) {
   const [activeSection, setActiveSection] = useState("top");
   const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
 
   // Active section scroll spy
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPosition = window.scrollY + 200;
-      for (let i = navigation.length - 1; i >= 0; i--) {
-        const section = document.getElementById(navigation[i].id);
+      const scrollPosition = window.scrollY + 250;
+      for (let i = navigationTree.length - 1; i >= 0; i--) {
+        const section = document.getElementById(navigationTree[i].id);
         if (section && section.offsetTop <= scrollPosition) {
-          setActiveSection(navigation[i].id);
+          setActiveSection(navigationTree[i].id);
           break;
         }
       }
@@ -38,67 +91,93 @@ function SidebarNavigation({ name, title, linkedin, email, phone, onOpenAtsResum
   }, []);
 
   const navContent = (
-    <div className="flex flex-col h-full justify-between">
-      {/* Sidebar Header / Branding */}
+    <div className="flex flex-col h-full justify-between overflow-y-auto pr-1">
       <div>
-        <div className="flex items-center gap-3.5 pb-6 border-b border-slate-800/80">
-          <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-amber-400 via-amber-600 to-amber-700 text-slate-950 font-black tracking-wider text-base shadow-lg shadow-amber-950/60">
+        {/* Sidebar Header / Branding */}
+        <div className="flex items-center gap-3.5 pb-5 border-b border-slate-800/80">
+          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-amber-400 via-amber-600 to-amber-700 text-slate-950 font-black tracking-wider text-sm shadow-lg shadow-amber-950/60">
             ST
           </div>
           <div>
-            <h2 className="text-base font-extrabold tracking-tight text-white">{name}</h2>
-            <p className="text-[11px] font-bold text-amber-400/90 uppercase tracking-wider">{title}</p>
+            <h2 className="text-sm font-extrabold tracking-tight text-white">{name}</h2>
+            <p className="text-[10px] font-bold text-amber-400/90 uppercase tracking-wider">{title}</p>
           </div>
         </div>
 
-        <div className="mt-4 inline-flex items-center gap-2 rounded-full bg-emerald-500/10 px-3 py-1 text-[10px] font-bold text-emerald-400 border border-emerald-500/20">
+        <div className="mt-3.5 inline-flex items-center gap-2 rounded-full bg-emerald-500/10 px-3 py-1 text-[10px] font-bold text-emerald-400 border border-emerald-500/20">
           <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
-          Open for Leadership Roles
+          SqurrEnergy Leadership
         </div>
 
-        {/* Navigation Links */}
-        <nav aria-label="Sidebar navigation" className="mt-8 space-y-1.5">
-          <p className="px-3 pb-2 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400">Navigation</p>
-          {navigation.map((link) => {
-            const isActive = activeSection === link.id;
+        {/* Structured Multi-level Tree Navigation with Sub-tabs */}
+        <nav aria-label="Sidebar navigation tree" className="mt-6 space-y-3">
+          <p className="px-2 text-[10px] font-extrabold uppercase tracking-[0.2em] text-slate-400">Navigation Tree</p>
+          
+          {navigationTree.map((item) => {
+            const isMainActive = activeSection === item.id;
+
             return (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={() => setMobileDrawerOpen(false)}
-                className={`group flex items-center justify-between rounded-xl px-3.5 py-3 text-xs font-bold transition-all duration-200 ${
-                  isActive
-                    ? "bg-amber-500/15 text-amber-300 border-l-4 border-amber-500 shadow-inner"
-                    : "text-slate-300 hover:bg-slate-900 hover:text-white"
-                }`}
-              >
-                <span>{link.label}</span>
-                <span className={`h-1.5 w-1.5 rounded-full transition-all duration-200 ${isActive ? "bg-amber-400 shadow-sm shadow-amber-400" : "bg-transparent group-hover:bg-slate-600"}`} />
-              </a>
+              <div key={item.id} className="space-y-1">
+                {/* Main Category Tab */}
+                <a
+                  href={item.href}
+                  onClick={() => setMobileDrawerOpen(false)}
+                  className={`group flex items-center justify-between rounded-xl px-3 py-2 text-xs font-bold transition-all duration-200 ${
+                    isMainActive
+                      ? "bg-amber-500/15 text-amber-300 border-l-4 border-amber-500 shadow-inner"
+                      : "text-slate-300 hover:bg-slate-900 hover:text-white"
+                  }`}
+                >
+                  <span className="flex items-center gap-2">
+                    <span className="text-xs">{item.icon}</span>
+                    <span>{item.label}</span>
+                  </span>
+                  <span className={`h-1.5 w-1.5 rounded-full transition-all duration-200 ${isMainActive ? "bg-amber-400 shadow-sm shadow-amber-400" : "bg-transparent group-hover:bg-slate-600"}`} />
+                </a>
+
+                {/* Sub-tabs List */}
+                {item.subtabs.length > 0 && (
+                  <div className="pl-6 space-y-1 border-l border-slate-800/80 ml-3">
+                    {item.subtabs.map((sub) => (
+                      <a
+                        key={sub.id}
+                        href={sub.href}
+                        onClick={() => {
+                          if (sub.filter) onSelectFilter(sub.filter);
+                          setMobileDrawerOpen(false);
+                        }}
+                        className="block rounded-lg px-2.5 py-1.5 text-[11px] font-medium text-slate-400 hover:bg-slate-900/80 hover:text-amber-300 transition duration-150 truncate"
+                      >
+                        • {sub.label}
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
             );
           })}
         </nav>
       </div>
 
       {/* Sidebar Footer / CTA Actions */}
-      <div className="pt-6 border-t border-slate-800/80 space-y-3">
+      <div className="pt-5 mt-6 border-t border-slate-800/80 space-y-3">
         <button
           type="button"
           onClick={() => { onOpenAtsResume(); setMobileDrawerOpen(false); }}
-          className="w-full rounded-xl bg-gradient-to-r from-amber-600 via-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 text-white font-extrabold py-3.5 px-4 text-xs transition duration-200 shadow-lg shadow-amber-950/60 flex items-center justify-center gap-2 border border-amber-500/30"
+          className="w-full rounded-xl bg-gradient-to-r from-amber-600 via-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 text-white font-extrabold py-3 px-4 text-xs transition duration-200 shadow-lg shadow-amber-950/60 flex items-center justify-center gap-2 border border-amber-500/30"
         >
           <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 01-2-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
           </svg>
-          Download Resume (PDF)
+          Download PDF File
         </button>
 
-        <div className="flex items-center justify-between text-xs text-slate-400 px-1 pt-1">
+        <div className="flex items-center justify-between text-[11px] text-slate-400 px-1 pt-1">
           <a href={linkedin} target="_blank" rel="noreferrer" className="hover:text-amber-400 transition font-semibold">LinkedIn</a>
           <span>•</span>
           <a href={`mailto:${email}`} className="hover:text-amber-400 transition font-semibold">Email</a>
           <span>•</span>
-          <span className="text-[11px] text-slate-400">{phone}</span>
+          <span className="text-[10px] text-slate-400">{phone}</span>
         </div>
       </div>
     </div>
@@ -106,8 +185,8 @@ function SidebarNavigation({ name, title, linkedin, email, phone, onOpenAtsResum
 
   return (
     <>
-      {/* DESKTOP FIXED LEFT SIDEBAR */}
-      <aside className="hidden lg:flex w-72 fixed inset-y-0 left-0 z-40 bg-slate-950 text-white flex-col justify-between border-r border-slate-800/80 p-6 shadow-2xl backdrop-blur-2xl no-print">
+      {/* DESKTOP FIXED LEFT SIDEBAR WITH MULTI-LEVEL SUBTABS */}
+      <aside className="hidden lg:flex w-72 fixed inset-y-0 left-0 z-40 bg-slate-950 text-white flex-col justify-between border-r border-slate-800/80 p-5 shadow-2xl backdrop-blur-2xl no-print">
         {navContent}
       </aside>
 
@@ -129,7 +208,7 @@ function SidebarNavigation({ name, title, linkedin, email, phone, onOpenAtsResum
             onClick={onOpenAtsResume}
             className="rounded-lg bg-amber-600 px-3 py-1.5 text-xs font-bold text-white transition hover:bg-amber-500 shadow-sm"
           >
-            PDF Resume
+            Download PDF
           </button>
           <button
             type="button"
@@ -148,7 +227,7 @@ function SidebarNavigation({ name, title, linkedin, email, phone, onOpenAtsResum
       {mobileDrawerOpen && (
         <div className="lg:hidden fixed inset-0 z-50 flex no-print">
           <div className="fixed inset-0 bg-slate-950/70 backdrop-blur-sm" onClick={() => setMobileDrawerOpen(false)} />
-          <div className="relative w-80 max-w-[85vw] bg-slate-950 p-6 text-white shadow-2xl z-10 border-r border-slate-800">
+          <div className="relative w-80 max-w-[85vw] bg-slate-950 p-5 text-white shadow-2xl z-10 border-r border-slate-800">
             <button
               type="button"
               onClick={() => setMobileDrawerOpen(false)}
@@ -174,7 +253,6 @@ function ProjectCard({ project, onOpen, index }) {
       className="group relative flex h-full flex-col justify-between rounded-2xl border border-slate-200/90 bg-white p-6 card-hover-artistic hover:border-amber-500/50 hover:shadow-xl hover:shadow-amber-950/5 transition duration-300 overflow-hidden"
       {...staggerProps(index)}
     >
-      {/* Decorative gradient corner accent */}
       <div className="absolute top-0 right-0 h-16 w-16 bg-gradient-to-bl from-amber-500/10 to-transparent rounded-bl-full pointer-events-none group-hover:from-amber-500/20 transition duration-300" />
 
       <div>
@@ -301,9 +379,11 @@ function ProjectDrawer({ project, onClose }) {
 }
 
 function CapabilityGroup({ group, index }) {
+  const ids = ["capability-leadership", "capability-technology", "capability-certifications"];
   return (
     <article
-      className="rounded-2xl border border-slate-200/80 bg-white p-6 shadow-sm card-hover-artistic hover:border-amber-500/40 hover:shadow-lg"
+      id={ids[index] ?? `capability-${index}`}
+      className="rounded-2xl border border-slate-200/80 bg-white p-6 shadow-sm card-hover-artistic hover:border-amber-500/40 hover:shadow-lg scroll-snap-section"
       {...staggerProps(index)}
     >
       <h3 className="text-lg font-bold text-slate-950">{group.title}</h3>
@@ -368,232 +448,238 @@ export default function PersonalWebsite() {
   const selectedProject = projects.find((project) => project.id === selectedProjectId) ?? null;
 
   return (
-    <div id="main-website-root" className="min-h-screen bg-[#fcfcfd] text-slate-900">
-      {/* LEFT NAVIGATION SIDEBAR */}
-      <SidebarNavigation
-        name={profile.name}
-        title="Strategic Development Leader"
-        linkedin={profile.contact.linkedin}
-        email={profile.contact.email}
-        phone={profile.contact.phone}
-        onOpenAtsResume={() => setIsAtsModalOpen(true)}
-      />
+    <>
+      <div id="main-website-root" className="min-h-screen bg-[#fcfcfd] text-slate-900 scroll-snap-container">
+        {/* MULTI-LEVEL LEFT SIDEBAR WITH SUBTABS */}
+        <SidebarNavigation
+          name={profile.name}
+          title="Strategic Development Leader"
+          linkedin={profile.contact.linkedin}
+          email={profile.contact.email}
+          phone={profile.contact.phone}
+          onOpenAtsResume={() => setIsAtsModalOpen(true)}
+          onSelectFilter={(filter) => setActiveTag(filter)}
+        />
 
-      {/* MAIN CONTENT AREA (PADDED LEFT ON DESKTOP FOR SIDEBAR) */}
-      <div className="lg:pl-72 flex-1 min-h-screen flex flex-col">
-        <main>
-          {/* HERO SECTION WITH ARTISTIC MESH GLOW */}
-          <section ref={heroRef} id="top" aria-labelledby="hero-title" className="relative overflow-hidden border-b border-slate-200 bg-white">
-            {/* Ambient Background Glow Circles */}
-            <div className="absolute -top-20 -left-20 h-96 w-96 rounded-full bg-amber-500/10 blur-3xl pointer-events-none" />
-            <div className="absolute top-1/2 right-0 h-80 w-80 rounded-full bg-amber-600/10 blur-3xl pointer-events-none" />
+        {/* MAIN CONTENT AREA */}
+        <div className="lg:pl-72 flex-1 min-h-screen flex flex-col">
+          <main>
+            {/* HERO SECTION */}
+            <section ref={heroRef} id="top" aria-labelledby="hero-title" className="relative overflow-hidden border-b border-slate-200 bg-white min-h-[90vh] flex items-center scroll-snap-section">
+              <div className="absolute -top-20 -left-20 h-96 w-96 rounded-full bg-amber-500/10 blur-3xl pointer-events-none" />
+              <div className="absolute top-1/2 right-0 h-80 w-80 rounded-full bg-amber-600/10 blur-3xl pointer-events-none" />
 
-            <div className="relative z-10 mx-auto grid max-w-5xl gap-10 px-6 py-14 md:px-10 md:py-20 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
-              <div>
-                <div className="flex flex-wrap items-center gap-3" data-reveal>
-                  <Label>{profile.title}</Label>
-                  <span className="rounded-full bg-amber-50 px-3 py-0.5 text-[10px] font-extrabold text-amber-900 border border-amber-200/80">
-                    SqurrEnergy & Transformation Leadership
-                  </span>
+              <div className="relative z-10 mx-auto grid max-w-5xl gap-10 px-6 py-14 md:px-10 md:py-20 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
+                <div>
+                  <div className="flex flex-wrap items-center gap-3" data-reveal>
+                    <Label>{profile.title}</Label>
+                    <span className="rounded-full bg-amber-50 px-3 py-0.5 text-[10px] font-extrabold text-amber-900 border border-amber-200/80">
+                      SqurrEnergy & Transformation Leadership
+                    </span>
+                  </div>
+
+                  <h1 id="hero-title" className="mt-4 max-w-3xl text-3xl font-black leading-[1.1] tracking-tight text-slate-950 md:text-5xl hero-title-mobile" data-reveal data-reveal-delay="100">
+                    Build the operating systems that turn strategy into <span className="text-gradient-saffron">measurable execution.</span>
+                  </h1>
+
+                  <p className="mt-5 max-w-2xl text-base leading-7 text-slate-600" data-reveal data-reveal-delay="200">
+                    {profile.summary}
+                  </p>
+
+                  <div className="mt-8 flex flex-wrap items-center gap-3" data-reveal data-reveal-delay="300">
+                    <button
+                      type="button"
+                      onClick={() => setIsAtsModalOpen(true)}
+                      className="rounded-xl bg-gradient-to-r from-amber-600 via-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 px-5 py-3.5 text-xs font-extrabold text-white transition duration-200 flex items-center gap-2 shadow-lg shadow-amber-950/20 border border-amber-500/30"
+                    >
+                      <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 01-2-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                      </svg>
+                      Download PDF Resume
+                    </button>
+                    <a href="#projects" className="rounded-xl bg-slate-950 px-5 py-3.5 text-xs font-bold text-white transition hover:bg-slate-800 shadow-md">
+                      Review Projects
+                    </a>
+                    <a href={profile.contact.linkedin} target="_blank" rel="noreferrer" className="rounded-xl border border-slate-300 px-4 py-3.5 text-xs font-bold text-slate-800 transition hover:border-amber-600 hover:text-amber-800">
+                      LinkedIn Profile
+                    </a>
+                  </div>
                 </div>
 
-                <h1 id="hero-title" className="mt-4 max-w-3xl text-3xl font-black leading-[1.1] tracking-tight text-slate-950 md:text-5xl hero-title-mobile" data-reveal data-reveal-delay="100">
-                  Build the operating systems that turn strategy into <span className="text-gradient-saffron">measurable execution.</span>
-                </h1>
-
-                <p className="mt-5 max-w-2xl text-base leading-7 text-slate-600" data-reveal data-reveal-delay="200">
-                  {profile.summary}
-                </p>
-
-                <div className="mt-8 flex flex-wrap items-center gap-3" data-reveal data-reveal-delay="300">
-                  <button
-                    type="button"
-                    onClick={() => setIsAtsModalOpen(true)}
-                    className="rounded-xl bg-gradient-to-r from-amber-600 via-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 px-5 py-3.5 text-xs font-extrabold text-white transition duration-200 flex items-center gap-2 shadow-lg shadow-amber-950/20 border border-amber-500/30"
-                  >
-                    <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                    </svg>
-                    Download Resume (PDF)
-                  </button>
-                  <a href="#projects" className="rounded-xl bg-slate-950 px-5 py-3.5 text-xs font-bold text-white transition hover:bg-slate-800 shadow-md">
-                    Review Projects
-                  </a>
-                  <a href={profile.contact.linkedin} target="_blank" rel="noreferrer" className="rounded-xl border border-slate-300 px-4 py-3.5 text-xs font-bold text-slate-800 transition hover:border-amber-600 hover:text-amber-800">
-                    LinkedIn Profile
-                  </a>
-                </div>
+                <aside aria-label="Leadership positioning" className="relative rounded-2xl border border-slate-800 bg-slate-950 p-6 text-white shadow-2xl overflow-hidden" data-reveal data-reveal-delay="200" data-reveal-dir="right">
+                  <div className="absolute -top-16 -right-16 h-48 w-48 rounded-full bg-amber-500/10 blur-2xl pointer-events-none" />
+                  <span className="text-[11px] font-extrabold uppercase tracking-[0.2em] text-amber-400">Executive Snapshot</span>
+                  <ul className="mt-4 space-y-4 relative z-10">
+                    {profile.executiveSnapshot.map((item, index) => (
+                      <li key={item} className="grid grid-cols-[26px_1fr] gap-3 text-xs leading-5 text-slate-300 border-b border-slate-900 pb-3 last:border-b-0 last:pb-0">
+                        <span className="font-extrabold text-amber-400">0{index + 1}</span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </aside>
               </div>
+            </section>
 
-              {/* ARTISTIC EXECUTIVE SNAPSHOT CARD */}
-              <aside aria-label="Leadership positioning" className="relative rounded-2xl border border-slate-800 bg-slate-950 p-6 text-white shadow-2xl overflow-hidden" data-reveal data-reveal-delay="200" data-reveal-dir="right">
-                <div className="absolute -top-16 -right-16 h-48 w-48 rounded-full bg-amber-500/10 blur-2xl pointer-events-none" />
-                <span className="text-[11px] font-extrabold uppercase tracking-[0.2em] text-amber-400">Executive Snapshot</span>
-                <ul className="mt-4 space-y-4 relative z-10">
-                  {profile.executiveSnapshot.map((item, index) => (
-                    <li key={item} className="grid grid-cols-[26px_1fr] gap-3 text-xs leading-5 text-slate-300 border-b border-slate-900 pb-3 last:border-b-0 last:pb-0">
-                      <span className="font-extrabold text-amber-400">0{index + 1}</span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </aside>
-            </div>
-          </section>
-
-          {/* LEADERSHIP EVIDENCE & METRICS BANNER */}
-          <section ref={evidenceRef} id="leadership-evidence" aria-labelledby="evidence-title" className="mx-auto max-w-5xl px-6 py-14 md:px-10 md:py-20">
-            <div data-reveal>
-              <SectionHeading
-                id="evidence-title"
-                eyebrow="Leadership Impact"
-                title="A strategy-to-execution track record built in live operating environments."
-                description="Proven impact across structured problem solving, cross-functional ownership, financial controls, and measurable execution."
-              />
-            </div>
-
-            <div className="mt-8" data-reveal data-reveal-delay="150">
-              <MetricsBanner />
-            </div>
-
-            <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {profile.focusAreas.map((area, index) => (
-                <article key={area} className="border-t-2 border-amber-600 bg-white p-5 shadow-sm rounded-b-2xl border-x border-b border-slate-200 card-hover-artistic" {...staggerProps(index)}>
-                  <p className="text-xs font-bold text-amber-700">0{index + 1}</p>
-                  <h3 className="mt-3 text-sm font-semibold leading-5 text-slate-950">{area}</h3>
-                </article>
-              ))}
-            </div>
-
-            <div className="mt-12 grid gap-8 border-t border-slate-200 pt-10 lg:grid-cols-[0.7fr_1.3fr]">
-              <div data-reveal data-reveal-dir="left">
-                <Label>Operating Approach</Label>
-                <h3 className="mt-2 text-2xl font-bold tracking-tight text-slate-950">Make the route from priority to performance visible.</h3>
-              </div>
-              <ol className="grid gap-5 sm:grid-cols-2">
-                {profile.workMethod.map((step, index) => (
-                  <li key={step.title} className="border-l-2 border-amber-600 pl-4" {...staggerProps(index, 100)}>
-                    <p className="text-[10px] font-extrabold text-amber-700">STEP 0{index + 1}</p>
-                    <h4 className="mt-1 text-sm font-bold text-slate-950">{step.title}</h4>
-                    <p className="mt-1 text-xs leading-5 text-slate-600">{step.description}</p>
-                  </li>
-                ))}
-              </ol>
-            </div>
-          </section>
-
-          {/* PROJECT PORTFOLIO SECTION */}
-          <section ref={projectsRef} id="projects" aria-labelledby="projects-title" className="border-y border-slate-200 bg-white">
-            <div className="mx-auto max-w-5xl px-6 py-14 md:px-10 md:py-20">
+            {/* LEADERSHIP EVIDENCE & METRICS BANNER */}
+            <section ref={evidenceRef} id="leadership-evidence" aria-labelledby="evidence-title" className="mx-auto max-w-5xl px-6 py-14 md:px-10 md:py-20 min-h-[90vh] flex flex-col justify-center scroll-snap-section">
               <div data-reveal>
                 <SectionHeading
-                  id="projects-title"
-                  eyebrow="Project Portfolio"
-                  title="Business systems grouped by leadership outcome."
-                  description={profile.projectSectionIntro}
+                  id="evidence-title"
+                  eyebrow="Leadership Impact"
+                  title="A strategy-to-execution track record built in live operating environments."
+                  description="Proven impact across structured problem solving, cross-functional ownership, financial controls, and measurable execution."
                 />
               </div>
 
-              {/* Filter Pills and Search */}
-              <div className="mt-8 flex flex-col gap-4 md:flex-row md:items-center md:justify-between" data-reveal data-reveal-delay="100">
-                <FilterPills items={tags} activeItem={activeTag} onSelect={setActiveTag} />
-                <div className="relative w-full md:w-72">
-                  <input
-                    type="text"
-                    placeholder="Search projects or tools..."
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                    className="w-full rounded-xl border border-slate-200 bg-slate-50 px-3.5 py-2 pl-9 text-xs text-slate-900 placeholder-slate-400 focus:border-amber-600 focus:bg-white focus:outline-none focus:ring-1 focus:ring-amber-600/20 transition"
-                  />
-                  <svg className="absolute left-3 top-2.5 h-4 w-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                  </svg>
-                </div>
+              <div id="metrics-banner" className="mt-8" data-reveal data-reveal-delay="150">
+                <MetricsBanner />
               </div>
 
-              {visibleProjects.length === 0 ? (
-                <div className="mt-10 rounded-2xl border border-dashed border-slate-300 p-8 text-center text-slate-500">
-                  No projects found matching "{searchQuery}". Try clearing your search query.
+              <div id="focus-areas" className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                {profile.focusAreas.map((area, index) => (
+                  <article key={area} className="border-t-2 border-amber-600 bg-white p-5 shadow-sm rounded-b-2xl border-x border-b border-slate-200 card-hover-artistic" {...staggerProps(index)}>
+                    <p className="text-xs font-bold text-amber-700">0{index + 1}</p>
+                    <h3 className="mt-3 text-sm font-semibold leading-5 text-slate-950">{area}</h3>
+                  </article>
+                ))}
+              </div>
+
+              <div id="work-method" className="mt-12 grid gap-8 border-t border-slate-200 pt-10 lg:grid-cols-[0.7fr_1.3fr]">
+                <div data-reveal data-reveal-dir="left">
+                  <Label>Operating Approach</Label>
+                  <h3 className="mt-2 text-2xl font-bold tracking-tight text-slate-950">Make the route from priority to performance visible.</h3>
                 </div>
-              ) : (
-                <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                  {visibleProjects.map((project, index) => (
-                    <ProjectCard key={project.id} project={project} index={index} onOpen={() => setSelectedProjectId(project.id)} />
+                <ol className="grid gap-5 sm:grid-cols-2">
+                  {profile.workMethod.map((step, index) => (
+                    <li key={step.title} className="border-l-2 border-amber-600 pl-4" {...staggerProps(index, 100)}>
+                      <p className="text-[10px] font-extrabold text-amber-700">STEP 0{index + 1}</p>
+                      <h4 className="mt-1 text-sm font-bold text-slate-950">{step.title}</h4>
+                      <p className="mt-1 text-xs leading-5 text-slate-600">{step.description}</p>
+                    </li>
                   ))}
+                </ol>
+              </div>
+            </section>
+
+            {/* PROJECT PORTFOLIO SECTION */}
+            <section ref={projectsRef} id="projects" aria-labelledby="projects-title" className="border-y border-slate-200 bg-white min-h-[90vh] flex flex-col justify-center scroll-snap-section">
+              <div className="mx-auto max-w-5xl px-6 py-14 md:px-10 md:py-20 w-full">
+                <div data-reveal>
+                  <SectionHeading
+                    id="projects-title"
+                    eyebrow="Project Portfolio"
+                    title="Business systems grouped by leadership outcome."
+                    description={profile.projectSectionIntro}
+                  />
                 </div>
-              )}
-            </div>
-          </section>
 
-          {/* CAPABILITIES SECTION */}
-          <section ref={capabilitiesRef} id="capabilities" aria-labelledby="capabilities-title" className="mx-auto max-w-5xl px-6 py-14 md:px-10 md:py-20">
-            <div data-reveal>
-              <SectionHeading
-                id="capabilities-title"
-                eyebrow="Capabilities"
-                title="The practical capabilities behind operating outcomes."
-                description="Technology is presented as an enabler, while the emphasis remains on strategy execution and governance."
-              />
-            </div>
-            <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {skillGroups.map((group, index) => <CapabilityGroup key={group.id} group={group} index={index} />)}
-            </div>
-          </section>
+                <div className="mt-8 flex flex-col gap-4 md:flex-row md:items-center md:justify-between" data-reveal data-reveal-delay="100">
+                  <FilterPills items={tags} activeItem={activeTag} onSelect={setActiveTag} />
+                  <div className="relative w-full md:w-72">
+                    <input
+                      type="text"
+                      placeholder="Search projects or tools..."
+                      value={searchQuery}
+                      onChange={(e) => setSearchQuery(e.target.value)}
+                      className="w-full rounded-xl border border-slate-200 bg-slate-50 px-3.5 py-2 pl-9 text-xs text-slate-900 placeholder-slate-400 focus:border-amber-600 focus:bg-white focus:outline-none focus:ring-1 focus:ring-amber-600/20 transition"
+                    />
+                    <svg className="absolute left-3 top-2.5 h-4 w-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                  </div>
+                </div>
 
-          {/* EXTRACURRICULAR SECTION */}
-          <ExtracurricularSection />
-
-          {/* FOOTER & CLOSING CONTACT HERO */}
-          <section ref={contactRef} id="contact" aria-labelledby="contact-title" className="relative overflow-hidden border-t border-slate-800 bg-slate-950 text-white">
-            <div className="absolute top-0 right-0 h-96 w-96 rounded-full bg-amber-500/10 blur-3xl pointer-events-none" />
-            <div className="mx-auto grid max-w-5xl gap-10 px-6 py-14 md:px-10 md:py-20 lg:grid-cols-[1.2fr_0.8fr] lg:items-center relative z-10">
-              <div>
-                <p className="text-[11px] font-extrabold uppercase tracking-[0.2em] text-amber-400" data-reveal>Contact & Recruitment</p>
-                <h2 id="contact-title" className="mt-3 max-w-2xl text-2xl font-bold tracking-tight md:text-3xl" data-reveal data-reveal-delay="100">
-                  For roles that need stronger operating clarity, disciplined execution, and cross-functional momentum.
-                </h2>
-                <p className="mt-4 max-w-xl text-sm leading-6 text-slate-300" data-reveal data-reveal-delay="200">{profile.contactMessage}</p>
+                {visibleProjects.length === 0 ? (
+                  <div className="mt-10 rounded-2xl border border-dashed border-slate-300 p-8 text-center text-slate-500">
+                    No projects found matching "{searchQuery}". Try clearing your search query.
+                  </div>
+                ) : (
+                  <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                    {visibleProjects.map((project, index) => (
+                      <ProjectCard key={project.id} project={project} index={index} onOpen={() => setSelectedProjectId(project.id)} />
+                    ))}
+                  </div>
+                )}
               </div>
-              <div className="grid gap-3 text-xs font-semibold" data-reveal data-reveal-delay="150" data-reveal-dir="right">
-                <button
-                  type="button"
-                  onClick={() => setIsAtsModalOpen(true)}
-                  className="rounded-xl bg-gradient-to-r from-amber-600 via-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 px-4 py-4 text-center text-white font-extrabold transition shadow-lg shadow-amber-950/60 flex items-center justify-center gap-2 border border-amber-500/30"
-                >
-                  <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 01-2-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                  </svg>
-                  Download Resume (PDF)
-                </button>
-                <a href={`mailto:${profile.contact.email}`} className="rounded-xl bg-white px-4 py-3.5 text-center text-slate-950 transition hover:bg-slate-100 font-extrabold">
-                  {profile.contact.email}
-                </a>
-                <a href={profile.contact.linkedin} target="_blank" rel="noreferrer" className="rounded-xl border border-slate-700 px-4 py-3.5 text-center text-white transition hover:border-amber-400 hover:text-amber-400 font-extrabold">
-                  Connect on LinkedIn
-                </a>
-                <p className="px-1 text-center text-slate-400">{profile.contact.phone}</p>
+            </section>
+
+            {/* CAPABILITIES SECTION */}
+            <section ref={capabilitiesRef} id="capabilities" aria-labelledby="capabilities-title" className="mx-auto max-w-5xl px-6 py-14 md:px-10 md:py-20 min-h-[90vh] flex flex-col justify-center scroll-snap-section">
+              <div data-reveal>
+                <SectionHeading
+                  id="capabilities-title"
+                  eyebrow="Capabilities"
+                  title="The practical capabilities behind operating outcomes."
+                  description="Technology is presented as an enabler, while the emphasis remains on strategy execution and governance."
+                />
               </div>
+              <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                {skillGroups.map((group, index) => <CapabilityGroup key={group.id} group={group} index={index} />)}
+              </div>
+            </section>
+
+            {/* EXTRACURRICULAR SECTION */}
+            <div className="scroll-snap-section">
+              <ExtracurricularSection />
             </div>
-          </section>
-        </main>
+
+            {/* FOOTER & CLOSING CONTACT HERO */}
+            <section ref={contactRef} id="contact" aria-labelledby="contact-title" className="relative overflow-hidden border-t border-slate-800 bg-slate-950 text-white min-h-[85vh] flex items-center scroll-snap-section">
+              <div className="absolute top-0 right-0 h-96 w-96 rounded-full bg-amber-500/10 blur-3xl pointer-events-none" />
+              <div className="mx-auto grid max-w-5xl gap-10 px-6 py-14 md:px-10 md:py-20 lg:grid-cols-[1.2fr_0.8fr] lg:items-center relative z-10 w-full">
+                <div>
+                  <p className="text-[11px] font-extrabold uppercase tracking-[0.2em] text-amber-400" data-reveal>Contact & Recruitment</p>
+                  <h2 id="contact-title" className="mt-3 max-w-2xl text-2xl font-bold tracking-tight md:text-3xl" data-reveal data-reveal-delay="100">
+                    For roles that need stronger operating clarity, disciplined execution, and cross-functional momentum.
+                  </h2>
+                  <p className="mt-4 max-w-xl text-sm leading-6 text-slate-300" data-reveal data-reveal-delay="200">{profile.contactMessage}</p>
+                </div>
+                <div className="grid gap-3 text-xs font-semibold" data-reveal data-reveal-delay="150" data-reveal-dir="right">
+                  <button
+                    type="button"
+                    onClick={() => setIsAtsModalOpen(true)}
+                    className="rounded-xl bg-gradient-to-r from-amber-600 via-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 px-4 py-4 text-center text-white font-extrabold transition shadow-lg shadow-amber-950/60 flex items-center justify-center gap-2 border border-amber-500/30"
+                  >
+                    <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 01-2-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                    Download PDF Resume
+                  </button>
+                  <a href={`mailto:${profile.contact.email}`} className="rounded-xl bg-white px-4 py-3.5 text-center text-slate-950 transition hover:bg-slate-100 font-extrabold">
+                    {profile.contact.email}
+                  </a>
+                  <a href={profile.contact.linkedin} target="_blank" rel="noreferrer" className="rounded-xl border border-slate-700 px-4 py-3.5 text-center text-white transition hover:border-amber-400 hover:text-amber-400 font-extrabold">
+                    Connect on LinkedIn
+                  </a>
+                  <p className="px-1 text-center text-slate-400">{profile.contact.phone}</p>
+                </div>
+              </div>
+            </section>
+          </main>
+        </div>
+
+        {/* FLOATING BACK TO TOP BUTTON */}
+        {showBackToTop && (
+          <a
+            href="#top"
+            aria-label="Back to top"
+            className="fixed bottom-6 right-6 z-40 flex h-11 w-11 items-center justify-center rounded-full bg-amber-600 text-white shadow-xl transition-all duration-300 hover:bg-amber-500 hover:scale-105 border border-amber-400/30 no-print"
+            title="Scroll to top"
+          >
+            <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 10l7-7m0 0l7 7m-7-7v18" />
+            </svg>
+          </a>
+        )}
+
+        <ProjectDrawer project={selectedProject} onClose={() => setSelectedProjectId(null)} />
       </div>
 
-      {/* FLOATING BACK TO TOP BUTTON */}
-      {showBackToTop && (
-        <a
-          href="#top"
-          aria-label="Back to top"
-          className="fixed bottom-6 right-6 z-40 flex h-11 w-11 items-center justify-center rounded-full bg-amber-600 text-white shadow-xl transition-all duration-300 hover:bg-amber-500 hover:scale-105 border border-amber-400/30 no-print"
-          title="Scroll to top"
-        >
-          <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 10l7-7m0 0l7 7m-7-7v18" />
-          </svg>
-        </a>
-      )}
-
-      <ProjectDrawer project={selectedProject} onClose={() => setSelectedProjectId(null)} />
-      <AtsResumeModal isOpen={isAtsModalOpen} onClose={() => setIsAtsModalOpen(false)} />
-    </div>
+      {/* PORTAL CONTAINER FOR ATS RESUME MODAL (OUTSIDE MAIN WEBSITE ROOT) */}
+      <div id="ats-resume-modal-portal">
+        <AtsResumeModal isOpen={isAtsModalOpen} onClose={() => setIsAtsModalOpen(false)} />
+      </div>
+    </>
   );
 }

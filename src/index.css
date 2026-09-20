@@ -38,16 +38,29 @@
     color: #ffffff;
   }
 
-  /* Smooth anchor scroll offset for sticky nav */
+  /* Smooth anchor scroll offset for section targets */
   [id] {
-    scroll-margin-top: 2rem;
+    scroll-margin-top: 1.5rem;
   }
+}
+
+/* SECTION-BY-SECTION SCROLL SNAP SYSTEM */
+.scroll-snap-container {
+  scroll-snap-type: y mandatory;
+  overflow-y: auto;
+  height: 100vh;
+  scroll-behavior: smooth;
+}
+
+.scroll-snap-section {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
 }
 
 /* Custom Scrollbar for artistic feel */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 7px;
+  height: 7px;
 }
 ::-webkit-scrollbar-track {
   background: #090d16;
@@ -97,7 +110,7 @@
   }
 
   .card-hover-artistic:hover {
-    transform: translateY(-5px) scale(1.01);
+    transform: translateY(-4px) scale(1.005);
     box-shadow: 0 20px 40px -15px rgba(217, 119, 6, 0.18);
   }
 }
@@ -106,9 +119,9 @@
 
 .scroll-hidden {
   opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
-              transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  transform: translateY(24px);
+  transition: opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .scroll-revealed {
@@ -117,13 +130,13 @@
 }
 
 .scroll-hidden[data-reveal-dir="left"] {
-  transform: translateX(-32px);
+  transform: translateX(-28px);
 }
 .scroll-hidden[data-reveal-dir="right"] {
-  transform: translateX(32px);
+  transform: translateX(28px);
 }
 .scroll-hidden[data-reveal-dir="scale"] {
-  transform: scale(0.92);
+  transform: scale(0.94);
 }
 .scroll-revealed[data-reveal-dir="left"],
 .scroll-revealed[data-reveal-dir="right"] {
@@ -159,24 +172,18 @@
   animation: drawer-panel-in 350ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
-/* ========== ABSOLUTE ISOLATED PRINT STYLESHEET (FIXES 9-PAGE PRINT ISSUE) ========== */
+/* ========== ABSOLUTE PRINT STYLESHEET (PORTAL ISOLATED TO PREVENT BLANK PAGES) ========== */
 
 @media print {
-  /* Hide the entire website application body from print layout */
+  /* Completely hide main website container when modal print area is active */
   #main-website-root,
-  .sidebar-nav,
-  header,
-  nav,
-  main,
-  footer,
-  aside:not(#ats-resume-modal-container *),
   .no-print {
     display: none !important;
     height: 0 !important;
     overflow: hidden !important;
   }
 
-  /* Reset document root for clean 2-page print layout */
+  /* Reset body and html for clean print rendering */
   html, body {
     margin: 0 !important;
     padding: 0 !important;
@@ -187,10 +194,15 @@
     overflow: visible !important;
   }
 
-  /* Force ATS Resume printable area to be the ONLY rendered element in print */
-  #ats-resume-print-area {
+  /* Force ATS Modal portal container and printable area to render cleanly */
+  #ats-resume-modal-portal,
+  #ats-resume-print-area,
+  #ats-resume-print-area * {
     display: block !important;
     visibility: visible !important;
+  }
+
+  #ats-resume-print-area {
     position: static !important;
     width: 100% !important;
     max-width: 100% !important;
@@ -205,13 +217,12 @@
   }
 
   #ats-resume-print-area * {
-    visibility: visible !important;
     color: #000000 !important;
     background: transparent !important;
   }
 
   @page {
-    margin: 10mm 12mm;
+    margin: 8mm 10mm;
     size: A4 portrait;
   }
 }
