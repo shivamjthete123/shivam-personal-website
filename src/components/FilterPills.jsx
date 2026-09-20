@@ -9,6 +9,7 @@ export default function FilterPills({ items, activeItem, onSelect }) {
             key={item}
             type="button"
             onClick={() => onSelect(item)}
+            aria-pressed={isActive}
             className={`rounded-full border px-4 py-2 text-sm font-medium transition ${
               isActive
                 ? "border-slate-900 bg-slate-900 text-white"

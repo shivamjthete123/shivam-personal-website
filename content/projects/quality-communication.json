@@ -1,0 +1,32 @@
+{
+  "id": "quality-communication",
+  "order": 5,
+  "title": "Quality Governance and Communication",
+  "status": "Implemented",
+  "summary": "Created accountable systems for customer-issue resolution, root-cause learning, project communication, and action tracking.",
+  "tags": ["Quality Governance", "Communication Systems"],
+  "projectItems": [
+    {
+      "id": "customer-complaint-rca",
+      "title": "Customer Complaint and Root Cause Analysis",
+      "summary": "A project-scoped workflow for complaint intake, investigation, root-cause analysis, review, closure, reporting, and dashboard updates.",
+      "problemStatement": "Complaint handling required consistent ownership, evidence, corrective action, and follow-through.",
+      "solution": "Designed an integrated Zoho Projects and Creator module with lifecycle notifications, structured RCA records, approval, and reporting.",
+      "impact": "Reported user feedback indicates 7 hours of monthly saving across two respondents and stronger closure accountability.",
+      "leadershipValue": "Shows how quality systems can protect client relationships while creating operational learning loops.",
+      "toolsUsed": ["Zoho Projects", "Zoho Creator", "Deluge", "AI Assistance", "PDF Automation"],
+      "tags": ["Quality Governance", "Customer Experience", "Root Cause Analysis"]
+    },
+    {
+      "id": "communique",
+      "title": "Communique Meeting and Action Tracking",
+      "summary": "A Zoho Projects workflow for meeting records, decisions, action owners, deadlines, priorities, and project follow-up.",
+      "problemStatement": "Project decisions and actions could be lost across informal notes, email threads, and personnel changes.",
+      "solution": "Implemented a structured project communication record with discussion points, linked deliverables, dashboard tracking, and approved PDF export.",
+      "impact": "Improved communication continuity and accountability for project actions; later enhancement features remain subject to version confirmation.",
+      "leadershipValue": "Demonstrates governance through clear ownership, follow-up discipline, and reliable project memory.",
+      "toolsUsed": ["Zoho Projects", "Project Workflows", "PDF Export"],
+      "tags": ["Project Communication", "Action Management", "Governance"]
+    }
+  ]
+}

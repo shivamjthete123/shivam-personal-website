@@ -1,34 +1,43 @@
 {
-  "id": "project-management-tools-suite",
+  "id": "delivery-governance",
   "order": 3,
-  "featured": true,
-  "title": "Integrated Project Governance and Delivery System",
+  "title": "Delivery Governance and Performance Visibility",
   "status": "Implemented",
-  "role": "Solution designer and implementer",
-  "summary": "Developed a standardized project management ecosystem to improve delivery consistency and execution visibility.",
-  "problemStatement": "Project execution lacked standardized processes, leading to inefficiencies and inconsistent outcomes.",
-  "solution": "Built structured tools for tracking, reporting, and documentation, standardized workflows across project lifecycle stages, and integrated issue tracking and knowledge systems.",
-  "impact": "Improved project tracking and transparency, increased delivery consistency, and enhanced coordination across teams.",
-  "leadershipValue": "Reflects capability in designing execution systems that scale across teams.",
-  "toolsUsed": [
-    "Zoho Creator",
-    "Deluge",
-    "AI Integrations",
-    "PDF Automation",
-    "HTML Snippets"
-  ],
-  "tags": [
-    "Project Governance",
-    "Delivery Systems",
-    "Execution Management"
-  ],
-  "interactionFiles": [
+  "summary": "Improved delivery reliability by connecting project governance, resource planning, performance data, and financial visibility.",
+  "tags": ["Delivery Governance", "Performance Visibility"],
+  "projectItems": [
     {
-      "label": "Interactive case brief",
-      "description": "Explore the governance model, project controls, and delivery workflow structure.",
-      "type": "Interactive HTML",
-      "url": "/project-interactions/project-lens.html?project=project-management-tools-suite",
-      "cta": "Open brief"
+      "id": "project-governance-suite",
+      "title": "Integrated Project Governance and Delivery System",
+      "summary": "A standardised toolkit for project tracking, documentation, issue resolution, reporting, and accountability.",
+      "problemStatement": "Projects lacked consistent controls, creating uneven execution and weak traceability.",
+      "solution": "Designed connected tools and standard workflows across the project lifecycle.",
+      "impact": "Improved delivery consistency, coordination, tracking, and issue visibility across teams.",
+      "leadershipValue": "Demonstrates the ability to build governance systems that scale across teams.",
+      "toolsUsed": ["Zoho Creator", "Deluge", "AI Integrations", "PDF Automation"],
+      "tags": ["Delivery Governance", "Project Controls"]
+    },
+    {
+      "id": "project-pulse",
+      "title": "Project Pulse",
+      "summary": "A dashboard for project financial health, resource utilisation, transactions, budgets, and profitability signals across entities.",
+      "problemStatement": "Financial and delivery reviews depended on fragmented checks and runtime API calls that reduced reliability.",
+      "solution": "Moved dashboard retrieval to processed BV Pulse datasets supported by scheduled synchronisation, validation, and access controls.",
+      "impact": "Improved dashboard responsiveness and management visibility; the case study estimates 191.25 hours of monthly saving across 45 users.",
+      "leadershipValue": "Connects data architecture choices directly to the speed and quality of operating decisions.",
+      "toolsUsed": ["Zoho Projects", "Zoho Creator", "BV Pulse", "Scheduled APIs"],
+      "tags": ["Performance Visibility", "Project Finance", "Dashboards"]
+    },
+    {
+      "id": "resource-planning-timesheet",
+      "title": "Resource Planning and Timesheet Approval",
+      "summary": "A multi-role system that connects weekly planning, manager review, correction, approval, and Zoho Projects time-log posting.",
+      "problemStatement": "Spreadsheet planning and manual follow-up obscured workload, submission status, and usable capacity.",
+      "solution": "Built role-specific planning, review, approval, business-vertical, and project-lead dashboards around a shared weekly record.",
+      "impact": "Created one controlled workflow for engineers and managers, with clearer loading and utilisation visibility for leaders.",
+      "leadershipValue": "Shows end-to-end operating model design from frontline execution to management oversight.",
+      "toolsUsed": ["Zoho Creator", "Zoho Analytics", "Zoho Projects", "Deluge", "HTML Widgets"],
+      "tags": ["Resource Planning", "Capacity Management", "Delivery Governance"]
     }
   ]
 }

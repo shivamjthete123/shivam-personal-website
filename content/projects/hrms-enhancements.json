@@ -1,34 +1,32 @@
 {
-  "id": "hrms-enhancements",
-  "order": 5,
-  "featured": true,
-  "title": "HRMS Optimization for Utilization and Performance",
+  "id": "people-performance",
+  "order": 4,
+  "title": "People and Performance Systems",
   "status": "Implemented",
-  "role": "Lead implementer",
-  "summary": "Enhanced HR systems to improve workforce visibility, utilization tracking, and performance evaluation.",
-  "problemStatement": "Limited visibility into resource utilization and lack of structured performance tracking.",
-  "solution": "Built utilization dashboards, implemented task tracking mechanisms, and automated appraisal workflows.",
-  "impact": "Improved resource allocation decisions, increased transparency in performance evaluation, and enabled data-driven HR management.",
-  "leadershipValue": "Bridges HR and operations to improve workforce effectiveness.",
-  "toolsUsed": [
-    "Zoho People",
-    "Zoho Creator",
-    "Deluge",
-    "Zoho Recruit",
-    "Zoho Payroll"
-  ],
-  "tags": [
-    "HRMS",
-    "Workforce Planning",
-    "Performance Tracking"
-  ],
-  "interactionFiles": [
+  "summary": "Made workforce decisions more objective through utilisation visibility, performance workflows, and measurable incentive design.",
+  "tags": ["People Systems", "Performance Management"],
+  "projectItems": [
     {
-      "label": "Interactive case brief",
-      "description": "Review the workforce visibility model, utilization tracking, and appraisal automation flow.",
-      "type": "Interactive HTML",
-      "url": "/project-interactions/project-lens.html?project=hrms-enhancements",
-      "cta": "Open brief"
+      "id": "hrms-optimisation",
+      "title": "HRMS Optimisation for Utilisation and Performance",
+      "summary": "Enhanced workforce visibility, utilisation tracking, and appraisal governance across HR systems.",
+      "problemStatement": "Leaders had limited visibility into resource use and inconsistent performance tracking.",
+      "solution": "Built utilisation dashboards, task-tracking mechanisms, and automated appraisal workflows.",
+      "impact": "Improved allocation decisions, transparency of evaluation, and data-supported HR management.",
+      "leadershipValue": "Bridges people operations and delivery performance to improve workforce effectiveness.",
+      "toolsUsed": ["Zoho People", "Zoho Creator", "Zoho Recruit", "Zoho Payroll", "Deluge"],
+      "tags": ["HRMS", "Workforce Planning", "Performance Management"]
+    },
+    {
+      "id": "performance-linked-incentives",
+      "title": "Performance-Linked Incentive System",
+      "summary": "An incentive framework that links contribution and operational efficiency to measurable performance outcomes.",
+      "problemStatement": "Incentive decisions were not consistently grounded in measurable operational performance.",
+      "solution": "Built metric-linked tracking, evaluation, approval, and reporting mechanisms into the operating workflow.",
+      "impact": "Improved performance alignment, accountability, and the connection between output and reward.",
+      "leadershipValue": "Demonstrates alignment of people systems with business objectives and execution quality.",
+      "toolsUsed": ["Zoho Creator", "Zoho Analytics", "Deluge", "Widgets"],
+      "tags": ["Incentive Design", "Performance Systems", "HR Strategy"]
     }
   ]
 }

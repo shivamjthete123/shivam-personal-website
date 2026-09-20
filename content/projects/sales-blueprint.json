@@ -1,34 +1,21 @@
 {
-  "id": "sales-blueprint",
+  "id": "revenue-operations",
   "order": 1,
-  "featured": true,
-  "title": "Sales Execution Blueprint and Performance Visibility System",
+  "title": "Revenue Operations and Commercial Execution",
   "status": "Implemented",
-  "role": "Associate strategist and developer",
-  "summary": "Established a structured sales execution framework supported by performance dashboards to improve visibility and decision-making.",
-  "problemStatement": "Sales execution lacked standardization and consistent tracking, resulting in limited visibility into pipeline health and performance.",
-  "solution": "Designed a standardized sales execution framework, implemented dashboards to track pipeline, conversions, and activity, and introduced structured reporting mechanisms.",
-  "impact": "Improved visibility into sales performance, enabled data-driven decision-making, and increased execution consistency.",
-  "leadershipValue": "Strengthened revenue execution by introducing structure, measurement, and accountability.",
-  "toolsUsed": [
-    "Zoho CRM",
-    "Zoho Creator",
-    "Deluge",
-    "HTML Snippets"
-  ],
-  "tags": [
-    "Sales Systems",
-    "Performance Tracking",
-    "Dashboards",
-    "Execution Discipline"
-  ],
-  "interactionFiles": [
+  "summary": "Built a governed commercial operating model that improves opportunity visibility, hand-offs, and execution discipline from lead to receivable follow-up.",
+  "tags": ["Revenue Operations", "Commercial Systems"],
+  "projectItems": [
     {
-      "label": "Interactive case brief",
-      "description": "Review the sales execution model, reporting structure, and performance visibility approach.",
-      "type": "Interactive HTML",
-      "url": "/project-interactions/project-lens.html?project=sales-blueprint",
-      "cta": "Open brief"
+      "id": "crm-bd-lifecycle",
+      "title": "Zoho CRM and Business Development Lifecycle",
+      "summary": "A controlled CRM backbone for prospect intake, proposals, assignment handover, project readiness, sales orders, invoicing, and receivables follow-up.",
+      "problemStatement": "Commercial records and downstream hand-offs needed one governed source of truth instead of disconnected tracking.",
+      "solution": "Designed CRM blueprints, workflows, custom modules, dashboards, and explicit status controls across business development, project, and finance hand-offs.",
+      "impact": "Created traceable commercial execution and reported approximately 15 hours of monthly time saving across six affected users.",
+      "leadershipValue": "Demonstrates the ability to connect growth operations with delivery and financial controls.",
+      "toolsUsed": ["Zoho CRM", "Zoho Creator", "Zoho Books", "Zoho Analytics", "Zoho Projects"],
+      "tags": ["Revenue Operations", "CRM", "Commercial Governance"]
     }
   ]
 }

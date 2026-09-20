@@ -1,35 +1,65 @@
 {
-  "id": "financial-automation",
+  "id": "finance-control",
   "order": 2,
-  "featured": true,
-  "title": "End-to-End Financial Workflow Automation",
+  "title": "Finance Control and Cash Visibility",
   "status": "Implemented",
-  "role": "Lead strategist and project lead",
-  "summary": "Integrated and automated financial workflows to improve control, efficiency, and process reliability.",
-  "problemStatement": "Financial processes were fragmented, manual, and lacked real-time tracking.",
-  "solution": "Designed integrated workflows across invoicing, procurement, and receivables, automated task creation and tracking, and built connected monitoring systems.",
-  "impact": "Reduced manual effort and turnaround time, improved financial visibility and control, and increased process consistency.",
-  "leadershipValue": "Demonstrates ability to build scalable control systems critical for financial discipline.",
-  "toolsUsed": [
-    "Zoho Creator",
-    "Zoho Books",
-    "Deluge",
-    "APIs",
-    "HTML Snippets",
-    "Widgets"
-  ],
-  "tags": [
-    "Finance Automation",
-    "Process Integration",
-    "Workflow Systems"
-  ],
-  "interactionFiles": [
+  "summary": "Strengthened financial discipline through integrated workflows, controlled planning, receivables management, and management visibility.",
+  "tags": ["Finance Transformation", "Control Systems"],
+  "projectItems": [
     {
-      "label": "Interactive case brief",
-      "description": "View the finance workflow architecture, process controls, and monitoring approach.",
-      "type": "Interactive HTML",
-      "url": "/project-interactions/project-lens.html?project=financial-automation",
-      "cta": "Open brief"
+      "id": "financial-workflow-automation",
+      "title": "Financial Workflow Automation",
+      "summary": "Integrated invoicing, procurement, and receivables workflows with task creation, tracking, and monitoring.",
+      "problemStatement": "Financial processes were manual, fragmented, and difficult to monitor in real time.",
+      "solution": "Connected core finance workflows and introduced structured automation and tracking mechanisms.",
+      "impact": "Improved process consistency, financial visibility, and control over operational hand-offs.",
+      "leadershipValue": "Shows systems thinking across finance operations, controls, and execution reliability.",
+      "toolsUsed": ["Zoho Creator", "Zoho Books", "Deluge", "APIs"],
+      "tags": ["Finance Transformation", "Workflow Automation"]
+    },
+    {
+      "id": "receivable-management",
+      "title": "Receivable Management",
+      "summary": "A CRM-led receivables system for due, paid, and void invoice synchronisation, ageing visibility, and collection workflows.",
+      "problemStatement": "Collection follow-up required more reliable invoice status, ageing, activity, and ownership visibility.",
+      "solution": "Designed scheduled synchronisation from finance systems, a receivable record model, and structured CRM task actions.",
+      "impact": "Created a more disciplined operating rhythm for invoice monitoring and collection follow-up.",
+      "leadershipValue": "Connects financial data, customer follow-up, and accountable action management.",
+      "toolsUsed": ["Zoho CRM", "Zoho Books", "Zoho Analytics", "Deluge"],
+      "tags": ["Receivables", "Cash Management", "CRM"]
+    },
+    {
+      "id": "cash-flow-management",
+      "title": "Cash Flow Management",
+      "summary": "A cash-planning application for actual and projected inflows, outflows, opening balances, and cash-position monitoring.",
+      "problemStatement": "Cash decisions relied on scattered data and planning dates that were not consistently controlled or auditable.",
+      "solution": "Built a Creator-based planning layer with an outflow calendar, date-change history, projections, and dashboard views sourced from Books and Analytics.",
+      "impact": "Improved the structure and auditability of cash planning while preserving accounting-source data.",
+      "leadershipValue": "Demonstrates financial governance design across operational planning and executive visibility.",
+      "toolsUsed": ["Zoho Creator", "Zoho Books", "Zoho Analytics", "Deluge", "HTML Widgets"],
+      "tags": ["Cash Flow", "Financial Control", "Forecasting"]
+    },
+    {
+      "id": "corporate-expense-allocation",
+      "title": "Corporate Expense Allocation",
+      "summary": "A controlled, headcount-based workflow for allocating corporate expense across business verticals and preparing reviewable journal entries.",
+      "problemStatement": "Manual shared-cost allocation created repetitive month-end work and weak traceability.",
+      "solution": "Built a workflow to retrieve monthly P&L data, maintain headcount ratios, calculate allocations, review draft journals, and post approved entries.",
+      "impact": "Reported user feedback indicates six hours of monthly saving while strengthening month-end allocation control.",
+      "leadershipValue": "Turns a recurring finance task into a repeatable control process that supports profitability decisions.",
+      "toolsUsed": ["Zoho Creator", "Zoho Books", "Deluge"],
+      "tags": ["Cost Allocation", "Month End", "Financial Control"]
+    },
+    {
+      "id": "finance-task-management",
+      "title": "Finance Task Management",
+      "summary": "A prototype dashboard that consolidates Zoho Books task health, workload, priority, and overdue work across organisations.",
+      "problemStatement": "Finance backlog and ownership were dispersed across entity-specific task views.",
+      "solution": "Created a unified Director view and personal follow-up view from a normalised task dataset.",
+      "impact": "Prototype released for review; UAT, time-saving, and ROI evidence are pending.",
+      "leadershipValue": "Shows a disciplined approach to operational visibility without overstating unverified outcomes.",
+      "toolsUsed": ["Zoho Books", "Zoho Creator", "HTML Widget"],
+      "tags": ["Finance Operations", "Prototype", "Workload Visibility"]
     }
   ]
 }
